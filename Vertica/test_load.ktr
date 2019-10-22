@@ -1,0 +1,2281 @@
+<transformation>
+  <info>
+    <name>test_load</name>
+    <description />
+    <extended_description />
+    <trans_version />
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>/Vertica</directory>
+    <parameters>
+    </parameters>
+    <log>
+      <trans-log-table>
+        <connection>db_sopra</connection>
+        <schema>dwh</schema>
+        <table>kettle_log_test</table>
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject>VCUBE_CUP_PRESTAZIONI</subject>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject>input CUP</subject>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject>Insert / Update</subject>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject>input VIB</subject>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject>VIB_SPEC_ESTERNI</subject>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject />
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection>db_sopra</connection>
+        <schema>dwh</schema>
+        <table>kettle_log_performance</table>
+        <interval />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection>db_sopra</connection>
+        <schema>dwh</schema>
+        <table>kettle_log_step</table>
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
+    </log>
+    <maxdate>
+      <connection />
+      <table />
+      <field />
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file />
+    <capture_step_performance>Y</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+      <partitionschema>
+        <name>MySQL EC2 Schema</name>
+        <partition>
+          <id>P3</id>
+        </partition>
+        <partition>
+          <id>P4</id>
+        </partition>
+        <partition>
+          <id>P5</id>
+        </partition>
+        <partition>
+          <id>P2</id>
+        </partition>
+        <dynamic>N</dynamic>
+        <partitions_per_slave />
+      </partitionschema>
+      <partitionschema>
+        <name>Partitioning schema</name>
+        <partition>
+          <id>PartDB2</id>
+        </partition>
+        <partition>
+          <id>PartDB5</id>
+        </partition>
+        <partition>
+          <id>PartDB3</id>
+        </partition>
+        <partition>
+          <id>PartDB4</id>
+        </partition>
+        <partition>
+          <id>PartDB1</id>
+        </partition>
+        <dynamic>N</dynamic>
+        <partitions_per_slave />
+      </partitionschema>
+    </partitionschemas>
+    <slaveservers>
+      <slaveserver>
+        <name>Carte_server</name>
+        <hostname>minollo</hostname>
+        <port />
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8080:Master</name>
+        <hostname>localhost</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8082</name>
+        <hostname>localhost</hostname>
+        <port>8082</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8081</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8080</name>
+        <hostname>localhost</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8084</name>
+        <hostname>localhost</hostname>
+        <port>8084</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8083</name>
+        <hostname>localhost</hostname>
+        <port>8083</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8080 master</name>
+        <hostname>localhost</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>pc115818</name>
+        <hostname>pc115818</hostname>
+        <port />
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>ruwvs07</name>
+        <hostname>ruwvs07</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>zebulon slave</name>
+        <hostname>192.168.1.277</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Jos 10.0.0.169</name>
+        <hostname>10.0.0.169</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Quasar</name>
+        <hostname>quasar</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Random</name>
+        <hostname>random</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>carte</name>
+        <hostname>localhost</hostname>
+        <port>8181</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server8080</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server8090</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8090</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server9000</name>
+        <hostname>127.0.0.1</hostname>
+        <port>9000</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_2</name>
+        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_4</name>
+        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_3</name>
+        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_MASTER_1</name>
+        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_5</name>
+        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Localhost 8081</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_1</name>
+        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>sam 8080</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>sam 8081 slave</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>sam 8082 slave</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Warmath</name>
+        <hostname>liveinalpharetta.com</hostname>
+        <port>8083</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Mike ETL Server</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Wayne ETL Server</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+    </slaveservers>
+    <clusterschemas>
+      <clusterschema>
+        <name>EC2</name>
+        <base_port>40000</base_port>
+        <sockets_buffer_size>100000</sockets_buffer_size>
+        <sockets_flush_interval>0</sockets_flush_interval>
+        <sockets_compressed>Y</sockets_compressed>
+        <dynamic>N</dynamic>
+        <slaveservers>
+          <name>EC_SLAVE_4</name>
+          <name>EC_SLAVE_2</name>
+          <name>EC_SLAVE_3</name>
+          <name>EC_MASTER_1</name>
+          <name>EC_SLAVE_5</name>
+        </slaveservers>
+      </clusterschema>
+      <clusterschema>
+        <name>local schema</name>
+        <base_port>40000</base_port>
+        <sockets_buffer_size>2000</sockets_buffer_size>
+        <sockets_flush_interval>5000</sockets_flush_interval>
+        <sockets_compressed>N</sockets_compressed>
+        <dynamic>N</dynamic>
+        <slaveservers>
+          <name>localhost:8080:Master</name>
+          <name>localhost:8082</name>
+          <name>localhost:8081</name>
+        </slaveservers>
+      </clusterschema>
+      <clusterschema>
+        <name>Sam</name>
+        <base_port>40000</base_port>
+        <sockets_buffer_size>2000</sockets_buffer_size>
+        <sockets_flush_interval>5000</sockets_flush_interval>
+        <sockets_compressed>Y</sockets_compressed>
+        <dynamic>N</dynamic>
+        <slaveservers>
+          <name>sam 8081 slave</name>
+          <name>sam 8082 slave</name>
+          <name>sam 8080</name>
+        </slaveservers>
+      </clusterschema>
+      <clusterschema>
+        <name>YarnCluster</name>
+        <base_port>4000</base_port>
+        <sockets_buffer_size>2000</sockets_buffer_size>
+        <sockets_flush_interval>5000</sockets_flush_interval>
+        <sockets_compressed>N</sockets_compressed>
+        <dynamic>N</dynamic>
+        <slaveservers>
+        </slaveservers>
+      </clusterschema>
+    </clusterschemas>
+    <created_user />
+    <created_date>2019/09/16 11:46:28.326</created_date>
+    <modified_user>admin</modified_user>
+    <modified_date>2018/11/23 15:32:23.000</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>CREATE TABLE VIB_SPEC_ESTERNI
+(
+  ANNO VARCHAR(4)
+, MESE VARCHAR(2)
+, STRUTT VARCHAR(6)
+, RIC VARCHAR(16)
+, ETA FLOAT
+, COGNOME VARCHAR(50)   -----
+, NOME VARCHAR(50)          -----
+, COD_FISC VARCHAR(16)
+, DATA_NASC TIMESTAMP
+, SESSO VARCHAR(1)
+, LUOGO_COD VARCHAR(6)
+, REGASL_COD VARCHAR(6)
+, COD_COM VARCHAR(6)
+, COD_REG VARCHAR(3)
+, COD_USL VARCHAR(3)
+, DATA_PREST TIMESTAMP
+, ON_PREST VARCHAR(19)
+, POS_TICKET VARCHAR(15)
+, CANALE_ACCESSO VARCHAR(2)
+, BRANCA_RICETTA VARCHAR(68)
+, COD_PATOLOGIA VARCHAR(5)
+, ESENZIONE VARCHAR(209)
+, CODESENZIONE VARCHAR(6)
+, TIPOESENZIONE VARCHAR(1)
+, MMG_CF VARCHAR(16)
+, FLAG_PRESCRITTO_MMG VARCHAR(2)
+, MED_PRES_CF VARCHAR(16)
+, COD_PREST VARCHAR(10)
+, LINE_NUM INTEGER
+, DISCIPLINA_PREST VARCHAR(45)
+, UNITAEROGANTE VARCHAR(10)
+, ATTIVITAEROGATA VARCHAR(10)
+, EQUIPE VARCHAR(10)
+, EROG_SANITARIO_COD VARCHAR(16)
+, EROG_SANITARIO_NOME VARCHAR(69)
+, EROG_DATA TIMESTAMP
+, EROG_ORA VARCHAR(4)
+, ID_ORIGINE VARCHAR(10)
+, ID_CASO VARCHAR(20)
+, ID_RIGA VARCHAR(2)
+, ID_AGENDA_CUP VARCHAR(12)
+, COD_STZ FLOAT
+, ID_PRENOTAZIONE_CUP VARCHAR(20)
+, DATA_PRENO TIMESTAMP
+, PRIORITA VARCHAR(18)
+, PROV_APPLICATIVO VARCHAR(50)
+, RIC_APPLICATIVO VARCHAR(50)
+, COD_PC VARCHAR(4)
+, FILE_NAME VARCHAR(30)
+, SEVERITY VARCHAR(6)
+, LOAD_DATE TIMESTAMP
+, LAST_MODIF TIMESTAMP
+, FIX_HISTORY VARCHAR(255)
+, HISTORY VARCHAR(255)
+, IB_GIORNO TIMESTAMP
+, IB_ORA VARCHAR(5)
+, CHK_ESENZ VARCHAR(37)
+, CHK_ESENZ_DETT VARCHAR(10)
+, CUR_COD VARCHAR(9)
+, CUR_DES VARCHAR(100)
+, FORMATO_RICETTA VARCHAR(10)
+, NRE VARCHAR(16)
+, INFO_CUP VARCHAR(30)
+, TIPO_ACCESSO VARCHAR(10)
+, GARANZIA_TM VARCHAR(10)
+, PREST_MONITOR_TA VARCHAR(50)
+, DATA_APP_ISES TIMESTAMP
+, DATA_PRENO_ISES TIMESTAMP
+, SPARE_1 VARCHAR(10)
+, SPARE_2 VARCHAR(20)
+, SPARE_DATE TIMESTAMP
+, QUANTITA INTEGER
+, IMPORTO FLOAT
+, QTA_CUP FLOAT
+, SPARE_MIS FLOAT
+)
+;
+</note>
+      <xloc>598</xloc>
+      <yloc>194</yloc>
+      <width>194</width>
+      <heigth>828</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>7</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>CREATE TABLE 
+VCUBE_CUP_PRESTAZIONI
+(
+  COD_STR INTEGER
+, COD_UNI INTEGER
+, COD_STZ INTEGER
+, DATA_APPUNTAMENTO TIMESTAMP
+, ORA INTEGER
+, TIPO_APPUNTAMENTO VARCHAR(3)
+, CODICE_ESTERNO_PRENOTAZIONE VARCHAR(12)
+, APPN0 INTEGER
+, ID_ANAG_ISES FLOAT
+, COGNOME VARCHAR(36)
+, NOME VARCHAR(36)
+, COMUNE_RESIDENZA VARCHAR(6)
+, DATA_NASCITA TIMESTAMP
+, SESSO VARCHAR(3)
+, CODICE_FISCALE VARCHAR(16)
+, ETA FLOAT
+, PRESTAZIONE_ISES VARCHAR(120)
+, CODICE_IMPEGNATIVA VARCHAR(16)
+, COD_PREST VARCHAR(8)
+, PRESTAZIONE VARCHAR(120)
+, TARIFFA FLOAT
+, DATA_PRENOTAZIONE TIMESTAMP
+, GG_ATTESA FLOAT
+, ESENZIONE_COD VARCHAR(15)
+, ESENZIONE_DES VARCHAR(120)
+, FLAG_ROSSA_COD VARCHAR(3)
+, FLAG_ROSSA_DES VARCHAR(20)
+, ANNULLATO VARCHAR(3)
+, ANNULLATO_DOPO VARCHAR(3)
+, OPERATORE VARCHAR(20)
+, WORKSTATION VARCHAR(20)
+, TIPO_SPORTELLO VARCHAR(30)
+, SPORTELLO VARCHAR(180)
+, PUNTO_PRENOTAZIONE VARCHAR(180)
+, DATA_ANN TIMESTAMP
+, OPERATORE_ANN VARCHAR(20)
+, WORKSTATION_ANN VARCHAR(20)
+, TIPO_SPORTELLO_ANN VARCHAR(30)
+, SPORTELLO_ANN VARCHAR(180)
+, PUNTO_PRENOTAZIONE_ANN VARCHAR(180)
+, PRST0 INTEGER
+, FLAG_RIPRENOTAZIONE VARCHAR(2)
+, APPUNTAMENTO_ORIGINALE INTEGER
+, FLAG_SPOSTAMENTO VARCHAR(2)
+, APPUNTAMENTO_NUOVO INTEGER
+, TIPO_ACCESSO_COD VARCHAR(3)
+, TIPO_ACCESSO_DES VARCHAR(20)
+, HH_MM_APP VARCHAR(7)
+, FLAG_PRIORITA VARCHAR(2)
+, CLASSE_PRIORITA VARCHAR(3)
+, PRIORITA VARCHAR(30)
+, ATTESA_OK VARCHAR(2)
+, TIPO_ACCESSO VARCHAR(10)
+, DATA_1A_DISP TIMESTAMP
+, UNITA_1A_DISP FLOAT
+, RIFIUTA_1A_DISP VARCHAR(3)
+, IS_NCPR_1A_DISP VARCHAR(3)
+, EXANTE_TOT FLOAT
+, EXANTE_B FLOAT
+, EXANTE_B_OK FLOAT
+, EXANTE_D FLOAT
+, EXANTE_D_OK FLOAT
+, EXPOST_P FLOAT
+, CF_PRESCRITTORE VARCHAR(16)
+, BRANCA_COD VARCHAR(120)
+, BRANCA_DES VARCHAR(100)
+, BRANCA_LISTA VARCHAR(50)
+, T_INFO_CUP VARCHAR(30)
+, T_ANNO VARCHAR(2)
+, T_MESE VARCHAR(2)
+, T_STRUTT VARCHAR(6)
+, T_RIC VARCHAR(16)
+, T_LINE_NUM INTEGER
+, CUSTOM_COND_1 VARCHAR(3)
+, CUSTOM_COND_2 VARCHAR(3)
+)
+;</note>
+      <xloc>316</xloc>
+      <yloc>191</yloc>
+      <width>242</width>
+      <heigth>838</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>7</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>dbadmin=> 
+ALTER TABLE VIB_SPEC_ESTERNI alter column RIC            set data type VARCHAR(20);
+ALTER TABLE VIB_SPEC_ESTERNI alter column COD_FISC set data type VARCHAR(20);</note>
+      <xloc>602</xloc>
+      <yloc>213</yloc>
+      <width>464</width>
+      <heigth>48</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Modifiche da Vertica dbadmin=> 
+vdim_anag_ises 	
+CODICE_FISCALE           VARCHAR(20);
+COGNOME                      VARCHAR(40);
+NOME                              VARCHAR(40);
+</note>
+      <xloc>14</xloc>
+      <yloc>514</yloc>
+      <width>221</width>
+      <heigth>73</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>ALTER TABLE VCUBE_CUP_PRESTAZIONI ADD ENTRO_30 VARCHAR(2);
+ALTER TABLE VCUBE_CUP_PRESTAZIONI ADD ENTRO_60 VARCHAR(2);
+Uno statement eseguito da Kettle e l'altro dbadmin perché da Kettle non lo esegue ( 0 sql executed)
+
+</note>
+      <xloc>164</xloc>
+      <yloc>377</yloc>
+      <width>412</width>
+      <heigth>51</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>7</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>ALTER TABLE VIB_SPEC_ESTERNI ADD SPARE_MIS1 FLOAT;
+ALTER TABLE VIB_SPEC_ESTERNI ADD SPARE_3 VARCHAR(20);
+ALTER TABLE VIB_SPEC_ESTERNI ADD SPARE_4 VARCHAR(20);
+ALTER TABLE VIB_SPEC_ESTERNI ADD ART50_PRIMO VARCHAR(20);
+ALTER TABLE VIB_SPEC_ESTERNI ADD ART50_ULTIMO VARCHAR(20);
+ALTER TABLE VIB_SPEC_ESTERNI ADD SPARE_ID BigInt;
+</note>
+      <xloc>714</xloc>
+      <yloc>13</yloc>
+      <width>391</width>
+      <heigth>86</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>192</backgroundcolorred>
+      <backgroundcolorgreen>192</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <connection>
+    <name>db_sopra</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>dwh</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be96b8d2</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>5</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>Menhir_Vertica</name>
+    <server>menhir</server>
+    <type>VERTICA5</type>
+    <access>Native</access>
+    <database>DWH</database>
+    <port>5433</port>
+    <username>dbadmin</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>5433</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <order>
+    <hop>
+      <from>Table input</from>
+      <to>Vertica Output</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>input VIB</from>
+      <to>VIB_SPEC_ESTERNI</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>input VIB</from>
+      <to>Insert / Update</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>input CUP</from>
+      <to>VCUBE_CUP_PRESTAZIONI</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>input vdim_MEF_Prestazioni</from>
+      <to>vdim_mef_prestazioni</to>
+      <enabled>N</enabled>
+    </hop>
+  </order>
+  <step>
+    <name>Insert / Update</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Menhir_Vertica</connection>
+    <commit>1000</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema />
+      <table>VIB_SPEC_ESTERNI</table>
+      <key>
+        <name>ID_ORIGINE</name>
+        <field>ID_ORIGINE</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>ID_CASO</name>
+        <field>ID_CASO</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>ID_RIGA</name>
+        <field>ID_RIGA</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>ANNO</name>
+        <rename>ANNO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MESE</name>
+        <rename>MESE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>STRUTT</name>
+        <rename>STRUTT</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>RIC</name>
+        <rename>RIC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ETA</name>
+        <rename>ETA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COGNOME</name>
+        <rename>COGNOME</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NOME</name>
+        <rename>NOME</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_FISC</name>
+        <rename>COD_FISC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_NASC</name>
+        <rename>DATA_NASC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SESSO</name>
+        <rename>SESSO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>LUOGO_COD</name>
+        <rename>LUOGO_COD</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>REGASL_COD</name>
+        <rename>REGASL_COD</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_COM</name>
+        <rename>COD_COM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_REG</name>
+        <rename>COD_REG</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_USL</name>
+        <rename>COD_USL</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_PREST</name>
+        <rename>DATA_PREST</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ON_PREST</name>
+        <rename>ON_PREST</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>POS_TICKET</name>
+        <rename>POS_TICKET</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CANALE_ACCESSO</name>
+        <rename>CANALE_ACCESSO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>BRANCA_RICETTA</name>
+        <rename>BRANCA_RICETTA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_PATOLOGIA</name>
+        <rename>COD_PATOLOGIA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ESENZIONE</name>
+        <rename>ESENZIONE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CODESENZIONE</name>
+        <rename>CODESENZIONE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TIPOESENZIONE</name>
+        <rename>TIPOESENZIONE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MMG_CF</name>
+        <rename>MMG_CF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FLAG_PRESCRITTO_MMG</name>
+        <rename>FLAG_PRESCRITTO_MMG</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MED_PRES_CF</name>
+        <rename>MED_PRES_CF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_PREST</name>
+        <rename>COD_PREST</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>LINE_NUM</name>
+        <rename>LINE_NUM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DISCIPLINA_PREST</name>
+        <rename>DISCIPLINA_PREST</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>UNITAEROGANTE</name>
+        <rename>UNITAEROGANTE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ATTIVITAEROGATA</name>
+        <rename>ATTIVITAEROGATA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>EQUIPE</name>
+        <rename>EQUIPE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>EROG_SANITARIO_COD</name>
+        <rename>EROG_SANITARIO_COD</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>EROG_SANITARIO_NOME</name>
+        <rename>EROG_SANITARIO_NOME</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>EROG_DATA</name>
+        <rename>EROG_DATA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>EROG_ORA</name>
+        <rename>EROG_ORA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ID_ORIGINE</name>
+        <rename>ID_ORIGINE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ID_CASO</name>
+        <rename>ID_CASO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ID_RIGA</name>
+        <rename>ID_RIGA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ID_AGENDA_CUP</name>
+        <rename>ID_AGENDA_CUP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_STZ</name>
+        <rename>COD_STZ</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ID_PRENOTAZIONE_CUP</name>
+        <rename>ID_PRENOTAZIONE_CUP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_PRENO</name>
+        <rename>DATA_PRENO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PRIORITA</name>
+        <rename>PRIORITA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PROV_APPLICATIVO</name>
+        <rename>PROV_APPLICATIVO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>RIC_APPLICATIVO</name>
+        <rename>RIC_APPLICATIVO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_PC</name>
+        <rename>COD_PC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FILE_NAME</name>
+        <rename>FILE_NAME</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SEVERITY</name>
+        <rename>SEVERITY</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>LOAD_DATE</name>
+        <rename>LOAD_DATE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>LAST_MODIF</name>
+        <rename>LAST_MODIF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FIX_HISTORY</name>
+        <rename>FIX_HISTORY</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>HISTORY</name>
+        <rename>HISTORY</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>IB_GIORNO</name>
+        <rename>IB_GIORNO</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>IB_ORA</name>
+        <rename>IB_ORA</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>CHK_ESENZ</name>
+        <rename>CHK_ESENZ</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CHK_ESENZ_DETT</name>
+        <rename>CHK_ESENZ_DETT</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CUR_COD</name>
+        <rename>CUR_COD</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CUR_DES</name>
+        <rename>CUR_DES</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FORMATO_RICETTA</name>
+        <rename>FORMATO_RICETTA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NRE</name>
+        <rename>NRE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INFO_CUP</name>
+        <rename>INFO_CUP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TIPO_ACCESSO</name>
+        <rename>TIPO_ACCESSO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GARANZIA_TM</name>
+        <rename>GARANZIA_TM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PREST_MONITOR_TA</name>
+        <rename>PREST_MONITOR_TA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_APP_ISES</name>
+        <rename>DATA_APP_ISES</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_PRENO_ISES</name>
+        <rename>DATA_PRENO_ISES</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SPARE_1</name>
+        <rename>SPARE_1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SPARE_2</name>
+        <rename>SPARE_2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SPARE_DATE</name>
+        <rename>SPARE_DATE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>QUANTITA</name>
+        <rename>QUANTITA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>IMPORTO</name>
+        <rename>IMPORTO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>QTA_CUP</name>
+        <rename>QTA_CUP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SPARE_MIS</name>
+        <rename>SPARE_MIS</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>571</xloc>
+      <yloc>83</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+  PIN_AZIENDA
+, COD_FISCALE
+, NOME
+, COGNOME
+, DATA_NASCITA
+, COMUNE_NASCITA
+, COMUNE_RESIDENZA
+, RESIDENZA
+, COMUNE_DOMICILIO
+, DOMICILIO
+, SESSO
+, FLAG_DECEDUTO
+, DATA_DECESSO
+, ORIGINE
+, COD_TIPO_ASSISTITO
+, DATA_FINE_ISCR
+, FLAG_ISCRITTO
+FROM VDIM_ANAG_ESTESA
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>51</xloc>
+      <yloc>350</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>VCUBE_CUP_PRESTAZIONI</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Menhir_Vertica</connection>
+    <schema />
+    <table>VCUBE_CUP_PRESTAZIONI</table>
+    <commit>10000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>412</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>VIB_SPEC_ESTERNI</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Menhir_Vertica</connection>
+    <schema />
+    <table>VIB_SPEC_ESTERNI</table>
+    <commit>10000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>653</xloc>
+      <yloc>130</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Vertica Output</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Menhir_Vertica</connection>
+    <schema />
+    <table>VDIM_anag_estesa</table>
+    <commit>10000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>52</xloc>
+      <yloc>452</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>input CUP</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+  COD_STR
+, COD_UNI
+, COD_STZ
+, DATA_APPUNTAMENTO
+, ORA
+, TIPO_APPUNTAMENTO
+, CODICE_ESTERNO_PRENOTAZIONE
+, APPN0
+, ID_ANAG_ISES
+, COGNOME
+, NOME
+, COMUNE_RESIDENZA
+, DATA_NASCITA
+, SESSO
+, CODICE_FISCALE
+, ETA
+, PRESTAZIONE_ISES
+, CODICE_IMPEGNATIVA
+, COD_PREST
+, PRESTAZIONE
+, TARIFFA
+, DATA_PRENOTAZIONE
+, GG_ATTESA
+, ESENZIONE_COD
+, ESENZIONE_DES
+, FLAG_ROSSA_COD
+, FLAG_ROSSA_DES
+, ANNULLATO
+, ANNULLATO_DOPO
+, OPERATORE
+, WORKSTATION
+, TIPO_SPORTELLO
+, SPORTELLO
+, PUNTO_PRENOTAZIONE
+, DATA_ANN
+, OPERATORE_ANN
+, WORKSTATION_ANN
+, TIPO_SPORTELLO_ANN
+, SPORTELLO_ANN
+, PUNTO_PRENOTAZIONE_ANN
+, PRST0
+, FLAG_RIPRENOTAZIONE
+, APPUNTAMENTO_ORIGINALE
+, FLAG_SPOSTAMENTO
+, APPUNTAMENTO_NUOVO
+, TIPO_ACCESSO_COD
+, TIPO_ACCESSO_DES
+, HH_MM_APP
+, FLAG_PRIORITA
+, CLASSE_PRIORITA
+, PRIORITA
+, ATTESA_OK
+, TIPO_ACCESSO
+, DATA_1A_DISP
+, UNITA_1A_DISP
+, RIFIUTA_1A_DISP
+, IS_NCPR_1A_DISP
+, EXANTE_TOT
+, EXANTE_B
+, EXANTE_B_OK
+, EXANTE_D
+, EXANTE_D_OK
+, EXPOST_P
+, CF_PRESCRITTORE
+, BRANCA_COD
+, BRANCA_DES
+, BRANCA_LISTA
+, T_INFO_CUP
+, T_ANNO
+, T_MESE
+, T_STRUTT
+, T_RIC
+, T_LINE_NUM
+, quesito_diagnostico
+, dem_nre
+, ese_cod_dema
+, entro_30
+, entro_60
+, CUSTOM_COND_1
+, CUSTOM_COND_2
+FROM VCUBE_CUP_PRESTAZIONI
+--order by APPN0
+--where data_prenotazione between date '2017-01-01' and date '2017-06-26'</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>412</xloc>
+      <yloc>25</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>input VIB</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+  ANNO
+, MESE
+, STRUTT
+, RIC
+, ETA
+, COGNOME
+, NOME
+, COD_FISC
+, DATA_NASC
+, SESSO
+, LUOGO_COD
+, REGASL_COD
+, COD_COM
+, COD_REG
+, COD_USL
+, DATA_PREST
+, ON_PREST
+, POS_TICKET
+, CANALE_ACCESSO
+, BRANCA_RICETTA
+, COD_PATOLOGIA
+, ESENZIONE
+, CODESENZIONE
+, TIPOESENZIONE
+, MMG_CF
+, FLAG_PRESCRITTO_MMG
+, MED_PRES_CF
+, COD_PREST
+, LINE_NUM
+, DISCIPLINA_PREST
+, UNITAEROGANTE
+, ATTIVITAEROGATA
+, EQUIPE
+, EROG_SANITARIO_COD
+, EROG_SANITARIO_NOME
+, EROG_DATA
+, EROG_ORA
+, ID_ORIGINE
+, ID_CASO
+, ID_RIGA
+, ID_AGENDA_CUP
+, COD_STZ
+, ID_PRENOTAZIONE_CUP
+, DATA_PRENO
+, PRIORITA
+, PROV_APPLICATIVO
+, RIC_APPLICATIVO
+, COD_PC
+, FILE_NAME
+, SEVERITY
+, LOAD_DATE
+, LAST_MODIF
+, FIX_HISTORY
+, HISTORY
+, IB_GIORNO
+, IB_ORA
+, CHK_ESENZ
+, CHK_ESENZ_DETT
+, CUR_COD
+, CUR_DES
+, FORMATO_RICETTA
+, NRE
+, INFO_CUP
+, TIPO_ACCESSO
+, GARANZIA_TM
+, PREST_MONITOR_TA
+, DATA_APP_ISES
+, DATA_PRENO_ISES
+, SPARE_1
+, SPARE_2
+, SPARE_DATE
+, QUANTITA
+, IMPORTO
+, QTA_CUP
+, SPARE_MIS
+, spare_mis1
+, spare_3
+, spare_4
+, art50_primo
+, art50_ultimo
+, spare_id
+FROM Ver_SPEC_ESTERNI
+--where data_prest = date '2018-02-23'
+--and id_origine like 'XLS1'
+--and id_caso>='00000000002016244354'
+order by
+DATA_PREST, id_origine, id_caso, id_riga
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>653</xloc>
+      <yloc>27</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>input vdim_MEF_Prestazioni</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+  ID_ORIGINE
+, ID_CASO
+, ID_RIGA
+, RICETTA
+, ANNOMESE
+, QTA
+, CODICEPREST
+, BRANCAPRESTAZIONE
+, DATAEROGAZIONE
+FROM VDIM_MEF_PRESTAZIONI
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>120</xloc>
+      <yloc>24</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>vdim_mef_prestazioni</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Menhir_Vertica</connection>
+    <schema />
+    <table>vdim_mef_prestazioni</table>
+    <commit>10000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>120</xloc>
+      <yloc>127</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step_error_handling>
+  </step_error_handling>
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+</transformation>

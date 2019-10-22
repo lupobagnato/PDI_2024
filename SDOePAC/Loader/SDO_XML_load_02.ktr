@@ -1,0 +1,1799 @@
+<transformation>
+  <info>
+    <name>SDO_XML_load_02</name>
+    <description />
+    <extended_description />
+    <trans_version />
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>/SDOePAC/Loader</directory>
+    <parameters>
+    </parameters>
+    <log>
+      <trans-log-table>
+        <connection>db_sopra_hsp</connection>
+        <schema />
+        <table>Kettle_log</table>
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject>Insert SDO_XML</subject>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject>SDO_XML buffer</subject>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject>Insert SDO_XML</subject>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject />
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
+    </log>
+    <maxdate>
+      <connection />
+      <table />
+      <field />
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file />
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+      <partitionschema>
+        <name>MySQL EC2 Schema</name>
+        <partition>
+          <id>P3</id>
+        </partition>
+        <partition>
+          <id>P4</id>
+        </partition>
+        <partition>
+          <id>P5</id>
+        </partition>
+        <partition>
+          <id>P2</id>
+        </partition>
+        <dynamic>N</dynamic>
+        <partitions_per_slave />
+      </partitionschema>
+      <partitionschema>
+        <name>Partitioning schema</name>
+        <partition>
+          <id>PartDB2</id>
+        </partition>
+        <partition>
+          <id>PartDB5</id>
+        </partition>
+        <partition>
+          <id>PartDB3</id>
+        </partition>
+        <partition>
+          <id>PartDB4</id>
+        </partition>
+        <partition>
+          <id>PartDB1</id>
+        </partition>
+        <dynamic>N</dynamic>
+        <partitions_per_slave />
+      </partitionschema>
+    </partitionschemas>
+    <slaveservers>
+      <slaveserver>
+        <name>Carte_server</name>
+        <hostname>minollo</hostname>
+        <port />
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8080:Master</name>
+        <hostname>localhost</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8082</name>
+        <hostname>localhost</hostname>
+        <port>8082</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8081</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8080</name>
+        <hostname>localhost</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8084</name>
+        <hostname>localhost</hostname>
+        <port>8084</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8083</name>
+        <hostname>localhost</hostname>
+        <port>8083</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8080 master</name>
+        <hostname>localhost</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>pc115818</name>
+        <hostname>pc115818</hostname>
+        <port />
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>ruwvs07</name>
+        <hostname>ruwvs07</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>zebulon slave</name>
+        <hostname>192.168.1.277</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Jos 10.0.0.169</name>
+        <hostname>10.0.0.169</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Quasar</name>
+        <hostname>quasar</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Random</name>
+        <hostname>random</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>carte</name>
+        <hostname>localhost</hostname>
+        <port>8181</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server8080</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server8090</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8090</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server9000</name>
+        <hostname>127.0.0.1</hostname>
+        <port>9000</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_2</name>
+        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_4</name>
+        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_3</name>
+        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_MASTER_1</name>
+        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_5</name>
+        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Localhost 8081</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_1</name>
+        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>sam 8080</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>sam 8081 slave</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>sam 8082 slave</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Warmath</name>
+        <hostname>liveinalpharetta.com</hostname>
+        <port>8083</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Mike ETL Server</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Wayne ETL Server</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+    </slaveservers>
+    <clusterschemas>
+      <clusterschema>
+        <name>EC2</name>
+        <base_port>40000</base_port>
+        <sockets_buffer_size>100000</sockets_buffer_size>
+        <sockets_flush_interval>0</sockets_flush_interval>
+        <sockets_compressed>Y</sockets_compressed>
+        <dynamic>N</dynamic>
+        <slaveservers>
+          <name>EC_SLAVE_4</name>
+          <name>EC_SLAVE_2</name>
+          <name>EC_SLAVE_3</name>
+          <name>EC_MASTER_1</name>
+          <name>EC_SLAVE_5</name>
+        </slaveservers>
+      </clusterschema>
+      <clusterschema>
+        <name>local schema</name>
+        <base_port>40000</base_port>
+        <sockets_buffer_size>2000</sockets_buffer_size>
+        <sockets_flush_interval>5000</sockets_flush_interval>
+        <sockets_compressed>N</sockets_compressed>
+        <dynamic>N</dynamic>
+        <slaveservers>
+          <name>localhost:8080:Master</name>
+          <name>localhost:8082</name>
+          <name>localhost:8081</name>
+        </slaveservers>
+      </clusterschema>
+      <clusterschema>
+        <name>Sam</name>
+        <base_port>40000</base_port>
+        <sockets_buffer_size>2000</sockets_buffer_size>
+        <sockets_flush_interval>5000</sockets_flush_interval>
+        <sockets_compressed>Y</sockets_compressed>
+        <dynamic>N</dynamic>
+        <slaveservers>
+          <name>sam 8081 slave</name>
+          <name>sam 8082 slave</name>
+          <name>sam 8080</name>
+        </slaveservers>
+      </clusterschema>
+      <clusterschema>
+        <name>YarnCluster</name>
+        <base_port>4000</base_port>
+        <sockets_buffer_size>2000</sockets_buffer_size>
+        <sockets_flush_interval>5000</sockets_flush_interval>
+        <sockets_compressed>N</sockets_compressed>
+        <dynamic>N</dynamic>
+        <slaveservers>
+        </slaveservers>
+      </clusterschema>
+    </clusterschemas>
+    <created_user />
+    <created_date>2019/09/16 11:46:23.895</created_date>
+    <modified_user>admin</modified_user>
+    <modified_date>2017/05/08 09:49:22.000</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+  </notepads>
+  <connection>
+    <name>db_sopra_hsp</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>hsp</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be9abcca</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>5</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <order>
+    <hop>
+      <from>SDO_XML buffer</from>
+      <to>Insert SDO_XML</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <step>
+    <name>Insert SDO_XML</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra_hsp</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema />
+      <table>SDO_XML</table>
+      <key>
+        <name>PRESIDIO</name>
+        <field>PRESIDIO</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>NUM_PRAT</name>
+        <field>NUM_PRAT</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>PRESIDIO</name>
+        <rename>PRESIDIO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NUM_PRAT</name>
+        <rename>NUM_PRAT</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COGNOME</name>
+        <rename>COGNOME</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NOME</name>
+        <rename>NOME</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CAP</name>
+        <rename>CAP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SESSO</name>
+        <rename>SESSO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_NASC</name>
+        <rename>DATA_NASC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COM_NASC</name>
+        <rename>COM_NASC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>LIVELLO_ISTR</name>
+        <rename>LIVELLO_ISTR</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>STATO_CIV</name>
+        <rename>STATO_CIV</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COM_RES</name>
+        <rename>COM_RES</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CITTADIN</name>
+        <rename>CITTADIN</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_FISC</name>
+        <rename>COD_FISC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ENI_STP</name>
+        <rename>ENI_STP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TEAM_TITOLARE</name>
+        <rename>TEAM_TITOLARE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TEAM_ISTITUZIONE</name>
+        <rename>TEAM_ISTITUZIONE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>REG_ISCR</name>
+        <rename>REG_ISCR</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>USL_ISCR</name>
+        <rename>USL_ISCR</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SDO_PUERPERA</name>
+        <rename>SDO_PUERPERA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>REG_RICOV</name>
+        <rename>REG_RICOV</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_LISTA_ATT</name>
+        <rename>DATA_LISTA_ATT</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CLASSE_PRIORITA</name>
+        <rename>CLASSE_PRIORITA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INGR</name>
+        <rename>DATA_INGR</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ORA_INGR</name>
+        <rename>ORA_INGR</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>REP_INGR</name>
+        <rename>REP_INGR</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ONERE_DEG</name>
+        <rename>ONERE_DEG</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SPEC_ONERE_DEG</name>
+        <rename>SPEC_ONERE_DEG</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PROVENIEN</name>
+        <rename>PROVENIEN</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MED_PRESC</name>
+        <rename>MED_PRESC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TIPO_RICOV</name>
+        <rename>TIPO_RICOV</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TRAUMA</name>
+        <rename>TRAUMA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CODICE_CAUSA</name>
+        <rename>CODICE_CAUSA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>REP_DIM</name>
+        <rename>REP_DIM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_DIM</name>
+        <rename>DATA_DIM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ORA_DIM</name>
+        <rename>ORA_DIM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_ULTIMO_ACC_DH</name>
+        <rename>DATA_ULTIMO_ACC_DH</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MOD_DIM</name>
+        <rename>MOD_DIM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>RISC_AUTOP</name>
+        <rename>RISC_AUTOP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MOT_RIC_DH</name>
+        <rename>MOT_RIC_DH</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MOTIVO_RICOV</name>
+        <rename>MOTIVO_RICOV</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NUM_GG_DH</name>
+        <rename>NUM_GG_DH</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PESO</name>
+        <rename>PESO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SIST_COD_DIA</name>
+        <rename>SIST_COD_DIA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DIAGNOSI</name>
+        <rename>DIAGNOSI</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DIAGNOSI_FLAG_AL_RICOVERO</name>
+        <rename>DIAGNOSI_FLAG_AL_RICOVERO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DIAGNOSI_LAT</name>
+        <rename>DIAGNOSI_LAT</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DIAGNOSI_STADIAZIONE</name>
+        <rename>DIAGNOSI_STADIAZIONE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_P</name>
+        <rename>INT_P</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_P_FLAG_ESTERNO</name>
+        <rename>INT_P_FLAG_ESTERNO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INT_P</name>
+        <rename>DATA_INT_P</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ORA_INT_P</name>
+        <rename>ORA_INT_P</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_P_CHIR_1</name>
+        <rename>INT_P_CHIR_1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_P_CHIR_2</name>
+        <rename>INT_P_CHIR_2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_P_CHIR_3</name>
+        <rename>INT_P_CHIR_3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_ANESTESISTA</name>
+        <rename>INT_ANESTESISTA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_P_FLAG_CHK_LIST</name>
+        <rename>INT_P_FLAG_CHK_LIST</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_P_LAT</name>
+        <rename>INT_P_LAT</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>RILEVAZIONE_DOLORE</name>
+        <rename>RILEVAZIONE_DOLORE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PRESSIONE</name>
+        <rename>PRESSIONE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CREATININA</name>
+        <rename>CREATININA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FRAZIONE_EIEZIONE</name>
+        <rename>FRAZIONE_EIEZIONE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_DRG</name>
+        <rename>COD_DRG</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>IMPORTO</name>
+        <rename>IMPORTO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>IMP_TRAP</name>
+        <rename>IMP_TRAP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NUM_GG_PERM</name>
+        <rename>NUM_GG_PERM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SUFFISSO_ICD9</name>
+        <rename>SUFFISSO_ICD9</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MULTIMORB_1</name>
+        <rename>MULTIMORB_1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MULTIMORB_2</name>
+        <rename>MULTIMORB_2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DISABILITA_COM</name>
+        <rename>DISABILITA_COM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DISABILITA_PRE</name>
+        <rename>DISABILITA_PRE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>AUTO_MOT_AMM</name>
+        <rename>AUTO_MOT_AMM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>AUTO_MOT_DIM</name>
+        <rename>AUTO_MOT_DIM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DISABILITA_DIM</name>
+        <rename>DISABILITA_DIM</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_1_TRASF</name>
+        <rename>DATA_1_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>REP_1_TRASF</name>
+        <rename>REP_1_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_2_TRASF</name>
+        <rename>DATA_2_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>REP_2_TRASF</name>
+        <rename>REP_2_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_3_TRASF</name>
+        <rename>DATA_3_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>REP_3_TRASF</name>
+        <rename>REP_3_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_4_TRASF</name>
+        <rename>DATA_4_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>REP_4_TRASF</name>
+        <rename>REP_4_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_5_TRASF</name>
+        <rename>DATA_5_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>REP_5_TRASF</name>
+        <rename>REP_5_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_6_TRASF</name>
+        <rename>DATA_6_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>REP_6_TRASF</name>
+        <rename>REP_6_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_7_TRASF</name>
+        <rename>DATA_7_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>REP_7_TRASF</name>
+        <rename>REP_7_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INT_1</name>
+        <rename>DATA_INT_1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_1</name>
+        <rename>INT_1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INT_2</name>
+        <rename>DATA_INT_2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_2</name>
+        <rename>INT_2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INT_3</name>
+        <rename>DATA_INT_3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_3</name>
+        <rename>INT_3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INT_4</name>
+        <rename>DATA_INT_4</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_4</name>
+        <rename>INT_4</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INT_5</name>
+        <rename>DATA_INT_5</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_5</name>
+        <rename>INT_5</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INT_6</name>
+        <rename>DATA_INT_6</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_6</name>
+        <rename>INT_6</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INT_7</name>
+        <rename>DATA_INT_7</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_7</name>
+        <rename>INT_7</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INT_8</name>
+        <rename>DATA_INT_8</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_8</name>
+        <rename>INT_8</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INT_9</name>
+        <rename>DATA_INT_9</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_9</name>
+        <rename>INT_9</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INT_A</name>
+        <rename>DATA_INT_A</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INT_A</name>
+        <rename>INT_A</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DIAGNOSI_1</name>
+        <rename>DIAGNOSI_1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DIAGNOSI_2</name>
+        <rename>DIAGNOSI_2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DIAGNOSI_3</name>
+        <rename>DIAGNOSI_3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DIAGNOSI_4</name>
+        <rename>DIAGNOSI_4</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DIAGNOSI_5</name>
+        <rename>DIAGNOSI_5</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DIAGNOSI_6</name>
+        <rename>DIAGNOSI_6</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DIAGNOSI_7</name>
+        <rename>DIAGNOSI_7</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FILE_NAME</name>
+        <rename>FILE_NAME</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FILE_MYY</name>
+        <rename>FILE_MYY</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ANNO</name>
+        <rename>ANNO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MESE</name>
+        <rename>MESE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ANNO_MESE</name>
+        <rename>ANNO_MESE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>LOAD_D</name>
+        <rename>LOAD_D</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>139</xloc>
+      <yloc>182</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SDO_XML buffer</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra_hsp</connection>
+    <sql>select
+a.PRESIDIO, 
+a.NUM_PRAT,
+a.COGNOME, 
+a.NOME, 
+a.CAP,
+a.SESSO, 
+a.DATA_NASC, 
+a.COM_NASC,
+a.LIVELLO_ISTR,     
+a.STATO_CIV,
+a.COM_RES,
+a.CITTADIN,     
+a.COD_FISC, 
+a.ENI_STP,
+a.TEAM_TITOLARE,
+a.TEAM_ISTITUZIONE, 
+a.REG_ISCR, 
+a.USL_ISCR, 
+a.SDO_PUERPERA,
+
+c.REG_RICOV,                  
+c.DATA_LISTA_ATT,             
+c.CLASSE_PRIORITA,            
+c.DATA_INGR,                  
+c.ORA_INGR,                   
+substr(c.REP_INGR,9,4) rep_ingr,                   
+c.ONERE_DEG,                  
+c.SPEC_ONERE_DEG,             
+c.PROVENIEN,                  
+c.MED_PRESC,                  
+c.TIPO_RICOV,                 
+c.TRAUMA,                     
+c.CODICE_CAUSA,               
+substr(c.REP_DIM,9.4) rep_dim,                    
+c.DATA_DIM,                   
+c.ORA_DIM,                    
+c.DATA_ULTIMO_ACC_DH,         
+c.MOD_DIM,                    
+c.RISC_AUTOP,                 
+c.MOT_RIC_DH,                 
+c.MOTIVO_RICOV,               
+c.NUM_GG_DH,                  
+c.PESO,                       
+c.SIST_COD_DIA,               
+c.DIAGNOSI,                   
+c.DIAGNOSI_FLAG_AL_RICOVERO,  
+c.DIAGNOSI_LAT,               
+c.DIAGNOSI_STADIAZIONE,       
+c.INT_P,                      
+c.INT_P_FLAG_ESTERNO,         
+c.DATA_INT_P,                 
+c.ORA_INT_P,                  
+c.INT_P_CHIR_1,               
+c.INT_P_CHIR_2,               
+c.INT_P_CHIR_3,               
+c.INT_ANESTESISTA,            
+c.INT_P_FLAG_CHK_LIST,        
+c.INT_P_LAT,                  
+c.RILEVAZIONE_DOLORE,         
+c.PRESSIONE,                  
+c.CREATININA,                 
+c.FRAZIONE_EIEZIONE,          
+c.COD_DRG,                    
+c.IMPORTO,                    
+c.IMP_TRAP,                   
+c.NUM_GG_PERM,                
+c.SUFFISSO_ICD9,              
+c.MULTIMORB_1,                
+c.MULTIMORB_2,                
+c.DISABILITA_COM,             
+c.DISABILITA_PRE,             
+c.AUTO_MOT_AMM,               
+c.AUTO_MOT_DIM,               
+c.DISABILITA_DIM,             
+c.DATA_1_TRASF,               
+substr(c.REP_1_TRASF,9,4) rep_1_trasf,                
+c.DATA_2_TRASF,               
+substr(c.REP_2_TRASF,9,4) rep_2_trasf,                
+c.DATA_3_TRASF,               
+substr(c.REP_3_TRASF,9,4) rep_3_trasf,                
+c.DATA_4_TRASF,               
+substr(c.REP_4_TRASF,9,4) rep_4_trasf,                
+c.DATA_5_TRASF,               
+substr(c.REP_5_TRASF,9,4) rep_5_trasf,                
+c.DATA_6_TRASF,               
+substr(c.REP_6_TRASF,9,4) rep_6_trasf,                
+c.DATA_7_TRASF,               
+substr(c.REP_7_TRASF,9,4) rep_7_trasf,                
+c.DATA_INT_1,                 
+c.INT_1,                      
+c.DATA_INT_2,                 
+c.INT_2,                      
+c.DATA_INT_3,                 
+c.INT_3,                      
+c.DATA_INT_4,                 
+c.INT_4,                      
+c.DATA_INT_5,                 
+c.INT_5,                      
+c.DATA_INT_6,                 
+c.INT_6,                      
+c.DATA_INT_7,                 
+c.INT_7,                      
+c.DATA_INT_8,                 
+c.INT_8,                      
+c.DATA_INT_9,                 
+c.INT_9,                      
+c.DATA_INT_A,                 
+c.INT_A,                      
+c.DIAGNOSI_1,                 
+c.DIAGNOSI_2,                 
+c.DIAGNOSI_3,                 
+c.DIAGNOSI_4,                 
+c.DIAGNOSI_5,                 
+c.DIAGNOSI_6,                 
+c.DIAGNOSI_7,                 
+
+a.FILE_NAME,
+a.FILE_MYY,         
+
+to_char(c.DATA_DIM,'YYYY') ANNO,
+to_char(c.DATA_DIM,'MM') MESE,
+to_char(c.DATA_DIM,'YYYYMM') ANNO_MESE,
+sysdate load_d
+from
+    SDO_XML_A a,SDO_XML_C c
+where
+    a.PRESIDIO = c.PRESIDIO and
+    a.NUM_PRAT = c.NUM_PRAT
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>140</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step_error_handling>
+  </step_error_handling>
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+</transformation>
