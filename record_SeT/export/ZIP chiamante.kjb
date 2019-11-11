@@ -8,16 +8,11 @@
   <created_user />
   <created_date>2019/09/16 11:46:32.049</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2016/08/18 12:35:00.000</modified_date>
+  <modified_date>2019/11/11 15:05:02.373</modified_date>
   <parameters>
     <parameter>
       <name>Cartella</name>
-      <default_value>\\avatar\pentaho\Documenti</default_value>
-      <description>dove sono i file S e T</description>
-    </parameter>
-    <parameter>
-      <name>CartellaLoc</name>
-      <default_value>F:\__ Dati __\Progetti\Flusso Specialistica\inviati</default_value>
+      <default_value />
       <description>dove sono i file S e T</description>
     </parameter>
     <parameter>
@@ -729,7 +724,7 @@
       <description />
       <type>JOB</type>
       <specification_method>rep_name</specification_method>
-      <job_object_id>400</job_object_id>
+      <job_object_id />
       <filename />
       <jobname>ZIP crea .zip</jobname>
       <directory>/record_SeT/export</directory>
@@ -775,6 +770,11 @@
           <stream_name>java_titolo_mail</stream_name>
           <value />
         </parameter>
+        <parameter>
+          <name>var_To</name>
+          <stream_name />
+          <value>${var_To}</value>
+        </parameter>
       </parameters>
       <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
@@ -788,7 +788,7 @@
       <description />
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id>1632</trans_object_id>
+      <trans_object_id />
       <filename />
       <transname>ZIP imposta parametri</transname>
       <directory>/record_SeT/export</directory>
@@ -810,9 +810,14 @@
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration>Pentaho local</run_configuration>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>Cartella</name>
+          <stream_name />
+          <value>${Cartella}</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -870,13 +875,14 @@ passati come Parametri
 
 
 
+
 exec for every row
 
 </note>
-      <xloc>419</xloc>
-      <yloc>49</yloc>
-      <width>190</width>
-      <heigth>145</heigth>
+      <xloc>432</xloc>
+      <yloc>64</yloc>
+      <width>149</width>
+      <heigth>131</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -915,4 +921,20 @@ per ogni file S</note>
       <drawshadow>Y</drawshadow>
     </notepad>
   </notepads>
+  <attributes>
+    <group>
+      <name>METASTORE.pentaho</name>
+      <attribute>
+        <key>Default Run Configuration</key>
+        <value>{"namespace":"pentaho","id":"Default Run Configuration","name":"Default Run Configuration","description":"Defines a default run configuration","metaStoreName":null}</value>
+      </attribute>
+    </group>
+    <group>
+      <name>{"_":"Embedded MetaStore Elements","namespace":"pentaho","type":"Default Run Configuration"}</name>
+      <attribute>
+        <key>Pentaho local</key>
+        <value>{"children":[{"children":[],"id":"server","value":null},{"children":[],"id":"clustered","value":"N"},{"children":[],"id":"name","value":"Pentaho local"},{"children":[],"id":"description","value":null},{"children":[],"id":"readOnly","value":"Y"},{"children":[],"id":"sendResources","value":"N"},{"children":[],"id":"logRemoteExecutionLocally","value":"N"},{"children":[],"id":"remote","value":"N"},{"children":[],"id":"local","value":"Y"},{"children":[],"id":"showTransformations","value":"N"}],"id":"Pentaho local","value":null,"name":"Pentaho local","owner":null,"ownerPermissionsList":[]}</value>
+      </attribute>
+    </group>
+  </attributes>
 </job>

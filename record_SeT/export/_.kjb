@@ -1,5 +1,5 @@
 <job>
-  <name>Export_SeT_loop</name>
+  <name>_</name>
   <description />
   <extended_description />
   <job_version />
@@ -8,7 +8,7 @@
   <created_user>admin</created_user>
   <created_date>2010/02/16 12:12:25.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2019/11/11 16:13:57.068</modified_date>
+  <modified_date>2019/11/11 16:08:10.304</modified_date>
   <parameters>
     <parameter>
       <name>ANNO_FINE</name>
@@ -817,366 +817,49 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>17</xloc>
-      <yloc>22</yloc>
+      <xloc>64</xloc>
+      <yloc>112</yloc>
     </entry>
     <entry>
-      <name>Lista_Parametri</name>
-      <description>Transformation</description>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
-      <transname>Lista_Parametri</transname>
-      <directory>/record_SeT/export</directory>
+      <name>Sposta SeT</name>
+      <description />
+      <type>MOVE_FILES</type>
+      <move_empty_folders>N</move_empty_folders>
       <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <include_subfolders>N</include_subfolders>
+      <add_result_filesname>N</add_result_filesname>
+      <destination_is_a_file>N</destination_is_a_file>
+      <create_destination_folder>N</create_destination_folder>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>ANNO_FINE</name>
-          <stream_name />
-          <value>${ANNO_FINE}</value>
-        </parameter>
-        <parameter>
-          <name>ANNO_INIZIO</name>
-          <stream_name />
-          <value>${ANNO_INIZIO}</value>
-        </parameter>
-        <parameter>
-          <name>BACK_MONTHS</name>
-          <stream_name />
-          <value>${BACK_MONTHS}</value>
-        </parameter>
-        <parameter>
-          <name>MESE_FINE</name>
-          <stream_name />
-          <value>${MESE_FINE}</value>
-        </parameter>
-        <parameter>
-          <name>MESE_INIZIO</name>
-          <stream_name />
-          <value>${MESE_INIZIO}</value>
-        </parameter>
-      </parameters>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format />
+      <nr_errors_less_than>10</nr_errors_less_than>
+      <success_condition>success_if_no_errors</success_condition>
+      <AddDateBeforeExtension>N</AddDateBeforeExtension>
+      <DoNotKeepFolderStructure>N</DoNotKeepFolderStructure>
+      <iffileexists>unique_name</iffileexists>
+      <destinationFolder />
+      <ifmovedfileexists>do_nothing</ifmovedfileexists>
+      <moved_date_time_format />
+      <create_move_to_folder>N</create_move_to_folder>
+      <add_moved_date>N</add_moved_date>
+      <add_moved_time>N</add_moved_time>
+      <SpecifyMoveFormat>N</SpecifyMoveFormat>
+      <AddMovedDateBeforeExtension>N</AddMovedDateBeforeExtension>
+      <simulate>Y</simulate>
+      <fields>
+        <field>
+          <source_filefolder>/mnt/minollo/output_SeT</source_filefolder>
+          <destination_filefolder>/mnt/minollo/output_SeT/bak</destination_filefolder>
+          <wildcard>S001919A\.000</wildcard>
+        </field>
+      </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>189</xloc>
-      <yloc>256</yloc>
-    </entry>
-    <entry>
-      <name>Export_SeT_mese</name>
-      <description>Job</description>
-      <type>JOB</type>
-      <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
-      <jobname>Export_SeT_mese</jobname>
-      <directory>/record_SeT/export</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>Y</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name />
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>anno</name>
-          <stream_name>YYYY</stream_name>
-          <value />
-        </parameter>
-        <parameter>
-          <name>mese</name>
-          <stream_name>MM</stream_name>
-          <value />
-        </parameter>
-        <parameter>
-          <name>DESTINATARIO</name>
-          <stream_name />
-          <value>${DESTINATARIO}</value>
-        </parameter>
-        <parameter>
-          <name>EXPORT_DIR</name>
-          <stream_name />
-          <value>${EXPORT_DIR}</value>
-        </parameter>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>496</xloc>
-      <yloc>256</yloc>
-    </entry>
-    <entry>
-      <name>Log</name>
-      <description />
-      <type>WRITE_TO_LOG</type>
-      <logmessage>..... Anno_Fine=${ANNO_FINE} .....
-..... Anno_Inizio=${ANNO_INIZIO} .....
-..... Back_Months=${BACK_MONTHS} .....
-..... Destinatario=${DESTINATARIO} .....
-..... Mese_Fine=${MESE_FINE} .....
-..... Mese_Inizio=${MESE_INIZIO} .....</logmessage>
-      <loglevel>Basic</loglevel>
-      <logsubject />
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>90</xloc>
-      <yloc>126</yloc>
-    </entry>
-    <entry>
-      <name>Mail Ok</name>
-      <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To_CCN}</destination>
-      <destinationCc />
-      <destinationBCc>${var_To_CCN}</destinationBCc>
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: Ok</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment>Anno_Fine=${ANNO_FINE} 
-Anno_Inizio=${ANNO_INIZIO} 
-Back_Months=${BACK_MONTHS} 
-Destinatario=${DESTINATARIO} 
-Mese_Fine=${MESE_FINE} 
-Mese_Inizio=${MESE_INIZIO} 
-
-var_To=${var_To} 
-var_To_CCN=${var_To_CCN} </comment>
-      <include_files>N</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity>normal</sensitivity>
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>
-        <filetype>GENERAL</filetype>
-      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>768</xloc>
-      <yloc>480</yloc>
-    </entry>
-    <entry>
-      <name>ZIP chiamante</name>
-      <description />
-      <type>JOB</type>
-      <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
-      <jobname>ZIP chiamante</jobname>
-      <directory>/record_SeT/export</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name />
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>Cartella</name>
-          <stream_name />
-          <value>${EXPORT_DIR}</value>
-        </parameter>
-        <parameter>
-          <name>var_To</name>
-          <stream_name />
-          <value>${DESTINATARIO}</value>
-        </parameter>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>768</xloc>
-      <yloc>256</yloc>
-    </entry>
-    <entry>
-      <name>Mail Err ZIP</name>
-      <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc>${var_To_CCN}</destinationBCc>
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: Errore ZIP</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
-      <include_files>N</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity>normal</sensitivity>
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>944</xloc>
-      <yloc>256</yloc>
-    </entry>
-    <entry>
-      <name>email_address</name>
-      <description />
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
-      <transname>email_address</transname>
-      <directory>/record_SeT/export</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>189</xloc>
-      <yloc>126</yloc>
-    </entry>
-    <entry>
-      <name>Mail Ok dopo la transf</name>
-      <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To_CCN}</destination>
-      <destinationCc />
-      <destinationBCc>${var_To_CCN}</destinationBCc>
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: dopo la transf "Lista Parametri"</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment>Anno_Fine=${ANNO_FINE} 
-Anno_Inizio=${ANNO_INIZIO} 
-Back_Months=${BACK_MONTHS} 
-Destinatario=${DESTINATARIO} 
-Mese_Fine=${MESE_FINE} 
-Mese_Inizio=${MESE_INIZIO} 
-Export Dir=${EXPORT_DIR}
-
-var_To=${var_To} </comment>
-      <include_files>N</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity>normal</sensitivity>
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>
-        <filetype>GENERAL</filetype>
-      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>189</xloc>
-      <yloc>443</yloc>
+      <xloc>272</xloc>
+      <yloc>112</yloc>
     </entry>
     <entry>
       <name>Sposta SeT in bak</name>
@@ -1191,10 +874,10 @@ var_To=${var_To} </comment>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <SpecifyFormat>Y</SpecifyFormat>
-      <date_time_format>_yyyy-MM-dd</date_time_format>
+      <date_time_format>yyyy-MM-dd</date_time_format>
       <nr_errors_less_than>10</nr_errors_less_than>
       <success_condition>success_if_no_errors</success_condition>
-      <AddDateBeforeExtension>Y</AddDateBeforeExtension>
+      <AddDateBeforeExtension>N</AddDateBeforeExtension>
       <DoNotKeepFolderStructure>N</DoNotKeepFolderStructure>
       <iffileexists>unique_name</iffileexists>
       <destinationFolder />
@@ -1221,243 +904,68 @@ var_To=${var_To} </comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>768</xloc>
-      <yloc>368</yloc>
+      <xloc>272</xloc>
+      <yloc>224</yloc>
+    </entry>
+    <entry>
+      <name>Sposta SeT in bak 2</name>
+      <description />
+      <type>MOVE_FILES</type>
+      <move_empty_folders>N</move_empty_folders>
+      <arg_from_previous>N</arg_from_previous>
+      <include_subfolders>N</include_subfolders>
+      <add_result_filesname>N</add_result_filesname>
+      <destination_is_a_file>Y</destination_is_a_file>
+      <create_destination_folder>N</create_destination_folder>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format />
+      <nr_errors_less_than>10</nr_errors_less_than>
+      <success_condition>success_if_no_errors</success_condition>
+      <AddDateBeforeExtension>N</AddDateBeforeExtension>
+      <DoNotKeepFolderStructure>N</DoNotKeepFolderStructure>
+      <iffileexists>unique_name</iffileexists>
+      <destinationFolder />
+      <ifmovedfileexists>do_nothing</ifmovedfileexists>
+      <moved_date_time_format />
+      <create_move_to_folder>N</create_move_to_folder>
+      <add_moved_date>N</add_moved_date>
+      <add_moved_time>N</add_moved_time>
+      <SpecifyMoveFormat>N</SpecifyMoveFormat>
+      <AddMovedDateBeforeExtension>N</AddMovedDateBeforeExtension>
+      <simulate>Y</simulate>
+      <fields>
+        <field>
+          <source_filefolder>${EXPORT_DIR}</source_filefolder>
+          <destination_filefolder>${EXPORT_DIR}/bak</destination_filefolder>
+          <wildcard>S.*\.000</wildcard>
+        </field>
+        <field>
+          <source_filefolder>${EXPORT_DIR}</source_filefolder>
+          <destination_filefolder>${EXPORT_DIR}/bak</destination_filefolder>
+          <wildcard>T.*\.000</wildcard>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>544</xloc>
+      <yloc>16</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>Lista_Parametri</from>
-      <to>Export_SeT_mese</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>START</from>
-      <to>Log</to>
+      <to>Sposta SeT in bak</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
-    <hop>
-      <from>Export_SeT_mese</from>
-      <to>ZIP chiamante</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>ZIP chiamante</from>
-      <to>Mail Err ZIP</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Log</from>
-      <to>email_address</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>email_address</from>
-      <to>Lista_Parametri</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Lista_Parametri</from>
-      <to>Mail Ok dopo la transf</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>ZIP chiamante</from>
-      <to>Sposta SeT in bak</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Sposta SeT in bak</from>
-      <to>Mail Ok</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
   </hops>
   <notepads>
-    <notepad>
-      <note>
-
-
-
-
-
-"Execute for every input row"
-+
-Parametri di input del job
-collegati ai campi di output
-della transformation Lista_Parametri
-</note>
-      <xloc>416</xloc>
-      <yloc>256</yloc>
-      <width>176</width>
-      <heigth>142</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>N</drawshadow>
-    </notepad>
-    <notepad>
-      <note>
-
-
-
-
-Questa transformation termina con uno
-step "Copy rows to result"</note>
-      <xloc>128</xloc>
-      <yloc>256</yloc>
-      <width>191</width>
-      <heigth>87</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>165</backgroundcolorgreen>
-      <backgroundcolorblue>0</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>N</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Il periodo da elaborare può essere definito in due modi :
-
-1. se BACK_MONTHS&lt;&gt;0	 si prendono i BACK_MONTHS mesi prima del mese corrente
-2. Anno_Inizio, Mese_Inizio, Anno_Fine e Mese_Fine
-</note>
-      <xloc>192</xloc>
-      <yloc>14</yloc>
-      <width>546</width>
-      <heigth>70</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Zippa ed Invia
-tutti i file S e T
-presenti nella "Cartella"</note>
-      <xloc>720</xloc>
-      <yloc>208</yloc>
-      <width>118</width>
-      <heigth>43</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>invia solo a ${var_To_CCN}</note>
-      <xloc>228</xloc>
-      <yloc>444</yloc>
-      <width>128</width>
-      <heigth>20</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>7</fontsize>
-      <fontbold>Y</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>165</backgroundcolorgreen>
-      <backgroundcolorblue>0</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>invia solo a ${var_To_CCN}</note>
-      <xloc>816</xloc>
-      <yloc>480</yloc>
-      <width>135</width>
-      <heigth>20</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>Y</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>165</backgroundcolorgreen>
-      <backgroundcolorblue>0</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <attributes>
     <group>

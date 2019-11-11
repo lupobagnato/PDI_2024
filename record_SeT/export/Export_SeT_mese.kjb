@@ -8,22 +8,22 @@
   <created_user>admin</created_user>
   <created_date>2008/02/20 15:26:10.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2017/03/16 15:10:49.000</modified_date>
+  <modified_date>2019/11/11 15:24:20.801</modified_date>
   <parameters>
     <parameter>
-      <name>PARAMETER1</name>
+      <name>EXPORT_DIR</name>
+      <default_value />
+      <description />
+    </parameter>
+    <parameter>
+      <name>anno</name>
       <default_value>2015</default_value>
       <description>Anno</description>
     </parameter>
     <parameter>
-      <name>PARAMETER2</name>
+      <name>mese</name>
       <default_value>01</default_value>
       <description>Mese</description>
-    </parameter>
-    <parameter>
-      <name>PARAMETER3</name>
-      <default_value />
-      <description>destinatario mail</description>
     </parameter>
     <parameter>
       <name>var_From</name>
@@ -51,6 +51,57 @@
       <description />
     </parameter>
   </parameters>
+  <connection>
+    <name>db_sopra_logger</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>pdi_logger</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <slaveservers>
     <slaveserver>
       <name>Carte_server</name>
@@ -797,9 +848,14 @@
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration>Pentaho local</run_configuration>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>EXPORT_DIR</name>
+          <stream_name />
+          <value>${EXPORT_DIR}</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -834,9 +890,14 @@
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration>Pentaho local</run_configuration>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>EXPORT_DIR</name>
+          <stream_name />
+          <value>${EXPORT_DIR}</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -912,52 +973,25 @@
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration>Pentaho local</run_configuration>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>anno</name>
+          <stream_name />
+          <value>${anno}</value>
+        </parameter>
+        <parameter>
+          <name>mese</name>
+          <stream_name />
+          <value>${mese}</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>347</xloc>
       <yloc>113</yloc>
-    </entry>
-    <entry>
-      <name>export_SeT_email_dest</name>
-      <description />
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
-      <transname>export_SeT_email_dest</transname>
-      <directory>/record_SeT/export</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>875</xloc>
-      <yloc>239</yloc>
     </entry>
     <entry>
       <name>export_S_LP</name>
@@ -986,9 +1020,14 @@
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration>Pentaho local</run_configuration>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>EXPORT_DIR</name>
+          <stream_name />
+          <value>${EXPORT_DIR}</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -1011,10 +1050,8 @@
       <include_date>Y</include_date>
       <contact_person />
       <contact_phone />
-      <comment>PARAMETER1=${PARAMETER1}
-PARAMETER2=${PARAMETER2}
-
-var_To=${var_To}</comment>
+      <comment>anno=${anno}
+mese=${mese}</comment>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
       <zip_name />
@@ -1028,7 +1065,7 @@ var_To=${var_To}</comment>
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity>normal</sensitivity>
       <secureconnectiontype>SSL</secureconnectiontype>
       <replyToAddresses />
       <filetypes>
@@ -1110,9 +1147,14 @@ var_To=${var_To}</comment>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration>Pentaho local</run_configuration>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>EXPORT_DIR</name>
+          <stream_name />
+          <value>${EXPORT_DIR}</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -1344,20 +1386,19 @@ I file .zip vengono spostati in _old_zip</note>
     </notepad>
     <notepad>
       <note>
-da PARAMETER1 e PARAMETER2 
-(anno e mese della riga corrente), calcola :
+da anno e mese della riga corrente, calcola :
 
 YY
 MM
 file_S
 file_T
 </note>
-      <xloc>481</xloc>
-      <yloc>44</yloc>
-      <width>224</width>
-      <heigth>111</heigth>
+      <xloc>416</xloc>
+      <yloc>64</yloc>
+      <width>216</width>
+      <heigth>98</heigth>
       <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
+      <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
@@ -1371,27 +1412,21 @@ file_T
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
-    <notepad>
-      <note>2016-08-17
-eliminato</note>
-      <xloc>850</xloc>
-      <yloc>198</yloc>
-      <width>83</width>
-      <heigth>40</heigth>
-      <fontname />
-      <fontsize>-1</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>165</backgroundcolorgreen>
-      <backgroundcolorblue>0</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
+  <attributes>
+    <group>
+      <name>METASTORE.pentaho</name>
+      <attribute>
+        <key>Default Run Configuration</key>
+        <value>{"namespace":"pentaho","id":"Default Run Configuration","name":"Default Run Configuration","description":"Defines a default run configuration","metaStoreName":null}</value>
+      </attribute>
+    </group>
+    <group>
+      <name>{"_":"Embedded MetaStore Elements","namespace":"pentaho","type":"Default Run Configuration"}</name>
+      <attribute>
+        <key>Pentaho local</key>
+        <value>{"children":[{"children":[],"id":"server","value":null},{"children":[],"id":"clustered","value":"N"},{"children":[],"id":"name","value":"Pentaho local"},{"children":[],"id":"description","value":null},{"children":[],"id":"readOnly","value":"Y"},{"children":[],"id":"sendResources","value":"N"},{"children":[],"id":"logRemoteExecutionLocally","value":"N"},{"children":[],"id":"remote","value":"N"},{"children":[],"id":"local","value":"Y"},{"children":[],"id":"showTransformations","value":"N"}],"id":"Pentaho local","value":null,"name":"Pentaho local","owner":null,"ownerPermissionsList":[]}</value>
+      </attribute>
+    </group>
+  </attributes>
 </job>
