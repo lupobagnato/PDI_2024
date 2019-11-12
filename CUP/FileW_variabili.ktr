@@ -8,6 +8,11 @@
     <trans_status>0</trans_status>
     <directory>/CUP</directory>
     <parameters>
+      <parameter>
+        <name>yyyymm</name>
+        <default_value>000000</default_value>
+        <description />
+      </parameter>
     </parameters>
     <log>
       <trans-log-table>
@@ -920,37 +925,11 @@
     <created_user>admin</created_user>
     <created_date>2012/05/03 09:41:50.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2015/03/05 15:13:16.000</modified_date>
+    <modified_date>2019/11/12 14:35:02.534</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Legge
-
-	Parameters 1 e 2
-	UserHome e UserDir
-
-per visualizzarli nel file di Log</note>
-      <xloc>269</xloc>
-      <yloc>340</yloc>
-      <width>179</width>
-      <heigth>100</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
     <notepad>
       <note>dopo il 25 si elabora il mese in corso
 </note>
@@ -976,16 +955,6 @@ per visualizzarli nel file di Log</note>
   </notepads>
   <order>
     <hop>
-      <from>Set Variabili</from>
-      <to>Parameters e User</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Parameters e User</from>
-      <to>Variabili_FileW</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Script</from>
       <to>Set Variabili</to>
       <enabled>Y</enabled>
@@ -998,6 +967,11 @@ per visualizzarli nel file di Log</note>
     <hop>
       <from>Get Variables</from>
       <to>Script</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set Variabili</from>
+      <to>Variabili_FileW</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1058,7 +1032,7 @@ per visualizzarli nel file di Log</note>
     <fields>
       <field>
         <name>YYYYMM</name>
-        <variable>${PARAMETER1}</variable>
+        <variable>${yyyymm}</variable>
         <type>String</type>
         <format />
         <currency />
@@ -1079,80 +1053,6 @@ per visualizzarli nel file di Log</note>
     <GUI>
       <xloc>96</xloc>
       <yloc>277</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Parameters e User</name>
-    <type>GetVariable</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>par1</name>
-        <variable>${PARAMETER1}</variable>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>par2</name>
-        <variable>${PARAMETER2}</variable>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>u_home</name>
-        <variable>${user.home}</variable>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>u_dir</name>
-        <variable>${user.dir}</variable>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>344</xloc>
-      <yloc>283</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1347,7 +1247,7 @@ Alert("From position 6 for 7 long : " + str3);
     <enclosure>"</enclosure>
     <enclosure_forced>N</enclosure_forced>
     <enclosure_fix_disabled>Y</enclosure_fix_disabled>
-    <header>Y</header>
+    <header>N</header>
     <footer>N</footer>
     <format>DOS</format>
     <compression>None</compression>
@@ -1357,7 +1257,7 @@ Alert("From position 6 for 7 long : " + str3);
     <fileNameField />
     <create_parent_folder>N</create_parent_folder>
     <file>
-      <name>${user.home}\Documenti\Variabili_FileW</name>
+      <name>${user.home}/Documenti/Variabili_FileW</name>
       <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
@@ -1375,6 +1275,18 @@ Alert("From position 6 for 7 long : " + str3);
       <splitevery>0</splitevery>
     </file>
     <fields>
+      <field>
+        <name>YYYYMM</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <trim_type>none</trim_type>
+        <length>9</length>
+        <precision>-1</precision>
+      </field>
       <field>
         <name>str_s_data</name>
         <type>String</type>
@@ -1400,6 +1312,18 @@ Alert("From position 6 for 7 long : " + str3);
         <precision>-1</precision>
       </field>
       <field>
+        <name>AnnoMese</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <trim_type>none</trim_type>
+        <length>4</length>
+        <precision>-1</precision>
+      </field>
+      <field>
         <name>NomeFile</name>
         <type>String</type>
         <format />
@@ -1409,54 +1333,6 @@ Alert("From position 6 for 7 long : " + str3);
         <nullif />
         <trim_type>none</trim_type>
         <length>20</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>par1</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <trim_type>none</trim_type>
-        <length>20</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>par2</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <trim_type>none</trim_type>
-        <length>20</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>u_home</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <trim_type>none</trim_type>
-        <length>50</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>u_dir</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <trim_type>none</trim_type>
-        <length>50</length>
         <precision>-1</precision>
       </field>
     </fields>
