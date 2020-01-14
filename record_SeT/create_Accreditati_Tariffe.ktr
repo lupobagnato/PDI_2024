@@ -429,11 +429,33 @@
     <created_user>-</created_user>
     <created_date>2019/10/25 11:57:23.913</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/10/28 12:59:20.211</modified_date>
+    <modified_date>2019/12/18 16:23:58.844</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>solo INSERT
+</note>
+      <xloc>400</xloc>
+      <yloc>400</yloc>
+      <width>67</width>
+      <heigth>32</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>db_sopra</name>
@@ -457,19 +479,7 @@
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>INITIAL_POOL_SIZE</code>
-        <attribute>5</attribute>
-      </attribute>
-      <attribute>
         <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>MAXIMUM_POOL_SIZE</code>
-        <attribute>10</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
@@ -477,11 +487,23 @@
         <attribute>1526</attribute>
       </attribute>
       <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>STREAM_RESULTS</code>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET NLS_SORT=WEST_EUROPEAN</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
         <attribute>Y</attribute>
       </attribute>
       <attribute>
@@ -499,42 +521,57 @@
     <hop>
       <from>Tariffari Doppler</from>
       <to>Ins / Upd Accreditati_Tariffe 2</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Tariffari Ortopedia</from>
       <to>Ins / Upd Accreditati_Tariffe 2</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Tariffari Cardiologia</from>
       <to>Ins / Upd Accreditati_Tariffe 2</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Tariffari Base FKT</from>
       <to>Select values 2</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Select values 2</from>
       <to>Ins / Upd Accreditati_Tariffe 3</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Tariffari Base RX</from>
       <to>Select values 2</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Tariffari Neurologia</from>
       <to>Ins / Upd Accreditati_Tariffe 2</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Tariffario Eco Aggiuntive</from>
       <to>Ins / Upd Accreditati_Tariffe 2</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Tariffe 0CSF Base RX</from>
+      <to>Ins / Upd 0ZAC</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Prestazione Singola</from>
+      <to>Ins / Upd ACCREDITATI_TARIFFE</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Tariffe da copiare</from>
+      <to>Insert ACCREDITATI_TARIFFE</to>
+      <enabled>N</enabled>
     </hop>
   </order>
   <step>
@@ -575,14 +612,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>160</yloc>
+      <xloc>48</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Tariffario Base Id1</name>
-    <type>TableInput</type>
+    <name>Ins / Upd 0ZAC</name>
+    <type>InsertUpdate</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -592,45 +629,59 @@
       <schema_name />
     </partitioning>
     <connection>db_sopra</connection>
-    <sql>select 
-1 id
-, n.cod_prest
-, n.descr
-,
-case
-when n.cod_prest = '87.37.1' then null		        -- Mammografia bilaterale
-when n.cod_prest = '88.94.1' then null              -- RM muscoloschelettrica
-when n.cod_prest in ('88.93','88.93.1') then null    -- NUOVA tariffa RM Colonna e Colonna con contrasto 
--- Sconto 20% rispetto al Nomenclatore EcoColorDoppler
-when n.cod_prest in ('88.73.5','88.77.2')  then 0.80
--- Sconto 10% rispetto al Nomenclatore
-when n.cod_prest in 
-(
-'87.16.1','87.17.1','87.22','87.23','87.24','87.43.1','87.43.2','87.44.1','87.49.1','87.79','88.19',
-'88.21','88.22','88.23','88.26','88.27','88.28','88.29.2','87.11.3','87.29','88.29.1','88.33.1'
-, '87.12.1'
-) then 0.90
--- Sconto  2% rispetto al Nomenclatore    	   
-else 0.98              
-end  Sconto  
-,
-case
-when n.cod_prest = '87.37.1' then 26		        -- Mammografia bilaterale
-when n.cod_prest = '88.94.1' then 100               -- RM muscoloschelettrica
-when n.cod_prest in ('88.93','88.93.1') then 93.73  -- NUOVA tariffa RM Colonna e Colonna con contrasto     	   
-else null              
-end  Tariffa
-, '' note
-, n.tar_euro tariffa_ssn
-from 
-nomenclatore n
-
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema />
+      <table>accreditati_tariffe</table>
+      <key>
+        <name>ID</name>
+        <field>ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>COD_PREST</name>
+        <field>COD_PREST</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>ID</name>
+        <rename>ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_PREST</name>
+        <rename>COD_PREST</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DESCR</name>
+        <rename>DESCR</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SCONTO</name>
+        <rename>SCONTO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TARIFFA</name>
+        <rename>TARIFFA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NOTE</name>
+        <rename>NOTE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TARIFFA_SSN</name>
+        <rename>TARIFFA_SSN</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -640,13 +691,13 @@ nomenclatore n
     </remotesteps>
     <GUI>
       <xloc>64</xloc>
-      <yloc>32</yloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Tariffari Doppler</name>
-    <type>TableInput</type>
+    <name>Ins / Upd ACCREDITATI_TARIFFE</name>
+    <type>InsertUpdate</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -656,23 +707,59 @@ nomenclatore n
       <schema_name />
     </partitioning>
     <connection>db_sopra</connection>
-    <sql>select 
-c.idaccreditati_contratto id
-, n.cod_prest
-, n.descr
-, 0.80 Sconto  
-, null Tariffa
-, n.tar_euro tariffa_ssn
-from 
-nomenclatore n
-join dwh.accreditati_contratto c on c.note = 'doppler'
-join dwh.accreditati_esami_disciplina ed on ed.disciplina ='05' and ed.cod_prest = n.cod_prest
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema />
+      <table>accreditati_tariffe</table>
+      <key>
+        <name>ID</name>
+        <field>ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>COD_PREST</name>
+        <field>COD_PREST</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>ID</name>
+        <rename>ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_PREST</name>
+        <rename>COD_PREST</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DESCR</name>
+        <rename>DESCR</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SCONTO</name>
+        <rename>SCONTO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TARIFFA</name>
+        <rename>TARIFFA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NOTE</name>
+        <rename>NOTE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TARIFFA_SSN</name>
+        <rename>TARIFFA_SSN</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -681,8 +768,8 @@ join dwh.accreditati_esami_disciplina ed on ed.disciplina ='05' and ed.cod_prest
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>32</yloc>
+      <xloc>208</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -754,164 +841,8 @@ join dwh.accreditati_esami_disciplina ed on ed.disciplina ='05' and ed.cod_prest
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Tariffari Ortopedia</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>select 
-c.idaccreditati_contratto id
-, n.cod_prest
-, n.descr
-, 0.98 Sconto  
-, null Tariffa
-, n.tar_euro tariffa_ssn
-from 
-nomenclatore n
-join dwh.accreditati_contratto c on c.note = 'orto'
-join dwh.accreditati_esami_disciplina ed on ed.disciplina ='36' and ed.cod_prest = n.cod_prest
-
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>576</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Tariffari Cardiologia</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>select 
-c.idaccreditati_contratto id
-, n.cod_prest
-, n.descr
-, 0.80 Sconto  
-, null Tariffa
-, n.tar_euro tariffa_ssn
-from 
-nomenclatore n
-join dwh.accreditati_contratto c on c.note = 'cardio'
-join dwh.accreditati_esami_disciplina ed on ed.disciplina ='08' and ed.cod_prest = n.cod_prest
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>704</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Tariffari Base FKT</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>select
-c.idaccreditati_contratto id
-, x.*
-from
-dwh.accreditati_tariffe x
-join dwh.accreditati_contratto c on c.note = 'baseFKT'
-join dwh.accreditati_esami_disciplina ed on ed.cod_prest = x.cod_prest
-where
-x.id = 1
-and (ed.disciplina = '56' or ed.cod_prest in ('89.01','89.7'))
-order by 1,3</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>224</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>ID_1</name>
-      </remove>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>224</xloc>
-      <yloc>112</yloc>
+      <xloc>624</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -988,8 +919,121 @@ order by 1,3</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>208</yloc>
+      <xloc>208</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Prestazione Singola</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>select 
+17 id
+, n.cod_prest
+, n.descr
+, 0.98 Sconto  
+, null Tariffa
+, null Note
+, n.tar_euro tariffa_ssn
+from 
+nomenclatore n
+where
+n.cod_prest = '93.01.2'</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>ID_1</name>
+      </remove>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tariffari Base FKT</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>select
+c.idaccreditati_contratto id
+, x.*
+from
+dwh.accreditati_tariffe x
+join dwh.accreditati_contratto c on c.note = 'baseFKT'
+join dwh.accreditati_esami_disciplina ed on ed.cod_prest = x.cod_prest
+where
+x.id = 1
+and (ed.disciplina = '56' or ed.cod_prest in ('89.01','89.7'))
+order by 1,3</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1029,8 +1073,92 @@ order by 1,3</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
-      <yloc>32</yloc>
+      <xloc>320</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tariffari Cardiologia</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>select 
+c.idaccreditati_contratto id
+, n.cod_prest
+, n.descr
+, 0.80 Sconto  
+, null Tariffa
+, n.tar_euro tariffa_ssn
+from 
+nomenclatore n
+join dwh.accreditati_contratto c on c.note = 'cardio'
+join dwh.accreditati_esami_disciplina ed on ed.disciplina ='08' and ed.cod_prest = n.cod_prest
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>688</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tariffari Doppler</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>select 
+c.idaccreditati_contratto id
+, n.cod_prest
+, n.descr
+, 0.80 Sconto  
+, null Tariffa
+, n.tar_euro tariffa_ssn
+from 
+nomenclatore n
+join dwh.accreditati_contratto c on c.note = 'doppler'
+join dwh.accreditati_esami_disciplina ed on ed.disciplina ='05' and ed.cod_prest = n.cod_prest
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1071,8 +1199,115 @@ join dwh.accreditati_esami_disciplina ed on ed.disciplina ='32' and ed.cod_prest
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>32</yloc>
+      <xloc>816</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tariffari Ortopedia</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>select 
+c.idaccreditati_contratto id
+, n.cod_prest
+, n.descr
+, 0.98 Sconto  
+, null Tariffa
+, n.tar_euro tariffa_ssn
+from 
+nomenclatore n
+join dwh.accreditati_contratto c on c.note = 'orto'
+join dwh.accreditati_esami_disciplina ed on ed.disciplina ='36' and ed.cod_prest = n.cod_prest
+
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>560</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tariffario Base Id1</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>select 
+1 id
+, n.cod_prest
+, n.descr
+,
+case
+when n.cod_prest = '87.37.1' then null		        -- Mammografia bilaterale
+when n.cod_prest = '88.94.1' then null              -- RM muscoloschelettrica
+when n.cod_prest in ('88.93','88.93.1') then null    -- NUOVA tariffa RM Colonna e Colonna con contrasto 
+-- Sconto 20% rispetto al Nomenclatore EcoColorDoppler
+when n.cod_prest in ('88.73.5','88.77.2')  then 0.80
+-- Sconto 10% rispetto al Nomenclatore
+when n.cod_prest in 
+(
+'87.16.1','87.17.1','87.22','87.23','87.24','87.43.1','87.43.2','87.44.1','87.49.1','87.79','88.19',
+'88.21','88.22','88.23','88.26','88.27','88.28','88.29.2','87.11.3','87.29','88.29.1','88.33.1'
+, '87.12.1'
+) then 0.90
+-- Sconto  2% rispetto al Nomenclatore    	   
+else 0.98              
+end  Sconto  
+,
+case
+when n.cod_prest = '87.37.1' then 26		        -- Mammografia bilaterale
+when n.cod_prest = '88.94.1' then 100               -- RM muscoloschelettrica
+when n.cod_prest in ('88.93','88.93.1') then 93.73  -- NUOVA tariffa RM Colonna e Colonna con contrasto     	   
+else null              
+end  Tariffa
+, '' note
+, n.tar_euro tariffa_ssn
+from 
+nomenclatore n
+
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1122,8 +1357,170 @@ and t.gettone = '5'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
-      <yloc>224</yloc>
+      <xloc>432</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tariffe 0CSF Base RX</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+  34 ID
+, COD_PREST
+, DESCR
+, SCONTO
+, TARIFFA
+, NOTE
+, TARIFFA_SSN
+FROM ACCREDITATI_TARIFFE
+where
+id = 32
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert ACCREDITATI_TARIFFE</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <commit>100</commit>
+    <update_bypassed>Y</update_bypassed>
+    <lookup>
+      <schema />
+      <table>accreditati_tariffe</table>
+      <key>
+        <name>ID</name>
+        <field>ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>COD_PREST</name>
+        <field>COD_PREST</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>ID</name>
+        <rename>ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_PREST</name>
+        <rename>COD_PREST</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DESCR</name>
+        <rename>DESCR</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SCONTO</name>
+        <rename>SCONTO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TARIFFA</name>
+        <rename>TARIFFA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NOTE</name>
+        <rename>NOTE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TARIFFA_SSN</name>
+        <rename>TARIFFA_SSN</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tariffe da copiare</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>select
+30 id
+, t.cod_prest, t.descr
+, 0.95 sconto
+, null tariffa
+, 'ins 2019.12.18' note
+, t.tariffa_ssn 
+from
+dwh.accreditati_tariffe t
+where
+t.id = '32'
+and t.descr like '%ECOGRAF%'</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
