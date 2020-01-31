@@ -444,6 +444,9 @@
       <partitionschema>
         <name>MySQL EC2 Schema</name>
         <partition>
+          <id>P2</id>
+        </partition>
+        <partition>
           <id>P3</id>
         </partition>
         <partition>
@@ -452,14 +455,17 @@
         <partition>
           <id>P5</id>
         </partition>
-        <partition>
-          <id>P2</id>
-        </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
       </partitionschema>
       <partitionschema>
         <name>Partitioning schema</name>
+        <partition>
+          <id>PartDB3</id>
+        </partition>
+        <partition>
+          <id>PartDB1</id>
+        </partition>
         <partition>
           <id>PartDB2</id>
         </partition>
@@ -467,13 +473,7 @@
           <id>PartDB5</id>
         </partition>
         <partition>
-          <id>PartDB3</id>
-        </partition>
-        <partition>
           <id>PartDB4</id>
-        </partition>
-        <partition>
-          <id>PartDB1</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
@@ -895,9 +895,9 @@
         <slaveservers>
           <name>EC_SLAVE_4</name>
           <name>EC_SLAVE_2</name>
-          <name>EC_SLAVE_3</name>
           <name>EC_MASTER_1</name>
           <name>EC_SLAVE_5</name>
+          <name>EC_SLAVE_3</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -909,8 +909,8 @@
         <dynamic>N</dynamic>
         <slaveservers>
           <name>localhost:8080:Master</name>
-          <name>localhost:8082</name>
           <name>localhost:8081</name>
+          <name>localhost:8082</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -938,7 +938,7 @@
       </clusterschema>
     </clusterschemas>
     <created_user />
-    <created_date>2019/09/16 11:46:28.462</created_date>
+    <created_date>2020/01/24 12:52:39.114</created_date>
     <modified_user>admin</modified_user>
     <modified_date>2018/01/19 14:35:27.000</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
@@ -1244,6 +1244,49 @@ che aggiunge "_b" alla fine</note>
       <attribute>
         <code>STREAM_RESULTS</code>
         <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>db_sopra_logger</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>pdi_logger</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
