@@ -1,19 +1,19 @@
 <transformation>
   <info>
-    <name>HSP22b_setstate</name>
+    <name>STS21_param</name>
     <description />
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/NSIS/old</directory>
+    <directory>/NSIS</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection>HSP_db_sopra</connection>
+        <connection />
         <schema />
-        <table>KETTLE_LOG</table>
+        <table />
         <size_limit_lines />
         <interval />
         <timeout_days />
@@ -41,7 +41,7 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject>New</subject>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
@@ -53,13 +53,13 @@
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject>set Da_Aggiornare</subject>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>modHSP22b</subject>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
@@ -105,7 +105,7 @@
         </field>
         <field>
           <id>LOG_FIELD</id>
-          <enabled>Y</enabled>
+          <enabled>N</enabled>
           <name>LOG_FIELD</name>
         </field>
         <field>
@@ -125,7 +125,7 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection>HSP_db_sopra</connection>
+        <connection />
         <schema />
         <table />
         <interval />
@@ -918,69 +918,14 @@
       </clusterschema>
     </clusterschemas>
     <created_user>admin</created_user>
-    <created_date>2012/04/27 14:40:03.000</created_date>
+    <created_date>2012/04/27 14:39:59.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2010/11/22 16:22:29.000</modified_date>
+    <modified_date>2013/04/09 09:29:21.000</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>HSP_db_sopra</name>
-    <server>ora_sopra.usl1.imperiese</server>
-    <type>ORACLE</type>
-    <access>Native</access>
-    <database>DbSopra</database>
-    <port>1526</port>
-    <username>hsp</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be9abcca</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
-    <attributes>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>INITIAL_POOL_SIZE</code>
-        <attribute>5</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>MAXIMUM_POOL_SIZE</code>
-        <attribute>10</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>1526</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>STREAM_RESULTS</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>HSP_db_sopra (NLS America)</name>
     <server>ora_sopra.usl1.imperiese</server>
@@ -1034,283 +979,34 @@
   </connection>
   <order>
     <hop>
-      <from>Catch New</from>
-      <to>New</to>
+      <from>Kettle_Parametri</from>
+      <to>Row denormaliser</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Row denormaliser</from>
+      <to>Set Variables</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Get System Info</from>
+      <to>STS21_param.TXT</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Catch Deleted</from>
-      <to>FlagField Impossibile</to>
+      <from>Get PARAMETRI</from>
+      <to>Set Variables</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Catch New</from>
-      <to>Catch Changed</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch Changed</from>
-      <to>Catch Deleted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch Changed</from>
-      <to>if Inviati</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>modHSP22b</from>
-      <to>Costanti_Stato</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Costanti_Stato</from>
-      <to>Catch New</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>if Inviati</from>
-      <to>set Da_Aggiornare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>if Inviati</from>
-      <to>if Da_Eliminare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>if Da_Eliminare</from>
-      <to>set Da_Aggiornare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>if Da_Inviare</from>
-      <to>if Inviati o Da_Aggiornare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch Deleted</from>
-      <to>if Da_Inviare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>if Inviati o Da_Aggiornare</from>
-      <to>set Da_Eliminare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>if Da_Inviare</from>
-      <to>Cancella</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>if Inviati o Da_Aggiornare</from>
-      <to>Da_Eliminare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>if Da_Eliminare</from>
-      <to>Da_Inviare e Da_Aggiornare</to>
+      <from>Set Variables</from>
+      <to>Get System Info</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Cancella</name>
-    <type>Delete</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema />
-      <table>MODHSP22B</table>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>MESE</name>
-        <field>MESE</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>REPARTO</name>
-        <field>REPARTO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>597</xloc>
-      <yloc>219</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Catch Changed</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>if Inviati</send_true_to>
-    <send_false_to>Catch Deleted</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>flagfield</leftvalue>
-            <function>=</function>
-            <rightvalue />
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>changed</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask />
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>244</xloc>
-      <yloc>117</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Catch Deleted</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>if Da_Inviare</send_true_to>
-    <send_false_to>FlagField Impossibile</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>flagfield</leftvalue>
-            <function>=</function>
-            <rightvalue />
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>deleted</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask />
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>465</xloc>
-      <yloc>117</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Catch New</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>New</send_true_to>
-    <send_false_to>Catch Changed</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>flagfield</leftvalue>
-            <function>=</function>
-            <rightvalue />
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>new</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask />
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>118</xloc>
-      <yloc>117</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Costanti_Stato</name>
-    <type>Constant</type>
+    <name>Get PARAMETRI</name>
+    <type>GetVariable</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1321,52 +1017,16 @@
     </partitioning>
     <fields>
       <field>
-        <name>Da_Inviare</name>
+        <name>par_Anno</name>
+        <variable>${PARAMETER1}</variable>
         <type>String</type>
         <format />
         <currency />
         <decimal />
         <group />
-        <nullif>0</nullif>
         <length>-1</length>
         <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Inviato</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>S</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Da_Aggiornare</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Da_Eliminare</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>9</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
+        <trim_type>none</trim_type>
       </field>
     </fields>
     <cluster_schema />
@@ -1377,14 +1037,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>22</xloc>
-      <yloc>117</yloc>
+      <xloc>211</xloc>
+      <yloc>143</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Da_Eliminare</name>
-    <type>Dummy</type>
+    <name>Get System Info</name>
+    <type>SystemInfo</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1393,6 +1053,12 @@
       <method>none</method>
       <schema_name />
     </partitioning>
+    <fields>
+      <field>
+        <name>sysdate</name>
+        <type>system date (fixed)</type>
+      </field>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1401,237 +1067,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>465</xloc>
-      <yloc>504</yloc>
+      <xloc>211</xloc>
+      <yloc>359</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Da_Inviare e Da_Aggiornare</name>
-    <type>Dummy</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>244</xloc>
-      <yloc>505</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>FlagField Impossibile</name>
-    <type>Abort</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <row_threshold>0</row_threshold>
-    <message />
-    <always_log_rows>Y</always_log_rows>
-    <abort_with_error>Y</abort_with_error>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>659</xloc>
-      <yloc>117</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>New</name>
-    <type>Dummy</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>118</xloc>
-      <yloc>212</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>if Da_Eliminare</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>set Da_Aggiornare</send_true_to>
-    <send_false_to>Da_Inviare e Da_Aggiornare</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>STATO</leftvalue>
-        <function>=</function>
-        <rightvalue>Da_Eliminare</rightvalue>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>244</xloc>
-      <yloc>314</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>if Da_Inviare</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Cancella</send_true_to>
-    <send_false_to>if Inviati o Da_Aggiornare</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>STATO</leftvalue>
-        <function>=</function>
-        <rightvalue>Da_Inviare</rightvalue>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>465</xloc>
-      <yloc>218</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>if Inviati</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>set Da_Aggiornare</send_true_to>
-    <send_false_to>if Da_Eliminare</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>STATO</leftvalue>
-        <function>=</function>
-        <rightvalue>Inviato</rightvalue>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>244</xloc>
-      <yloc>212</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>if Inviati o Da_Aggiornare</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>set Da_Eliminare</send_true_to>
-    <send_false_to>Da_Eliminare</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>STATO</leftvalue>
-            <function>=</function>
-            <rightvalue>Inviato</rightvalue>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>STATO</leftvalue>
-            <function>=</function>
-            <rightvalue>Da_Aggiornare</rightvalue>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>465</xloc>
-      <yloc>372</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>modHSP22b</name>
+    <name>Kettle_Parametri</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1643,31 +1085,19 @@
     </partitioning>
     <connection>HSP_db_sopra (NLS America)</connection>
     <sql>SELECT
-  ANNO
-, MESE
-, REPARTO
-, REGIONE
-, ASL
-, STRUTTURA
-, PL_ORD
-, PL_DH
-, PL_DS
-, STATO
-, FLAGFIELD
---, DATA_INS
---, DATA_MOD
---, DATA_INVIO
---, JOB_ID
---, TRANSFORMATION_ID
-FROM MODHSP22B
+  PROCEDURA
+, PARAMETRO
+, VALORE
+FROM KETTLE_PARAMETRI
 where
---anno = '${YYYY}' and mese = '${MM}'
-anno = '2008' and mese between '01' and '04'
+procedura = 'STS21'
+order by
+procedura
 </sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
+    <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema />
     <remotesteps>
@@ -1677,14 +1107,14 @@ anno = '2008' and mese between '01' and '04'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>19</xloc>
-      <yloc>14</yloc>
+      <xloc>67</xloc>
+      <yloc>34</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>set Da_Aggiornare</name>
-    <type>Update</type>
+    <name>Row denormaliser</name>
+    <type>Denormaliser</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1693,38 +1123,28 @@ anno = '2008' and mese between '01' and '04'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field />
-    <lookup>
-      <schema />
-      <table>MODHSP22B</table>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>MESE</name>
-        <field>MESE</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>REPARTO</name>
-        <field>REPARTO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>STATO</name>
-        <rename>Da_Aggiornare</rename>
-      </value>
-    </lookup>
+    <key_field>PARAMETRO</key_field>
+    <group>
+      <field>
+        <name>PROCEDURA</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <field_name>VALORE</field_name>
+        <key_value>YYYY</key_value>
+        <target_name>ANNO</target_name>
+        <target_type>String</target_type>
+        <target_format />
+        <target_length>4</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol />
+        <target_grouping_symbol />
+        <target_currency_symbol />
+        <target_null_string />
+        <target_aggregation_type>-</target_aggregation_type>
+      </field>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1733,14 +1153,14 @@ anno = '2008' and mese between '01' and '04'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>357</xloc>
-      <yloc>260</yloc>
+      <xloc>67</xloc>
+      <yloc>136</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>set Da_Eliminare</name>
-    <type>Update</type>
+    <name>STS21_param.TXT</name>
+    <type>TextFileOutput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1749,38 +1169,63 @@ anno = '2008' and mese between '01' and '04'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field />
-    <lookup>
-      <schema />
-      <table>MODHSP22B</table>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>MESE</name>
-        <field>MESE</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>REPARTO</name>
-        <field>REPARTO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>STATO</name>
-        <rename>Da_Eliminare</rename>
-      </value>
-    </lookup>
+    <separator> </separator>
+    <enclosure />
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>Y</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding />
+    <endedLine />
+    <fileNameInField>N</fileNameInField>
+    <fileNameField />
+    <create_parent_folder>N</create_parent_folder>
+    <file>
+      <name>${user.home}\Documenti\${Internal.Transformation.Name}</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>Y</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format />
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>sysdate</name>
+        <type>Date</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>par_Anno</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <trim_type>none</trim_type>
+        <length>4</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1789,8 +1234,41 @@ anno = '2008' and mese between '01' and '04'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>597</xloc>
-      <yloc>372</yloc>
+      <xloc>211</xloc>
+      <yloc>473</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set Variables</name>
+    <type>SetVariable</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <field_name>par_Anno</field_name>
+        <variable_name>YYYY</variable_name>
+        <variable_type>JVM</variable_type>
+        <default_value />
+      </field>
+    </fields>
+    <use_formatting>N</use_formatting>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>211</xloc>
+      <yloc>261</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
