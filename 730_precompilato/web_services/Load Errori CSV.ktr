@@ -9,13 +9,18 @@
     <directory>/730_precompilato/web_services</directory>
     <parameters>
       <parameter>
+        <name>_LogTrans</name>
+        <default_value>SPE730_LOGT</default_value>
+        <description>ovverride Transf Log table</description>
+      </parameter>
+      <parameter>
         <name>protocollo</name>
-        <default_value>16011817100468284</default_value>
+        <default_value>20012813444434966</default_value>
         <description />
       </parameter>
       <parameter>
         <name>ric_path</name>
-        <default_value>P:\Documenti\730\ricevute</default_value>
+        <default_value>/mnt/minollo/730/ricevute</default_value>
         <description>dove vengono scompattati i .CSV</description>
       </parameter>
     </parameters>
@@ -471,6 +476,19 @@
     </partitionschemas>
     <slaveservers>
       <slaveserver>
+        <name>carte</name>
+        <hostname>localhost</hostname>
+        <port>8181</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
         <name>Carte_server</name>
         <hostname>minollo</hostname>
         <port />
@@ -484,8 +502,8 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8080:Master</name>
-        <hostname>localhost</hostname>
+        <name>EC_MASTER_1</name>
+        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
         <port>8080</port>
         <webAppName />
         <username>cluster</username>
@@ -497,9 +515,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8082</name>
-        <hostname>localhost</hostname>
-        <port>8082</port>
+        <name>EC_SLAVE_1</name>
+        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+        <port>8080</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -510,7 +528,72 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8081</name>
+        <name>EC_SLAVE_2</name>
+        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_3</name>
+        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_4</name>
+        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_5</name>
+        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Jos 10.0.0.169</name>
+        <hostname>10.0.0.169</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Localhost 8081</name>
         <hostname>localhost</hostname>
         <port>8081</port>
         <webAppName />
@@ -536,9 +619,48 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8084</name>
+        <name>localhost:8080 master</name>
         <hostname>localhost</hostname>
-        <port>8084</port>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8080:Master</name>
+        <hostname>localhost</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8081</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8082</name>
+        <hostname>localhost</hostname>
+        <port>8082</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -562,16 +684,29 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8080 master</name>
+        <name>localhost:8084</name>
         <hostname>localhost</hostname>
-        <port>8080</port>
+        <port>8084</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
         <proxy_hostname />
         <proxy_port />
         <non_proxy_hosts />
-        <master>Y</master>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Mike ETL Server</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
@@ -581,45 +716,6 @@
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>ruwvs07</name>
-        <hostname>ruwvs07</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>zebulon slave</name>
-        <hostname>192.168.1.277</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Jos 10.0.0.169</name>
-        <hostname>10.0.0.169</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
         <proxy_hostname />
         <proxy_port />
         <non_proxy_hosts />
@@ -653,138 +749,8 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>carte</name>
-        <hostname>localhost</hostname>
-        <port>8181</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server8080</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server8090</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8090</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server9000</name>
-        <hostname>127.0.0.1</hostname>
-        <port>9000</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_2</name>
-        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_4</name>
-        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_3</name>
-        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_MASTER_1</name>
-        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_5</name>
-        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Localhost 8081</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_1</name>
-        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+        <name>ruwvs07</name>
+        <hostname>ruwvs07</hostname>
         <port>8080</port>
         <webAppName />
         <username>cluster</username>
@@ -835,9 +801,22 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>Warmath</name>
-        <hostname>liveinalpharetta.com</hostname>
-        <port>8083</port>
+        <name>server8080</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server8090</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8090</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -848,9 +827,22 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>Mike ETL Server</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
+        <name>server9000</name>
+        <hostname>127.0.0.1</hostname>
+        <port>9000</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Warmath</name>
+        <hostname>liveinalpharetta.com</hostname>
+        <port>8083</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -871,6 +863,19 @@
         <proxy_port />
         <non_proxy_hosts />
         <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>zebulon slave</name>
+        <hostname>192.168.1.277</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
     </slaveservers>
@@ -930,7 +935,7 @@
     <created_user />
     <created_date>2020/01/24 12:52:41.131</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2016/01/21 10:10:17.000</modified_date>
+    <modified_date>2020/02/25 15:45:52.311</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -942,8 +947,8 @@ ma da un errore di
  "unparsable date" 
 quando l'update cerca di verificare 
 se il valore è cambiato</note>
-      <xloc>365</xloc>
-      <yloc>27</yloc>
+      <xloc>320</xloc>
+      <yloc>32</yloc>
       <width>299</width>
       <heigth>100</heigth>
       <fontname>Arial</fontname>
@@ -956,6 +961,27 @@ se il valore è cambiato</note>
       <backgroundcolorred>255</backgroundcolorred>
       <backgroundcolorgreen>165</backgroundcolorgreen>
       <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2020-02-24</note>
+      <xloc>0</xloc>
+      <yloc>0</yloc>
+      <width>66</width>
+      <heigth>21</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>173</backgroundcolorred>
+      <backgroundcolorgreen>216</backgroundcolorgreen>
+      <backgroundcolorblue>230</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -984,19 +1010,7 @@ se il valore è cambiato</note>
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>INITIAL_POOL_SIZE</code>
-        <attribute>5</attribute>
-      </attribute>
-      <attribute>
         <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>MAXIMUM_POOL_SIZE</code>
-        <attribute>10</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
@@ -1004,11 +1018,23 @@ se il valore è cambiato</note>
         <attribute>1526</attribute>
       </attribute>
       <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>STREAM_RESULTS</code>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET NLS_SORT=WEST_EUROPEAN</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
         <attribute>Y</attribute>
       </attribute>
       <attribute>
@@ -1047,12 +1073,28 @@ se il valore è cambiato</note>
         <attribute>1526</attribute>
       </attribute>
       <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET NLS_LANGUAGE=ITALIAN ;
+ALTER SESSION SET NLS_TERRITORY=ITALY;
+
+--ALTER SESSION SET NLS_SORT=WEST_EUROPEAN:
+</attribute>
+      </attribute>
+      <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -1098,7 +1140,7 @@ se il valore è cambiato</note>
       <method>none</method>
       <schema_name />
     </partitioning>
-    <filename>${ric_path}\${protocollo}.csv</filename>
+    <filename>${ric_path}/${protocollo}.csv</filename>
     <filename_field />
     <rownum_field />
     <include_filename>N</include_filename>
@@ -1242,8 +1284,8 @@ se il valore è cambiato</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>149</xloc>
-      <yloc>39</yloc>
+      <xloc>112</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1276,8 +1318,8 @@ se il valore è cambiato</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>486</xloc>
-      <yloc>227</yloc>
+      <xloc>112</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1320,8 +1362,8 @@ se il valore è cambiato</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>308</xloc>
-      <yloc>39</yloc>
+      <xloc>272</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1358,8 +1400,8 @@ se il valore è cambiato</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>308</xloc>
-      <yloc>241</yloc>
+      <xloc>272</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1484,8 +1526,8 @@ se il valore è cambiato</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>308</xloc>
-      <yloc>342</yloc>
+      <xloc>272</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1516,8 +1558,8 @@ se il valore è cambiato</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>308</xloc>
-      <yloc>140</yloc>
+      <xloc>272</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1553,8 +1595,8 @@ se il valore è cambiato</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>485</xloc>
-      <yloc>344</yloc>
+      <xloc>112</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
