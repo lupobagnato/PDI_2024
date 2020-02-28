@@ -8,7 +8,7 @@
   <created_user>admin</created_user>
   <created_date>2007/09/05 10:01:28.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2018/01/18 10:04:01.000</modified_date>
+  <modified_date>2020/02/28 11:37:42.249</modified_date>
   <parameters>
     <parameter>
       <name>_LogJob730</name>
@@ -21,23 +21,8 @@
       <description>ovverride Transf Log table</description>
     </parameter>
     <parameter>
-      <name>e_Mese</name>
-      <default_value>x</default_value>
-      <description />
-    </parameter>
-    <parameter>
       <name>e_YYYYMMDD</name>
       <default_value>YYYYMMDD</default_value>
-      <description />
-    </parameter>
-    <parameter>
-      <name>nome_origine</name>
-      <default_value>CUPSSN</default_value>
-      <description>serve a costruire i nomi di tabelle buffer e viste</description>
-    </parameter>
-    <parameter>
-      <name>s_Mese</name>
-      <default_value>x</default_value>
       <description />
     </parameter>
     <parameter>
@@ -127,6 +112,19 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
   </connection>
   <slaveservers>
     <slaveserver>
+      <name>carte</name>
+      <hostname>localhost</hostname>
+      <port>8181</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
       <name>Carte_server</name>
       <hostname>minollo</hostname>
       <port />
@@ -140,8 +138,8 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>localhost:8080:Master</name>
-      <hostname>localhost</hostname>
+      <name>EC_MASTER_1</name>
+      <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
       <port>8080</port>
       <webAppName />
       <username>cluster</username>
@@ -153,9 +151,9 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>localhost:8082</name>
-      <hostname>localhost</hostname>
-      <port>8082</port>
+      <name>EC_SLAVE_1</name>
+      <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+      <port>8080</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -166,7 +164,72 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>localhost:8081</name>
+      <name>EC_SLAVE_2</name>
+      <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>EC_SLAVE_3</name>
+      <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>EC_SLAVE_4</name>
+      <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>EC_SLAVE_5</name>
+      <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>Jos 10.0.0.169</name>
+      <hostname>10.0.0.169</hostname>
+      <port>8081</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>Localhost 8081</name>
       <hostname>localhost</hostname>
       <port>8081</port>
       <webAppName />
@@ -192,9 +255,48 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>localhost:8084</name>
+      <name>localhost:8080 master</name>
       <hostname>localhost</hostname>
-      <port>8084</port>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>Y</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>localhost:8080:Master</name>
+      <hostname>localhost</hostname>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>Y</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>localhost:8081</name>
+      <hostname>localhost</hostname>
+      <port>8081</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>localhost:8082</name>
+      <hostname>localhost</hostname>
+      <port>8082</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -218,16 +320,29 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>localhost:8080 master</name>
+      <name>localhost:8084</name>
       <hostname>localhost</hostname>
-      <port>8080</port>
+      <port>8084</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
       <proxy_hostname />
       <proxy_port />
       <non_proxy_hosts />
-      <master>Y</master>
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>Mike ETL Server</name>
+      <hostname>localhost</hostname>
+      <port>8081</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
@@ -237,45 +352,6 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>ruwvs07</name>
-      <hostname>ruwvs07</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>zebulon slave</name>
-      <hostname>192.168.1.277</hostname>
-      <port>8081</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>Y</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>Jos 10.0.0.169</name>
-      <hostname>10.0.0.169</hostname>
-      <port>8081</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
       <proxy_hostname />
       <proxy_port />
       <non_proxy_hosts />
@@ -309,138 +385,8 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>carte</name>
-      <hostname>localhost</hostname>
-      <port>8181</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>server8080</name>
-      <hostname>127.0.0.1</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>Y</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>server8090</name>
-      <hostname>127.0.0.1</hostname>
-      <port>8090</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>server9000</name>
-      <hostname>127.0.0.1</hostname>
-      <port>9000</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>EC_SLAVE_2</name>
-      <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>EC_SLAVE_4</name>
-      <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>EC_SLAVE_3</name>
-      <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>EC_MASTER_1</name>
-      <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>Y</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>EC_SLAVE_5</name>
-      <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>Localhost 8081</name>
-      <hostname>localhost</hostname>
-      <port>8081</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>EC_SLAVE_1</name>
-      <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+      <name>ruwvs07</name>
+      <hostname>ruwvs07</hostname>
       <port>8080</port>
       <webAppName />
       <username>cluster</username>
@@ -491,9 +437,22 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>Warmath</name>
-      <hostname>liveinalpharetta.com</hostname>
-      <port>8083</port>
+      <name>server8080</name>
+      <hostname>127.0.0.1</hostname>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>Y</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>server8090</name>
+      <hostname>127.0.0.1</hostname>
+      <port>8090</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -504,9 +463,22 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>Mike ETL Server</name>
-      <hostname>localhost</hostname>
-      <port>8081</port>
+      <name>server9000</name>
+      <hostname>127.0.0.1</hostname>
+      <port>9000</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>Warmath</name>
+      <hostname>liveinalpharetta.com</hostname>
+      <port>8083</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -527,6 +499,19 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <proxy_port />
       <non_proxy_hosts />
       <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>zebulon slave</name>
+      <hostname>192.168.1.277</hostname>
+      <port>8081</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
   </slaveservers>
@@ -804,40 +789,6 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
   <shared_objects_file />
   <entries>
     <entry>
-      <name>Log_Parameters</name>
-      <description />
-      <type>JOB</type>
-      <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
-      <jobname>Log_Parameters</jobname>
-      <directory>/__system__</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name />
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>410</xloc>
-      <yloc>130</yloc>
-    </entry>
-    <entry>
       <name>Mail Err import_cupssn</name>
       <description />
       <type>MAIL</type>
@@ -875,36 +826,15 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>410</xloc>
-      <yloc>294</yloc>
-    </entry>
-    <entry>
-      <name>Log</name>
-      <description />
-      <type>WRITE_TO_LOG</type>
-      <logmessage>java.runtime.version =  ${java.runtime.version}
-Job.Name=${Internal.Job.Name}
-nome_origine=${nome_origine}
-s_Mese=${s_Mese}
-e_Mese=${e_Mese}
-***** s_YYYYMMDD=${s_YYYYMMDD} *****
-***** e_YYYYMMDD=${e_YYYYMMDD} *****
-
-</logmessage>
-      <loglevel>Basic</loglevel>
-      <logsubject>${Internal.Job.Name}</logsubject>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>250</xloc>
-      <yloc>130</yloc>
+      <xloc>144</xloc>
+      <yloc>144</yloc>
     </entry>
     <entry>
       <name>import_cupssn</name>
       <description />
       <type>JOB</type>
       <specification_method>rep_name</specification_method>
-      <job_object_id>388</job_object_id>
+      <job_object_id />
       <filename />
       <jobname>import_cupssn</jobname>
       <directory>/730_precompilato</directory>
@@ -935,20 +865,50 @@ e_Mese=${e_Mese}
           <stream_name />
           <value>${e_YYYYMMDD}</value>
         </parameter>
+        <parameter>
+          <name>_LogJob730</name>
+          <stream_name />
+          <value>${_LogJob730}</value>
+        </parameter>
+        <parameter>
+          <name>_LogTrans</name>
+          <stream_name />
+          <value>${_LogTrans}</value>
+        </parameter>
+        <parameter>
+          <name>var_From</name>
+          <stream_name />
+          <value>${var_From}</value>
+        </parameter>
+        <parameter>
+          <name>var_Port</name>
+          <stream_name />
+          <value>${var_Port}</value>
+        </parameter>
+        <parameter>
+          <name>var_Smtp</name>
+          <stream_name />
+          <value>${var_Smtp}</value>
+        </parameter>
+        <parameter>
+          <name>var_To</name>
+          <stream_name />
+          <value>${var_To}</value>
+        </parameter>
       </parameters>
       <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>410</xloc>
-      <yloc>209</yloc>
+      <xloc>144</xloc>
+      <yloc>64</yloc>
     </entry>
     <entry>
       <name>import_lpamb</name>
       <description />
       <type>JOB</type>
       <specification_method>rep_name</specification_method>
-      <job_object_id>409</job_object_id>
+      <job_object_id />
       <filename />
       <jobname>import_lpamb</jobname>
       <directory>/730_precompilato</directory>
@@ -979,13 +939,43 @@ e_Mese=${e_Mese}
           <stream_name />
           <value>${e_YYYYMMDD}</value>
         </parameter>
+        <parameter>
+          <name>_LogJob730</name>
+          <stream_name />
+          <value>${_LogJob730}</value>
+        </parameter>
+        <parameter>
+          <name>_LogTrans</name>
+          <stream_name />
+          <value>${_LogTrans}</value>
+        </parameter>
+        <parameter>
+          <name>var_From</name>
+          <stream_name />
+          <value>${var_From}</value>
+        </parameter>
+        <parameter>
+          <name>var_Port</name>
+          <stream_name />
+          <value>${var_Port}</value>
+        </parameter>
+        <parameter>
+          <name>var_Smtp</name>
+          <stream_name />
+          <value>${var_Smtp}</value>
+        </parameter>
+        <parameter>
+          <name>var_To</name>
+          <stream_name />
+          <value>${var_To}</value>
+        </parameter>
       </parameters>
       <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>724</xloc>
-      <yloc>209</yloc>
+      <xloc>464</xloc>
+      <yloc>64</yloc>
     </entry>
     <entry>
       <name>Mail Err import_lpamb</name>
@@ -1025,8 +1015,8 @@ e_Mese=${e_Mese}
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>724</xloc>
-      <yloc>294</yloc>
+      <xloc>464</xloc>
+      <yloc>144</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -1035,31 +1025,8 @@ e_Mese=${e_Mese}
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>881</xloc>
-      <yloc>209</yloc>
-    </entry>
-    <entry>
-      <name>Imposta Periodo</name>
-      <description />
-      <type>EVAL</type>
-      <script>s_Mese = parent_job.getVariable("s_Mese");
-if (s_Mese != "x") {
-parent_job.setVariable("s_YYYYMMDD",s_Mese)
-}
-
-e_Mese = parent_job.getVariable("e_Mese");
-if (e_Mese != "x") {
-parent_job.setVariable("e_YYYYMMDD",e_Mese)
-}
-
-
-true;
-</script>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>120</xloc>
-      <yloc>130</yloc>
+      <xloc>624</xloc>
+      <yloc>64</yloc>
     </entry>
     <entry>
       <name>Start</name>
@@ -1078,8 +1045,8 @@ true;
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>24</xloc>
-      <yloc>19</yloc>
+      <xloc>32</xloc>
+      <yloc>16</yloc>
     </entry>
     <entry>
       <name>Mail Err import_cupextra</name>
@@ -1119,15 +1086,15 @@ true;
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>567</xloc>
-      <yloc>294</yloc>
+      <xloc>304</xloc>
+      <yloc>144</yloc>
     </entry>
     <entry>
       <name>import_cupextra</name>
       <description />
       <type>JOB</type>
       <specification_method>rep_name</specification_method>
-      <job_object_id>423</job_object_id>
+      <job_object_id />
       <filename />
       <jobname>import_cupextra</jobname>
       <directory>/730_precompilato</directory>
@@ -1158,13 +1125,43 @@ true;
           <stream_name />
           <value>${e_YYYYMMDD}</value>
         </parameter>
+        <parameter>
+          <name>_LogJob730</name>
+          <stream_name />
+          <value>${_LogJob730}</value>
+        </parameter>
+        <parameter>
+          <name>_LogTrans</name>
+          <stream_name />
+          <value>${_LogTrans}</value>
+        </parameter>
+        <parameter>
+          <name>var_From</name>
+          <stream_name />
+          <value>${var_From}</value>
+        </parameter>
+        <parameter>
+          <name>var_Port</name>
+          <stream_name />
+          <value>${var_Port}</value>
+        </parameter>
+        <parameter>
+          <name>var_Smtp</name>
+          <stream_name />
+          <value>${var_Smtp}</value>
+        </parameter>
+        <parameter>
+          <name>var_To</name>
+          <stream_name />
+          <value>${var_To}</value>
+        </parameter>
       </parameters>
       <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>567</xloc>
-      <yloc>209</yloc>
+      <xloc>304</xloc>
+      <yloc>64</yloc>
     </entry>
   </entries>
   <hops>
@@ -1184,42 +1181,6 @@ true;
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Log</from>
-      <to>Log_Parameters</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Start</from>
-      <to>Imposta Periodo</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Imposta Periodo</from>
-      <to>Log</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Log_Parameters</from>
-      <to>import_cupssn</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
@@ -1258,37 +1219,17 @@ true;
       <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
+    <hop>
+      <from>Start</from>
+      <to>import_cupssn</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
   </hops>
   <notepads>
-    <notepad>
-      <note>13.01.2017
-
-i valori parametri 
-	s_YYYYMMDD
-	e_YYYYMMDD
-possono essere modificati nel job
-per far arrivare il valore nei job chiamati
-si devono inserire nella chiamata
-</note>
-      <xloc>509</xloc>
-      <yloc>10</yloc>
-      <width>208</width>
-      <heigth>111</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
     <notepad>
       <note>--- Importante ---
 La "deduplicazione" dei numeri ricevuta
@@ -1300,13 +1241,13 @@ Si possono fare import parziali dei mesi,
 ma il secondo numero ricevuta verrà segnato
 con err_cod = 'RICEVUTA_doppia' 
 (ed escluso dal flusso)
-==> riprtere l'import con Gen-Dic</note>
-      <xloc>7</xloc>
-      <yloc>249</yloc>
-      <width>246</width>
-      <heigth>149</heigth>
+==> ripetere l'import con Gen-Dic</note>
+      <xloc>16</xloc>
+      <yloc>224</yloc>
+      <width>226</width>
+      <heigth>131</heigth>
       <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
+      <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>255</fontcolorred>
@@ -1323,8 +1264,8 @@ con err_cod = 'RICEVUTA_doppia'
     <notepad>
       <note>aggiunto
 17.01.2018</note>
-      <xloc>545</xloc>
-      <yloc>168</yloc>
+      <xloc>288</xloc>
+      <yloc>32</yloc>
       <width>75</width>
       <heigth>40</heigth>
       <fontname>Arial</fontname>
