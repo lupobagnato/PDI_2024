@@ -9,6 +9,11 @@
     <directory>/730_precompilato/web_services</directory>
     <parameters>
       <parameter>
+        <name>BackDays</name>
+        <default_value>1</default_value>
+        <description>Invii di oggi + BackDays giorni</description>
+      </parameter>
+      <parameter>
         <name>PROXY_HOST</name>
         <default_value>10.98.1.236</default_value>
         <description />
@@ -35,7 +40,7 @@
       </parameter>
       <parameter>
         <name>dir_730</name>
-        <default_value>/mnt/avatardoc/730</default_value>
+        <default_value>/mnt/minollo/730</default_value>
         <description />
       </parameter>
       <parameter>
@@ -960,7 +965,7 @@
     <created_user />
     <created_date>2020/01/24 12:52:41.077</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2020/01/29 11:39:41.390</modified_date>
+    <modified_date>2020/03/04 14:35:14.951</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1032,11 +1037,6 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Get System Info</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select values</from>
       <to>Write to log</to>
       <enabled>Y</enabled>
@@ -1089,6 +1089,21 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
     <hop>
       <from>Add constants</from>
       <to>result</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get System Info</from>
+      <to>Get Variables 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get Variables 2</from>
+      <to>Calculator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculator</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1209,8 +1224,8 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>603</xloc>
-      <yloc>210</yloc>
+      <xloc>576</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1233,8 +1248,8 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>469</xloc>
-      <yloc>211</yloc>
+      <xloc>448</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1314,8 +1329,8 @@ var requestXml=request.toXMLString();
       </output>
     </remotesteps>
     <GUI>
-      <xloc>339</xloc>
-      <yloc>99</yloc>
+      <xloc>320</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1331,10 +1346,6 @@ var requestXml=request.toXMLString();
       <schema_name />
     </partitioning>
     <fields>
-      <field>
-        <name>data_inizio</name>
-        <type>yesterday start</type>
-      </field>
       <field>
         <name>data_fine</name>
         <type>system date (fixed)</type>
@@ -1352,7 +1363,7 @@ var requestXml=request.toXMLString();
       </output>
     </remotesteps>
     <GUI>
-      <xloc>65</xloc>
+      <xloc>48</xloc>
       <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1390,8 +1401,8 @@ var requestXml=request.toXMLString();
       </output>
     </remotesteps>
     <GUI>
-      <xloc>205</xloc>
-      <yloc>99</yloc>
+      <xloc>176</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1570,8 +1581,8 @@ var requestXml=request.toXMLString();
       </output>
     </remotesteps>
     <GUI>
-      <xloc>730</xloc>
-      <yloc>99</yloc>
+      <xloc>704</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1615,8 +1626,8 @@ var requestXml=request.toXMLString();
       </output>
     </remotesteps>
     <GUI>
-      <xloc>469</xloc>
-      <yloc>99</yloc>
+      <xloc>448</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1652,8 +1663,8 @@ var requestXml=request.toXMLString();
       </output>
     </remotesteps>
     <GUI>
-      <xloc>579</xloc>
-      <yloc>99</yloc>
+      <xloc>560</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1721,8 +1732,8 @@ var requestXml=request.toXMLString();
       </output>
     </remotesteps>
     <GUI>
-      <xloc>659</xloc>
-      <yloc>18</yloc>
+      <xloc>640</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1782,8 +1793,8 @@ var requestXml=request.toXMLString();
       </output>
     </remotesteps>
     <GUI>
-      <xloc>65</xloc>
-      <yloc>99</yloc>
+      <xloc>48</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1827,8 +1838,8 @@ https.protocols = ${https.protocols}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>65</xloc>
-      <yloc>265</yloc>
+      <xloc>48</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2014,8 +2025,8 @@ https.protocols = ${https.protocols}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>837</xloc>
-      <yloc>100</yloc>
+      <xloc>816</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2126,8 +2137,115 @@ https.protocols = ${https.protocols}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>905</xloc>
-      <yloc>29</yloc>
+      <xloc>880</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get Variables 2</name>
+    <type>GetVariable</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>gg_indietro</name>
+        <variable>${BackDays}</variable>
+        <type>Number</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>144</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculator</name>
+    <type>Calculator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <calculation>
+      <field_name>meno_uno</field_name>
+      <calc_type>CONSTANT</calc_type>
+      <field_a>-1</field_a>
+      <field_b />
+      <field_c />
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <calculation>
+      <field_name>gg</field_name>
+      <calc_type>MULTIPLY</calc_type>
+      <field_a>meno_uno</field_a>
+      <field_b>gg_indietro</field_b>
+      <field_c />
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <calculation>
+      <field_name>data_inizio</field_name>
+      <calc_type>ADD_DAYS</calc_type>
+      <field_a>data_fine</field_a>
+      <field_b>gg</field_b>
+      <field_c />
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
