@@ -10,8 +10,8 @@
     <parameters>
       <parameter>
         <name>protocollo</name>
-        <default_value>16011817100468284</default_value>
-        <description>passato dal job chiamante</description>
+        <default_value>000</default_value>
+        <description />
       </parameter>
     </parameters>
     <log>
@@ -925,7 +925,7 @@
     <created_user />
     <created_date>2020/01/24 12:52:38.661</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2016/02/04 14:20:39.000</modified_date>
+    <modified_date>2020/03/06 09:26:39.430</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -935,8 +935,8 @@
 SOGEI_ERR_*
 (Lo Stato non cambia)
 </note>
-      <xloc>729</xloc>
-      <yloc>87</yloc>
+      <xloc>16</xloc>
+      <yloc>208</yloc>
       <width>164</width>
       <heigth>55</heigth>
       <fontname>Arial</fontname>
@@ -955,32 +955,10 @@ SOGEI_ERR_*
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Mettere la PIVA nelle PK
-(eliminata per i test)</note>
-      <xloc>238</xloc>
-      <yloc>43</yloc>
-      <width>160</width>
-      <heigth>40</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>128</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
       <note>Aggiorna Stato
 e campi SOGEI_</note>
-      <xloc>189</xloc>
-      <yloc>472</yloc>
+      <xloc>496</xloc>
+      <yloc>96</yloc>
       <width>108</width>
       <heigth>40</heigth>
       <fontname>Arial</fontname>
@@ -1000,8 +978,8 @@ e campi SOGEI_</note>
     </notepad>
     <notepad>
       <note>filtro sul Protocollo</note>
-      <xloc>508</xloc>
-      <yloc>36</yloc>
+      <xloc>208</xloc>
+      <yloc>16</yloc>
       <width>116</width>
       <heigth>25</heigth>
       <fontname>Arial</fontname>
@@ -1042,19 +1020,7 @@ e campi SOGEI_</note>
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>INITIAL_POOL_SIZE</code>
-        <attribute>5</attribute>
-      </attribute>
-      <attribute>
         <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>MAXIMUM_POOL_SIZE</code>
-        <attribute>10</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
@@ -1062,11 +1028,23 @@ e campi SOGEI_</note>
         <attribute>1526</attribute>
       </attribute>
       <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>STREAM_RESULTS</code>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET NLS_SORT=WEST_EUROPEAN</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
         <attribute>Y</attribute>
       </attribute>
       <attribute>
@@ -1105,12 +1083,28 @@ e campi SOGEI_</note>
         <attribute>1526</attribute>
       </attribute>
       <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET NLS_LANGUAGE=ITALIAN ;
+ALTER SESSION SET NLS_TERRITORY=ITALY;
+
+--ALTER SESSION SET NLS_SORT=WEST_EUROPEAN:
+</attribute>
+      </attribute>
+      <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -1204,8 +1198,8 @@ e campi SOGEI_</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>375</xloc>
-      <yloc>257</yloc>
+      <xloc>592</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1247,8 +1241,8 @@ e campi SOGEI_</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>307</xloc>
-      <yloc>163</yloc>
+      <xloc>528</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1268,6 +1262,12 @@ e campi SOGEI_</note>
     <lookup>
       <schema />
       <table>SPE730</table>
+      <key>
+        <name>PIVA</name>
+        <field>PIVA</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
       <key>
         <name>DATAEMISSIONE</name>
         <field>DATAEMISSIONE</field>
@@ -1295,8 +1295,8 @@ e campi SOGEI_</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>375</xloc>
-      <yloc>561</yloc>
+      <xloc>592</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1320,6 +1320,12 @@ e campi SOGEI_</note>
     <lookup>
       <schema />
       <table>SPE730</table>
+      <key>
+        <name>PIVA</name>
+        <field>PIVA</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
       <key>
         <name>DATAEMISSIONE</name>
         <field>DATAEMISSIONE</field>
@@ -1359,8 +1365,8 @@ e campi SOGEI_</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>793</xloc>
-      <yloc>160</yloc>
+      <xloc>32</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1383,8 +1389,8 @@ e campi SOGEI_</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>683</xloc>
-      <yloc>161</yloc>
+      <xloc>128</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1417,8 +1423,8 @@ e campi SOGEI_</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>46</xloc>
-      <yloc>20</yloc>
+      <xloc>752</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1441,8 +1447,8 @@ e campi SOGEI_</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>230</xloc>
-      <yloc>257</yloc>
+      <xloc>448</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1465,8 +1471,8 @@ e campi SOGEI_</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>426</xloc>
-      <yloc>162</yloc>
+      <xloc>384</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1490,6 +1496,12 @@ e campi SOGEI_</note>
     <lookup>
       <schema />
       <table>SPE730</table>
+      <key>
+        <name>PIVA</name>
+        <field>PIVA</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
       <key>
         <name>DATAEMISSIONE</name>
         <field>DATAEMISSIONE</field>
@@ -1545,8 +1557,8 @@ e campi SOGEI_</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>230</xloc>
-      <yloc>417</yloc>
+      <xloc>448</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1913,8 +1925,8 @@ e campi SOGEI_</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>376</xloc>
-      <yloc>465</yloc>
+      <xloc>592</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1963,8 +1975,8 @@ protocollo = '${protocollo}' --'15122115464136066'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>554</xloc>
-      <yloc>60</yloc>
+      <xloc>256</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2001,8 +2013,8 @@ protocollo = '${protocollo}' --'15122115464136066'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>230</xloc>
-      <yloc>337</yloc>
+      <xloc>448</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2056,8 +2068,8 @@ protocollo = '${protocollo}' --'15122115464136066'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>554</xloc>
-      <yloc>162</yloc>
+      <xloc>256</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2093,8 +2105,8 @@ protocollo = '${protocollo}' --'15122115464136066'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>45</xloc>
-      <yloc>137</yloc>
+      <xloc>752</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2536,8 +2548,8 @@ protocollo = '${protocollo}' --'15122115464136066'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>375</xloc>
-      <yloc>344</yloc>
+      <xloc>592</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
