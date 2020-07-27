@@ -1,12 +1,12 @@
 <transformation>
   <info>
-    <name>lavanolo_export</name>
+    <name>CUP_export</name>
     <description />
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/Vari/Lavanolo</directory>
+    <directory>/Vertica</directory>
     <parameters>
       <parameter>
         <name>anno</name>
@@ -14,13 +14,13 @@
         <description />
       </parameter>
       <parameter>
-        <name>lavanolo_out</name>
-        <default_value>/mnt/minollo/lavanolo_out</default_value>
+        <name>mese</name>
+        <default_value>09</default_value>
         <description />
       </parameter>
       <parameter>
-        <name>mese</name>
-        <default_value>09</default_value>
+        <name>path_out</name>
+        <default_value>/mnt/minollo</default_value>
         <description />
       </parameter>
     </parameters>
@@ -444,67 +444,12 @@
     <created_user>-</created_user>
     <created_date>2019/11/12 11:09:10.130</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/05/12 11:54:54.809</modified_date>
+    <modified_date>2020/05/07 23:13:54.815</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>db_sopra</name>
-    <server>ora_sopra.usl1.imperiese</server>
-    <type>ORACLE</type>
-    <access>Native</access>
-    <database>DbSopra</database>
-    <port>1526</port>
-    <username>dwh</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be96b8d2</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
-    <attributes>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>1526</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SQL_CONNECT</code>
-        <attribute>ALTER SESSION SET NLS_SORT=WEST_EUROPEAN</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>db_sopra_logger</name>
     <server>ora_sopra.usl1.imperiese</server>
@@ -564,20 +509,58 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       </attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>Menhir_Vertica</name>
+    <server>menhir</server>
+    <type>VERTICA5</type>
+    <access>Native</access>
+    <database>DWH</database>
+    <port>5433</port>
+    <username>dbadmin</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>5433</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
     <hop>
-      <from>Lavanolo_DH</from>
-      <to>DH Excel Output</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Lavanolo_ORD</from>
-      <to>ORD Excel Output</to>
+      <from>vertica_cup_ter</from>
+      <to>TER Excel Output</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>DH Excel Output</name>
+    <name>TER Excel Output</name>
     <type>ExcelOutput</type>
     <description />
     <distribute>Y</distribute>
@@ -593,7 +576,7 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
     <append>N</append>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${lavanolo_out}/ DH_${anno}${mese}</name>
+      <name>${lavanolo_out}/ cup_TER</name>
       <extention>xls</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <create_parent_folder>N</create_parent_folder>
@@ -694,7 +677,7 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
     </GUI>
   </step>
   <step>
-    <name>Lavanolo_DH</name>
+    <name>vertica_cup_ter</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -704,16 +687,14 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>db_sopra</connection>
+    <connection>Menhir_Vertica</connection>
     <sql>select  
-*
+count(*) c
 from 
-v_deg_dh_lavanolo@patidok x 
-where 
-x.data_accesso between to_date('${anno}'||'${mese}'||'01','yyyymmdd') and last_day( to_date('${anno}'||'${mese}'||'01','yyyymmdd') ) 
-and x.codice_reparto not in ('3101','3102','3901','3902')
-order by
-data_accesso, numero_caso </sql>
+VCUBE_CUP_PRESTAZIONI
+where
+data_appuntamento between date '2020-03-11' and date '2020-06-30'
+</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
@@ -729,152 +710,6 @@ data_accesso, numero_caso </sql>
     <GUI>
       <xloc>80</xloc>
       <yloc>64</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Lavanolo_ORD</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>select  
-x.*
-from 
-v_deg_ord_lavanolo@patidok x 
-where 
-x.giorno_presenza between to_date('${anno}'||'${mese}'||'01','yyyymmdd') and last_day( to_date('${anno}'||'${mese}'||'01','yyyymmdd') ) 
-and x.cod_rep_acc not in ('3101','3102','3901','3902')
-order by
-x.giorno_presenza, x.num_caso</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>208</xloc>
-      <yloc>64</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ORD Excel Output</name>
-    <type>ExcelOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <encoding />
-    <append>N</append>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>${lavanolo_out}/ ORD_${anno}${mese}</name>
-      <extention>xls</extention>
-      <do_not_open_newfile_init>N</do_not_open_newfile_init>
-      <create_parent_folder>N</create_parent_folder>
-      <split>N</split>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format />
-      <sheetname>Foglio1</sheetname>
-      <autosizecolums>Y</autosizecolums>
-      <nullisblank>N</nullisblank>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory />
-    </file>
-    <template>
-      <enabled>N</enabled>
-      <append>N</append>
-      <filename>template.xls</filename>
-    </template>
-    <fields>
-      <field>
-        <name>COD_REP_ACC</name>
-        <type>String</type>
-        <format>0000</format>
-      </field>
-      <field>
-        <name>DES_REP_ACC</name>
-        <type>String</type>
-        <format />
-      </field>
-      <field>
-        <name>NUM_CASO</name>
-        <type>Number</type>
-        <format>0000000000</format>
-      </field>
-      <field>
-        <name>DATA_ACC</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy</format>
-      </field>
-      <field>
-        <name>DATA_DIM</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy</format>
-      </field>
-      <field>
-        <name>IDPAZ_PATIDOK</name>
-        <type>String</type>
-        <format />
-      </field>
-      <field>
-        <name>GIORNO_PRESENZA</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy</format>
-      </field>
-    </fields>
-    <custom>
-      <header_font_name>arial</header_font_name>
-      <header_font_size>10</header_font_size>
-      <header_font_bold>N</header_font_bold>
-      <header_font_italic>N</header_font_italic>
-      <header_font_underline>no</header_font_underline>
-      <header_font_orientation>horizontal</header_font_orientation>
-      <header_font_color>yellow</header_font_color>
-      <header_background_color>dark_blue</header_background_color>
-      <header_row_height>255</header_row_height>
-      <header_alignment>left</header_alignment>
-      <header_image />
-      <row_font_name>arial</row_font_name>
-      <row_font_size>10</row_font_size>
-      <row_font_color>black</row_font_color>
-      <row_background_color>none</row_background_color>
-    </custom>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>208</xloc>
-      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
