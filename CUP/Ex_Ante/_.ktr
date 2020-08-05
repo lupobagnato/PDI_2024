@@ -61,13 +61,13 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject>xml_NON_Validi</subject>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject>Validi</subject>
+          <subject />
         </field>
         <field>
           <id>LINES_UPDATED</id>
@@ -85,7 +85,7 @@
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>xml_Output</subject>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -940,11 +940,32 @@
     <created_user />
     <created_date>2020/01/24 12:52:39.060</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2020/07/27 12:42:12.550</modified_date>
+    <modified_date>2020/07/28 08:57:33.892</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>nella export_log</note>
+      <xloc>848</xloc>
+      <yloc>512</yloc>
+      <width>89</width>
+      <heigth>21</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>db_sopra</name>
@@ -1073,173 +1094,90 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
     </hop>
     <hop>
       <from>Add XML 2</from>
-      <to>XML Join</to>
+      <to>XML Join 1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Add XML 1</from>
-      <to>XML Join</to>
+      <to>XML Join 1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>v_ex_ante_pre_xml</from>
-      <to>unique Struttura</to>
+      <to>uni Struttura</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>uni Struttura</from>
+      <to>Add XML struttura</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>XML Join 1</from>
+      <to>XML Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add XML struttura</from>
+      <to>XML Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>v_ex_ante_pre_xml</from>
+      <to>uni Struttura+Priorita</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>uni Struttura+Priorita</from>
+      <to>Add XML priorita</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>XML Join 2</from>
+      <to>XML Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add XML priorita</from>
+      <to>XML Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>v_ex_ante_pre_xml</from>
+      <to>Create XPath</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Create XPath</from>
+      <to>Add XML prestazione</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add XML prestazione</from>
+      <to>XML Join 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>XML Join 3</from>
+      <to>XML Join 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>XML Join 4</from>
+      <to>xml_Output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>XML Join 4</from>
+      <to>XSD Validator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>XSD Validator</from>
+      <to>Esito XSD</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>XML struttura</name>
-    <type>AddXML</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <encoding>UTF-8</encoding>
-    <valueName>txt_struttura</valueName>
-    <xml_repeat_element>struttura</xml_repeat_element>
-    <file>
-      <omitXMLheader>Y</omitXMLheader>
-      <omitNullValues>Y</omitNullValues>
-    </file>
-    <fields>
-      <field>
-        <name>codiceStruttura</name>
-        <element />
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <length>6</length>
-        <precision>-1</precision>
-        <attribute>Y</attribute>
-        <attributeParentName />
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>368</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>v_ex_ante_pre_xml</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>SELECT
-  "codiceStruttura"
-, "codicePriorita"
-, "codicePrestazione"
-, "prenotazioniTotali"
-, "prenotazioniDaGarantire"
-, "prenotazioniGarantite"
-FROM V_EX_ANTE_PRE_XML
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>688</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Generate Regione</name>
-    <type>RowGenerator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>codiceRegione</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>070</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>anno</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>2020</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>periodo</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>Q3</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <limit>1</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>64</xloc>
-      <yloc>64</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Add XML 1</name>
     <type>AddXML</type>
@@ -1310,51 +1248,8 @@ FROM V_EX_ANTE_PRE_XML
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Generate Azienda</name>
-    <type>RowGenerator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>codiceAzienda</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>001</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <limit>1</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>64</yloc>
+      <xloc>32</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1400,13 +1295,470 @@ FROM V_EX_ANTE_PRE_XML
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>160</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add XML prestazione</name>
+    <type>AddXML</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <encoding>UTF-8</encoding>
+    <valueName>xml_prestazione</valueName>
+    <xml_repeat_element>prestazione</xml_repeat_element>
+    <file>
+      <omitXMLheader>Y</omitXMLheader>
+      <omitNullValues>Y</omitNullValues>
+    </file>
+    <fields>
+      <field>
+        <name>codicePrestazione</name>
+        <element />
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>120</length>
+        <precision>-1</precision>
+        <attribute>Y</attribute>
+        <attributeParentName />
+      </field>
+      <field>
+        <name>prenotazioniTotali</name>
+        <element />
+        <type>BigNumber</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>-1</length>
+        <precision>-1</precision>
+        <attribute>Y</attribute>
+        <attributeParentName />
+      </field>
+      <field>
+        <name>prenotazioniDaGarantire</name>
+        <element />
+        <type>BigNumber</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>-1</length>
+        <precision>-1</precision>
+        <attribute>Y</attribute>
+        <attributeParentName />
+      </field>
+      <field>
+        <name>prenotazioniGarantite</name>
+        <element />
+        <type>BigNumber</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>-1</length>
+        <precision>-1</precision>
+        <attribute>Y</attribute>
+        <attributeParentName />
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>688</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>XML Join</name>
+    <name>Add XML priorita</name>
+    <type>AddXML</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <encoding>UTF-8</encoding>
+    <valueName>xml_priorita</valueName>
+    <xml_repeat_element>priorita</xml_repeat_element>
+    <file>
+      <omitXMLheader>Y</omitXMLheader>
+      <omitNullValues>Y</omitNullValues>
+    </file>
+    <fields>
+      <field>
+        <name>codicePriorita</name>
+        <element />
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>1</length>
+        <precision>-1</precision>
+        <attribute>Y</attribute>
+        <attributeParentName />
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add XML struttura</name>
+    <type>AddXML</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <encoding>UTF-8</encoding>
+    <valueName>xml_struttura</valueName>
+    <xml_repeat_element>struttura</xml_repeat_element>
+    <file>
+      <omitXMLheader>Y</omitXMLheader>
+      <omitNullValues>Y</omitNullValues>
+    </file>
+    <fields>
+      <field>
+        <name>codiceStruttura</name>
+        <element />
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>6</length>
+        <precision>-1</precision>
+        <attribute>Y</attribute>
+        <attributeParentName />
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Create XPath</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel />
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>
+var xPathStatement = 'x';
+//xPathStatement = "/regione/azienda/struttura[@codiceStruttura='" + codiceStruttura +"']/priorita[@codicePriorita='" codicePriorita +"']";
+xPathStatement = "/regione/azienda/struttura[@codiceStruttura='" + codiceStruttura + "']/priorita[@codicePriorita='" + codicePriorita +"']";</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>xPathStatement</name>
+        <rename>xPathStatement</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Esito XSD</name>
+    <type>TextFileOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <separator> </separator>
+    <enclosure />
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>Y</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding>UTF-8</encoding>
+    <endedLine />
+    <fileNameInField>N</fileNameInField>
+    <fileNameField />
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>${xml_path}/export_log/esito_${xml_file}</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>Y</add_date>
+      <add_time>Y</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format />
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>esito_xsd</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>xml_txt</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Generate Azienda</name>
+    <type>RowGenerator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>codiceAzienda</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>001</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <limit>1</limit>
+    <never_ending>N</never_ending>
+    <interval_in_ms>5000</interval_in_ms>
+    <row_time_field>now</row_time_field>
+    <last_time_field>FiveSecondsAgo</last_time_field>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Generate Regione</name>
+    <type>RowGenerator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>codiceRegione</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>070</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>anno</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>2020</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>periodo</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>Q3</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <limit>1</limit>
+    <never_ending>N</never_ending>
+    <interval_in_ms>5000</interval_in_ms>
+    <row_time_field>now</row_time_field>
+    <last_time_field>FiveSecondsAgo</last_time_field>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>32</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Replace in string</name>
+    <type>ReplaceString</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>xml_txt</in_stream_name>
+        <out_stream_name />
+        <use_regex>yes</use_regex>
+        <replace_string>&lt;/struttura></replace_string>
+        <replace_by_string>&lt;/struttura> \\r\\n</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string />
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>XML Join 1</name>
     <type>XMLJoin</type>
     <description />
     <distribute>Y</distribute>
@@ -1435,13 +1787,153 @@ FROM V_EX_ANTE_PRE_XML
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>336</yloc>
+      <xloc>96</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>unique Struttura</name>
+    <name>XML Join 2</name>
+    <type>XMLJoin</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <valueXMLField>xml_reg2str</valueXMLField>
+    <targetXMLstep>XML Join 1</targetXMLstep>
+    <targetXMLfield>xml_reg2azi</targetXMLfield>
+    <sourceXMLstep>Add XML struttura</sourceXMLstep>
+    <sourceXMLfield>xml_struttura</sourceXMLfield>
+    <complexJoin>N</complexJoin>
+    <joinCompareField />
+    <targetXPath>/regione/azienda</targetXPath>
+    <encoding>UTF-8</encoding>
+    <omitXMLHeader>N</omitXMLHeader>
+    <omitNullValues>N</omitNullValues>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>XML Join 3</name>
+    <type>XMLJoin</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <valueXMLField>xml_reg2pri</valueXMLField>
+    <targetXMLstep>XML Join 2</targetXMLstep>
+    <targetXMLfield>xml_reg2str</targetXMLfield>
+    <sourceXMLstep>Add XML priorita</sourceXMLstep>
+    <sourceXMLfield>xml_priorita</sourceXMLfield>
+    <complexJoin>Y</complexJoin>
+    <joinCompareField>codiceStruttura</joinCompareField>
+    <targetXPath>/regione/azienda/struttura[@codiceStruttura="?"]</targetXPath>
+    <encoding>UTF-8</encoding>
+    <omitXMLHeader>N</omitXMLHeader>
+    <omitNullValues>N</omitNullValues>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>XML Join 4</name>
+    <type>XMLJoin</type>
+    <description />
+    <distribute>N</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <valueXMLField>xml_txt</valueXMLField>
+    <targetXMLstep>XML Join 3</targetXMLstep>
+    <targetXMLfield>xml_reg2pri</targetXMLfield>
+    <sourceXMLstep>Add XML prestazione</sourceXMLstep>
+    <sourceXMLfield>xml_prestazione</sourceXMLfield>
+    <complexJoin>Y</complexJoin>
+    <joinCompareField>xPathStatement</joinCompareField>
+    <targetXPath>?</targetXPath>
+    <encoding>UTF-8</encoding>
+    <omitXMLHeader>N</omitXMLHeader>
+    <omitNullValues>N</omitNullValues>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>XSD Validator</name>
+    <type>XSDValidator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <xdsfilename>${xsd_path}/ex_ante.xsd</xdsfilename>
+    <xmlstream>xml_txt</xmlstream>
+    <resultfieldname>esito_xsd</resultfieldname>
+    <addvalidationmsg>N</addvalidationmsg>
+    <validationmsgfield>ValidationMsgField</validationmsgfield>
+    <ifxmlunvalid>XML Invalid</ifxmlunvalid>
+    <ifxmlvalid>XML Ok</ifxmlvalid>
+    <outputstringfield>Y</outputstringfield>
+    <xmlsourcefile>N</xmlsourcefile>
+    <xsddefinedfield />
+    <xsdsource>filename</xsdsource>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>720</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>uni Struttura</name>
     <type>SortRows</type>
     <description />
     <distribute>Y</distribute>
@@ -1476,8 +1968,165 @@ FROM V_EX_ANTE_PRE_XML
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>80</yloc>
+      <xloc>432</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>uni Struttura+Priorita</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>Y</unique_rows>
+    <fields>
+      <field>
+        <name>codiceStruttura</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>Y</presorted>
+      </field>
+      <field>
+        <name>codicePriorita</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>Y</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>v_ex_ante_pre_xml</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>N</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+  "codiceStruttura"
+, "codicePriorita"
+, "codicePrestazione"
+, "prenotazioniTotali"
+, "prenotazioniDaGarantire"
+, "prenotazioniGarantite"
+FROM V_EX_ANTE_PRE_XML
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>xml_Output</name>
+    <type>TextFileOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <separator> </separator>
+    <enclosure />
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>Y</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding>UTF-8</encoding>
+    <endedLine />
+    <fileNameInField>N</fileNameInField>
+    <fileNameField />
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>${xml_path}/${xml_file}</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>xml</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format />
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>xml_txt</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>720</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
