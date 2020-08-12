@@ -9,6 +9,11 @@
     <directory>/Art50/MEF</directory>
     <parameters>
       <parameter>
+        <name>PATH_VALIDATI</name>
+        <default_value>/mnt/minollo/ArchivioValidati</default_value>
+        <description>Path_Validati (cartella di input)</description>
+      </parameter>
+      <parameter>
         <name>var_From</name>
         <default_value>report.intranet@asl1.liguria.it</default_value>
         <description />
@@ -481,6 +486,19 @@
     </partitionschemas>
     <slaveservers>
       <slaveserver>
+        <name>carte</name>
+        <hostname>localhost</hostname>
+        <port>8181</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
         <name>Carte_server</name>
         <hostname>minollo</hostname>
         <port />
@@ -494,8 +512,8 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8080:Master</name>
-        <hostname>localhost</hostname>
+        <name>EC_MASTER_1</name>
+        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
         <port>8080</port>
         <webAppName />
         <username>cluster</username>
@@ -507,9 +525,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8082</name>
-        <hostname>localhost</hostname>
-        <port>8082</port>
+        <name>EC_SLAVE_1</name>
+        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+        <port>8080</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -520,7 +538,72 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8081</name>
+        <name>EC_SLAVE_2</name>
+        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_3</name>
+        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_4</name>
+        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_5</name>
+        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Jos 10.0.0.169</name>
+        <hostname>10.0.0.169</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Localhost 8081</name>
         <hostname>localhost</hostname>
         <port>8081</port>
         <webAppName />
@@ -546,9 +629,48 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8084</name>
+        <name>localhost:8080 master</name>
         <hostname>localhost</hostname>
-        <port>8084</port>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8080:Master</name>
+        <hostname>localhost</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8081</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8082</name>
+        <hostname>localhost</hostname>
+        <port>8082</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -572,16 +694,29 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8080 master</name>
+        <name>localhost:8084</name>
         <hostname>localhost</hostname>
-        <port>8080</port>
+        <port>8084</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
         <proxy_hostname />
         <proxy_port />
         <non_proxy_hosts />
-        <master>Y</master>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Mike ETL Server</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
@@ -591,45 +726,6 @@
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>ruwvs07</name>
-        <hostname>ruwvs07</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>zebulon slave</name>
-        <hostname>192.168.1.277</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Jos 10.0.0.169</name>
-        <hostname>10.0.0.169</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
         <proxy_hostname />
         <proxy_port />
         <non_proxy_hosts />
@@ -663,138 +759,8 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>carte</name>
-        <hostname>localhost</hostname>
-        <port>8181</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server8080</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server8090</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8090</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server9000</name>
-        <hostname>127.0.0.1</hostname>
-        <port>9000</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_2</name>
-        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_4</name>
-        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_3</name>
-        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_MASTER_1</name>
-        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_5</name>
-        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Localhost 8081</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_1</name>
-        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+        <name>ruwvs07</name>
+        <hostname>ruwvs07</hostname>
         <port>8080</port>
         <webAppName />
         <username>cluster</username>
@@ -845,9 +811,22 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>Warmath</name>
-        <hostname>liveinalpharetta.com</hostname>
-        <port>8083</port>
+        <name>server8080</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server8090</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8090</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -858,9 +837,22 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>Mike ETL Server</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
+        <name>server9000</name>
+        <hostname>127.0.0.1</hostname>
+        <port>9000</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Warmath</name>
+        <hostname>liveinalpharetta.com</hostname>
+        <port>8083</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -881,6 +873,19 @@
         <proxy_port />
         <non_proxy_hosts />
         <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>zebulon slave</name>
+        <hostname>192.168.1.277</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
     </slaveservers>
@@ -940,7 +945,7 @@
     <created_user>admin</created_user>
     <created_date>2015/03/02 10:17:21.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2018/05/10 12:28:13.000</modified_date>
+    <modified_date>2020/08/10 15:04:39.255</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -971,31 +976,6 @@ INVIO che è parte della pk di Mef_Ricette_History ora è il nome file (senza es
       <drawshadow>N</drawshadow>
     </notepad>
     <notepad>
-      <note>
-
-
-
------------------------------------------</note>
-      <xloc>3</xloc>
-      <yloc>2</yloc>
-      <width>187</width>
-      <heigth>85</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
       <note>--- lookup MEF_RICETTE ---
 Serve a discriminare Rosse da Dema:
 
@@ -1013,10 +993,10 @@ Poi si mette dema --> ricetta
 e si eseguono le operazioni sul db</note>
       <xloc>345</xloc>
       <yloc>246</yloc>
-      <width>209</width>
-      <heigth>200</heigth>
+      <width>194</width>
+      <heigth>175</heigth>
       <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
+      <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>255</fontcolorred>
@@ -1043,10 +1023,10 @@ Poi si mette RIC --> ricetta
 per le operazioni sul db</note>
       <xloc>571</xloc>
       <yloc>246</yloc>
-      <width>227</width>
-      <heigth>148</heigth>
+      <width>192</width>
+      <heigth>120</heigth>
       <fontname>Arial</fontname>
-      <fontsize>9</fontsize>
+      <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>255</fontcolorred>
@@ -1238,11 +1218,6 @@ anche nella Conferma</note>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>XML da Path_Validati</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Filter rows</from>
       <to>Rename Fields</to>
       <enabled>Y</enabled>
@@ -1330,6 +1305,11 @@ anche nella Conferma</note>
     <hop>
       <from>Scegli_campi</from>
       <to>catch LA</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get data from XML</from>
+      <to>Filter rows</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1439,23 +1419,17 @@ anche nella Conferma</note>
         <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
-var nome_file, invio, nome_breve, anno_mese;
-var len_Nome;
-var strArray;
+var invio, nome_breve, anno_mese;
 var ricetta, dema;
 
-// 200904_OUT03_20090508110911.xml
-// slice(&lt;start>, &lt;end>)	
-// 	inizia da 0, il posto &lt;end> è escluso
-// 	si possono usare i negativi per contare da fine string (inizia con -1)
 
-strArray = Path_File.split("/");
-nome_file = strArray[strArray.length-1];
-len_Nome = nome_file.lenght;
-//invio = nome_file.slice(-18, -4);
+//strArray = Path_File.split("/");
+//nome_file = strArray[strArray.length-1];
+//nome_file = file_short_name;
+//len_Nome = nome_file.lenght;
+
+// invio e nome_breve sono uguali (erano divesi all'inizio, poi hanno cambiato lo standard dei nomi per i file validati)
 invio = nome_file.slice(0, -4);
-
-//nome_breve = nome_file.slice(0,-19);
 nome_breve = nome_file.slice(0,-4);
 
 ricetta = Regione + Anno + Num + Check;
@@ -1465,14 +1439,6 @@ anno_mese = nome_breve.slice(0,6);
       </jsScript>
     </jsScripts>
     <fields>
-      <field>
-        <name>nome_file</name>
-        <rename>nome_file</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
       <field>
         <name>invio</name>
         <rename>invio</rename>
@@ -1621,7 +1587,7 @@ anno_mese = nome_breve.slice(0,6);
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>FlagOperazione1</leftvalue>
+        <leftvalue>FlagOperazione</leftvalue>
         <function>IS NULL</function>
         <rightvalue />
       </condition>
@@ -1822,35 +1788,36 @@ anno_mese = nome_breve.slice(0,6);
     </partitioning>
     <fields>
       <field>
-        <name>FlagOperazione1</name>
+        <name>FlagOperazione</name>
         <rename>FlagOp</rename>
       </field>
       <field>
-        <name>CodRegione5</name>
+        <name>CodRegione</name>
         <rename>Regione</rename>
       </field>
       <field>
-        <name>AnnoProduzione6</name>
+        <name>AnnoProduzione</name>
         <rename>Anno</rename>
       </field>
       <field>
-        <name>ProgRicettaRicettario7</name>
+        <name>ProgRicettaRicettario</name>
         <rename>Num</rename>
       </field>
       <field>
-        <name>CheckDigit8</name>
+        <name>CheckDigit</name>
         <rename>Check</rename>
       </field>
       <field>
-        <name>ProgRicettaStruttura10</name>
+        <name>ProgRicettaStruttura</name>
         <rename>Progressivo</rename>
       </field>
       <field>
-        <name>Path_File</name>
+        <name>ProgRicettaStruttura</name>
+        <rename>Progr_Inviato</rename>
       </field>
       <field>
-        <name>ProgRicettaStruttura10</name>
-        <rename>Progr_Inviato</rename>
+        <name>nome_file</name>
+        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1948,9 +1915,6 @@ anno_mese = nome_breve.slice(0,6);
       </remove>
       <remove>
         <name>Check</name>
-      </remove>
-      <remove>
-        <name>Path_File</name>
       </remove>
       <meta>
         <name>Progr_Inviato</name>
@@ -2274,30 +2238,6 @@ anno_mese = nome_breve.slice(0,6);
     <GUI>
       <xloc>265</xloc>
       <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>XML da Path_Validati</name>
-    <type>XMLInputSax</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>61</xloc>
-      <yloc>13</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2715,6 +2655,201 @@ anno_mese = nome_breve.slice(0,6);
     <GUI>
       <xloc>627</xloc>
       <yloc>506</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get data from XML</name>
+    <type>getXMLData</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <include>N</include>
+    <include_field />
+    <rownum>N</rownum>
+    <addresultfile>N</addresultfile>
+    <namespaceaware>N</namespaceaware>
+    <ignorecomments>N</ignorecomments>
+    <readurl>N</readurl>
+    <validating>N</validating>
+    <usetoken>N</usetoken>
+    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
+    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
+    <rownum_field />
+    <encoding>UTF-8</encoding>
+    <file>
+      <name>${PATH_VALIDATI}</name>
+      <filemask>.*\.xml</filemask>
+      <exclude_filemask />
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>FlagOperazione</name>
+        <xpath>FlagOperazione</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>RegStrutturaRic</name>
+        <xpath>RegStrutturaRic</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>CodAslRic</name>
+        <xpath>CodAslRic</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>CodStrutturaRic</name>
+        <xpath>CodStrutturaRic</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>CodRegione</name>
+        <xpath>CodRegione</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>AnnoProduzione</name>
+        <xpath>AnnoProduzione</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>ProgRicettaRicettario</name>
+        <xpath>ProgRicettaRicettario</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>CheckDigit</name>
+        <xpath>CheckDigit</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>ProgRicettaStruttura</name>
+        <xpath>ProgRicettaStruttura</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <loopxpath>/Ricette/Ricetta</loopxpath>
+    <IsInFields>N</IsInFields>
+    <IsAFile>N</IsAFile>
+    <XmlField />
+    <prunePath />
+    <shortFileFieldName>nome_file</shortFileFieldName>
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
