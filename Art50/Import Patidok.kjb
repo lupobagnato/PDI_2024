@@ -8,7 +8,7 @@
   <created_user>admin</created_user>
   <created_date>2007/09/05 10:02:15.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2020/08/04 13:19:41.030</modified_date>
+  <modified_date>2020/08/10 09:04:29.167</modified_date>
   <parameters>
     <parameter>
       <name>E_DATARIF</name>
@@ -1034,7 +1034,7 @@
       <include_date>N</include_date>
       <contact_person />
       <contact_phone />
-      <comment>Periodo (aaaa/mm/gg) : ${INIZIO} - ${FINE}
+      <comment>Periodo : ${S_DATARIF} - ${E_DATARIF}
 </comment>
       <include_files>N</include_files>
       <zip_files>Y</zip_files>
@@ -1049,7 +1049,7 @@
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity>normal</sensitivity>
       <secureconnectiontype>SSL</secureconnectiontype>
       <replyToAddresses />
       <filetypes>
@@ -1297,7 +1297,7 @@
       <include_date>N</include_date>
       <contact_person />
       <contact_phone />
-      <comment>Periodo (aaaa/mm/gg) : ${INIZIO} - ${FINE}
+      <comment>Periodo : ${S_DATARIF} - ${E_DATARIF}
 </comment>
       <include_files>N</include_files>
       <zip_files>Y</zip_files>
@@ -1312,7 +1312,7 @@
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity>normal</sensitivity>
       <secureconnectiontype>SSL</secureconnectiontype>
       <replyToAddresses />
       <filetypes>
@@ -1352,6 +1352,11 @@
       <pass_export>N</pass_export>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>ROOTPATH</name>
+          <stream_name />
+          <value>${ROOTPATH}</value>
+        </parameter>
       </parameters>
       <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
