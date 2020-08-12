@@ -424,16 +424,16 @@
       <partitionschema>
         <name>MySQL EC2 Schema</name>
         <partition>
-          <id>P2</id>
-        </partition>
-        <partition>
-          <id>P3</id>
-        </partition>
-        <partition>
           <id>P4</id>
         </partition>
         <partition>
           <id>P5</id>
+        </partition>
+        <partition>
+          <id>P2</id>
+        </partition>
+        <partition>
+          <id>P3</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
@@ -441,7 +441,7 @@
       <partitionschema>
         <name>Partitioning schema</name>
         <partition>
-          <id>PartDB2</id>
+          <id>PartDB4</id>
         </partition>
         <partition>
           <id>PartDB5</id>
@@ -450,10 +450,10 @@
           <id>PartDB3</id>
         </partition>
         <partition>
-          <id>PartDB4</id>
+          <id>PartDB1</id>
         </partition>
         <partition>
-          <id>PartDB1</id>
+          <id>PartDB2</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
@@ -873,11 +873,11 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>EC_SLAVE_3</name>
           <name>EC_SLAVE_4</name>
           <name>EC_SLAVE_2</name>
-          <name>EC_SLAVE_3</name>
-          <name>EC_MASTER_1</name>
           <name>EC_SLAVE_5</name>
+          <name>EC_MASTER_1</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -889,8 +889,8 @@
         <dynamic>N</dynamic>
         <slaveservers>
           <name>localhost:8080:Master</name>
-          <name>localhost:8082</name>
           <name>localhost:8081</name>
+          <name>localhost:8082</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -901,9 +901,9 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>sam 8080</name>
           <name>sam 8081 slave</name>
           <name>sam 8082 slave</name>
-          <name>sam 8080</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -920,7 +920,7 @@
     <created_user>admin</created_user>
     <created_date>2012/05/14 15:19:59.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2019/03/25 15:30:59.000</modified_date>
+    <modified_date>2020/04/23 16:06:57.000</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -981,12 +981,50 @@
       </attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>db_sopra_logger</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>pdi_logger</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
-    <hop>
-      <from>Upd Accessi_PS</from>
-      <to>Ins Accessi_PS</to>
-      <enabled>Y</enabled>
-    </hop>
     <hop>
       <from>Accessi_PS_buffer</from>
       <to>Get System Info</to>
@@ -995,6 +1033,11 @@
     <hop>
       <from>Get System Info</from>
       <to>Upd Accessi_PS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Upd Accessi_PS</from>
+      <to>Ins Accessi_PS</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1087,7 +1130,7 @@ End Esito_Accesso_cod
 	 When cod_EsitPS = '6' Then ESITOBI
 	 Else ESITO
 End Esito_Accesso_des 
-, mod_invio
+, mod_invio	-- 23.04.2020 riutilizzato per "Segni e Sintomi"
 , Nvl2(Data_Accesso,to_date(Data_Accesso,'dd/mm/yy'), Null) Data_Accesso
 , ora_accesso
 , Cod_Diagnosi

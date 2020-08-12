@@ -1,19 +1,19 @@
 <transformation>
   <info>
-    <name>Load_Accessi_PS_02 v 20090723</name>
+    <name>_debug_Prestazioni_PS</name>
     <description />
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/Pronto_Soccorso/old</directory>
+    <directory>/Pronto_Soccorso</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection>db_sopra</connection>
+        <connection />
         <schema />
-        <table>kettle_log</table>
+        <table />
         <size_limit_lines />
         <interval />
         <timeout_days />
@@ -24,7 +24,7 @@
         </field>
         <field>
           <id>CHANNEL_ID</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>CHANNEL_ID</name>
         </field>
         <field>
@@ -41,7 +41,7 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject>Prestazioni_PS_buffer</subject>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
@@ -53,19 +53,19 @@
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject>Upd Accessi_PS</subject>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>Accessi_PS_buffer</subject>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>Ins Accessi_PS</subject>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -273,10 +273,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection>${_LogDb}</connection>
+        <schema>${_LogSchema}</schema>
+        <table>${_LogTmpStep}</table>
+        <timeout_days>10</timeout_days>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -441,9 +441,6 @@
       <partitionschema>
         <name>Partitioning schema</name>
         <partition>
-          <id>PartDB2</id>
-        </partition>
-        <partition>
           <id>PartDB5</id>
         </partition>
         <partition>
@@ -454,6 +451,9 @@
         </partition>
         <partition>
           <id>PartDB1</id>
+        </partition>
+        <partition>
+          <id>PartDB2</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
@@ -918,9 +918,9 @@
       </clusterschema>
     </clusterschemas>
     <created_user>admin</created_user>
-    <created_date>2012/05/14 15:20:11.000</created_date>
+    <created_date>2012/05/14 15:19:58.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2010/11/22 16:20:11.000</modified_date>
+    <modified_date>2017/01/24 11:04:59.000</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -983,38 +983,185 @@
   </connection>
   <order>
     <hop>
-      <from>Upd Accessi_PS</from>
-      <to>Ins Accessi_PS</to>
+      <from>Prestazioni_PS da Patidok</from>
+      <to>Unique rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Upd Prestazioni_PS</from>
-      <to>Ins Prestazioni_PS</to>
+      <from>Unique rows</from>
+      <to>Prestazioni_PS_buffer</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Prestazioni_PS_buffer</from>
-      <to>Get System Info 2</to>
+      <from>Unique rows</from>
+      <to>duplicate</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Get System Info 2</from>
-      <to>Upd Prestazioni_PS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Accessi_PS_buffer</from>
-      <to>Get System Info</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get System Info</from>
-      <to>Upd Accessi_PS</to>
-      <enabled>Y</enabled>
+      <from>duplicate</from>
+      <to>Microsoft Excel Output</to>
+      <enabled>N</enabled>
     </hop>
   </order>
   <step>
-    <name>Accessi_PS_buffer</name>
+    <name>Microsoft Excel Output</name>
+    <type>ExcelOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <encoding />
+    <append>N</append>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>C:\_NextDel\duplicate</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <create_parent_folder>N</create_parent_folder>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format />
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <nullisblank>N</nullisblank>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <splitevery>0</splitevery>
+      <usetempfiles>N</usetempfiles>
+      <tempdirectory />
+    </file>
+    <template>
+      <enabled>N</enabled>
+      <append>N</append>
+      <filename>template.xls</filename>
+    </template>
+    <fields>
+      <field>
+        <name>NROCASO</name>
+        <type>Number</type>
+        <format>0000000000.00</format>
+      </field>
+      <field>
+        <name>NROPREST</name>
+        <type>String</type>
+        <format />
+      </field>
+      <field>
+        <name>COD_PRESTAZIONE</name>
+        <type>String</type>
+        <format />
+      </field>
+      <field>
+        <name>COD_PREST_FLUSSI</name>
+        <type>String</type>
+        <format />
+      </field>
+      <field>
+        <name>DESC_PRESTAZIONE</name>
+        <type>String</type>
+        <format />
+      </field>
+      <field>
+        <name>CODICEPAZIENTE</name>
+        <type>String</type>
+        <format />
+      </field>
+      <field>
+        <name>COD_EROGATORE</name>
+        <type>BigNumber</type>
+        <format />
+      </field>
+      <field>
+        <name>EROGATORE</name>
+        <type>String</type>
+        <format />
+      </field>
+      <field>
+        <name>DATA_PRESTAZIONE</name>
+        <type>Date</type>
+        <format />
+      </field>
+      <field>
+        <name>DATAENTRATA</name>
+        <type>Date</type>
+        <format />
+      </field>
+      <field>
+        <name>DATADIMISSIONE</name>
+        <type>Date</type>
+        <format />
+      </field>
+      <field>
+        <name>COD_UO</name>
+        <type>BigNumber</type>
+        <format />
+      </field>
+      <field>
+        <name>DESC_COD_UO</name>
+        <type>String</type>
+        <format />
+      </field>
+      <field>
+        <name>TIPO_PREST</name>
+        <type>BigNumber</type>
+        <format />
+      </field>
+      <field>
+        <name>IMPORTO</name>
+        <type>Number</type>
+        <format>00000.00</format>
+      </field>
+      <field>
+        <name>INIZIO_VAL</name>
+        <type>Date</type>
+        <format />
+      </field>
+      <field>
+        <name>FINE_VAL</name>
+        <type>Date</type>
+        <format />
+      </field>
+    </fields>
+    <custom>
+      <header_font_name>arial</header_font_name>
+      <header_font_size>10</header_font_size>
+      <header_font_bold>N</header_font_bold>
+      <header_font_italic>N</header_font_italic>
+      <header_font_underline>no</header_font_underline>
+      <header_font_orientation>horizontal</header_font_orientation>
+      <header_font_color>black</header_font_color>
+      <header_background_color>none</header_background_color>
+      <header_row_height>255</header_row_height>
+      <header_alignment>left</header_alignment>
+      <header_image />
+      <row_font_name>arial</row_font_name>
+      <row_font_size>10</row_font_size>
+      <row_font_color>black</row_font_color>
+      <row_background_color>none</row_background_color>
+    </custom>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>401</xloc>
+      <yloc>214</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Prestazioni_PS da Patidok</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1026,72 +1173,28 @@
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
-  ANNO
-, MESE
-, NROCASO
-, IDPAZIENTE
+  NROCASO
+, NROPREST
+, COD_PRESTAZIONE
+, COD_PREST_FLUSSI
+, DESC_PRESTAZIONE
+, CODICEPAZIENTE
+, COD_EROGATORE
+, EROGATORE
+, DATA_PRESTAZIONE
+, DATAENTRATA
+, DATADIMISSIONE
 , COD_UO
 , DESC_COD_UO
-, COD_FISCALE
-, COGNOME
-, NOME
-, SESSO
-, DATANASCITA
-, COMUNERESIDENZA
-, STATORESIDENZA			-- aggiunto 17/07/2009
-, substr(to_char(ASL,'FM000000'),3,3) Asl
-, substr(to_char(ASL,'FM000000'),1,3) Regione
-, COD_MODALITA_DIMISSIONE
-, DATAENTRATA
-, ORAENTRATA
-, DATADIMISSIONE
-, ORA_DIM
-, STATO
-, CODICE_COLORE_TRIAGE
-, COLORE_TRIAGE
-, COD_URGENZA_EXTRA
-, COD_MEZZO
-, MEZZO
-, COD_MODALITA
-, MODALITA_ACCESSO
-, LUOGO_EVENTO
-, CODICE_COLORE_VISITA
-, COLORE_VISITA
-, SALA_VISITA
-, Nvl2(DATA_VISITA,to_date(DATA_VISITA,'dd/mm/yy'), Null) Data_Visita
-, ORA_VISITA
-, PROGN_GIORNI
-, PROGN_RISERVATA
-, CODICE_COLORE_DIMISSIONE
-, COLORE_DIMISSIONE
-, ESITO
-, RIC_OBI
-, to_char(To_Number(Substr(trim(CDC),1,4)), 'FM0000') Rep_ricovero
-, Substr(cdc,Instr(cdc,' ') + 1 ,Length(cdc)) Des_Rep_Ric
-, cod_EsitPS
-, ESITOBI
-, MEDICO
-, COD_PRI_DIMI
-, COD_PRI_VISI
-, COD_PRI_LAST
-, Case 
-	 When cod_EsitPS = '2' Then 'SI'
-	 When cod_EsitPS = '6' And cod_EsitOBI = '2' Then 'SI'
-	 Else 'NO'
-End Flag_Ricovero
-, IMPORTO_TICKET
-, Nvl2(importo_ticket, 'NO', 'SI') Flag_Esente
-, Trim(PROBL_PRINC) PROBL_PRINC
-, cod_EsitOBI
-, Case 
-	 When cod_EsitPS = '6' Then cod_EsitOBI
-	 Else cod_EsitPS
-End Esito_Accesso_cod 
-, Case 
-	 When cod_EsitPS = '6' Then ESITOBI
-	 Else ESITO
-End Esito_Accesso_des 
-FROM ACCESSI_PS_BUFFER
+, Tipo_Prest
+, importo
+, inizio_val
+, fine_val
+FROM v_export_prestazioni_ps@patidok p
+Where
+p.DATADIMISSIONE Between date '2016-11-01' and date '2016-11-30'
+order by
+NROCASO , NROPREST
 </sql>
     <limit>0</limit>
     <lookup />
@@ -1106,540 +1209,14 @@ FROM ACCESSI_PS_BUFFER
       </output>
     </remotesteps>
     <GUI>
-      <xloc>72</xloc>
-      <yloc>27</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get System Info</name>
-    <type>SystemInfo</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>data_sys</name>
-        <type>system date (fixed)</type>
-      </field>
-      <field>
-        <name>job_id</name>
-        <type>job batch ID</type>
-      </field>
-      <field>
-        <name>transformation_id</name>
-        <type>batch ID</type>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>72</xloc>
-      <yloc>122</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get System Info 2</name>
-    <type>SystemInfo</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>data_sys</name>
-        <type>system date (fixed)</type>
-      </field>
-      <field>
-        <name>job_id</name>
-        <type>job batch ID</type>
-      </field>
-      <field>
-        <name>transformation_id</name>
-        <type>batch ID</type>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>250</xloc>
-      <yloc>122</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ins Accessi_PS</name>
-    <type>InsertUpdate</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <commit>1000</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema />
-      <table>Accessi_PS</table>
-      <key>
-        <name>NROCASO</name>
-        <field>NROCASO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>ANNO</name>
-        <rename>ANNO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>MESE</name>
-        <rename>MESE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NROCASO</name>
-        <rename>NROCASO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>IDPAZIENTE</name>
-        <rename>IDPAZIENTE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_UO</name>
-        <rename>COD_UO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DESC_COD_UO</name>
-        <rename>DESC_COD_UO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_FISCALE</name>
-        <rename>COD_FISCALE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COGNOME</name>
-        <rename>COGNOME</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NOME</name>
-        <rename>NOME</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>SESSO</name>
-        <rename>SESSO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATANASCITA</name>
-        <rename>DATANASCITA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COMUNERESIDENZA</name>
-        <rename>COMUNERESIDENZA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ASL</name>
-        <rename>ASL</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>REGIONE</name>
-        <rename>REGIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_MODALITA_DIMISSIONE</name>
-        <rename>COD_MODALITA_DIMISSIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATAENTRATA</name>
-        <rename>DATAENTRATA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORAENTRATA</name>
-        <rename>ORAENTRATA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATADIMISSIONE</name>
-        <rename>DATADIMISSIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_DIM</name>
-        <rename>ORA_DIM</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>STATO</name>
-        <rename>STATO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>CODICE_COLORE_TRIAGE</name>
-        <rename>CODICE_COLORE_TRIAGE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COLORE_TRIAGE</name>
-        <rename>COLORE_TRIAGE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_URGENZA_EXTRA</name>
-        <rename>COD_URGENZA_EXTRA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_MEZZO</name>
-        <rename>COD_MEZZO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>MEZZO</name>
-        <rename>MEZZO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_MODALITA</name>
-        <rename>COD_MODALITA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>MODALITA_ACCESSO</name>
-        <rename>MODALITA_ACCESSO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>LUOGO_EVENTO</name>
-        <rename>LUOGO_EVENTO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>CODICE_COLORE_VISITA</name>
-        <rename>CODICE_COLORE_VISITA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COLORE_VISITA</name>
-        <rename>COLORE_VISITA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>SALA_VISITA</name>
-        <rename>SALA_VISITA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_VISITA</name>
-        <rename>DATA_VISITA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_VISITA</name>
-        <rename>ORA_VISITA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PROGN_GIORNI</name>
-        <rename>PROGN_GIORNI</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PROGN_RISERVATA</name>
-        <rename>PROGN_RISERVATA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>CODICE_COLORE_DIMISSIONE</name>
-        <rename>CODICE_COLORE_DIMISSIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COLORE_DIMISSIONE</name>
-        <rename>COLORE_DIMISSIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ESITO</name>
-        <rename>ESITO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>RIC_OBI</name>
-        <rename>RIC_OBI</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>REP_RICOVERO</name>
-        <rename>REP_RICOVERO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DES_REP_RIC</name>
-        <rename>DES_REP_RIC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_ESITPS</name>
-        <rename>COD_ESITPS</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ESITOBI</name>
-        <rename>ESITOBI</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>MEDICO</name>
-        <rename>MEDICO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_PRI_DIMI</name>
-        <rename>COD_PRI_DIMI</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_PRI_VISI</name>
-        <rename>COD_PRI_VISI</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_PRI_LAST</name>
-        <rename>COD_PRI_LAST</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>FLAG_RICOVERO</name>
-        <rename>FLAG_RICOVERO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>IMPORTO_TICKET</name>
-        <rename>IMPORTO_TICKET</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>FLAG_ESENTE</name>
-        <rename>FLAG_ESENTE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Data_Load</name>
-        <rename>data_sys</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Job_id</name>
-        <rename>job_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Transformation_id</name>
-        <rename>transformation_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PROBL_PRINC</name>
-        <rename>PROBL_PRINC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>STATORESIDENZA</name>
-        <rename>STATORESIDENZA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_ESITOBI</name>
-        <rename>COD_ESITOBI</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ESITO_ACCESSO_COD</name>
-        <rename>ESITO_ACCESSO_COD</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ESITO_ACCESSO_DES</name>
-        <rename>ESITO_ACCESSO_DES</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>72</xloc>
-      <yloc>324</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ins Prestazioni_PS</name>
-    <type>InsertUpdate</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <commit>1000</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema />
-      <table>Prestazioni_PS</table>
-      <key>
-        <name>NROCASO</name>
-        <field>NROCASO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>NROPREST</name>
-        <field>NROPREST</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>NROCASO</name>
-        <rename>NROCASO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NROPREST</name>
-        <rename>NROPREST</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_PRESTAZIONE</name>
-        <rename>COD_PRESTAZIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_PREST_FLUSSI</name>
-        <rename>COD_PREST_FLUSSI</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DESC_PRESTAZIONE</name>
-        <rename>DESC_PRESTAZIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>CODICEPAZIENTE</name>
-        <rename>CODICEPAZIENTE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_EROGATORE</name>
-        <rename>COD_EROGATORE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>EROGATORE</name>
-        <rename>EROGATORE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_PRESTAZIONE</name>
-        <rename>DATA_PRESTAZIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATAENTRATA</name>
-        <rename>DATAENTRATA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATADIMISSIONE</name>
-        <rename>DATADIMISSIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_UO</name>
-        <rename>COD_UO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DESC_COD_UO</name>
-        <rename>DESC_COD_UO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Data_Load</name>
-        <rename>data_sys</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Job_id</name>
-        <rename>job_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Transformation_id</name>
-        <rename>transformation_id</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>250</xloc>
-      <yloc>324</yloc>
+      <xloc>119</xloc>
+      <yloc>91</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Prestazioni_PS_buffer</name>
-    <type>TableInput</type>
+    <type>TableOutput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1649,31 +1226,24 @@ FROM ACCESSI_PS_BUFFER
       <schema_name />
     </partitioning>
     <connection>db_sopra</connection>
-    <sql>SELECT
-  p.NROCASO
-, p.NROPREST
-, p.COD_PRESTAZIONE
-, p.COD_PREST_FLUSSI
-, p.DESC_PRESTAZIONE
-, p.CODICEPAZIENTE
-, p.COD_EROGATORE
-, p.EROGATORE
-, p.DATA_PRESTAZIONE
-, p.DATAENTRATA
-, p.DATADIMISSIONE
-, p.COD_UO
-, p.DESC_COD_UO
-FROM 
-PRESTAZIONI_PS_BUFFER p, ACCESSI_PS_BUFFER a
-where
-p.nrocaso = a.nrocaso		-- serve ad escludere le prestazioni di accessi che non sono
-                            -- stati caricati ad es. quelli Inseriti per Errore
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <schema />
+    <table>Prestazioni_PS_buffer</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1682,14 +1252,14 @@ p.nrocaso = a.nrocaso		-- serve ad escludere le prestazioni di accessi che non s
       </output>
     </remotesteps>
     <GUI>
-      <xloc>250</xloc>
-      <yloc>27</yloc>
+      <xloc>119</xloc>
+      <yloc>335</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Upd Accessi_PS</name>
-    <type>Update</type>
+    <name>Unique rows</name>
+    <type>Unique</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1698,242 +1268,20 @@ p.nrocaso = a.nrocaso		-- serve ad escludere le prestazioni di accessi che non s
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>db_sopra</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>1000</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>Y</error_ignored>
-    <ignore_flag_field />
-    <lookup>
-      <schema />
-      <table>ACCESSI_PS</table>
-      <key>
+    <count_rows>N</count_rows>
+    <count_field />
+    <reject_duplicate_row>Y</reject_duplicate_row>
+    <error_description />
+    <fields>
+      <field>
         <name>NROCASO</name>
-        <field>NROCASO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>ANNO</name>
-        <rename>ANNO</rename>
-      </value>
-      <value>
-        <name>MESE</name>
-        <rename>MESE</rename>
-      </value>
-      <value>
-        <name>NROCASO</name>
-        <rename>NROCASO</rename>
-      </value>
-      <value>
-        <name>IDPAZIENTE</name>
-        <rename>IDPAZIENTE</rename>
-      </value>
-      <value>
-        <name>COD_UO</name>
-        <rename>COD_UO</rename>
-      </value>
-      <value>
-        <name>DESC_COD_UO</name>
-        <rename>DESC_COD_UO</rename>
-      </value>
-      <value>
-        <name>COD_FISCALE</name>
-        <rename>COD_FISCALE</rename>
-      </value>
-      <value>
-        <name>COGNOME</name>
-        <rename>COGNOME</rename>
-      </value>
-      <value>
-        <name>NOME</name>
-        <rename>NOME</rename>
-      </value>
-      <value>
-        <name>SESSO</name>
-        <rename>SESSO</rename>
-      </value>
-      <value>
-        <name>DATANASCITA</name>
-        <rename>DATANASCITA</rename>
-      </value>
-      <value>
-        <name>COMUNERESIDENZA</name>
-        <rename>COMUNERESIDENZA</rename>
-      </value>
-      <value>
-        <name>ASL</name>
-        <rename>ASL</rename>
-      </value>
-      <value>
-        <name>REGIONE</name>
-        <rename>REGIONE</rename>
-      </value>
-      <value>
-        <name>COD_MODALITA_DIMISSIONE</name>
-        <rename>COD_MODALITA_DIMISSIONE</rename>
-      </value>
-      <value>
-        <name>DATAENTRATA</name>
-        <rename>DATAENTRATA</rename>
-      </value>
-      <value>
-        <name>ORAENTRATA</name>
-        <rename>ORAENTRATA</rename>
-      </value>
-      <value>
-        <name>DATADIMISSIONE</name>
-        <rename>DATADIMISSIONE</rename>
-      </value>
-      <value>
-        <name>ORA_DIM</name>
-        <rename>ORA_DIM</rename>
-      </value>
-      <value>
-        <name>STATO</name>
-        <rename>STATO</rename>
-      </value>
-      <value>
-        <name>CODICE_COLORE_TRIAGE</name>
-        <rename>CODICE_COLORE_TRIAGE</rename>
-      </value>
-      <value>
-        <name>COLORE_TRIAGE</name>
-        <rename>COLORE_TRIAGE</rename>
-      </value>
-      <value>
-        <name>COD_URGENZA_EXTRA</name>
-        <rename>COD_URGENZA_EXTRA</rename>
-      </value>
-      <value>
-        <name>COD_MEZZO</name>
-        <rename>COD_MEZZO</rename>
-      </value>
-      <value>
-        <name>MEZZO</name>
-        <rename>MEZZO</rename>
-      </value>
-      <value>
-        <name>COD_MODALITA</name>
-        <rename>COD_MODALITA</rename>
-      </value>
-      <value>
-        <name>MODALITA_ACCESSO</name>
-        <rename>MODALITA_ACCESSO</rename>
-      </value>
-      <value>
-        <name>LUOGO_EVENTO</name>
-        <rename>LUOGO_EVENTO</rename>
-      </value>
-      <value>
-        <name>CODICE_COLORE_VISITA</name>
-        <rename>CODICE_COLORE_VISITA</rename>
-      </value>
-      <value>
-        <name>COLORE_VISITA</name>
-        <rename>COLORE_VISITA</rename>
-      </value>
-      <value>
-        <name>SALA_VISITA</name>
-        <rename>SALA_VISITA</rename>
-      </value>
-      <value>
-        <name>DATA_VISITA</name>
-        <rename>DATA_VISITA</rename>
-      </value>
-      <value>
-        <name>ORA_VISITA</name>
-        <rename>ORA_VISITA</rename>
-      </value>
-      <value>
-        <name>PROGN_GIORNI</name>
-        <rename>PROGN_GIORNI</rename>
-      </value>
-      <value>
-        <name>PROGN_RISERVATA</name>
-        <rename>PROGN_RISERVATA</rename>
-      </value>
-      <value>
-        <name>CODICE_COLORE_DIMISSIONE</name>
-        <rename>CODICE_COLORE_DIMISSIONE</rename>
-      </value>
-      <value>
-        <name>COLORE_DIMISSIONE</name>
-        <rename>COLORE_DIMISSIONE</rename>
-      </value>
-      <value>
-        <name>ESITO</name>
-        <rename>ESITO</rename>
-      </value>
-      <value>
-        <name>RIC_OBI</name>
-        <rename>RIC_OBI</rename>
-      </value>
-      <value>
-        <name>REP_RICOVERO</name>
-        <rename>REP_RICOVERO</rename>
-      </value>
-      <value>
-        <name>DES_REP_RIC</name>
-        <rename>DES_REP_RIC</rename>
-      </value>
-      <value>
-        <name>COD_ESITPS</name>
-        <rename>COD_ESITPS</rename>
-      </value>
-      <value>
-        <name>ESITOBI</name>
-        <rename>ESITOBI</rename>
-      </value>
-      <value>
-        <name>MEDICO</name>
-        <rename>MEDICO</rename>
-      </value>
-      <value>
-        <name>COD_PRI_DIMI</name>
-        <rename>COD_PRI_DIMI</rename>
-      </value>
-      <value>
-        <name>COD_PRI_VISI</name>
-        <rename>COD_PRI_VISI</rename>
-      </value>
-      <value>
-        <name>COD_PRI_LAST</name>
-        <rename>COD_PRI_LAST</rename>
-      </value>
-      <value>
-        <name>FLAG_RICOVERO</name>
-        <rename>FLAG_RICOVERO</rename>
-      </value>
-      <value>
-        <name>IMPORTO_TICKET</name>
-        <rename>IMPORTO_TICKET</rename>
-      </value>
-      <value>
-        <name>FLAG_ESENTE</name>
-        <rename>FLAG_ESENTE</rename>
-      </value>
-      <value>
-        <name>PROBL_PRINC</name>
-        <rename>PROBL_PRINC</rename>
-      </value>
-      <value>
-        <name>STATORESIDENZA</name>
-        <rename>STATORESIDENZA</rename>
-      </value>
-      <value>
-        <name>COD_ESITOBI</name>
-        <rename>COD_ESITOBI</rename>
-      </value>
-      <value>
-        <name>ESITO_ACCESSO_COD</name>
-        <rename>ESITO_ACCESSO_COD</rename>
-      </value>
-      <value>
-        <name>ESITO_ACCESSO_DES</name>
-        <rename>ESITO_ACCESSO_DES</rename>
-      </value>
-    </lookup>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>NROPREST</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1942,14 +1290,14 @@ p.nrocaso = a.nrocaso		-- serve ad escludere le prestazioni di accessi che non s
       </output>
     </remotesteps>
     <GUI>
-      <xloc>72</xloc>
-      <yloc>219</yloc>
+      <xloc>119</xloc>
+      <yloc>212</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Upd Prestazioni_PS</name>
-    <type>Update</type>
+    <name>duplicate</name>
+    <type>Dummy</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1958,80 +1306,6 @@ p.nrocaso = a.nrocaso		-- serve ad escludere le prestazioni di accessi che non s
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>db_sopra</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>1000</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>Y</error_ignored>
-    <ignore_flag_field />
-    <lookup>
-      <schema />
-      <table>PRESTAZIONI_PS</table>
-      <key>
-        <name>NROCASO</name>
-        <field>NROCASO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>NROPREST</name>
-        <field>NROPREST</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>NROCASO</name>
-        <rename>NROCASO</rename>
-      </value>
-      <value>
-        <name>NROPREST</name>
-        <rename>NROPREST</rename>
-      </value>
-      <value>
-        <name>COD_PRESTAZIONE</name>
-        <rename>COD_PRESTAZIONE</rename>
-      </value>
-      <value>
-        <name>COD_PREST_FLUSSI</name>
-        <rename>COD_PREST_FLUSSI</rename>
-      </value>
-      <value>
-        <name>DESC_PRESTAZIONE</name>
-        <rename>DESC_PRESTAZIONE</rename>
-      </value>
-      <value>
-        <name>CODICEPAZIENTE</name>
-        <rename>CODICEPAZIENTE</rename>
-      </value>
-      <value>
-        <name>COD_EROGATORE</name>
-        <rename>COD_EROGATORE</rename>
-      </value>
-      <value>
-        <name>EROGATORE</name>
-        <rename>EROGATORE</rename>
-      </value>
-      <value>
-        <name>DATA_PRESTAZIONE</name>
-        <rename>DATA_PRESTAZIONE</rename>
-      </value>
-      <value>
-        <name>DATAENTRATA</name>
-        <rename>DATAENTRATA</rename>
-      </value>
-      <value>
-        <name>DATADIMISSIONE</name>
-        <rename>DATADIMISSIONE</rename>
-      </value>
-      <value>
-        <name>COD_UO</name>
-        <rename>COD_UO</rename>
-      </value>
-      <value>
-        <name>DESC_COD_UO</name>
-        <rename>DESC_COD_UO</rename>
-      </value>
-    </lookup>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -2040,12 +1314,24 @@ p.nrocaso = a.nrocaso		-- serve ad escludere le prestazioni di accessi che non s
       </output>
     </remotesteps>
     <GUI>
-      <xloc>250</xloc>
-      <yloc>219</yloc>
+      <xloc>294</xloc>
+      <yloc>211</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
+    <error>
+      <source_step>Unique rows</source_step>
+      <target_step>duplicate</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename />
+      <descriptions_valuename />
+      <fields_valuename />
+      <codes_valuename />
+      <max_errors />
+      <max_pct_errors />
+      <min_pct_rows />
+    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>

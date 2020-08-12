@@ -429,16 +429,16 @@
       <partitionschema>
         <name>MySQL EC2 Schema</name>
         <partition>
-          <id>P2</id>
-        </partition>
-        <partition>
-          <id>P3</id>
-        </partition>
-        <partition>
           <id>P4</id>
         </partition>
         <partition>
           <id>P5</id>
+        </partition>
+        <partition>
+          <id>P2</id>
+        </partition>
+        <partition>
+          <id>P3</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
@@ -446,7 +446,7 @@
       <partitionschema>
         <name>Partitioning schema</name>
         <partition>
-          <id>PartDB2</id>
+          <id>PartDB4</id>
         </partition>
         <partition>
           <id>PartDB5</id>
@@ -455,10 +455,10 @@
           <id>PartDB3</id>
         </partition>
         <partition>
-          <id>PartDB4</id>
+          <id>PartDB1</id>
         </partition>
         <partition>
-          <id>PartDB1</id>
+          <id>PartDB2</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
@@ -878,11 +878,11 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>EC_SLAVE_3</name>
           <name>EC_SLAVE_4</name>
           <name>EC_SLAVE_2</name>
-          <name>EC_SLAVE_3</name>
-          <name>EC_MASTER_1</name>
           <name>EC_SLAVE_5</name>
+          <name>EC_MASTER_1</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -894,8 +894,8 @@
         <dynamic>N</dynamic>
         <slaveservers>
           <name>localhost:8080:Master</name>
-          <name>localhost:8082</name>
           <name>localhost:8081</name>
+          <name>localhost:8082</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -906,9 +906,9 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>sam 8080</name>
           <name>sam 8081 slave</name>
           <name>sam 8082 slave</name>
-          <name>sam 8080</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -1062,6 +1062,49 @@ caricamento
       <attribute>
         <code>STREAM_RESULTS</code>
         <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>db_sopra_logger</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>pdi_logger</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>

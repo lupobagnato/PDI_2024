@@ -1,24 +1,24 @@
 <job>
-  <name>Accessi_PS Loader</name>
+  <name>Import Tracciatone_PS</name>
   <description />
   <extended_description />
   <job_version />
   <job_status>0</job_status>
-  <directory>/Pronto_Soccorso</directory>
+  <directory>/Pronto_Soccorso/Tracciatone_PS</directory>
   <created_user>admin</created_user>
-  <created_date>2009/01/28 08:17:54.000</created_date>
+  <created_date>2007/09/05 10:02:15.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2017/04/07 15:15:26.000</modified_date>
+  <modified_date>2020/08/04 13:22:30.036</modified_date>
   <parameters>
     <parameter>
       <name>PARAMETER1</name>
-      <default_value>30</default_value>
-      <description>Back Days</description>
+      <default_value />
+      <description />
     </parameter>
     <parameter>
       <name>PARAMETER2</name>
-      <default_value>N</default_value>
-      <description>Gestione_Doppi</description>
+      <default_value />
+      <description />
     </parameter>
     <parameter>
       <name>PARAMETER3</name>
@@ -52,7 +52,7 @@
     </parameter>
     <parameter>
       <name>PARAMETER9</name>
-      <default_value>§§§job§§§: ${Internal.Job.Name}</default_value>
+      <default_value />
       <description />
     </parameter>
     <parameter>
@@ -77,17 +77,17 @@
     </parameter>
   </parameters>
   <connection>
-    <name>db_sopra_logger</name>
+    <name>db_sopra_SPEC</name>
     <server>ora_sopra.usl1.imperiese</server>
     <type>ORACLE</type>
     <access>Native</access>
     <database>DbSopra</database>
     <port>1526</port>
-    <username>pdi_logger</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
+    <username>spec</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cd82aad9</password>
     <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <data_tablespace>SPEC</data_tablespace>
+    <index_tablespace>IDX_SPEC</index_tablespace>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -98,7 +98,19 @@
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>5</attribute>
+      </attribute>
+      <attribute>
         <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
@@ -110,8 +122,8 @@
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>N</attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -120,6 +132,19 @@
     </attributes>
   </connection>
   <slaveservers>
+    <slaveserver>
+      <name>carte</name>
+      <hostname>localhost</hostname>
+      <port>8181</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
     <slaveserver>
       <name>Carte_server</name>
       <hostname>minollo</hostname>
@@ -134,8 +159,8 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>localhost:8080:Master</name>
-      <hostname>localhost</hostname>
+      <name>EC_MASTER_1</name>
+      <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
       <port>8080</port>
       <webAppName />
       <username>cluster</username>
@@ -147,9 +172,9 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>localhost:8082</name>
-      <hostname>localhost</hostname>
-      <port>8082</port>
+      <name>EC_SLAVE_1</name>
+      <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+      <port>8080</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -160,7 +185,72 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>localhost:8081</name>
+      <name>EC_SLAVE_2</name>
+      <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>EC_SLAVE_3</name>
+      <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>EC_SLAVE_4</name>
+      <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>EC_SLAVE_5</name>
+      <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>Jos 10.0.0.169</name>
+      <hostname>10.0.0.169</hostname>
+      <port>8081</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>Localhost 8081</name>
       <hostname>localhost</hostname>
       <port>8081</port>
       <webAppName />
@@ -186,9 +276,48 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>localhost:8084</name>
+      <name>localhost:8080 master</name>
       <hostname>localhost</hostname>
-      <port>8084</port>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>Y</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>localhost:8080:Master</name>
+      <hostname>localhost</hostname>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>Y</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>localhost:8081</name>
+      <hostname>localhost</hostname>
+      <port>8081</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>localhost:8082</name>
+      <hostname>localhost</hostname>
+      <port>8082</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -212,16 +341,29 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>localhost:8080 master</name>
+      <name>localhost:8084</name>
       <hostname>localhost</hostname>
-      <port>8080</port>
+      <port>8084</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
       <proxy_hostname />
       <proxy_port />
       <non_proxy_hosts />
-      <master>Y</master>
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>Mike ETL Server</name>
+      <hostname>localhost</hostname>
+      <port>8081</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
@@ -231,45 +373,6 @@
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>ruwvs07</name>
-      <hostname>ruwvs07</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>zebulon slave</name>
-      <hostname>192.168.1.277</hostname>
-      <port>8081</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>Y</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>Jos 10.0.0.169</name>
-      <hostname>10.0.0.169</hostname>
-      <port>8081</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
       <proxy_hostname />
       <proxy_port />
       <non_proxy_hosts />
@@ -303,138 +406,8 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>carte</name>
-      <hostname>localhost</hostname>
-      <port>8181</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>server8080</name>
-      <hostname>127.0.0.1</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>Y</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>server8090</name>
-      <hostname>127.0.0.1</hostname>
-      <port>8090</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>server9000</name>
-      <hostname>127.0.0.1</hostname>
-      <port>9000</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>EC_SLAVE_2</name>
-      <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>EC_SLAVE_4</name>
-      <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>EC_SLAVE_3</name>
-      <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>EC_MASTER_1</name>
-      <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>Y</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>EC_SLAVE_5</name>
-      <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
-      <port>8080</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>Localhost 8081</name>
-      <hostname>localhost</hostname>
-      <port>8081</port>
-      <webAppName />
-      <username>cluster</username>
-      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
-      <master>N</master>
-      <sslMode>N</sslMode>
-    </slaveserver>
-    <slaveserver>
-      <name>EC_SLAVE_1</name>
-      <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+      <name>ruwvs07</name>
+      <hostname>ruwvs07</hostname>
       <port>8080</port>
       <webAppName />
       <username>cluster</username>
@@ -485,9 +458,22 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>Warmath</name>
-      <hostname>liveinalpharetta.com</hostname>
-      <port>8083</port>
+      <name>server8080</name>
+      <hostname>127.0.0.1</hostname>
+      <port>8080</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>Y</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>server8090</name>
+      <hostname>127.0.0.1</hostname>
+      <port>8090</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -498,9 +484,22 @@
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
-      <name>Mike ETL Server</name>
-      <hostname>localhost</hostname>
-      <port>8081</port>
+      <name>server9000</name>
+      <hostname>127.0.0.1</hostname>
+      <port>9000</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>N</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
+    <slaveserver>
+      <name>Warmath</name>
+      <hostname>liveinalpharetta.com</hostname>
+      <port>8083</port>
       <webAppName />
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -523,11 +522,24 @@
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
+    <slaveserver>
+      <name>zebulon slave</name>
+      <hostname>192.168.1.277</hostname>
+      <port>8081</port>
+      <webAppName />
+      <username>cluster</username>
+      <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+      <proxy_hostname />
+      <proxy_port />
+      <non_proxy_hosts />
+      <master>Y</master>
+      <sslMode>N</sslMode>
+    </slaveserver>
   </slaveservers>
   <job-log-table>
-    <connection>${_LogDb}</connection>
-    <schema>${_LogSchema}</schema>
-    <table>${_LogJob}</table>
+    <connection>db_sopra_SPEC</connection>
+    <schema />
+    <table>Kettle_log_job</table>
     <size_limit_lines />
     <interval />
     <timeout_days />
@@ -798,15 +810,89 @@
   <shared_objects_file />
   <entries>
     <entry>
-      <name>START</name>
-      <description>Special entries</description>
+      <name>import_PS_02</name>
+      <description />
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id>983</trans_object_id>
+      <filename />
+      <transname>import_PS_02</transname>
+      <directory>/Pronto_Soccorso/Tracciatone_PS</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>Y</clear_rows>
+      <clear_files>Y</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile />
+      <logext />
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Error</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name />
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration />
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>566</xloc>
+      <yloc>246</yloc>
+    </entry>
+    <entry>
+      <name>import_PS_01</name>
+      <description />
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id>982</trans_object_id>
+      <filename />
+      <transname>import_PS_01</transname>
+      <directory>/Pronto_Soccorso/Tracciatone_PS</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>Y</clear_rows>
+      <clear_files>Y</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile />
+      <logext />
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Error</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name />
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration />
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>390</xloc>
+      <yloc>246</yloc>
+    </entry>
+    <entry>
+      <name>Start</name>
+      <description />
       <type>SPECIAL</type>
       <start>Y</start>
       <dummy>N</dummy>
       <repeat>N</repeat>
       <schedulerType>0</schedulerType>
       <intervalSeconds>0</intervalSeconds>
-      <intervalMinutes>60</intervalMinutes>
+      <intervalMinutes>0</intervalMinutes>
       <hour>12</hour>
       <minutes>0</minutes>
       <weekDay>1</weekDay>
@@ -814,18 +900,18 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>36</xloc>
-      <yloc>12</yloc>
+      <xloc>26</xloc>
+      <yloc>61</yloc>
     </entry>
     <entry>
-      <name>Load_Accessi_PS_01</name>
+      <name>Load_Patidok_PS</name>
       <description>Transformation</description>
       <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
+      <specification_method>rep_ref</specification_method>
       <trans_object_id />
       <filename />
-      <transname>Load_Accessi_PS_01</transname>
-      <directory>/Pronto_Soccorso</directory>
+      <transname />
+      <directory>/</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -851,18 +937,18 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>227</xloc>
-      <yloc>143</yloc>
+      <xloc>715</xloc>
+      <yloc>429</yloc>
     </entry>
     <entry>
-      <name>Load_Accessi_PS_02</name>
+      <name>Log_PTPS_prima</name>
       <description>Transformation</description>
       <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
+      <specification_method>rep_ref</specification_method>
       <trans_object_id />
       <filename />
-      <transname>Load_Accessi_PS_02</transname>
-      <directory>/Pronto_Soccorso</directory>
+      <transname />
+      <directory>/</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -888,18 +974,18 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>553</xloc>
-      <yloc>143</yloc>
+      <xloc>657</xloc>
+      <yloc>362</yloc>
     </entry>
     <entry>
-      <name>Purge_Accessi_PS</name>
+      <name>Log_PTPS_dopo</name>
       <description>Transformation</description>
       <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
+      <specification_method>rep_ref</specification_method>
       <trans_object_id />
       <filename />
-      <transname>Purge_Accessi_PS</transname>
-      <directory>/Pronto_Soccorso</directory>
+      <transname />
+      <directory>/</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -925,18 +1011,18 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>812</xloc>
-      <yloc>143</yloc>
+      <xloc>762</xloc>
+      <yloc>363</yloc>
     </entry>
     <entry>
-      <name>xform_Accessi_PS</name>
+      <name>xform_PS</name>
       <description>Transformation</description>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
+      <trans_object_id>987</trans_object_id>
       <filename />
-      <transname>xform_Accessi_PS</transname>
-      <directory>/Pronto_Soccorso</directory>
+      <transname>xform_PS</transname>
+      <directory>/Pronto_Soccorso/Tracciatone_PS</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -962,213 +1048,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>423</xloc>
-      <yloc>143</yloc>
-    </entry>
-    <entry>
-      <name>Mail Ok</name>
-      <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: Ok</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
-      <include_files>N</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity />
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1037</xloc>
-      <yloc>210</yloc>
-    </entry>
-    <entry>
-      <name>Mail Err</name>
-      <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: Errore da 01</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
-      <include_files>Y</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity />
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>227</xloc>
-      <yloc>313</yloc>
-    </entry>
-    <entry>
-      <name>Mail Err 2</name>
-      <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: Errore da xform</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
-      <include_files>Y</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity />
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>423</xloc>
-      <yloc>313</yloc>
-    </entry>
-    <entry>
-      <name>Mail Err 3</name>
-      <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: Errore da 02</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
-      <include_files>Y</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity />
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>553</xloc>
-      <yloc>313</yloc>
-    </entry>
-    <entry>
-      <name>Mail Err 4</name>
-      <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: Errore da Purge</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
-      <include_files>Y</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity />
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>812</xloc>
-      <yloc>315</yloc>
+      <xloc>538</xloc>
+      <yloc>140</yloc>
     </entry>
     <entry>
       <name>Log_Parameters</name>
@@ -1201,11 +1082,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>171</xloc>
-      <yloc>12</yloc>
+      <xloc>134</xloc>
+      <yloc>61</yloc>
     </entry>
     <entry>
-      <name>Mail Err 5</name>
+      <name>Mail Err</name>
       <description />
       <type>MAIL</type>
       <server>${var_Smtp}</server>
@@ -1215,12 +1096,12 @@
       <destinationBCc />
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: Errore da Load_Prestazioni_PS_01</subject>
+      <subject>${Internal.Job.Name}: Errore</subject>
       <include_date>Y</include_date>
       <contact_person />
       <contact_phone />
-      <comment />
-      <include_files>Y</include_files>
+      <comment>Errore  sul periodo: ${INIZIO} - ${FINE}</comment>
+      <include_files>N</include_files>
       <zip_files>N</zip_files>
       <zip_name />
       <use_auth>N</use_auth>
@@ -1242,85 +1123,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>323</xloc>
-      <yloc>385</yloc>
+      <xloc>483</xloc>
+      <yloc>433</yloc>
     </entry>
     <entry>
-      <name>Load_Prestazioni_PS_01</name>
-      <description>Transformation</description>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
-      <transname>Load_Prestazioni_PS_01</transname>
-      <directory>/Pronto_Soccorso</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>323</xloc>
-      <yloc>205</yloc>
-    </entry>
-    <entry>
-      <name>Load_Prestazioni_PS_02</name>
-      <description>Transformation</description>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
-      <transname>Load_Prestazioni_PS_02</transname>
-      <directory>/Pronto_Soccorso</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>674</xloc>
-      <yloc>211</yloc>
-    </entry>
-    <entry>
-      <name>Mail Err 3 2</name>
+      <name>Mail Ok</name>
       <description />
       <type>MAIL</type>
       <server>${var_Smtp}</server>
@@ -1330,12 +1137,12 @@
       <destinationBCc />
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: Errore da Load_Prestazioni_PS_02</subject>
+      <subject>${Internal.Job.Name}: Ok</subject>
       <include_date>Y</include_date>
       <contact_person />
       <contact_phone />
-      <comment />
-      <include_files>Y</include_files>
+      <comment>Periodo caricato : ${INIZIO} - ${FINE}</comment>
+      <include_files>N</include_files>
       <zip_files>N</zip_files>
       <zip_name />
       <use_auth>N</use_auth>
@@ -1357,29 +1164,29 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>674</xloc>
-      <yloc>385</yloc>
+      <xloc>786</xloc>
+      <yloc>246</yloc>
     </entry>
     <entry>
-      <name>xform_Pagamenti_Ticket</name>
+      <name>import_PS_00_date</name>
       <description />
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
+      <trans_object_id>980</trans_object_id>
       <filename />
-      <transname>xform_Pagamenti_Ticket</transname>
-      <directory>/Pronto_Soccorso</directory>
+      <transname>import_PS_00_date</transname>
+      <directory>/Pronto_Soccorso/Tracciatone_PS</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
+      <clear_rows>Y</clear_rows>
+      <clear_files>Y</clear_files>
       <set_logfile>N</set_logfile>
       <logfile />
       <logext />
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
+      <loglevel>Error</loglevel>
       <cluster>N</cluster>
       <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
@@ -1394,55 +1201,41 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>913</xloc>
-      <yloc>210</yloc>
-    </entry>
-    <entry>
-      <name>Mail Err 6</name>
-      <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: xform_Pagamenti_Ticket</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
-      <include_files>Y</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity />
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>913</xloc>
-      <yloc>384</yloc>
+      <xloc>287</xloc>
+      <yloc>246</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>xform_Accessi_PS</from>
-      <to>Load_Accessi_PS_02</to>
+      <from>import_PS_02</from>
+      <to>Log_PTPS_prima</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Log_PTPS_prima</from>
+      <to>Load_Patidok_PS</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Load_Patidok_PS</from>
+      <to>Log_PTPS_dopo</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>xform_PS</from>
+      <to>import_PS_02</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1450,43 +1243,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Load_Accessi_PS_01</from>
-      <to>Mail Err</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>xform_Accessi_PS</from>
-      <to>Mail Err 2</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Load_Accessi_PS_02</from>
-      <to>Mail Err 3</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Purge_Accessi_PS</from>
-      <to>Mail Err 4</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>START</from>
+      <from>Start</from>
       <to>Log_Parameters</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1495,8 +1252,62 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
+      <from>import_PS_01</from>
+      <to>Mail Err</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>xform_PS</from>
+      <to>Mail Err</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>import_PS_02</from>
+      <to>Mail Err</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Load_Patidok_PS</from>
+      <to>Mail Err</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>import_PS_00_date</from>
+      <to>Mail Err</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Log_PTPS_dopo</from>
+      <to>Mail Ok</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
       <from>Log_Parameters</from>
-      <to>Load_Accessi_PS_01</to>
+      <to>import_PS_00_date</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1504,70 +1315,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Load_Accessi_PS_01</from>
-      <to>Load_Prestazioni_PS_01</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Load_Prestazioni_PS_01</from>
-      <to>xform_Accessi_PS</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Load_Prestazioni_PS_01</from>
-      <to>Mail Err 5</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Load_Accessi_PS_02</from>
-      <to>Load_Prestazioni_PS_02</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Load_Prestazioni_PS_02</from>
-      <to>Purge_Accessi_PS</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Load_Prestazioni_PS_02</from>
-      <to>Mail Err 3 2</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Purge_Accessi_PS</from>
-      <to>xform_Pagamenti_Ticket</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>xform_Pagamenti_Ticket</from>
+      <from>import_PS_02</from>
       <to>Mail Ok</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1576,15 +1324,124 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>xform_Pagamenti_Ticket</from>
-      <to>Mail Err 6</to>
+      <from>import_PS_00_date</from>
+      <to>import_PS_01</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>N</evaluation>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>import_PS_01</from>
+      <to>xform_PS</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>13.06.2012
+inserisce Esito e Priorità alla Dimissione
+presi nella dwh.Accessi_PS
+</note>
+      <xloc>604</xloc>
+      <yloc>118</yloc>
+      <width>247</width>
+      <heigth>62</heigth>
+      <fontname />
+      <fontsize>-1</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>N</drawshadow>
+    </notepad>
+    <notepad>
+      <note>[07.04.2015]
+Esclusione di Load_Patidok_PS
+==> Import Tracciatone Ps diventa
+equivalente alle import dell'Art.50</note>
+      <xloc>612</xloc>
+      <yloc>487</yloc>
+      <width>229</width>
+      <heigth>70</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>Y</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>18-02-2010
+Eliminato il caricamento delle dimensioni STS11 e Nomenclatore
+Sono aggiornate dalle procedure Art.50</note>
+      <xloc>646</xloc>
+      <yloc>12</yloc>
+      <width>390</width>
+      <heigth>55</heigth>
+      <fontname />
+      <fontsize>-1</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>N</drawshadow>
+    </notepad>
+    <notepad>
+      <note>[09.10.2015]
+Aggiunto Import Tracciatone_PS
+in coda all'import Patidok
+Così i dati Specialistica del PS sono
+sincronizzati con quelli del resto
+della Specialistica
+
+Eliminato Import Tracciatone_PS dallo scheduler Pentaho
+(era sul trigger Giorno9_h18)</note>
+      <xloc>13</xloc>
+      <yloc>369</yloc>
+      <width>350</width>
+      <heigth>145</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
 </job>
