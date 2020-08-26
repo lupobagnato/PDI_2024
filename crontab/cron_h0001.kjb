@@ -1,5 +1,5 @@
 <job>
-  <name>syncH_00-01</name>
+  <name>cron_h0001</name>
   <description />
   <extended_description />
   <job_version />
@@ -8,7 +8,7 @@
   <created_user />
   <created_date>2019/09/16 11:46:33.107</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2020/07/28 16:21:26.921</modified_date>
+  <modified_date>2020/08/26 14:39:14.894</modified_date>
   <parameters>
     <parameter>
       <name>var_BCc</name>
@@ -860,6 +860,47 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <nr>0</nr>
       <xloc>128</xloc>
       <yloc>80</yloc>
+    </entry>
+    <entry>
+      <name>Err</name>
+      <description />
+      <type>MAIL</type>
+      <server>${var_Smtp}</server>
+      <port>${var_Port}</port>
+      <destination>${var_To}</destination>
+      <destinationCc />
+      <destinationBCc />
+      <replyto>${var_From}</replyto>
+      <replytoname>${var_From}</replytoname>
+      <subject>${Internal.Job.Name}: Err</subject>
+      <include_date>Y</include_date>
+      <contact_person />
+      <contact_phone />
+      <comment />
+      <include_files>N</include_files>
+      <zip_files>N</zip_files>
+      <zip_name />
+      <use_auth>N</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user />
+      <auth_password>Encrypted </auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses />
+      <filetypes>      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>128</xloc>
+      <yloc>288</yloc>
     </entry>
   </entries>
   <hops>
