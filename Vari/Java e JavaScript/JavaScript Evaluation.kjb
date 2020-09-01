@@ -1,16 +1,46 @@
 <job>
-  <name>PDI_Verif_PC</name>
+  <name>JavaScript Evaluation</name>
   <description />
   <extended_description />
   <job_version />
   <job_status>0</job_status>
-  <directory>/record_SeT</directory>
+  <directory>/Vari/Java e JavaScript</directory>
   <created_user />
-  <created_date>2020/09/01 12:17:00.653</created_date>
+  <created_date>2020/09/01 12:11:52.514</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2019/10/31 15:25:33.000</modified_date>
+  <modified_date>2020/05/27 15:30:47.000</modified_date>
   <parameters>
-    </parameters>
+    <parameter>
+      <name>ora_max</name>
+      <default_value>16</default_value>
+      <description>x esecuzione sync_Covid_Alisa</description>
+    </parameter>
+    <parameter>
+      <name>ora_min</name>
+      <default_value>9</default_value>
+      <description>x esecuzione sync_Covid_Alisa</description>
+    </parameter>
+    <parameter>
+      <name>var_From</name>
+      <default_value>report.intranet@asl1.liguria.it</default_value>
+      <description />
+    </parameter>
+    <parameter>
+      <name>var_Port</name>
+      <default_value>25</default_value>
+      <description />
+    </parameter>
+    <parameter>
+      <name>var_Smtp</name>
+      <default_value>smtp.usl1.imperiese</default_value>
+      <description />
+    </parameter>
+    <parameter>
+      <name>var_To</name>
+      <default_value>s.suppo@asl1.liguria.it</default_value>
+      <description />
+    </parameter>
+  </parameters>
   <connection>
     <name>db_sopra_logger</name>
     <server>ora_sopra.usl1.imperiese</server>
@@ -733,7 +763,7 @@
   <shared_objects_file />
   <entries>
     <entry>
-      <name>Mail Err 2</name>
+      <name>Mail Non Eseguito</name>
       <description />
       <type>MAIL</type>
       <server>${var_Smtp}</server>
@@ -743,52 +773,12 @@
       <destinationBCc />
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: ERR PDI_Verif_S</subject>
+      <subject>${Internal.Job.Name}: non eseguito</subject>
       <include_date>Y</include_date>
       <contact_person />
       <contact_phone />
-      <comment>${COD_PC} ${ANNO}-${MESE}</comment>
-      <include_files>Y</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity />
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>418</xloc>
-      <yloc>242</yloc>
-    </entry>
-    <entry>
-      <name>Mail Ok</name>
-      <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To}</destination>
-      <destinationCc>${email_Dati_Accreditati}</destinationCc>
-      <destinationBCc />
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: ${COD_PC} ${ANNO}-${MESE} Ok</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
+      <comment>ora_min = ${ora_min}
+ora_max = ${ora_max}</comment>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
       <zip_name />
@@ -811,8 +801,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>954</xloc>
-      <yloc>87</yloc>
+      <xloc>143</xloc>
+      <yloc>204</yloc>
     </entry>
     <entry>
       <name>START</name>
@@ -831,100 +821,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>33</xloc>
-      <yloc>87</yloc>
+      <xloc>35</xloc>
+      <yloc>29</yloc>
     </entry>
     <entry>
-      <name>PDI_Verif_S</name>
-      <description />
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
-      <transname>PDI_Verif_S</transname>
-      <directory>/record_SeT</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>ANNO</name>
-          <stream_name />
-          <value>${ANNO}</value>
-        </parameter>
-        <parameter>
-          <name>COD_PC</name>
-          <stream_name />
-          <value>${COD_PC}</value>
-        </parameter>
-        <parameter>
-          <name>MESE</name>
-          <stream_name />
-          <value>${MESE}</value>
-        </parameter>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>418</xloc>
-      <yloc>87</yloc>
-    </entry>
-    <entry>
-      <name>PDI_Verif_set_IDs</name>
-      <description />
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
-      <transname>PDI_Verif_set_IDs</transname>
-      <directory>/record_SeT</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>187</xloc>
-      <yloc>87</yloc>
-    </entry>
-    <entry>
-      <name>Mail Err 1</name>
+      <name>Mail Eseguito</name>
       <description />
       <type>MAIL</type>
       <server>${var_Smtp}</server>
@@ -934,12 +835,13 @@
       <destinationBCc />
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: ERR PDI_Verif_set_IDs</subject>
+      <subject>${Internal.Job.Name}: Eseguito</subject>
       <include_date>Y</include_date>
       <contact_person />
       <contact_phone />
-      <comment>${COD_PC} ${ANNO}-${MESE}</comment>
-      <include_files>Y</include_files>
+      <comment>ora_min = ${ora_min}
+ora_max = ${ora_max}</comment>
+      <include_files>N</include_files>
       <zip_files>N</zip_files>
       <zip_name />
       <use_auth>N</use_auth>
@@ -961,220 +863,92 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>187</xloc>
-      <yloc>242</yloc>
+      <xloc>427</xloc>
+      <yloc>29</yloc>
     </entry>
     <entry>
-      <name>DUMMY</name>
+      <name>JavaScript</name>
       <description />
-      <type>SPECIAL</type>
-      <start>N</start>
-      <dummy>Y</dummy>
-      <repeat>N</repeat>
-      <schedulerType>0</schedulerType>
-      <intervalSeconds>0</intervalSeconds>
-      <intervalMinutes>60</intervalMinutes>
-      <hour>12</hour>
-      <minutes>0</minutes>
-      <weekDay>1</weekDay>
-      <DayOfMonth>1</DayOfMonth>
+      <type>EVAL</type>
+      <script>var d = new Date();
+var HH = d.getHours();
+
+ora_min = parent_job.getVariable("ora_min");
+hh_min = new java.lang.Integer(ora_min);
+
+ora_max = parent_job.getVariable("ora_max");
+hh_max = new java.lang.Integer(ora_max);
+
+
+if (HH > hh_min &amp;&amp; HH &lt; hh_max) true;
+else false;
+</script>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>847</xloc>
-      <yloc>87</yloc>
+      <xloc>143</xloc>
+      <yloc>29</yloc>
     </entry>
     <entry>
-      <name>set PDI_Verif_LOG</name>
+      <name>Log Covid_Alisa</name>
       <description />
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
-      <transname>set PDI_Verif_LOG</transname>
-      <directory>/record_SeT</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>ora_min = ${ora_min}
+ora_max = ${ora_max}</logmessage>
       <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>ANNO</name>
-          <stream_name />
-          <value>${ANNO}</value>
-        </parameter>
-        <parameter>
-          <name>COD_PC</name>
-          <stream_name />
-          <value>${COD_PC}</value>
-        </parameter>
-        <parameter>
-          <name>MESE</name>
-          <stream_name />
-          <value>${MESE}</value>
-        </parameter>
-      </parameters>
+      <logsubject>Esegue sync_Covid_Alisa</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>728</xloc>
-      <yloc>87</yloc>
+      <xloc>270</xloc>
+      <yloc>29</yloc>
     </entry>
     <entry>
-      <name>Mail Err 4</name>
+      <name>Log Covid_Alisa 2</name>
       <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: ERR set PDI_Verif_LOG</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment>${COD_PC} ${ANNO}-${MESE}</comment>
-      <include_files>Y</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity />
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>728</xloc>
-      <yloc>242</yloc>
-    </entry>
-    <entry>
-      <name>Record_T_Accr</name>
-      <description />
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
-      <transname>Record_T_Accr</transname>
-      <directory>/record_SeT</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>ora_min = ${ora_min}
+ora_max = ${ora_max}</logmessage>
       <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>ANNO</name>
-          <stream_name />
-          <value>${ANNO}</value>
-        </parameter>
-        <parameter>
-          <name>COD_PC</name>
-          <stream_name />
-          <value>${COD_PC}</value>
-        </parameter>
-        <parameter>
-          <name>MESE</name>
-          <stream_name />
-          <value>${MESE}</value>
-        </parameter>
-      </parameters>
+      <logsubject>NON Esegue sync_Covid_Alisa</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>578</xloc>
-      <yloc>88</yloc>
-    </entry>
-    <entry>
-      <name>Mail Err 3</name>
-      <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: ERR Record_T_Accr</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment>${COD_PC} ${ANNO}-${MESE}</comment>
-      <include_files>Y</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity />
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>578</xloc>
-      <yloc>242</yloc>
+      <xloc>143</xloc>
+      <yloc>120</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>PDI_Verif_S</from>
-      <to>Mail Err 2</to>
+      <from>Log Covid_Alisa 2</from>
+      <to>Mail Non Eseguito</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Log Covid_Alisa</from>
+      <to>Mail Eseguito</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>JavaScript</from>
+      <to>Log Covid_Alisa</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>JavaScript</from>
+      <to>Log Covid_Alisa 2</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1183,163 +957,14 @@
     </hop>
     <hop>
       <from>START</from>
-      <to>PDI_Verif_set_IDs</to>
+      <to>JavaScript</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>PDI_Verif_set_IDs</from>
-      <to>PDI_Verif_S</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>PDI_Verif_set_IDs</from>
-      <to>Mail Err 1</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>DUMMY</from>
-      <to>Mail Ok</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>set PDI_Verif_LOG</from>
-      <to>DUMMY</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>set PDI_Verif_LOG</from>
-      <to>Mail Err 4</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>PDI_Verif_S</from>
-      <to>Record_T_Accr</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Record_T_Accr</from>
-      <to>set PDI_Verif_LOG</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Record_T_Accr</from>
-      <to>Mail Err 3</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>
-    <notepad>
-      <note>Consolida i dati desunti
-da Contratti e Tariffari
-nella tabella 
-Record_T_Accr</note>
-      <xloc>519</xloc>
-      <yloc>23</yloc>
-      <width>141</width>
-      <heigth>65</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>VERIF aggiuntive
-x gli Accreditati</note>
-      <xloc>378</xloc>
-      <yloc>48</yloc>
-      <width>110</width>
-      <heigth>38</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>165</backgroundcolorgreen>
-      <backgroundcolorblue>0</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Dalle ROWS del result
-imposta le variabili
-
-
-
-
-
-${COD_PC}
-${ANNO}	
-${MESE}	
-${YYMM}</note>
-      <xloc>117</xloc>
-      <yloc>46</yloc>
-      <width>136</width>
-      <heigth>162</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>165</backgroundcolorgreen>
-      <backgroundcolorblue>0</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
 </job>

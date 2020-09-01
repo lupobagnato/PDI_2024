@@ -9,6 +9,21 @@
     <directory>/record_SeT</directory>
     <parameters>
       <parameter>
+        <name>ANNO</name>
+        <default_value />
+        <description />
+      </parameter>
+      <parameter>
+        <name>COD_PC</name>
+        <default_value />
+        <description />
+      </parameter>
+      <parameter>
+        <name>MESE</name>
+        <default_value />
+        <description />
+      </parameter>
+      <parameter>
         <name>YYMM_CHK_CONTR</name>
         <default_value>1909</default_value>
         <description>Inizio utilizzo dei Codici Contratto</description>
@@ -58,7 +73,7 @@
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject>Upd Record_S</subject>
+          <subject>Upd Record_S 1</subject>
         </field>
         <field>
           <id>LINES_INPUT</id>
@@ -429,16 +444,16 @@
       <partitionschema>
         <name>MySQL EC2 Schema</name>
         <partition>
-          <id>P2</id>
-        </partition>
-        <partition>
-          <id>P3</id>
-        </partition>
-        <partition>
           <id>P4</id>
         </partition>
         <partition>
           <id>P5</id>
+        </partition>
+        <partition>
+          <id>P2</id>
+        </partition>
+        <partition>
+          <id>P3</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
@@ -446,19 +461,19 @@
       <partitionschema>
         <name>Partitioning schema</name>
         <partition>
-          <id>PartDB2</id>
-        </partition>
-        <partition>
           <id>PartDB5</id>
         </partition>
         <partition>
           <id>PartDB3</id>
         </partition>
         <partition>
-          <id>PartDB4</id>
+          <id>PartDB1</id>
         </partition>
         <partition>
-          <id>PartDB1</id>
+          <id>PartDB2</id>
+        </partition>
+        <partition>
+          <id>PartDB4</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
@@ -878,11 +893,11 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>EC_SLAVE_3</name>
           <name>EC_SLAVE_4</name>
           <name>EC_SLAVE_2</name>
-          <name>EC_SLAVE_3</name>
-          <name>EC_MASTER_1</name>
           <name>EC_SLAVE_5</name>
+          <name>EC_MASTER_1</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -893,9 +908,9 @@
         <sockets_compressed>N</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
-          <name>localhost:8080:Master</name>
-          <name>localhost:8082</name>
           <name>localhost:8081</name>
+          <name>localhost:8082</name>
+          <name>localhost:8080:Master</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -906,9 +921,9 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>sam 8080</name>
           <name>sam 8081 slave</name>
           <name>sam 8082 slave</name>
-          <name>sam 8080</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -923,18 +938,99 @@
       </clusterschema>
     </clusterschemas>
     <created_user />
-    <created_date>2019/09/16 11:46:21.741</created_date>
+    <created_date>2020/09/01 12:16:59.746</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2019/09/05 12:13:48.000</modified_date>
+    <modified_date>2019/11/20 14:09:00.000</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
+      <note>innalza la Severity degli
+errori su ticket / importi
+rilevati nella VERIF</note>
+      <xloc>423</xloc>
+      <yloc>131</yloc>
+      <width>131</width>
+      <heigth>48</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Validità Cod Contratto (controllo su T che invalida S)
+
+
+
+
+
+
+ritorna un record x ogni
+PRESTAZIONE senza 
+codice contratto valido
+
+lo stream LookUp trova 
+la 1a prestazione
+della ricetta ed invalida la RICETTA
+
+2019.09.05: qry su record_t e accreditati_contratto
+2019.10.29: usa la v_Record_T_Accr</note>
+      <xloc>9</xloc>
+      <yloc>92</yloc>
+      <width>271</width>
+      <heigth>225</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>64</fontcolorgreen>
+      <fontcolorblue>128</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>200</note>
+      <xloc>731</xloc>
+      <yloc>237</yloc>
+      <width>32</width>
+      <heigth>25</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
       <note>2017.11.02
 </note>
-      <xloc>206</xloc>
-      <yloc>13</yloc>
+      <xloc>7</xloc>
+      <yloc>7</yloc>
       <width>71</width>
       <heigth>23</heigth>
       <fontname>Arial</fontname>
@@ -953,17 +1049,91 @@
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Si considerano solo i record
-con Severity &lt; 100
+      <note>201</note>
+      <xloc>739</xloc>
+      <yloc>407</yloc>
+      <width>32</width>
+      <heigth>25</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>202</note>
+      <xloc>740</xloc>
+      <yloc>565</yloc>
+      <width>32</width>
+      <heigth>25</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Presenza Tariffa (controllo su T che invalida S)
 
-Perché gli altri :
-1. per gli Accreditati sono già classificati
-    come Errori (basta severity > '000')
-2. vengono già scarati dai flussi</note>
-      <xloc>306</xloc>
-      <yloc>12</yloc>
-      <width>210</width>
-      <heigth>99</heigth>
+
+
+
+
+
+ritorna un record x ogni
+PRESTAZIONE 
+non presente nel Tariffario
+
+Il Tariffario è definito dal 
+Cod Contratto validato nel
+controllo precedente
+
+2019.10.29: usa la v_Record_T_Accr</note>
+      <xloc>9</xloc>
+      <yloc>335</yloc>
+      <width>245</width>
+      <heigth>212</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>64</fontcolorgreen>
+      <fontcolorblue>128</fontcolorblue>
+      <backgroundcolorred>194</backgroundcolorred>
+      <backgroundcolorgreen>158</backgroundcolorgreen>
+      <backgroundcolorblue>254</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Considera i record con Severity &lt; 100
+perché le eventuali severity fra 001 e 099
+devono essere innalzate per escluderle dai flussi</note>
+      <xloc>432</xloc>
+      <yloc>5</yloc>
+      <width>247</width>
+      <heigth>48</heigth>
       <fontname>Arial</fontname>
       <fontsize>8</fontsize>
       <fontbold>N</fontbold>
@@ -972,28 +1142,6 @@ Perché gli altri :
       <fontcolorgreen>255</fontcolorgreen>
       <fontcolorblue>255</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>innalza la Severity degli errori su ticket / importi
-rilevati nella VERIF</note>
-      <xloc>308</xloc>
-      <yloc>173</yloc>
-      <width>246</width>
-      <heigth>35</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
       <backgroundcolorblue>192</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
@@ -1057,7 +1205,80 @@ rilevati nella VERIF</note>
       </attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>db_sopra_logger</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>pdi_logger</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
+    <hop>
+      <from>Severity</from>
+      <to>Upd Record_S 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Errori Importi</from>
+      <to>Severity</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Data Validator</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>senza Contratto</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup</from>
+      <to>Esiste Prest senza Contratto</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Severity e Errore</from>
+      <to>Upd Record_S 2</to>
+      <enabled>Y</enabled>
+    </hop>
     <hop>
       <from>Record_S</from>
       <to>Data Validator</to>
@@ -1065,32 +1286,52 @@ rilevati nella VERIF</note>
     </hop>
     <hop>
       <from>Data Validator</from>
-      <to>Errori</to>
+      <to>Errori Importi</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Errori</from>
-      <to>Severity</to>
+      <from>Severity e Errore 2</from>
+      <to>Upd Record_S 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Severity</from>
-      <to>Upd Record_S</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Data Validator</from>
-      <to>Stream lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stream lookup</from>
+      <from>Esiste Prest senza Tariffa</from>
       <to>Buoni</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ST senza Cod Contratto</from>
-      <to>Stream lookup</to>
+      <from>Esiste Prest senza Contratto</from>
+      <to>Stream lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup 2</from>
+      <to>Esiste Prest senza Tariffa</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>senza Tariffa</from>
+      <to>Stream lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Esiste Prest senza Tariffa</from>
+      <to>Manca Tariffa</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Manca Tariffa</from>
+      <to>Severity e Errore 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Esiste Prest senza Contratto</from>
+      <to>Manca Contratto</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Manca Contratto</from>
+      <to>Severity e Errore</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1113,8 +1354,8 @@ rilevati nella VERIF</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>249</xloc>
-      <yloc>500</yloc>
+      <xloc>376</xloc>
+      <yloc>610</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1196,13 +1437,13 @@ rilevati nella VERIF</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>249</xloc>
-      <yloc>211</yloc>
+      <xloc>376</xloc>
+      <yloc>182</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Errori</name>
+    <name>Errori Importi</name>
     <type>Dummy</type>
     <description />
     <distribute>Y</distribute>
@@ -1220,8 +1461,153 @@ rilevati nella VERIF</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>619</xloc>
-      <yloc>211</yloc>
+      <xloc>626</xloc>
+      <yloc>182</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Esiste Prest senza Contratto</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Manca Contratto</send_true_to>
+    <send_false_to>Stream lookup 2</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Ric_No_Contratto</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue />
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>376</xloc>
+      <yloc>349</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Esiste Prest senza Tariffa</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Manca Tariffa</send_true_to>
+    <send_false_to>Buoni</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Ric_No_Tar</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue />
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>376</xloc>
+      <yloc>510</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Manca Contratto</name>
+    <type>WriteToLog</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>5</limitRowsNumber>
+    <logmessage />
+    <fields>
+      <field>
+        <name>Ric_No_Contratto</name>
+      </field>
+      <field>
+        <name>CONTRATTO_CODICE</name>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>626</xloc>
+      <yloc>349</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Manca Tariffa</name>
+    <type>WriteToLog</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>5</limitRowsNumber>
+    <logmessage />
+    <fields>
+      <field>
+        <name>Ric_No_Tar</name>
+      </field>
+      <field>
+        <name>ID_CONTRATTO</name>
+      </field>
+      <field>
+        <name>COD_PREST</name>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>626</xloc>
+      <yloc>510</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1315,57 +1701,8 @@ and severity &lt; '100'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>249</xloc>
-      <yloc>59</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ST senza Cod Contratto</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>SELECT
-s.anno, s.mese, s.strutt, s.ric
-, t.gettone
-FROM 
-record_s s
-join record_t t on s.anno=t.anno and s.mese=t.mese and s.strutt=t.strutt and s.ric=t.ric
-left join accreditati_contratto c on t.cod_pc=c.cod_pc and t.gettone=c.contratto_codice and 
-                                     t.erog_data>=c.inizio_validita and 
-									 t.erog_data&lt; c.fine_validita 
-where
-s.cod_pc = '${COD_PC}'
-and s.anno = '${ANNO}'
-and s.mese = '${MESE}'
-and s.severity &lt; '100'
-and c.contratto_codice is Null
-------------------------------------------------------------------------------------------------
-and s.anno||s.mese >= '${YYMM_CHK_CONTR}' -- inizio utilizzo Codice Contratto: dati di Set 2019
-------------------------------------------------------------------------------------------------
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>91</xloc>
-      <yloc>255</yloc>
+      <xloc>376</xloc>
+      <yloc>30</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1402,8 +1739,108 @@ and s.anno||s.mese >= '${YYMM_CHK_CONTR}' -- inizio utilizzo Codice Contratto: d
       </output>
     </remotesteps>
     <GUI>
-      <xloc>728</xloc>
-      <yloc>211</yloc>
+      <xloc>738</xloc>
+      <yloc>182</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Severity e Errore</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>pdi_new_severity</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>201</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>pdi_err_cod</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>xGet</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>738</xloc>
+      <yloc>349</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Severity e Errore 2</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>pdi_new_severity</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>202</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>pdi_err_cod</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>xTar</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>738</xloc>
+      <yloc>510</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1418,12 +1855,40 @@ and s.anno||s.mese >= '${YYMM_CHK_CONTR}' -- inizio utilizzo Codice Contratto: d
       <method>none</method>
       <schema_name />
     </partitioning>
-    <from>ST senza Cod Contratto</from>
+    <from>senza Contratto</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
     <sorted_list>N</sorted_list>
     <integer_pair>N</integer_pair>
     <lookup>
+      <key>
+        <name>ANNO</name>
+        <field>ANNO</field>
+      </key>
+      <key>
+        <name>MESE</name>
+        <field>MESE</field>
+      </key>
+      <key>
+        <name>STRUTT</name>
+        <field>STRUTT</field>
+      </key>
+      <key>
+        <name>RIC</name>
+        <field>RIC</field>
+      </key>
+      <value>
+        <name>RIC</name>
+        <rename>Ric_No_Contratto</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>CONTRATTO_CODICE</name>
+        <rename>CONTRATTO_CODICE</rename>
+        <default />
+        <type>String</type>
+      </value>
     </lookup>
     <cluster_schema />
     <remotesteps>
@@ -1433,13 +1898,78 @@ and s.anno||s.mese >= '${YYMM_CHK_CONTR}' -- inizio utilizzo Codice Contratto: d
       </output>
     </remotesteps>
     <GUI>
-      <xloc>249</xloc>
-      <yloc>330</yloc>
+      <xloc>376</xloc>
+      <yloc>285</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Upd Record_S</name>
+    <name>Stream lookup 2</name>
+    <type>StreamLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <from>senza Tariffa</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>ANNO</name>
+        <field>ANNO</field>
+      </key>
+      <key>
+        <name>MESE</name>
+        <field>MESE</field>
+      </key>
+      <key>
+        <name>STRUTT</name>
+        <field>STRUTT</field>
+      </key>
+      <key>
+        <name>RIC</name>
+        <field>RIC</field>
+      </key>
+      <value>
+        <name>RIC</name>
+        <rename>Ric_No_Tar</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>ID_CONTRATTO</name>
+        <rename>ID_CONTRATTO</rename>
+        <default />
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>COD_PREST</name>
+        <rename>COD_PREST</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>376</xloc>
+      <yloc>429</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Upd Record_S 1</name>
     <type>Update</type>
     <description />
     <distribute>Y</distribute>
@@ -1507,15 +2037,235 @@ and s.anno||s.mese >= '${YYMM_CHK_CONTR}' -- inizio utilizzo Codice Contratto: d
       </output>
     </remotesteps>
     <GUI>
-      <xloc>983</xloc>
-      <yloc>418</yloc>
+      <xloc>861</xloc>
+      <yloc>182</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Upd Record_S 2</name>
+    <type>Update</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field />
+    <lookup>
+      <schema />
+      <table>Record_S</table>
+      <key>
+        <name>ANNO</name>
+        <field>ANNO</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>MESE</name>
+        <field>MESE</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>STRUTT</name>
+        <field>STRUTT</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>RIC</name>
+        <field>RIC</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>CORRECTION_COD</name>
+        <rename>pdi_err_cod</rename>
+      </value>
+      <value>
+        <name>SEVERITY</name>
+        <rename>pdi_new_severity</rename>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>861</xloc>
+      <yloc>349</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Upd Record_S 3</name>
+    <type>Update</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field />
+    <lookup>
+      <schema />
+      <table>Record_S</table>
+      <key>
+        <name>ANNO</name>
+        <field>ANNO</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>MESE</name>
+        <field>MESE</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>STRUTT</name>
+        <field>STRUTT</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>RIC</name>
+        <field>RIC</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>CORRECTION_COD</name>
+        <rename>pdi_err_cod</rename>
+      </value>
+      <value>
+        <name>SEVERITY</name>
+        <rename>pdi_new_severity</rename>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>861</xloc>
+      <yloc>510</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>senza Contratto</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+anno, mese, strutt, ric
+, contratto_codice, id_contratto, cod_prest
+FROM 
+v_Record_T_Accr
+where
+cod_pc = '${COD_PC}'
+and anno = '${ANNO}'
+and mese = '${MESE}'
+and id_contratto is Null
+------------------------------------------------------------------------------------------------
+and anno||mese >= '${YYMM_CHK_CONTR}' -- inizio utilizzo Codice Contratto: dati di Set 2019
+------------------------------------------------------------------------------------------------
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>89</xloc>
+      <yloc>117</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>senza Tariffa</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+anno, mese, strutt, ric
+, contratto_codice, id_contratto, cod_prest
+FROM 
+v_Record_T_Accr
+where
+cod_pc = '${COD_PC}'
+and anno = '${ANNO}'
+and mese = '${MESE}'
+and importo_unitario is Null
+------------------------------------------------------------------------------------------------
+and anno||mese >= '${YYMM_CHK_CONTR}' -- inizio utilizzo Codice Contratto: dati di Set 2019
+------------------------------------------------------------------------------------------------
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>89</xloc>
+      <yloc>361</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
     <error>
       <source_step>Data Validator</source_step>
-      <target_step>Errori</target_step>
+      <target_step>Errori Importi</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename>pdi_err_count</nr_valuename>
       <descriptions_valuename>pdi_err_des</descriptions_valuename>

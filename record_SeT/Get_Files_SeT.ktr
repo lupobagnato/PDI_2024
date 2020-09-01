@@ -424,16 +424,16 @@
       <partitionschema>
         <name>MySQL EC2 Schema</name>
         <partition>
-          <id>P2</id>
-        </partition>
-        <partition>
-          <id>P3</id>
-        </partition>
-        <partition>
           <id>P4</id>
         </partition>
         <partition>
           <id>P5</id>
+        </partition>
+        <partition>
+          <id>P2</id>
+        </partition>
+        <partition>
+          <id>P3</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
@@ -441,38 +441,25 @@
       <partitionschema>
         <name>Partitioning schema</name>
         <partition>
-          <id>PartDB2</id>
-        </partition>
-        <partition>
           <id>PartDB5</id>
         </partition>
         <partition>
           <id>PartDB3</id>
         </partition>
         <partition>
-          <id>PartDB4</id>
+          <id>PartDB1</id>
         </partition>
         <partition>
-          <id>PartDB1</id>
+          <id>PartDB2</id>
+        </partition>
+        <partition>
+          <id>PartDB4</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
       </partitionschema>
     </partitionschemas>
     <slaveservers>
-      <slaveserver>
-        <name>carte</name>
-        <hostname>localhost</hostname>
-        <port>8181</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
       <slaveserver>
         <name>Carte_server</name>
         <hostname>minollo</hostname>
@@ -487,8 +474,8 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>EC_MASTER_1</name>
-        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
+        <name>localhost:8080:Master</name>
+        <hostname>localhost</hostname>
         <port>8080</port>
         <webAppName />
         <username>cluster</username>
@@ -500,9 +487,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>EC_SLAVE_1</name>
-        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
-        <port>8080</port>
+        <name>localhost:8082</name>
+        <hostname>localhost</hostname>
+        <port>8082</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -513,72 +500,7 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>EC_SLAVE_2</name>
-        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_3</name>
-        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_4</name>
-        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_5</name>
-        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Jos 10.0.0.169</name>
-        <hostname>10.0.0.169</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Localhost 8081</name>
+        <name>localhost:8081</name>
         <hostname>localhost</hostname>
         <port>8081</port>
         <webAppName />
@@ -604,48 +526,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8080 master</name>
+        <name>localhost:8084</name>
         <hostname>localhost</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8080:Master</name>
-        <hostname>localhost</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8081</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8082</name>
-        <hostname>localhost</hostname>
-        <port>8082</port>
+        <port>8084</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -669,29 +552,16 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8084</name>
+        <name>localhost:8080 master</name>
         <hostname>localhost</hostname>
-        <port>8084</port>
+        <port>8080</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
         <proxy_hostname />
         <proxy_port />
         <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Mike ETL Server</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
+        <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
@@ -701,6 +571,45 @@
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>ruwvs07</name>
+        <hostname>ruwvs07</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>zebulon slave</name>
+        <hostname>192.168.1.277</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Jos 10.0.0.169</name>
+        <hostname>10.0.0.169</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
         <proxy_hostname />
         <proxy_port />
         <non_proxy_hosts />
@@ -734,8 +643,138 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>ruwvs07</name>
-        <hostname>ruwvs07</hostname>
+        <name>carte</name>
+        <hostname>localhost</hostname>
+        <port>8181</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server8080</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server8090</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8090</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server9000</name>
+        <hostname>127.0.0.1</hostname>
+        <port>9000</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_2</name>
+        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_4</name>
+        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_3</name>
+        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_MASTER_1</name>
+        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_5</name>
+        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Localhost 8081</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_1</name>
+        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
         <port>8080</port>
         <webAppName />
         <username>cluster</username>
@@ -786,48 +825,22 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>server8080</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server8090</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8090</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server9000</name>
-        <hostname>127.0.0.1</hostname>
-        <port>9000</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
         <name>Warmath</name>
         <hostname>liveinalpharetta.com</hostname>
         <port>8083</port>
+        <webAppName />
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname />
+        <proxy_port />
+        <non_proxy_hosts />
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Mike ETL Server</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
         <webAppName />
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -850,19 +863,6 @@
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
-      <slaveserver>
-        <name>zebulon slave</name>
-        <hostname>192.168.1.277</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
     </slaveservers>
     <clusterschemas>
       <clusterschema>
@@ -873,11 +873,11 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>EC_SLAVE_3</name>
           <name>EC_SLAVE_4</name>
           <name>EC_SLAVE_2</name>
-          <name>EC_SLAVE_3</name>
-          <name>EC_MASTER_1</name>
           <name>EC_SLAVE_5</name>
+          <name>EC_MASTER_1</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -888,9 +888,9 @@
         <sockets_compressed>N</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
-          <name>localhost:8080:Master</name>
-          <name>localhost:8082</name>
           <name>localhost:8081</name>
+          <name>localhost:8082</name>
+          <name>localhost:8080:Master</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -901,9 +901,9 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>sam 8080</name>
           <name>sam 8081 slave</name>
           <name>sam 8082 slave</name>
-          <name>sam 8080</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -920,7 +920,7 @@
     <created_user>admin</created_user>
     <created_date>2012/05/30 10:02:27.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2019/11/12 09:57:04.900</modified_date>
+    <modified_date>2019/07/24 09:41:37.000</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -932,41 +932,18 @@ S/T anche minuscolo
 (RGN e rgn c'erano già)</note>
       <xloc>282</xloc>
       <yloc>22</yloc>
-      <width>152</width>
-      <heigth>50</heigth>
+      <width>183</width>
+      <heigth>61</heigth>
       <fontname>Arial</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>64</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Output Fields:
-
-File_S , File_T</note>
-      <xloc>192</xloc>
-      <yloc>464</yloc>
-      <width>78</width>
-      <heigth>43</heigth>
-      <fontname>Sans</fontname>
-      <fontsize>10</fontsize>
+      <fontsize>8</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorred>64</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -1003,20 +980,12 @@ File_S , File_T</note>
         <attribute>1526</attribute>
       </attribute>
       <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>

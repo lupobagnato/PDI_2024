@@ -1,12 +1,12 @@
 <transformation>
   <info>
-    <name>Usli.txt_old</name>
+    <name>old Usli.txt</name>
     <description />
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/Importa TXT Comuni/_old</directory>
+    <directory>/Importa TXT Comuni</directory>
     <parameters>
     </parameters>
     <log>
@@ -424,9 +424,6 @@
       <partitionschema>
         <name>MySQL EC2 Schema</name>
         <partition>
-          <id>P3</id>
-        </partition>
-        <partition>
           <id>P4</id>
         </partition>
         <partition>
@@ -435,14 +432,14 @@
         <partition>
           <id>P2</id>
         </partition>
+        <partition>
+          <id>P3</id>
+        </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
       </partitionschema>
       <partitionschema>
         <name>Partitioning schema</name>
-        <partition>
-          <id>PartDB2</id>
-        </partition>
         <partition>
           <id>PartDB5</id>
         </partition>
@@ -450,10 +447,13 @@
           <id>PartDB3</id>
         </partition>
         <partition>
-          <id>PartDB4</id>
+          <id>PartDB1</id>
         </partition>
         <partition>
-          <id>PartDB1</id>
+          <id>PartDB2</id>
+        </partition>
+        <partition>
+          <id>PartDB4</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
@@ -873,11 +873,11 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>EC_SLAVE_3</name>
           <name>EC_SLAVE_4</name>
           <name>EC_SLAVE_2</name>
-          <name>EC_SLAVE_3</name>
-          <name>EC_MASTER_1</name>
           <name>EC_SLAVE_5</name>
+          <name>EC_MASTER_1</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -888,9 +888,9 @@
         <sockets_compressed>N</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
-          <name>localhost:8080:Master</name>
           <name>localhost:8081</name>
           <name>localhost:8082</name>
+          <name>localhost:8080:Master</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -901,9 +901,9 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
-          <name>sam 8082 slave</name>
           <name>sam 8080</name>
           <name>sam 8081 slave</name>
+          <name>sam 8082 slave</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -918,9 +918,9 @@
       </clusterschema>
     </clusterschemas>
     <created_user />
-    <created_date>2019/09/16 11:46:17.999</created_date>
+    <created_date>2020/09/01 13:13:00.496</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2012/01/25 11:59:46.000</modified_date>
+    <modified_date>2017/06/20 11:57:31.000</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -932,10 +932,10 @@
 ( quindi se voglio prendere il 1° carattere devo mettere 0)
 - "Cut to" indica l'ultima posizione INCLUSA
 </note>
-      <xloc>478</xloc>
-      <yloc>335</yloc>
-      <width>293</width>
-      <heigth>72</heigth>
+      <xloc>332</xloc>
+      <yloc>7</yloc>
+      <width>345</width>
+      <heigth>85</heigth>
       <fontname />
       <fontsize>-1</fontsize>
       <fontbold>N</fontbold>
@@ -950,28 +950,6 @@
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>N</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Fatto con la ver. 3.2 
-15/07/2009</note>
-      <xloc>413</xloc>
-      <yloc>7</yloc>
-      <width>141</width>
-      <heigth>39</heigth>
-      <fontname>Microsoft Sans Serif</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>Y</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
     </notepad>
   </notepads>
   <connection>
@@ -1031,210 +1009,21 @@
   </connection>
   <order>
     <hop>
-      <from>ASL Liguri</from>
-      <to>Non modificare 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Changed</from>
-      <to>Deleted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Changed</from>
-      <to>Update Descrizione</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Codici Regione e ASL</from>
-      <to>ASL Liguri</to>
+      <to>Meta Data</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ASL Liguri</from>
-      <to>Date Chiusura e Apertura</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Date Chiusura e Apertura</from>
-      <to>Changed</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Deleted</from>
-      <to>Chiude Validita</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Deleted</from>
-      <to>Insert</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Identici</from>
-      <to>Codici Regione e ASL</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Identici</from>
-      <to>Non modificare 1</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge Rows (diff)</from>
-      <to>Identici</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Table ASL</from>
-      <to>Merge Rows (diff)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>USLI Sorted</from>
-      <to>Merge Rows (diff)</to>
+      <from>Meta Data</from>
+      <to>txt_usli</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Usli.txt</from>
-      <to>USLI Sorted</to>
+      <to>Codici Regione e ASL</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>ASL Liguri</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Non modificare 2</send_true_to>
-    <send_false_to>Date Chiusura e Apertura</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>regione</leftvalue>
-        <function>=</function>
-        <rightvalue />
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>070</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask />
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>184</xloc>
-      <yloc>447</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Changed</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Update Descrizione</send_true_to>
-    <send_false_to>Deleted</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>flagfield</leftvalue>
-        <function>=</function>
-        <rightvalue />
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>changed</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask />
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>184</xloc>
-      <yloc>603</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Chiude Validita</name>
-    <type>Update</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field />
-    <lookup>
-      <schema />
-      <table>ASL</table>
-      <key>
-        <name>CODICE</name>
-        <field>CODICE</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>FINE_VAL</name>
-        <rename>d_Fine</rename>
-      </value>
-      <value>
-        <name>transf_flagfield</name>
-        <rename>flagfield</rename>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>355</xloc>
-      <yloc>691</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Codici Regione e ASL</name>
     <type>StringCut</type>
@@ -1268,14 +1057,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>184</xloc>
-      <yloc>343</yloc>
+      <xloc>67</xloc>
+      <yloc>125</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Date Chiusura e Apertura</name>
-    <type>Constant</type>
+    <name>Meta Data</name>
+    <type>SelectValues</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1285,364 +1074,41 @@
       <schema_name />
     </partitioning>
     <fields>
-      <field>
-        <name>d_Fine</name>
-        <type>Date</type>
-        <format>dd-MM-yyyy</format>
-        <currency />
-        <decimal />
-        <group />
-        <nullif>31-12-2008</nullif>
-        <length>0</length>
-        <precision>0</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>d_Inizio</name>
-        <type>Date</type>
-        <format>dd-MM-yyyy</format>
-        <currency />
-        <decimal />
-        <group />
-        <nullif>01-01-2009</nullif>
-        <length>0</length>
-        <precision>0</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>d_2100</name>
-        <type>Date</type>
-        <format>dd-MM-yyyy</format>
-        <currency />
-        <decimal />
-        <group />
-        <nullif>01-01-2100</nullif>
-        <length>0</length>
-        <precision>0</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>184</xloc>
-      <yloc>528</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Deleted</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Chiude Validita</send_true_to>
-    <send_false_to>Insert</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>flagfield</leftvalue>
-        <function>=</function>
-        <rightvalue />
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>deleted</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask />
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>184</xloc>
-      <yloc>691</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Identici</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Non modificare 1</send_true_to>
-    <send_false_to>Codici Regione e ASL</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>flagfield</leftvalue>
-        <function>=</function>
-        <rightvalue />
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>identical</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask />
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>184</xloc>
-      <yloc>246</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert</name>
-    <type>InsertUpdate</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <commit>100</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema />
-      <table>ASL</table>
-      <key>
-        <name>CODICE</name>
-        <field>CODICE</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>CODICE</name>
-        <rename>CODICE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DESCRIZIONE</name>
-        <rename>DESCRIZIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
+      <select_unspecified>N</select_unspecified>
+      <meta>
         <name>regione</name>
         <rename>regione</rename>
-        <update>Y</update>
-      </value>
-      <value>
+        <type>None</type>
+        <length>3</length>
+        <precision>-2</precision>
+        <conversion_mask />
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
+      <meta>
         <name>asl</name>
         <rename>asl</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>INIZIO_VAL</name>
-        <rename>d_Inizio</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>FINE_VAL</name>
-        <rename>d_2100</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>transf_flagfield</name>
-        <rename>flagfield</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>184</xloc>
-      <yloc>788</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge Rows (diff)</name>
-    <type>MergeRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <keys>
-      <key>CODICE</key>
-    </keys>
-    <values>
-      <value>CODICE</value>
-      <value>DESCRIZIONE</value>
-    </values>
-    <flag_field>flagfield</flag_field>
-    <reference>Table ASL</reference>
-    <compare>USLI Sorted</compare>
-    <compare>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>184</xloc>
-      <yloc>124</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Non modificare 1</name>
-    <type>Dummy</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>306</xloc>
-      <yloc>247</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Non modificare 2</name>
-    <type>Dummy</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>348</xloc>
-      <yloc>447</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Table ASL</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>SELECT
-  CODICE
-, DESCRIZIONE
---, REGIONE
---, ASL
-FROM ASL
-order by
-codice
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>307</xloc>
-      <yloc>20</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>USLI Sorted</name>
-    <type>SortRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size />
-    <free_memory>25</free_memory>
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>codice</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
+        <type>None</type>
+        <length>3</length>
+        <precision>-2</precision>
+        <conversion_mask />
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -1652,56 +1118,8 @@ codice
       </output>
     </remotesteps>
     <GUI>
-      <xloc>113</xloc>
-      <yloc>20</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Update Descrizione</name>
-    <type>Update</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field />
-    <lookup>
-      <schema />
-      <table>ASL</table>
-      <key>
-        <name>CODICE</name>
-        <field>CODICE</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>DESCRIZIONE</name>
-        <rename>DESCRIZIONE</rename>
-      </value>
-      <value>
-        <name>transf_flagfield</name>
-        <rename>flagfield</rename>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>353</xloc>
-      <yloc>602</yloc>
+      <xloc>68</xloc>
+      <yloc>217</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1716,8 +1134,8 @@ codice
       <method>none</method>
       <schema_name />
     </partitioning>
-    <filename>C:\Documents and Settings\s.suppo\Documenti\Progetti\Specialistica\Doc\Ultime Specifiche\Tabelle agg 20081112\usli.txt</filename>
-    <line_width>56</line_width>
+    <filename>F:\__ Dati __\Progetti\Specialistica\ASL e Comuni\usli.txt</filename>
+    <line_width>68</line_width>
     <header>N</header>
     <buffer_size>50000</buffer_size>
     <lazy_conversion>N</lazy_conversion>
@@ -1731,24 +1149,48 @@ codice
         <name>codice</name>
         <type>String</type>
         <format>null</format>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <currency>null</currency>
         <decimal>null</decimal>
         <group>null</group>
         <width>6</width>
-        <length>-1</length>
+        <length>6</length>
         <precision>-1</precision>
       </field>
       <field>
         <name>descrizione</name>
         <type>String</type>
         <format>null</format>
-        <trim_type>right</trim_type>
+        <trim_type>both</trim_type>
         <currency>null</currency>
         <decimal>null</decimal>
         <group>null</group>
         <width>50</width>
-        <length>-1</length>
+        <length>50</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>AnnoMese_inizio</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>both</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>6</width>
+        <length>6</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>AnnoMese_fine</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>both</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>6</width>
+        <length>6</length>
         <precision>-1</precision>
       </field>
     </fields>
@@ -1760,8 +1202,51 @@ codice
       </output>
     </remotesteps>
     <GUI>
-      <xloc>40</xloc>
-      <yloc>20</yloc>
+      <xloc>67</xloc>
+      <yloc>28</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>txt_usli</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <schema />
+    <table>txt_usli</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>67</xloc>
+      <yloc>325</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

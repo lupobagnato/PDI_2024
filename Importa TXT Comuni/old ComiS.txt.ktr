@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>Usli.txt</name>
+    <name>old ComiS.txt</name>
     <description />
     <extended_description />
     <trans_version />
@@ -424,9 +424,6 @@
       <partitionschema>
         <name>MySQL EC2 Schema</name>
         <partition>
-          <id>P3</id>
-        </partition>
-        <partition>
           <id>P4</id>
         </partition>
         <partition>
@@ -435,14 +432,14 @@
         <partition>
           <id>P2</id>
         </partition>
+        <partition>
+          <id>P3</id>
+        </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
       </partitionschema>
       <partitionschema>
         <name>Partitioning schema</name>
-        <partition>
-          <id>PartDB2</id>
-        </partition>
         <partition>
           <id>PartDB5</id>
         </partition>
@@ -450,10 +447,13 @@
           <id>PartDB3</id>
         </partition>
         <partition>
-          <id>PartDB4</id>
+          <id>PartDB1</id>
         </partition>
         <partition>
-          <id>PartDB1</id>
+          <id>PartDB2</id>
+        </partition>
+        <partition>
+          <id>PartDB4</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave />
@@ -873,11 +873,11 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>EC_SLAVE_3</name>
           <name>EC_SLAVE_4</name>
           <name>EC_SLAVE_2</name>
-          <name>EC_SLAVE_3</name>
-          <name>EC_MASTER_1</name>
           <name>EC_SLAVE_5</name>
+          <name>EC_MASTER_1</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -888,9 +888,9 @@
         <sockets_compressed>N</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
-          <name>localhost:8080:Master</name>
           <name>localhost:8081</name>
           <name>localhost:8082</name>
+          <name>localhost:8080:Master</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -901,9 +901,9 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
-          <name>sam 8082 slave</name>
           <name>sam 8080</name>
           <name>sam 8081 slave</name>
+          <name>sam 8082 slave</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -918,26 +918,28 @@
       </clusterschema>
     </clusterschemas>
     <created_user />
-    <created_date>2019/09/16 11:46:17.921</created_date>
+    <created_date>2020/09/01 13:13:00.480</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2017/06/20 11:57:31.000</modified_date>
+    <modified_date>2017/06/20 12:03:01.000</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>penso che String Cut funzioni così:
-- Le posizioni sono numerate pertendo da 1
-- "Cut from" indica la prima posizione da ESCLUDERE
-( quindi se voglio prendere il 1° carattere devo mettere 0)
-- "Cut to" indica l'ultima posizione INCLUSA
+      <note>Comuni di Residenza
+==> usata per aggiornare la COMUNI_ITALIANI
+
+
+
+
+
 </note>
-      <xloc>332</xloc>
-      <yloc>7</yloc>
-      <width>345</width>
-      <heigth>85</heigth>
-      <fontname />
-      <fontsize>-1</fontsize>
+      <xloc>6</xloc>
+      <yloc>40</yloc>
+      <width>293</width>
+      <heigth>115</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
@@ -949,7 +951,7 @@
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
-      <drawshadow>N</drawshadow>
+      <drawshadow>Y</drawshadow>
     </notepad>
   </notepads>
   <connection>
@@ -1009,122 +1011,13 @@
   </connection>
   <order>
     <hop>
-      <from>Codici Regione e ASL</from>
-      <to>Meta Data</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Meta Data</from>
-      <to>txt_usli</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Usli.txt</from>
-      <to>Codici Regione e ASL</to>
+      <from>ComiS.txt</from>
+      <to>txt_comis</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Codici Regione e ASL</name>
-    <type>StringCut</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>codice</in_stream_name>
-        <out_stream_name>regione</out_stream_name>
-        <cut_from>0</cut_from>
-        <cut_to>3</cut_to>
-      </field>
-      <field>
-        <in_stream_name>codice</in_stream_name>
-        <out_stream_name>asl</out_stream_name>
-        <cut_from>3</cut_from>
-        <cut_to>6</cut_to>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>67</xloc>
-      <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Meta Data</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>regione</name>
-        <rename>regione</rename>
-        <type>None</type>
-        <length>3</length>
-        <precision>-2</precision>
-        <conversion_mask />
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
-      </meta>
-      <meta>
-        <name>asl</name>
-        <rename>asl</rename>
-        <type>None</type>
-        <length>3</length>
-        <precision>-2</precision>
-        <conversion_mask />
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
-      </meta>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>68</xloc>
-      <yloc>217</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Usli.txt</name>
+    <name>ComiS.txt</name>
     <type>FixedInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1134,11 +1027,11 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <filename>F:\__ Dati __\Progetti\Specialistica\ASL e Comuni\usli.txt</filename>
-    <line_width>68</line_width>
+    <filename>F:\__ Dati __\Progetti\Specialistica\ASL e Comuni\comis.txt</filename>
+    <line_width>81</line_width>
     <header>N</header>
     <buffer_size>50000</buffer_size>
-    <lazy_conversion>N</lazy_conversion>
+    <lazy_conversion>Y</lazy_conversion>
     <line_feed>Y</line_feed>
     <parallel>N</parallel>
     <file_type>NONE</file_type>
@@ -1148,11 +1041,11 @@
       <field>
         <name>codice</name>
         <type>String</type>
-        <format>null</format>
+        <format />
         <trim_type>both</trim_type>
-        <currency>null</currency>
-        <decimal>null</decimal>
-        <group>null</group>
+        <currency />
+        <decimal />
+        <group />
         <width>6</width>
         <length>6</length>
         <precision>-1</precision>
@@ -1160,37 +1053,61 @@
       <field>
         <name>descrizione</name>
         <type>String</type>
-        <format>null</format>
+        <format />
         <trim_type>both</trim_type>
-        <currency>null</currency>
-        <decimal>null</decimal>
-        <group>null</group>
-        <width>50</width>
-        <length>50</length>
+        <currency />
+        <decimal />
+        <group />
+        <width>60</width>
+        <length>60</length>
         <precision>-1</precision>
       </field>
       <field>
-        <name>AnnoMese_inizio</name>
+        <name>sigla_prov</name>
         <type>String</type>
-        <format>null</format>
+        <format />
         <trim_type>both</trim_type>
-        <currency>null</currency>
-        <decimal>null</decimal>
-        <group>null</group>
-        <width>6</width>
-        <length>6</length>
+        <currency />
+        <decimal />
+        <group />
+        <width>2</width>
+        <length>2</length>
         <precision>-1</precision>
       </field>
       <field>
-        <name>AnnoMese_fine</name>
+        <name>cod_regione</name>
         <type>String</type>
-        <format>null</format>
+        <format />
         <trim_type>both</trim_type>
-        <currency>null</currency>
-        <decimal>null</decimal>
-        <group>null</group>
-        <width>6</width>
-        <length>6</length>
+        <currency />
+        <decimal />
+        <group />
+        <width>3</width>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>cap</name>
+        <type>String</type>
+        <format />
+        <trim_type>both</trim_type>
+        <currency />
+        <decimal />
+        <group />
+        <width>5</width>
+        <length>5</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>codfis</name>
+        <type>String</type>
+        <format />
+        <trim_type>both</trim_type>
+        <currency />
+        <decimal />
+        <group />
+        <width>4</width>
+        <length>4</length>
         <precision>-1</precision>
       </field>
     </fields>
@@ -1202,13 +1119,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>67</xloc>
-      <yloc>28</yloc>
+      <xloc>136</xloc>
+      <yloc>87</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>txt_usli</name>
+    <name>txt_comis</name>
     <type>TableOutput</type>
     <description />
     <distribute>Y</distribute>
@@ -1220,7 +1137,7 @@
     </partitioning>
     <connection>db_sopra</connection>
     <schema />
-    <table>txt_usli</table>
+    <table>txt_comis</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
@@ -1245,8 +1162,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>67</xloc>
-      <yloc>325</yloc>
+      <xloc>136</xloc>
+      <yloc>233</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
