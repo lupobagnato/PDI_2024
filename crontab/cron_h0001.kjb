@@ -8,7 +8,7 @@
   <created_user />
   <created_date>2019/09/16 11:46:33.107</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2020/08/26 14:39:14.894</modified_date>
+  <modified_date>2020/09/01 10:21:36.320</modified_date>
   <parameters>
     <parameter>
       <name>var_BCc</name>
@@ -80,10 +80,18 @@
       </attribute>
       <attribute>
         <code>SQL_CONNECT</code>
-        <attribute>ALTER SESSION SET NLS_LANGUAGE=ITALIAN ;
-ALTER SESSION SET NLS_TERRITORY=ITALY;
-
---ALTER SESSION SET NLS_SORT=WEST_EUROPEAN:
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 </attribute>
       </attribute>
       <attribute>
@@ -842,26 +850,6 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <yloc>80</yloc>
     </entry>
     <entry>
-      <name>DUMMY</name>
-      <description />
-      <type>SPECIAL</type>
-      <start>N</start>
-      <dummy>Y</dummy>
-      <repeat>N</repeat>
-      <schedulerType>0</schedulerType>
-      <intervalSeconds>0</intervalSeconds>
-      <intervalMinutes>60</intervalMinutes>
-      <hour>12</hour>
-      <minutes>0</minutes>
-      <weekDay>1</weekDay>
-      <DayOfMonth>1</DayOfMonth>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>128</xloc>
-      <yloc>80</yloc>
-    </entry>
-    <entry>
       <name>Err</name>
       <description />
       <type>MAIL</type>
@@ -900,13 +888,47 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>128</xloc>
-      <yloc>288</yloc>
+      <yloc>192</yloc>
+    </entry>
+    <entry>
+      <name>Accessi_PS Loader</name>
+      <description />
+      <type>JOB</type>
+      <specification_method>rep_name</specification_method>
+      <job_object_id />
+      <filename />
+      <jobname>Accessi_PS Loader</jobname>
+      <directory>/Pronto_Soccorso</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile />
+      <logext />
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name />
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>128</xloc>
+      <yloc>80</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>DUMMY</to>
+      <to>Accessi_PS Loader</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -914,13 +936,22 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>DUMMY</from>
+      <from>Accessi_PS Loader</from>
       <to>Mail Ok</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Accessi_PS Loader</from>
+      <to>Err</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>

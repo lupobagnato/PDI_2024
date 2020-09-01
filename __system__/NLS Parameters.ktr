@@ -1,17 +1,22 @@
 <transformation>
   <info>
-    <name>Load_Prestazioni_PS_01</name>
+    <name>NLS Parameters</name>
     <description />
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/Pronto_Soccorso</directory>
+    <directory>/__system__</directory>
     <parameters>
       <parameter>
-        <name>BACK_DAYS</name>
-        <default_value>10</default_value>
-        <description>Back Days</description>
+        <name>PARAMETER1</name>
+        <default_value>30</default_value>
+        <description>Back Days (dal job)</description>
+      </parameter>
+      <parameter>
+        <name>PARAMETER2</name>
+        <default_value>N</default_value>
+        <description>Gestione Doppi</description>
       </parameter>
     </parameters>
     <log>
@@ -46,7 +51,7 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject>Accessi_PS_scartati</subject>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
@@ -64,19 +69,19 @@
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>Prestazioni_PS da Patidok</subject>
+          <subject>Accessi_PS da Patidok</subject>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>Prestazioni_PS_buffer</subject>
+          <subject>Accessi_PS_buffer</subject>
         </field>
         <field>
           <id>LINES_REJECTED</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject>Unique rows</subject>
         </field>
         <field>
           <id>ERRORS</id>
@@ -925,20 +930,40 @@
     <created_user>admin</created_user>
     <created_date>2012/05/14 15:19:58.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2020/09/01 09:42:27.856</modified_date>
+    <modified_date>2020/08/31 09:49:02.416</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Gestione chiavi duplicate
-(fatta sempre, non controllata da una var come per gli Accessi_PS)
-18.01.2017</note>
-      <xloc>473</xloc>
-      <yloc>214</yloc>
-      <width>318</width>
-      <heigth>43</heigth>
-      <fontname>Arial</fontname>
+      <note>I casi scartati precedentemente possono essere corretti 
+Se vengono inseriti nel buffer devono essere tolti dalla tabella degli scartati</note>
+      <xloc>522</xloc>
+      <yloc>557</yloc>
+      <width>407</width>
+      <heigth>37</heigth>
+      <fontname>Microsoft Sans Serif</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>&lt;--- questo è quello che conta</note>
+      <xloc>176</xloc>
+      <yloc>32</yloc>
+      <width>160</width>
+      <heigth>21</heigth>
+      <fontname>Sans</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
@@ -946,72 +971,12 @@
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Intervallo date Dimissione caricate:
-	DA	: 30 gg prima dell'ultimo caricamento (con stato END nel Log)
-	A	: Sysdate - 1  (il report è schedulato alle 00:10 così prende "fino a ieri" )
-
-Nota
-L'overlap di 30 giorni serve per acquisire un po' di 
-modifiche fatte dopo la dimissione (quasi sempre dati anagrafici).
-
-20.01.2017
-prima era fino a Sysdate, ora Sysdate -1 (eseguendo alle 00:10 cambia poco, ma 
-con esecuzioni "manuali" durante il giorno si evita di caricare giorni incompleti)</note>
-      <xloc>474</xloc>
-      <yloc>10</yloc>
-      <width>356</width>
-      <heigth>120</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>N</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Variabili settate
-solo per avere
-nel Log le date
-usate per definire
-il periodo di
-caricamento 
-
-
-</note>
-      <xloc>131</xloc>
-      <yloc>81</yloc>
-      <width>82</width>
-      <heigth>100</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>N</drawshadow>
     </notepad>
   </notepads>
   <connection>
@@ -1053,19 +1018,8 @@ caricamento
       </attribute>
       <attribute>
         <code>SQL_CONNECT</code>
-        <attribute>ALTER SESSION SET 
-NLS_SORT=WEST_EUROPEAN
-NLS_NUMERIC_CHARACTERS=',.' 
-NLS_LANGUAGE='ITALIAN'
-NLS_TERRITORY='ITALY'
-NLS_DATE_LANGUAGE='ITALIAN'
-NLS_DATE_FORMAT='DD-MON-RR'
-NLS_DATE_LANGUAGE='ITALIAN'
-NLS_TIME_FORMAT='HH24:MI:SSXFF'
-NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
-NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
-NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
-</attribute>
+        <attribute>ALTER SESSION SET NLS_NUMERIC_CHARACTERS=',.' ;
+ALTER SESSION SET NLS_SORT=WEST_EUROPEAN</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
@@ -1120,18 +1074,10 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </attribute>
       <attribute>
         <code>SQL_CONNECT</code>
-        <attribute>ALTER SESSION SET 
-NLS_SORT=WEST_EUROPEAN
-NLS_NUMERIC_CHARACTERS=',.' 
-NLS_LANGUAGE='ITALIAN'
-NLS_TERRITORY='ITALY'
-NLS_DATE_LANGUAGE='ITALIAN'
-NLS_DATE_FORMAT='DD-MON-RR'
-NLS_DATE_LANGUAGE='ITALIAN'
-NLS_TIME_FORMAT='HH24:MI:SSXFF'
-NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
-NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
-NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+        <attribute>ALTER SESSION SET NLS_LANGUAGE=ITALIAN ;
+ALTER SESSION SET NLS_TERRITORY=ITALY;
+
+--ALTER SESSION SET NLS_SORT=WEST_EUROPEAN:
 </attribute>
       </attribute>
       <attribute>
@@ -1149,276 +1095,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <order>
-    <hop>
-      <from>Get System Info</from>
-      <to>Prestazioni_PS da Patidok</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Prestazioni_PS da Patidok</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows</from>
-      <to>Unique rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Unique rows</from>
-      <to>Prestazioni_PS_buffer</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Unique rows</from>
-      <to>Get System Info 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get System Info 2</from>
-      <to>ins Prestazioni_PS_Doppie</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Calculator</from>
-      <to>Date nel LOG</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>meno BACK_DAYS</from>
-      <to>Calculator</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get System Info</from>
-      <to>meno BACK_DAYS</to>
-      <enabled>Y</enabled>
-    </hop>
   </order>
   <step>
-    <name>Calculator</name>
-    <type>Calculator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <calculation>
-      <field_name>meno_uno</field_name>
-      <calc_type>CONSTANT</calc_type>
-      <field_a>-1</field_a>
-      <field_b />
-      <field_c />
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>Y</remove>
-      <conversion_mask>0</conversion_mask>
-      <decimal_symbol>.</decimal_symbol>
-      <grouping_symbol>,</grouping_symbol>
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>dataora_inizio</field_name>
-      <calc_type>ADD_DAYS</calc_type>
-      <field_a>lastexec</field_a>
-      <field_b>meno_trenta</field_b>
-      <field_c />
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>Y</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>dataora_fine</field_name>
-      <calc_type>ADD_DAYS</calc_type>
-      <field_a>sysdate</field_a>
-      <field_b>meno_uno</field_b>
-      <field_c />
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>Y</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>data_inizio</field_name>
-      <calc_type>REMOVE_TIME_FROM_DATE</calc_type>
-      <field_a>dataora_inizio</field_a>
-      <field_b />
-      <field_c />
-      <value_type>None</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>data_fine</field_name>
-      <calc_type>REMOVE_TIME_FROM_DATE</calc_type>
-      <field_a>dataora_fine</field_a>
-      <field_b />
-      <field_c />
-      <value_type>None</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>80</xloc>
-      <yloc>111</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Date nel LOG</name>
-    <type>SetVariable</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <field_name>lastexec</field_name>
-        <variable_name>LASTEXEC</variable_name>
-        <variable_type>ROOT_JOB</variable_type>
-        <default_value />
-      </field>
-      <field>
-        <field_name>sysdate</field_name>
-        <variable_name>SYSDATE</variable_name>
-        <variable_type>ROOT_JOB</variable_type>
-        <default_value />
-      </field>
-      <field>
-        <field_name>data_inizio</field_name>
-        <variable_name>DATA_INIZIO</variable_name>
-        <variable_type>ROOT_JOB</variable_type>
-        <default_value />
-      </field>
-      <field>
-        <field_name>data_fine</field_name>
-        <variable_name>DATA_FINE</variable_name>
-        <variable_type>ROOT_JOB</variable_type>
-        <default_value />
-      </field>
-    </fields>
-    <use_formatting>N</use_formatting>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>80</xloc>
-      <yloc>218</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get System Info</name>
-    <type>SystemInfo</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>lastexec</name>
-        <type>start date range</type>
-      </field>
-      <field>
-        <name>sysdate</name>
-        <type>system date (fixed)</type>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>362</xloc>
-      <yloc>26</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get System Info 2</name>
-    <type>SystemInfo</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>job_id</name>
-        <type>job batch ID</type>
-      </field>
-      <field>
-        <name>transformation_id</name>
-        <type>batch ID</type>
-      </field>
-      <field>
-        <name>data_sys</name>
-        <type>system date (fixed)</type>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>492</xloc>
-      <yloc>270</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Prestazioni_PS da Patidok</name>
+    <name>NLS_session_PARAMETER</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1429,39 +1108,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <schema_name />
     </partitioning>
     <connection>db_sopra</connection>
-    <sql>SELECT
-  NROCASO
-, NROPREST
-, COD_PRESTAZIONE
-, COD_PREST_FLUSSI
-, DESC_PRESTAZIONE
-, CODICEPAZIENTE
-, COD_EROGATORE
-, EROGATORE
-, DATA_PRESTAZIONE
-, DATAENTRATA
-, DATADIMISSIONE
-, COD_UO
-, DESC_COD_UO
-, Tipo_Prest
-, importo
-, inizio_val
-, fine_val
-FROM v_export_prestazioni_ps@patidok p
-Where
-p.DATADIMISSIONE Between (Trunc(?) - ${BACK_DAYS}) And Trunc(?-1)
+    <sql>select * from NLS_session_PARAMETERS
 
------                                                  -----
------ Da usare x Test o per caricare periodi specifici -----
------                                                  -----
---p.DATADIMISSIONE &lt; Trunc(?) And p.DATADIMISSIONE &lt; Trunc(?) And
---p.DATADIMISSIONE Between To_Date('01112011','ddmmyyyy') And To_Date('01012012','ddmmyyyy')
-
-</sql>
+--select to_number('25,00') from dual</sql>
     <limit>0</limit>
-    <lookup>Get System Info</lookup>
+    <lookup />
     <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
+    <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema />
     <remotesteps>
@@ -1471,14 +1124,14 @@ p.DATADIMISSIONE Between (Trunc(?) - ${BACK_DAYS}) And Trunc(?-1)
       </output>
     </remotesteps>
     <GUI>
-      <xloc>362</xloc>
-      <yloc>130</yloc>
+      <xloc>128</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Prestazioni_PS_buffer</name>
-    <type>TableOutput</type>
+    <name>NLS_database_PARAMETER</name>
+    <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1488,24 +1141,14 @@ p.DATADIMISSIONE Between (Trunc(?) - ${BACK_DAYS}) And Trunc(?-1)
       <schema_name />
     </partitioning>
     <connection>db_sopra</connection>
-    <schema />
-    <table>Prestazioni_PS_buffer</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field />
-    <fields>
-    </fields>
+    <sql>select * from NLS_database_PARAMETERS
+
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1514,292 +1157,12 @@ p.DATADIMISSIONE Between (Trunc(?) - ${BACK_DAYS}) And Trunc(?-1)
       </output>
     </remotesteps>
     <GUI>
-      <xloc>362</xloc>
-      <yloc>401</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory />
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>NROCASO</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>NROPREST</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>362</xloc>
-      <yloc>196</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Unique rows</name>
-    <type>Unique</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <count_rows>N</count_rows>
-    <count_field>duplicazioni</count_field>
-    <reject_duplicate_row>Y</reject_duplicate_row>
-    <error_description>doppia</error_description>
-    <fields>
-      <field>
-        <name>NROCASO</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>NROPREST</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>362</xloc>
-      <yloc>270</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ins Prestazioni_PS_Doppie</name>
-    <type>InsertUpdate</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <commit>100</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema />
-      <table>Prestazioni_PS_Doppie</table>
-      <key>
-        <name>NROCASO</name>
-        <field>NROCASO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>NROPREST</name>
-        <field>NROPREST</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>NROCASO</name>
-        <rename>NROCASO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NROPREST</name>
-        <rename>NROPREST</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_PRESTAZIONE</name>
-        <rename>COD_PRESTAZIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_PREST_FLUSSI</name>
-        <rename>COD_PREST_FLUSSI</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DESC_PRESTAZIONE</name>
-        <rename>DESC_PRESTAZIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>CODICEPAZIENTE</name>
-        <rename>CODICEPAZIENTE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_EROGATORE</name>
-        <rename>COD_EROGATORE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>EROGATORE</name>
-        <rename>EROGATORE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_PRESTAZIONE</name>
-        <rename>DATA_PRESTAZIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATAENTRATA</name>
-        <rename>DATAENTRATA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATADIMISSIONE</name>
-        <rename>DATADIMISSIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_UO</name>
-        <rename>COD_UO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DESC_COD_UO</name>
-        <rename>DESC_COD_UO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPO_PREST</name>
-        <rename>TIPO_PREST</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>IMPORTO</name>
-        <rename>IMPORTO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>INIZIO_VAL</name>
-        <rename>INIZIO_VAL</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>FINE_VAL</name>
-        <rename>FINE_VAL</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>job_id</name>
-        <rename>job_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>transformation_id</name>
-        <rename>transformation_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>data_sys</name>
-        <rename>data_sys</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>699</xloc>
-      <yloc>270</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>meno BACK_DAYS</name>
-    <type>GetVariable</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>meno_trenta</name>
-        <variable>-${BACK_DAYS}</variable>
-        <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>80</xloc>
-      <yloc>26</yloc>
+      <xloc>128</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
-    <error>
-      <source_step>Unique rows</source_step>
-      <target_step>Get System Info 2</target_step>
-      <is_enabled>Y</is_enabled>
-      <nr_valuename />
-      <descriptions_valuename />
-      <fields_valuename />
-      <codes_valuename />
-      <max_errors />
-      <max_pct_errors />
-      <min_pct_rows />
-    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
