@@ -1,19 +1,34 @@
 <transformation>
   <info>
-    <name>_generico xls</name>
+    <name>chk_int_01</name>
     <description />
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/Importa TXT</directory>
+    <directory>/Interni</directory>
     <parameters>
+      <parameter>
+        <name>MM</name>
+        <default_value>04</default_value>
+        <description />
+      </parameter>
+      <parameter>
+        <name>ORIGINE</name>
+        <default_value>PTDK</default_value>
+        <description />
+      </parameter>
+      <parameter>
+        <name>YYYY</name>
+        <default_value>2020</default_value>
+        <description />
+      </parameter>
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
+        <connection>${_LogDb}</connection>
+        <schema>${_LogSchema}</schema>
+        <table>${_LogTrans}</table>
         <size_limit_lines />
         <interval />
         <timeout_days />
@@ -59,7 +74,7 @@
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject>int_buffer_ORIGINE</subject>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
@@ -421,506 +436,15 @@
     <dependencies>
     </dependencies>
     <partitionschemas>
-      <partitionschema>
-        <name>MySQL EC2 Schema</name>
-        <partition>
-          <id>P3</id>
-        </partition>
-        <partition>
-          <id>P4</id>
-        </partition>
-        <partition>
-          <id>P5</id>
-        </partition>
-        <partition>
-          <id>P2</id>
-        </partition>
-        <dynamic>N</dynamic>
-        <partitions_per_slave />
-      </partitionschema>
-      <partitionschema>
-        <name>Partitioning schema</name>
-        <partition>
-          <id>PartDB2</id>
-        </partition>
-        <partition>
-          <id>PartDB5</id>
-        </partition>
-        <partition>
-          <id>PartDB3</id>
-        </partition>
-        <partition>
-          <id>PartDB4</id>
-        </partition>
-        <partition>
-          <id>PartDB1</id>
-        </partition>
-        <dynamic>N</dynamic>
-        <partitions_per_slave />
-      </partitionschema>
     </partitionschemas>
     <slaveservers>
-      <slaveserver>
-        <name>carte</name>
-        <hostname>localhost</hostname>
-        <port>8181</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Carte_server</name>
-        <hostname>minollo</hostname>
-        <port />
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_MASTER_1</name>
-        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_1</name>
-        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_2</name>
-        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_3</name>
-        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_4</name>
-        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_5</name>
-        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Jos 10.0.0.169</name>
-        <hostname>10.0.0.169</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Localhost 8081</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8080</name>
-        <hostname>localhost</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8080 master</name>
-        <hostname>localhost</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8080:Master</name>
-        <hostname>localhost</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8081</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8082</name>
-        <hostname>localhost</hostname>
-        <port>8082</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8083</name>
-        <hostname>localhost</hostname>
-        <port>8083</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8084</name>
-        <hostname>localhost</hostname>
-        <port>8084</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Mike ETL Server</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>pc115818</name>
-        <hostname>pc115818</hostname>
-        <port />
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Quasar</name>
-        <hostname>quasar</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Random</name>
-        <hostname>random</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>ruwvs07</name>
-        <hostname>ruwvs07</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>sam 8080</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>sam 8081 slave</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>sam 8082 slave</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server8080</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server8090</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8090</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server9000</name>
-        <hostname>127.0.0.1</hostname>
-        <port>9000</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Warmath</name>
-        <hostname>liveinalpharetta.com</hostname>
-        <port>8083</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Wayne ETL Server</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>zebulon slave</name>
-        <hostname>192.168.1.277</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
     </slaveservers>
     <clusterschemas>
-      <clusterschema>
-        <name>EC2</name>
-        <base_port>40000</base_port>
-        <sockets_buffer_size>100000</sockets_buffer_size>
-        <sockets_flush_interval>0</sockets_flush_interval>
-        <sockets_compressed>Y</sockets_compressed>
-        <dynamic>N</dynamic>
-        <slaveservers>
-          <name>EC_SLAVE_4</name>
-          <name>EC_SLAVE_2</name>
-          <name>EC_SLAVE_3</name>
-          <name>EC_MASTER_1</name>
-          <name>EC_SLAVE_5</name>
-        </slaveservers>
-      </clusterschema>
-      <clusterschema>
-        <name>local schema</name>
-        <base_port>40000</base_port>
-        <sockets_buffer_size>2000</sockets_buffer_size>
-        <sockets_flush_interval>5000</sockets_flush_interval>
-        <sockets_compressed>N</sockets_compressed>
-        <dynamic>N</dynamic>
-        <slaveservers>
-          <name>localhost:8080:Master</name>
-          <name>localhost:8081</name>
-          <name>localhost:8082</name>
-        </slaveservers>
-      </clusterschema>
-      <clusterschema>
-        <name>Sam</name>
-        <base_port>40000</base_port>
-        <sockets_buffer_size>2000</sockets_buffer_size>
-        <sockets_flush_interval>5000</sockets_flush_interval>
-        <sockets_compressed>Y</sockets_compressed>
-        <dynamic>N</dynamic>
-        <slaveservers>
-          <name>sam 8082 slave</name>
-          <name>sam 8080</name>
-          <name>sam 8081 slave</name>
-        </slaveservers>
-      </clusterschema>
-      <clusterschema>
-        <name>YarnCluster</name>
-        <base_port>4000</base_port>
-        <sockets_buffer_size>2000</sockets_buffer_size>
-        <sockets_flush_interval>5000</sockets_flush_interval>
-        <sockets_compressed>N</sockets_compressed>
-        <dynamic>N</dynamic>
-        <slaveservers>
-        </slaveservers>
-      </clusterschema>
     </clusterschemas>
-    <created_user />
-    <created_date>2019/09/16 11:46:17.237</created_date>
-    <modified_user>admin</modified_user>
-    <modified_date>2020/09/29 16:04:53.287</modified_date>
+    <created_user>-</created_user>
+    <created_date>2020/09/23 15:47:56.516</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2020/09/29 16:46:50.759</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1200,61 +724,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <connection>
-    <name>db_sopra_SPEC</name>
-    <server>ora_sopra.usl1.imperiese</server>
-    <type>ORACLE</type>
-    <access>Native</access>
-    <database>DbSopra</database>
-    <port>1526</port>
-    <username>spec</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cd82aad9</password>
-    <servername />
-    <data_tablespace>SPEC</data_tablespace>
-    <index_tablespace>IDX_SPEC</index_tablespace>
-    <attributes>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>INITIAL_POOL_SIZE</code>
-        <attribute>5</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>MAXIMUM_POOL_SIZE</code>
-        <attribute>10</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>1526</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>STREAM_RESULTS</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
-  <connection>
     <name>Patidok</name>
     <server>svc_sio</server>
     <type>ORACLE</type>
@@ -1323,14 +792,34 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>Microsoft Excel Input</from>
-      <to>tabella_out</to>
+      <from>int_buffer_ORIGINE</from>
+      <to>Data Validator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Erogatori</from>
+      <to>Data Validator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Data Validator</from>
+      <to>Set Error</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>v_INT_Nomenclatore</from>
+      <to>Data Validator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Richiedenti</from>
+      <to>Data Validator</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>tabella_out</name>
-    <type>TableOutput</type>
+    <name>int_buffer_ORIGINE</name>
+    <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1340,24 +829,28 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <schema_name />
     </partitioning>
     <connection>db_sopra</connection>
-    <schema />
-    <table>int_xprest_sit</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field />
-    <fields>
-    </fields>
+    <sql>SELECT
+  ORIGINE
+, ANNO
+, MESE
+, Erogatore
+, Richiedente
+, Cod_Prest
+--, NUMERO
+--, Importo
+, EROGATORE_ORIG
+, RICHIEDENTE_ORIG
+, COD_PREST_ORIG
+--, AUX
+--, Error_Cod
+FROM int_buffer_${ORIGINE}
+
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1366,14 +859,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>106</xloc>
-      <yloc>194</yloc>
+      <xloc>132</xloc>
+      <yloc>36</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Microsoft Excel Input</name>
-    <type>ExcelInput</type>
+    <name>Set Error</name>
+    <type>Update</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1382,79 +875,56 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <header>Y</header>
-    <noempty>Y</noempty>
-    <stoponempty>N</stoponempty>
-    <filefield />
-    <sheetfield />
-    <sheetrownumfield />
-    <rownumfield />
-    <sheetfield />
-    <filefield />
-    <limit>0</limit>
-    <encoding />
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <accept_filenames>N</accept_filenames>
-    <accept_field />
-    <accept_stepname />
-    <file>
-      <name>C:\_NextDel\Xprest_Sit.xlsx</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>Cod_in</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>Cod_out</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-    </fields>
-    <sheets>
-      <sheet>
-        <name>Xprest_Sit</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-      </sheet>
-    </sheets>
-    <strict_types>N</strict_types>
+    <connection>db_sopra</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
     <error_ignored>N</error_ignored>
-    <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory />
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
-    <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
-    <spreadsheet_type>POI</spreadsheet_type>
+    <ignore_flag_field />
+    <lookup>
+      <schema />
+      <table>int_buffer_${ORIGINE}</table>
+      <key>
+        <name>ORIGINE</name>
+        <field>ORIGINE</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>ANNO</name>
+        <field>ANNO</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>MESE</name>
+        <field>MESE</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>EROGATORE_ORIG</name>
+        <field>EROGATORE_ORIG</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>RICHIEDENTE_ORIG</name>
+        <field>RICHIEDENTE_ORIG</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>COD_PREST_ORIG</name>
+        <field>COD_PREST_ORIG</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>error_cod</name>
+        <rename>error_cod</rename>
+      </value>
+    </lookup>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1463,12 +933,269 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>107</xloc>
-      <yloc>53</yloc>
+      <xloc>132</xloc>
+      <yloc>262</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Data Validator</name>
+    <type>Validator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <validate_all>N</validate_all>
+    <concat_errors>N</concat_errors>
+    <concat_separator>|</concat_separator>
+    <validator_field>
+      <name>COD_PREST</name>
+      <validation_name>prestazione</validation_name>
+      <max_length />
+      <min_length />
+      <null_allowed>N</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <max_value />
+      <min_value />
+      <start_string />
+      <end_string />
+      <start_string_not_allowed />
+      <end_string_not_allowed />
+      <regular_expression />
+      <regular_expression_not_allowed />
+      <error_code>prest</error_code>
+      <error_description />
+      <is_sourcing_values>Y</is_sourcing_values>
+      <sourcing_step>v_INT_Nomenclatore</sourcing_step>
+      <sourcing_field>CODICE</sourcing_field>
+      <allowed_value />
+    </validator_field>
+    <validator_field>
+      <name>EROGATORE</name>
+      <validation_name>erogatore</validation_name>
+      <max_length />
+      <min_length />
+      <null_allowed>N</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <max_value />
+      <min_value />
+      <start_string />
+      <end_string />
+      <start_string_not_allowed />
+      <end_string_not_allowed />
+      <regular_expression />
+      <regular_expression_not_allowed />
+      <error_code>erog</error_code>
+      <error_description />
+      <is_sourcing_values>Y</is_sourcing_values>
+      <sourcing_step>Erogatori</sourcing_step>
+      <sourcing_field>CODICE</sourcing_field>
+      <allowed_value />
+    </validator_field>
+    <validator_field>
+      <name>RICHIEDENTE</name>
+      <validation_name>richiedente</validation_name>
+      <max_length />
+      <min_length />
+      <null_allowed>N</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <max_value />
+      <min_value />
+      <start_string />
+      <end_string />
+      <start_string_not_allowed />
+      <end_string_not_allowed />
+      <regular_expression />
+      <regular_expression_not_allowed />
+      <error_code>rich</error_code>
+      <error_description />
+      <is_sourcing_values>Y</is_sourcing_values>
+      <sourcing_step>Richiedenti</sourcing_step>
+      <sourcing_field>CODICE</sourcing_field>
+      <allowed_value />
+    </validator_field>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>133</xloc>
+      <yloc>139</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Erogatori</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+  CODICE
+, DESCRIZIONE
+--, AMBITO
+--, EROGA
+--, RICHIEDE
+--, AREA
+--, BRANCA
+--, COD_CONT
+--, ATTIVO
+--, EQUIV_STS11
+FROM INT_STRUTTURE
+where 
+attivo = 'S'
+and eroga = 'I'
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>453</xloc>
+      <yloc>42</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Richiedenti</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+  CODICE
+, DESCRIZIONE
+--, AMBITO
+--, EROGA
+--, RICHIEDE
+--, AREA
+--, BRANCA
+--, COD_CONT
+--, ATTIVO
+--, EQUIV_STS11
+FROM INT_STRUTTURE
+where 
+attivo = 'S'
+and richiede = 'I'
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>454</xloc>
+      <yloc>143</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>v_INT_Nomenclatore</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+  CODICE
+, DESCRIZIONE
+, NOTE
+, OBSOLETO
+, ORIGINE
+, SPECIFICAZIONI
+, TAR_EURO
+FROM V_INT_NOMENCLATORE
+where
+nvl(obsoleto, 'N') = 'N'
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>451</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
+    <error>
+      <source_step>Data Validator</source_step>
+      <target_step>Set Error</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename />
+      <descriptions_valuename />
+      <fields_valuename />
+      <codes_valuename>error_cod</codes_valuename>
+      <max_errors />
+      <max_pct_errors />
+      <min_pct_rows />
+    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
