@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>chk_int_01</name>
+    <name>chk_int_02</name>
     <description />
     <extended_description />
     <trans_version />
@@ -444,53 +444,11 @@
     <created_user>-</created_user>
     <created_date>2020/09/23 15:47:56.516</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/09/30 16:19:35.965</modified_date>
+    <modified_date>2020/09/30 15:59:52.065</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Calcolo Importo</note>
-      <xloc>17</xloc>
-      <yloc>229</yloc>
-      <width>101</width>
-      <heigth>25</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Validazione Codici</note>
-      <xloc>4</xloc>
-      <yloc>77</yloc>
-      <width>116</width>
-      <heigth>25</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>0</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>db_sopra</name>
@@ -835,163 +793,42 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   <order>
     <hop>
       <from>int_buffer_ORIGINE</from>
-      <to>Data Validator</to>
+      <to>Stream lookup EROG</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Erogatori</from>
-      <to>Data Validator</to>
+      <to>Stream lookup EROG</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Data Validator</from>
-      <to>Set Error</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>v_INT_Nomenclatore</from>
-      <to>Data Validator</to>
+      <from>Stream lookup EROG</from>
+      <to>Stream lookup RICH</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Richiedenti</from>
-      <to>Data Validator</to>
+      <to>Stream lookup RICH</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>v_INT_Nomenclatore</from>
-      <to>Stream lookup</to>
+      <from>Stream lookup RICH</from>
+      <to>Filter rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Stream lookup</from>
-      <to>Formula</to>
+      <from>Filter rows</from>
+      <to>Ok</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Data Validator</from>
-      <to>Stream lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Formula</from>
-      <to>Set Importo</to>
+      <from>Filter rows</from>
+      <to>Set Error AutoPrest</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Data Validator</name>
-    <type>Validator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <validate_all>N</validate_all>
-    <concat_errors>N</concat_errors>
-    <concat_separator>|</concat_separator>
-    <validator_field>
-      <name>COD_PREST</name>
-      <validation_name>prestazione</validation_name>
-      <max_length />
-      <min_length />
-      <null_allowed>N</null_allowed>
-      <only_null_allowed>N</only_null_allowed>
-      <only_numeric_allowed>N</only_numeric_allowed>
-      <data_type>None</data_type>
-      <data_type_verified>N</data_type_verified>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <max_value />
-      <min_value />
-      <start_string />
-      <end_string />
-      <start_string_not_allowed />
-      <end_string_not_allowed />
-      <regular_expression />
-      <regular_expression_not_allowed />
-      <error_code>prest</error_code>
-      <error_description />
-      <is_sourcing_values>Y</is_sourcing_values>
-      <sourcing_step>v_INT_Nomenclatore</sourcing_step>
-      <sourcing_field>CODICE</sourcing_field>
-      <allowed_value />
-    </validator_field>
-    <validator_field>
-      <name>EROGATORE</name>
-      <validation_name>erogatore</validation_name>
-      <max_length />
-      <min_length />
-      <null_allowed>N</null_allowed>
-      <only_null_allowed>N</only_null_allowed>
-      <only_numeric_allowed>N</only_numeric_allowed>
-      <data_type>None</data_type>
-      <data_type_verified>N</data_type_verified>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <max_value />
-      <min_value />
-      <start_string />
-      <end_string />
-      <start_string_not_allowed />
-      <end_string_not_allowed />
-      <regular_expression />
-      <regular_expression_not_allowed />
-      <error_code>erog</error_code>
-      <error_description />
-      <is_sourcing_values>Y</is_sourcing_values>
-      <sourcing_step>Erogatori</sourcing_step>
-      <sourcing_field>CODICE</sourcing_field>
-      <allowed_value />
-    </validator_field>
-    <validator_field>
-      <name>RICHIEDENTE</name>
-      <validation_name>richiedente</validation_name>
-      <max_length />
-      <min_length />
-      <null_allowed>N</null_allowed>
-      <only_null_allowed>N</only_null_allowed>
-      <only_numeric_allowed>N</only_numeric_allowed>
-      <data_type>None</data_type>
-      <data_type_verified>N</data_type_verified>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <max_value />
-      <min_value />
-      <start_string />
-      <end_string />
-      <start_string_not_allowed />
-      <end_string_not_allowed />
-      <regular_expression />
-      <regular_expression_not_allowed />
-      <error_code>rich</error_code>
-      <error_description />
-      <is_sourcing_values>Y</is_sourcing_values>
-      <sourcing_step>Richiedenti</sourcing_step>
-      <sourcing_field>CODICE</sourcing_field>
-      <allowed_value />
-    </validator_field>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>146</xloc>
-      <yloc>121</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Erogatori</name>
+    <name>int_buffer_ORIGINE</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1003,25 +840,28 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
-  CODICE
-, DESCRIZIONE
---, AMBITO
---, EROGA
---, RICHIEDE
---, AREA
---, BRANCA
---, COD_CONT
---, ATTIVO
---, EQUIV_STS11
-FROM INT_STRUTTURE
-where 
-attivo = 'S'
-and eroga = 'I'
+  ORIGINE
+, ANNO
+, MESE
+, Erogatore
+, Richiedente
+, Cod_Prest
+--, NUMERO
+--, Importo
+, EROGATORE_ORIG
+, RICHIEDENTE_ORIG
+, COD_PREST_ORIG
+--, AUX
+, 'auto_prest' Error_Cod
+FROM int_buffer_${ORIGINE}
+where
+Error_Cod is Null	-- per non sovrascrivere gli errori precedenti (codici errati Erog, Rich e Prest)
+
 </sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema />
     <remotesteps>
@@ -1031,59 +871,13 @@ and eroga = 'I'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>469</xloc>
-      <yloc>24</yloc>
+      <xloc>129</xloc>
+      <yloc>36</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Richiedenti</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>SELECT
-  CODICE
-, DESCRIZIONE
---, AMBITO
---, EROGA
---, RICHIEDE
---, AREA
---, BRANCA
---, COD_CONT
---, ATTIVO
---, EQUIV_STS11
-FROM INT_STRUTTURE
-where 
-attivo = 'S'
-and richiede = 'I'
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>470</xloc>
-      <yloc>125</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set Error</name>
+    <name>Set Error AutoPrest</name>
     <type>Update</type>
     <description />
     <distribute>Y</distribute>
@@ -1151,13 +945,13 @@ and richiede = 'I'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>44</xloc>
-      <yloc>121</yloc>
+      <xloc>190</xloc>
+      <yloc>377</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>int_buffer_ORIGINE</name>
+    <name>Erogatori</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1169,63 +963,20 @@ and richiede = 'I'
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
-  ORIGINE
-, ANNO
-, MESE
-, Erogatore
-, Richiedente
-, Cod_Prest
-, NUMERO
---, Importo
-, EROGATORE_ORIG
-, RICHIEDENTE_ORIG
-, COD_PREST_ORIG
---, AUX
---, Error_Cod
-FROM int_buffer_${ORIGINE}
-
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>146</xloc>
-      <yloc>18</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>v_INT_Nomenclatore</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>SELECT
   CODICE
 , DESCRIZIONE
-, NOTE
-, OBSOLETO
-, ORIGINE
-, SPECIFICAZIONI
-, TAR_EURO
-FROM V_INT_NOMENCLATORE
-where
-nvl(obsoleto, 'N') = 'N'
+--, AMBITO
+--, EROGA
+--, RICHIEDE
+--, AREA
+--, BRANCA
+, COD_CONT cod_cont_erogatore
+--, ATTIVO
+--, EQUIV_STS11
+FROM INT_STRUTTURE
+where 
+attivo = 'S'
+and eroga = 'I'
 </sql>
     <limit>0</limit>
     <lookup />
@@ -1240,55 +991,14 @@ nvl(obsoleto, 'N') = 'N'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>467</xloc>
-      <yloc>222</yloc>
+      <xloc>286</xloc>
+      <yloc>90</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Stream lookup</name>
-    <type>StreamLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <from>v_INT_Nomenclatore</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>COD_PREST</name>
-        <field>CODICE</field>
-      </key>
-      <value>
-        <name>TAR_EURO</name>
-        <rename>TAR_EURO</rename>
-        <default />
-        <type>Number</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>146</xloc>
-      <yloc>229</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set Importo</name>
-    <type>Update</type>
+    <name>Richiedenti</name>
+    <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1298,53 +1008,66 @@ nvl(obsoleto, 'N') = 'N'
       <schema_name />
     </partitioning>
     <connection>db_sopra</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field />
+    <sql>SELECT
+  CODICE
+, DESCRIZIONE
+--, AMBITO
+--, EROGA
+--, RICHIEDE
+--, AREA
+--, BRANCA
+, COD_CONT cod_cont_richiedente
+--, ATTIVO
+--, EQUIV_STS11
+FROM INT_STRUTTURE
+where 
+attivo = 'S'
+and richiede = 'I'
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>286</xloc>
+      <yloc>162</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stream lookup EROG</name>
+    <type>StreamLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <from>Erogatori</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
     <lookup>
-      <schema />
-      <table>int_buffer_${ORIGINE}</table>
       <key>
-        <name>ORIGINE</name>
-        <field>ORIGINE</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>MESE</name>
-        <field>MESE</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>EROGATORE_ORIG</name>
-        <field>EROGATORE_ORIG</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>RICHIEDENTE_ORIG</name>
-        <field>RICHIEDENTE_ORIG</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>COD_PREST_ORIG</name>
-        <field>COD_PREST_ORIG</field>
-        <condition>=</condition>
-        <name2 />
+        <name>EROGATORE</name>
+        <field>CODICE</field>
       </key>
       <value>
-        <name>IMPORTO</name>
-        <rename>Importo</rename>
+        <name>COD_CONT_EROGATORE</name>
+        <rename>COD_CONT_EROGATORE</rename>
+        <default />
+        <type>String</type>
       </value>
     </lookup>
     <cluster_schema />
@@ -1355,14 +1078,14 @@ nvl(obsoleto, 'N') = 'N'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>146</xloc>
-      <yloc>392</yloc>
+      <xloc>129</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Formula</name>
-    <type>Formula</type>
+    <name>Stream lookup RICH</name>
+    <type>StreamLookup</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1371,14 +1094,23 @@ nvl(obsoleto, 'N') = 'N'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <formula>
-      <field_name>Importo</field_name>
-      <formula_string>[numero] * [tar_euro]</formula_string>
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
+    <from>Richiedenti</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>RICHIEDENTE</name>
+        <field>CODICE</field>
+      </key>
+      <value>
+        <name>COD_CONT_RICHIEDENTE</name>
+        <rename>COD_CONT_RICHIEDENTE</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1387,24 +1119,70 @@ nvl(obsoleto, 'N') = 'N'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>146</xloc>
-      <yloc>308</yloc>
+      <xloc>129</xloc>
+      <yloc>195</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Ok</send_true_to>
+    <send_false_to>Set Error AutoPrest</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>COD_CONT_EROGATORE</leftvalue>
+        <function>&lt;></function>
+        <rightvalue>COD_CONT_RICHIEDENTE</rightvalue>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>127</xloc>
+      <yloc>275</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Ok</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>65</xloc>
+      <yloc>380</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
-    <error>
-      <source_step>Data Validator</source_step>
-      <target_step>Set Error</target_step>
-      <is_enabled>Y</is_enabled>
-      <nr_valuename />
-      <descriptions_valuename />
-      <fields_valuename />
-      <codes_valuename>error_cod</codes_valuename>
-      <max_errors />
-      <max_pct_errors />
-      <min_pct_rows />
-    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
