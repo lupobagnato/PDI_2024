@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>MM</name>
-        <default_value>04</default_value>
+        <default_value>01</default_value>
         <description />
       </parameter>
       <parameter>
@@ -444,7 +444,7 @@
     <created_user>-</created_user>
     <created_date>2020/09/23 15:47:56.516</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/09/30 16:19:35.965</modified_date>
+    <modified_date>2020/10/07 17:37:35.036</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -878,6 +878,11 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <to>Set Importo</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Generate Rows</from>
+      <to>Write to log</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Data Validator</name>
@@ -1037,6 +1042,38 @@ and eroga = 'I'
     </GUI>
   </step>
   <step>
+    <name>Formula</name>
+    <type>Formula</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <formula>
+      <field_name>Importo</field_name>
+      <formula_string>[numero] * [tar_euro]</formula_string>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field />
+    </formula>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>146</xloc>
+      <yloc>308</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Richiedenti</name>
     <type>TableInput</type>
     <description />
@@ -1157,6 +1194,121 @@ and richiede = 'I'
     </GUI>
   </step>
   <step>
+    <name>Set Importo</name>
+    <type>Update</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field />
+    <lookup>
+      <schema />
+      <table>int_buffer_${ORIGINE}</table>
+      <key>
+        <name>ORIGINE</name>
+        <field>ORIGINE</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>ANNO</name>
+        <field>ANNO</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>MESE</name>
+        <field>MESE</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>EROGATORE_ORIG</name>
+        <field>EROGATORE_ORIG</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>RICHIEDENTE_ORIG</name>
+        <field>RICHIEDENTE_ORIG</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>COD_PREST_ORIG</name>
+        <field>COD_PREST_ORIG</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>IMPORTO</name>
+        <rename>Importo</rename>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>146</xloc>
+      <yloc>392</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <from>v_INT_Nomenclatore</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>COD_PREST</name>
+        <field>CODICE</field>
+      </key>
+      <value>
+        <name>TAR_EURO</name>
+        <rename>TAR_EURO</rename>
+        <default />
+        <type>Number</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>146</xloc>
+      <yloc>229</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>int_buffer_ORIGINE</name>
     <type>TableInput</type>
     <description />
@@ -1246,8 +1398,8 @@ nvl(obsoleto, 'N') = 'N'
     </GUI>
   </step>
   <step>
-    <name>Stream lookup</name>
-    <type>StreamLookup</type>
+    <name>Generate Rows</name>
+    <type>RowGenerator</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1256,23 +1408,25 @@ nvl(obsoleto, 'N') = 'N'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <from>v_INT_Nomenclatore</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>COD_PREST</name>
-        <field>CODICE</field>
-      </key>
-      <value>
-        <name>TAR_EURO</name>
-        <rename>TAR_EURO</rename>
-        <default />
-        <type>Number</type>
-      </value>
-    </lookup>
+    <fields>
+      <field>
+        <name>niente</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <limit>1</limit>
+    <never_ending>N</never_ending>
+    <interval_in_ms>5000</interval_in_ms>
+    <row_time_field>now</row_time_field>
+    <last_time_field>FiveSecondsAgo</last_time_field>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1281,14 +1435,14 @@ nvl(obsoleto, 'N') = 'N'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>146</xloc>
-      <yloc>229</yloc>
+      <xloc>693</xloc>
+      <yloc>18</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Set Importo</name>
-    <type>Update</type>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1297,56 +1451,16 @@ nvl(obsoleto, 'N') = 'N'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>db_sopra</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field />
-    <lookup>
-      <schema />
-      <table>int_buffer_${ORIGINE}</table>
-      <key>
-        <name>ORIGINE</name>
-        <field>ORIGINE</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>MESE</name>
-        <field>MESE</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>EROGATORE_ORIG</name>
-        <field>EROGATORE_ORIG</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>RICHIEDENTE_ORIG</name>
-        <field>RICHIEDENTE_ORIG</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>COD_PREST_ORIG</name>
-        <field>COD_PREST_ORIG</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>IMPORTO</name>
-        <rename>Importo</rename>
-      </value>
-    </lookup>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>N</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage>
+origine=${ORIGINE}
+yyyy=${YYYY}
+mm=${MM}</logmessage>
+    <fields>
+      </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1355,40 +1469,8 @@ nvl(obsoleto, 'N') = 'N'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>146</xloc>
-      <yloc>392</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Formula</name>
-    <type>Formula</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <formula>
-      <field_name>Importo</field_name>
-      <formula_string>[numero] * [tar_euro]</formula_string>
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field />
-    </formula>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>146</xloc>
-      <yloc>308</yloc>
+      <xloc>811</xloc>
+      <yloc>18</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

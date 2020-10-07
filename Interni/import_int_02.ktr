@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>xform_int_01</name>
+    <name>import_int_02</name>
     <description />
     <extended_description />
     <trans_version />
@@ -8,6 +8,11 @@
     <trans_status>0</trans_status>
     <directory>/Interni</directory>
     <parameters>
+      <parameter>
+        <name>INT_PRODUZIONE</name>
+        <default_value>INT_PRODUZIONE_TEST</default_value>
+        <description />
+      </parameter>
       <parameter>
         <name>MM</name>
         <default_value>01</default_value>
@@ -444,11 +449,88 @@
     <created_user>-</created_user>
     <created_date>2020/09/23 15:47:56.516</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/10/07 14:37:46.743</modified_date>
+    <modified_date>2020/10/07 17:53:14.139</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Import nella INT_PRODUZIONE</note>
+      <xloc>4</xloc>
+      <yloc>3</yloc>
+      <width>191</width>
+      <heigth>25</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>
+
+
+
+valore inatteso di flagfield</note>
+      <xloc>16</xloc>
+      <yloc>154</yloc>
+      <width>152</width>
+      <heigth>79</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>Y</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>192</backgroundcolorred>
+      <backgroundcolorgreen>192</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>07.10.2020
+import di Gennaio 2020 nella INT_Prestazioni_TEST
+(che è una copia del 2019 e 2020 fino ad Aprile della INT_PRESTAZIONI)
+i record con FlagField non Null sono quelli toccati dalla import_02)
+PTDK 1 new e alcuni changed
+DIAL identical
+LAIM 6 new e 6 deleted (manca il set dell'erogatore ISIT_D)
+RXIM 80 new, 78 deleted, 17 changed (manca il set degli erogatori I
+9_A e _C, ci sono stati tanti errori nella chk1, molti ZZZ e LP)
+
+usare le 2 viste v_int_produzione per fare i confronti in Toad</note>
+      <xloc>719</xloc>
+      <yloc>159</yloc>
+      <width>429</width>
+      <heigth>176</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>db_sopra</name>
@@ -792,23 +874,58 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
+      <from>Merge Rows (diff)</from>
+      <to>Switch / Case</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / Case</from>
+      <to>changed</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / Case</from>
+      <to>new</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / Case</from>
+      <to>deleted</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / Case</from>
+      <to>identical</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>changed</from>
+      <to>Update</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>new</from>
+      <to>Insert</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>deleted</from>
+      <to>Delete</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / Case</from>
+      <to>Abort</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>int_buffer_ORIGINE</from>
-      <to>lookup x Erogatore</to>
+      <to>Merge Rows (diff)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>lookup x Erogatore</from>
-      <to>xcod Erogatore</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>lookup x Richiedente</from>
-      <to>xcod Richiedente</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>int_buffer_ORIGINE</from>
-      <to>lookup x Richiedente</to>
+      <from>int_PRODUZIONE</from>
+      <to>Merge Rows (diff)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -821,7 +938,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <name>int_buffer_ORIGINE</name>
     <type>TableInput</type>
     <description />
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution />
     <copies>1</copies>
     <partitioning>
@@ -833,17 +950,33 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   ORIGINE
 , ANNO
 , MESE
---, Erogatore
---, Richiedente
---, Cod_Prest
---, NUMERO
---, Importo
-, EROGATORE_ORIG
-, RICHIEDENTE_ORIG
-, COD_PREST_ORIG
+, Erogatore
+, Richiedente
+, Cod_Prest
+, sum(NUMERO)NUMERO
+, sum(Importo)Importo
+--, EROGATORE_ORIG
+--, RICHIEDENTE_ORIG
+--, COD_PREST_ORIG
 --, AUX
 --, Error_Cod
 FROM int_buffer_${ORIGINE}
+where
+Error_Cod is Null
+--- condizioni superflue
+---and origine = '${ORIGINE}'
+---and anno = ${YYYY}
+---and mese = ${MM} 
+group by
+  ORIGINE
+, ANNO
+, MESE
+, Erogatore
+, Richiedente
+, Cod_Prest
+order by
+--origine,anno,mese,
+erogatore, richiedente, cod_prest
 
 </sql>
     <limit>0</limit>
@@ -859,14 +992,14 @@ FROM int_buffer_${ORIGINE}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>132</xloc>
-      <yloc>36</yloc>
+      <xloc>286</xloc>
+      <yloc>12</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>lookup x Erogatore</name>
-    <type>DBLookup</type>
+    <name>int_PRODUZIONE</name>
+    <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -876,28 +1009,31 @@ FROM int_buffer_${ORIGINE}
       <schema_name />
     </partitioning>
     <connection>db_sopra</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>INT_XCOD_Erogatori</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
-      <key>
-        <name>EROGATORE_ORIG</name>
-        <field>COD_IN</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>COD_OUT</name>
-        <rename>Erogatore</rename>
-        <default />
-        <type>String</type>
-      </value>
-    </lookup>
+    <sql>SELECT
+ORIGINE
+, ANNO
+, MESE
+, Erogatore
+, Richiedente
+, Cod_Prest
+, NUMERO
+, Importo
+--, AUX
+FROM ${INT_PRODUZIONE}
+where
+origine = '${ORIGINE}'
+and anno = ${YYYY}
+and mese = ${MM}
+order by
+--origine,anno,mese,
+erogatore, richiedente, cod_prest
+
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -906,14 +1042,14 @@ FROM int_buffer_${ORIGINE}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>61</xloc>
-      <yloc>146</yloc>
+      <xloc>456</xloc>
+      <yloc>12</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>lookup x Richiedente</name>
-    <type>DBLookup</type>
+    <name>Merge Rows (diff)</name>
+    <type>MergeRows</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -922,29 +1058,23 @@ FROM int_buffer_${ORIGINE}
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>db_sopra</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>INT_XCOD_Richiedenti</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
-      <key>
-        <name>RICHIEDENTE_ORIG</name>
-        <field>COD_IN</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>COD_OUT</name>
-        <rename>Richiedente</rename>
-        <default />
-        <type>String</type>
-      </value>
-    </lookup>
+    <keys>
+      <key>ORIGINE</key>
+      <key>ANNO</key>
+      <key>MESE</key>
+      <key>EROGATORE</key>
+      <key>RICHIEDENTE</key>
+      <key>COD_PREST</key>
+    </keys>
+    <values>
+      <value>NUMERO</value>
+      <value>IMPORTO</value>
+    </values>
+    <flag_field>flagfield</flag_field>
+    <reference>int_PRODUZIONE</reference>
+    <compare>int_buffer_ORIGINE</compare>
+    <compare>
+    </compare>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -953,13 +1083,158 @@ FROM int_buffer_${ORIGINE}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>200</xloc>
-      <yloc>146</yloc>
+      <xloc>365</xloc>
+      <yloc>118</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>xcod Erogatore</name>
+    <name>Switch / Case</name>
+    <type>SwitchCase</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fieldname>flagfield</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>String</case_value_type>
+    <case_value_format />
+    <case_value_decimal />
+    <case_value_group />
+    <default_target_step>Abort</default_target_step>
+    <cases>
+      <case>
+        <value>changed</value>
+        <target_step>changed</target_step>
+      </case>
+      <case>
+        <value>new</value>
+        <target_step>new</target_step>
+      </case>
+      <case>
+        <value>deleted</value>
+        <target_step>deleted</target_step>
+      </case>
+      <case>
+        <value>identical</value>
+        <target_step>identical</target_step>
+      </case>
+    </cases>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>365</xloc>
+      <yloc>200</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>identical</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>539</xloc>
+      <yloc>200</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>new</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>363</xloc>
+      <yloc>297</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>changed</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>259</xloc>
+      <yloc>297</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>deleted</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>470</xloc>
+      <yloc>297</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Update</name>
     <type>Update</type>
     <description />
     <distribute>Y</distribute>
@@ -977,7 +1252,7 @@ FROM int_buffer_${ORIGINE}
     <ignore_flag_field />
     <lookup>
       <schema />
-      <table>int_buffer_${ORIGINE}</table>
+      <table>${INT_PRODUZIONE}</table>
       <key>
         <name>ORIGINE</name>
         <field>ORIGINE</field>
@@ -997,26 +1272,34 @@ FROM int_buffer_${ORIGINE}
         <name2 />
       </key>
       <key>
-        <name>EROGATORE_ORIG</name>
-        <field>EROGATORE_ORIG</field>
+        <name>EROGATORE</name>
+        <field>EROGATORE</field>
         <condition>=</condition>
         <name2 />
       </key>
       <key>
-        <name>RICHIEDENTE_ORIG</name>
-        <field>RICHIEDENTE_ORIG</field>
+        <name>RICHIEDENTE</name>
+        <field>RICHIEDENTE</field>
         <condition>=</condition>
         <name2 />
       </key>
       <key>
-        <name>COD_PREST_ORIG</name>
-        <field>COD_PREST_ORIG</field>
+        <name>COD_PREST</name>
+        <field>COD_PREST</field>
         <condition>=</condition>
         <name2 />
       </key>
       <value>
-        <name>Erogatore</name>
-        <rename>Erogatore</rename>
+        <name>NUMERO</name>
+        <rename>NUMERO</rename>
+      </value>
+      <value>
+        <name>IMPORTO</name>
+        <rename>IMPORTO</rename>
+      </value>
+      <value>
+        <name>flagfield</name>
+        <rename>flagfield</rename>
       </value>
     </lookup>
     <cluster_schema />
@@ -1027,14 +1310,14 @@ FROM int_buffer_${ORIGINE}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>59</xloc>
-      <yloc>231</yloc>
+      <xloc>254</xloc>
+      <yloc>393</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>xcod Richiedente</name>
-    <type>Update</type>
+    <name>Insert</name>
+    <type>InsertUpdate</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1044,14 +1327,11 @@ FROM int_buffer_${ORIGINE}
       <schema_name />
     </partitioning>
     <connection>db_sopra</connection>
-    <skip_lookup>N</skip_lookup>
     <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field />
+    <update_bypassed>Y</update_bypassed>
     <lookup>
       <schema />
-      <table>int_buffer_${ORIGINE}</table>
+      <table>${INT_PRODUZIONE}</table>
       <key>
         <name>ORIGINE</name>
         <field>ORIGINE</field>
@@ -1071,26 +1351,67 @@ FROM int_buffer_${ORIGINE}
         <name2 />
       </key>
       <key>
-        <name>EROGATORE_ORIG</name>
-        <field>EROGATORE_ORIG</field>
+        <name>EROGATORE</name>
+        <field>EROGATORE</field>
         <condition>=</condition>
         <name2 />
       </key>
       <key>
-        <name>RICHIEDENTE_ORIG</name>
-        <field>RICHIEDENTE_ORIG</field>
+        <name>RICHIEDENTE</name>
+        <field>RICHIEDENTE</field>
         <condition>=</condition>
         <name2 />
       </key>
       <key>
-        <name>COD_PREST_ORIG</name>
-        <field>COD_PREST_ORIG</field>
+        <name>COD_PREST</name>
+        <field>COD_PREST</field>
         <condition>=</condition>
         <name2 />
       </key>
       <value>
-        <name>Richiedente</name>
-        <rename>Richiedente</rename>
+        <name>ORIGINE</name>
+        <rename>ORIGINE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ANNO</name>
+        <rename>ANNO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MESE</name>
+        <rename>MESE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>EROGATORE</name>
+        <rename>EROGATORE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>RICHIEDENTE</name>
+        <rename>RICHIEDENTE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_PREST</name>
+        <rename>COD_PREST</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NUMERO</name>
+        <rename>NUMERO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>IMPORTO</name>
+        <rename>IMPORTO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>flagfield</name>
+        <rename>flagfield</rename>
+        <update>Y</update>
       </value>
     </lookup>
     <cluster_schema />
@@ -1101,8 +1422,102 @@ FROM int_buffer_${ORIGINE}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>201</xloc>
-      <yloc>233</yloc>
+      <xloc>364</xloc>
+      <yloc>393</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Delete</name>
+    <type>Delete</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <commit>100</commit>
+    <lookup>
+      <schema />
+      <table>${INT_PRODUZIONE}</table>
+      <key>
+        <name>ORIGINE</name>
+        <field>ORIGINE</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>ANNO</name>
+        <field>ANNO</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>MESE</name>
+        <field>MESE</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>EROGATORE</name>
+        <field>EROGATORE</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>RICHIEDENTE</name>
+        <field>RICHIEDENTE</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>COD_PREST</name>
+        <field>COD_PREST</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>471</xloc>
+      <yloc>393</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Abort</name>
+    <type>Abort</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <row_threshold>0</row_threshold>
+    <message />
+    <always_log_rows>Y</always_log_rows>
+    <abort_with_error>N</abort_with_error>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>157</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1144,8 +1559,8 @@ FROM int_buffer_${ORIGINE}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>407</xloc>
-      <yloc>32</yloc>
+      <xloc>731</xloc>
+      <yloc>21</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1178,8 +1593,8 @@ mm=${MM}</logmessage>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>525</xloc>
-      <yloc>34</yloc>
+      <xloc>849</xloc>
+      <yloc>23</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
