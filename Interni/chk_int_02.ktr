@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>MM</name>
-        <default_value>01</default_value>
+        <default_value>02</default_value>
         <description />
       </parameter>
       <parameter>
@@ -444,7 +444,7 @@
     <created_user>-</created_user>
     <created_date>2020/09/23 15:47:56.516</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/10/07 14:39:06.789</modified_date>
+    <modified_date>2020/10/19 17:30:22.945</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -934,6 +934,49 @@ and eroga = 'I'
     </GUI>
   </step>
   <step>
+    <name>Generate Rows</name>
+    <type>RowGenerator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>niente</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <limit>1</limit>
+    <never_ending>N</never_ending>
+    <interval_in_ms>5000</interval_in_ms>
+    <row_time_field>now</row_time_field>
+    <last_time_field>FiveSecondsAgo</last_time_field>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>532</xloc>
+      <yloc>38</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Ok</name>
     <type>Dummy</type>
     <description />
@@ -1160,6 +1203,40 @@ and richiede = 'I'
     </GUI>
   </step>
   <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>N</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage>
+origine=${ORIGINE}
+yyyy=${YYYY}
+mm=${MM}</logmessage>
+    <fields>
+      </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>650</xloc>
+      <yloc>38</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>int_buffer_ORIGINE</name>
     <type>TableInput</type>
     <description />
@@ -1205,83 +1282,6 @@ Error_Cod is Null	-- per non sovrascrivere gli errori precedenti (codici errati 
     <GUI>
       <xloc>130</xloc>
       <yloc>56</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Generate Rows</name>
-    <type>RowGenerator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>niente</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <limit>1</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>532</xloc>
-      <yloc>38</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Write to log</name>
-    <type>WriteToLog</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>N</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage>
-origine=${ORIGINE}
-yyyy=${YYYY}
-mm=${MM}</logmessage>
-    <fields>
-      </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>650</xloc>
-      <yloc>38</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
