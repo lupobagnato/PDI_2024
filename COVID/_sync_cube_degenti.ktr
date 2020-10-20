@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>sync_cube_866</name>
+    <name>_sync_cube_degenti</name>
     <description />
     <extended_description />
     <trans_version />
@@ -61,7 +61,7 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject>Look vcube_dipendenti</subject>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
@@ -79,13 +79,13 @@
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>vsrc_stat_866</subject>
+          <subject>vsrc_degenti</subject>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>cube_stat_866</subject>
+          <subject>cube_degenti</subject>
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -130,17 +130,17 @@
         </field>
         <field>
           <id>EXECUTING_SERVER</id>
-          <enabled>Y</enabled>
+          <enabled>N</enabled>
           <name>EXECUTING_SERVER</name>
         </field>
         <field>
           <id>EXECUTING_USER</id>
-          <enabled>Y</enabled>
+          <enabled>N</enabled>
           <name>EXECUTING_USER</name>
         </field>
         <field>
           <id>CLIENT</id>
-          <enabled>Y</enabled>
+          <enabled>N</enabled>
           <name>CLIENT</name>
         </field>
       </trans-log-table>
@@ -938,9 +938,9 @@
       </clusterschema>
     </clusterschemas>
     <created_user />
-    <created_date>2020/08/25 10:34:06.439</created_date>
+    <created_date>2020/08/25 10:34:06.366</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2020/10/16 13:00:29.135</modified_date>
+    <modified_date>2020/10/16 12:34:58.759</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -950,8 +950,8 @@
 Truncate e Insert
 
 </note>
-      <xloc>163</xloc>
-      <yloc>339</yloc>
+      <xloc>155</xloc>
+      <yloc>307</yloc>
       <width>99</width>
       <heigth>62</heigth>
       <fontname>Microsoft Sans Serif</fontname>
@@ -1312,18 +1312,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>Row denormaliser</from>
+      <from>vsrc_degenti</from>
       <to>Look vcube_dipendenti</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>vsrc_stat_866</from>
-      <to>Row denormaliser</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Look vcube_dipendenti</from>
-      <to>cube_stat_866</to>
+      <to>cube_degenti</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1349,7 +1344,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>CODICE_FISCALE</name>
+        <name>COD_FISC</name>
         <field>CODICE_FISCALE</field>
         <condition>=</condition>
         <name2 />
@@ -1381,101 +1376,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>191</xloc>
-      <yloc>201</yloc>
+      <xloc>187</xloc>
+      <yloc>187</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Row denormaliser</name>
-    <type>Denormaliser</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <key_field>ANALISI</key_field>
-    <group>
-      <field>
-        <name>ID_ACCETTAZIONE</name>
-      </field>
-    </group>
-    <fields>
-      <field>
-        <field_name>ESITO</field_name>
-        <key_value>866M</key_value>
-        <target_name>esitoM</target_name>
-        <target_type>String</target_type>
-        <target_format />
-        <target_length>20</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol />
-        <target_grouping_symbol />
-        <target_currency_symbol />
-        <target_null_string />
-        <target_aggregation_type>-</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>ESITO</field_name>
-        <key_value>866G</key_value>
-        <target_name>esitoG</target_name>
-        <target_type>String</target_type>
-        <target_format />
-        <target_length>20</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol />
-        <target_grouping_symbol />
-        <target_currency_symbol />
-        <target_null_string />
-        <target_aggregation_type>-</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>valore_ESITO</field_name>
-        <key_value>866M</key_value>
-        <target_name>valoreM</target_name>
-        <target_type>String</target_type>
-        <target_format />
-        <target_length>300</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol />
-        <target_grouping_symbol />
-        <target_currency_symbol />
-        <target_null_string />
-        <target_aggregation_type>-</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>valore_ESITO</field_name>
-        <key_value>866G</key_value>
-        <target_name>valoreG</target_name>
-        <target_type>String</target_type>
-        <target_format />
-        <target_length>300</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol />
-        <target_grouping_symbol />
-        <target_currency_symbol />
-        <target_null_string />
-        <target_aggregation_type>-</target_aggregation_type>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>435</xloc>
-      <yloc>130</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>cube_stat_866</name>
+    <name>cube_degenti</name>
     <type>TableOutput</type>
     <description />
     <distribute>Y</distribute>
@@ -1487,7 +1394,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </partitioning>
     <connection>db_sopra</connection>
     <schema>dwh</schema>
-    <table>cube_stat_866</table>
+    <table>cube_degenti_tmp</table>
     <commit>10000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
@@ -1512,13 +1419,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>191</xloc>
-      <yloc>380</yloc>
+      <xloc>187</xloc>
+      <yloc>348</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>vsrc_stat_866</name>
+    <name>vsrc_degenti</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1530,36 +1437,42 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
-  FONTE_DATI
-, ID_PAZIENTE
-, coalesce(cod_fisc_ricovero, cod_fisc_ps, CODICE_FISCALE) codice_fiscale
+  NUM_CASO
+, DATA_ACC
+, ORA_ACC
+, REPARTO_DEG_COD
+, REPARTO_DEG_DES
+, STANZA
+, KF_STATUS
+, ID_ANAG_PATIDOK
+, ID_MOVIMENTO
 , COGNOME
 , NOME
-, DATA_NASCITA
 , SESSO
-, ID_ACCETTAZIONE
-, DATA_RICHIESTA
-, DATA_ESITO
-, ESITO
-, VALORE_ESITO
-, ID_REPARTO
-, REPARTO,
-Analisi,
-strcittadinanza, 
-strindirizzores, strcapres, strcittares, strcodicecomuneres, 
-strindirizzodom, strcapdom, strcittadom, strcodicecomunedom, 
-strtelefono1, strtelefono2, strtelefonocellulare, 
-strnumerofax, strindirizzomail
-, last_update
-, last_minute
---- nuovi campi
-, nosologico
-, modalita_accesso
-, tipo_prescrizione
-, provenienza_richiesta
-, note_richiesta
-FROM 
-vsrc_STAT_866
+, DATA_NASCITA
+, ETA
+, COD_FISC
+, ASL
+, COD_STATO_NAS
+, COD_COMUNE_NAS
+, DES_COMUNE_NAS
+, COD_COMUNE_RES
+, DES_COMUNE_RES
+, COD_COMUNE_DOM
+, DES_COMUNE_DOM
+, nazionalita
+, REPARTO_RIC_COD
+, REPARTO_RIC_DES
+, DATA_RIC
+, ORA_RIC
+, INTUBATO
+, contatti_info, contatti_sit_fam, contatti_all
+, contatti_data_comp
+, stanza_IM, data_in_IM, ora_in_IM, data_out_IM, ora_out_IM
+, LAST_UPDATE
+, LAST_MINUTE
+FROM VSRC_DEGENTI
+order by 1
 </sql>
     <limit>0</limit>
     <lookup />
@@ -1574,7 +1487,7 @@ vsrc_STAT_866
       </output>
     </remotesteps>
     <GUI>
-      <xloc>191</xloc>
+      <xloc>187</xloc>
       <yloc>51</yloc>
       <draw>Y</draw>
     </GUI>
