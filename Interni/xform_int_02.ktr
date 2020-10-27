@@ -125,17 +125,17 @@
         </field>
         <field>
           <id>EXECUTING_SERVER</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>EXECUTING_SERVER</name>
         </field>
         <field>
           <id>EXECUTING_USER</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>EXECUTING_USER</name>
         </field>
         <field>
           <id>CLIENT</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>CLIENT</name>
         </field>
       </trans-log-table>
@@ -444,7 +444,7 @@
     <created_user>-</created_user>
     <created_date>2020/09/23 15:47:56.516</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/10/19 17:24:08.456</modified_date>
+    <modified_date>2020/10/27 15:54:06.963</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -792,11 +792,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>Generate Rows</from>
-      <to>Write to log</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>int_buffer_ORIGINE</from>
       <to>SIT x Donatori</to>
       <enabled>Y</enabled>
@@ -856,7 +851,78 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <to>upd int_buffer_ORIGINE</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Generate Rows</from>
+      <to>Write to log</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
+  <step>
+    <name>Angio</name>
+    <type>SetValueConstant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <usevar>N</usevar>
+    <fields>
+      <field>
+        <name>EROGATORE</name>
+        <value>I69_A</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>271</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>EmoDinamica</name>
+    <type>SetValueConstant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <usevar>N</usevar>
+    <fields>
+      <field>
+        <name>EROGATORE</name>
+        <value>I69_C</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>510</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Generate Rows</name>
     <type>RowGenerator</type>
@@ -901,8 +967,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
-    <name>Write to log</name>
-    <type>WriteToLog</type>
+    <name>ISIT_D</name>
+    <type>SetValueConstant</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -911,16 +977,15 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>N</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage>
-origine=${ORIGINE}
-yyyy=${YYYY}
-mm=${MM}</logmessage>
+    <usevar>N</usevar>
     <fields>
-      </fields>
+      <field>
+        <name>EROGATORE</name>
+        <value>ISIT_D</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -929,8 +994,154 @@ mm=${MM}</logmessage>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>854</xloc>
-      <yloc>23</yloc>
+      <xloc>37</xloc>
+      <yloc>136</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SIT x Donatori</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>ISIT_D</send_true_to>
+    <send_false_to>post_sit</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>EROGATORE</leftvalue>
+            <function>=</function>
+            <rightvalue />
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>ISIT</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask />
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>RICHIEDENTE</leftvalue>
+            <function>=</function>
+            <rightvalue />
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>DON</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask />
+            </value>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>143</xloc>
+      <yloc>137</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <from>v_INT_Nomenclatore</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>COD_PREST</name>
+        <field>CODICE</field>
+      </key>
+      <value>
+        <name>ORIGINE</name>
+        <rename>origine_nomenclatore</rename>
+        <default />
+        <type>Number</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>386</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Switch / Case</name>
+    <type>SwitchCase</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fieldname>origine_nomenclatore</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>String</case_value_type>
+    <case_value_format />
+    <case_value_decimal />
+    <case_value_group />
+    <default_target_step>upd int_buffer_ORIGINE</default_target_step>
+    <cases>
+      <case>
+        <value>ANGIO</value>
+        <target_step>Angio</target_step>
+      </case>
+      <case>
+        <value>ANGIO_EMODINAMICA</value>
+        <target_step>EmoDinamica</target_step>
+      </case>
+    </cases>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>386</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -978,6 +1189,30 @@ FROM int_buffer_${ORIGINE}
     <GUI>
       <xloc>143</xloc>
       <yloc>19</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>post_sit</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>143</xloc>
+      <yloc>223</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1056,168 +1291,6 @@ FROM int_buffer_${ORIGINE}
     </GUI>
   </step>
   <step>
-    <name>SIT x Donatori</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>ISIT_D</send_true_to>
-    <send_false_to>post_sit</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>EROGATORE</leftvalue>
-            <function>=</function>
-            <rightvalue />
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>ISIT</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask />
-            </value>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>RICHIEDENTE</leftvalue>
-            <function>=</function>
-            <rightvalue />
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>DON</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask />
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>143</xloc>
-      <yloc>137</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>post_sit</name>
-    <type>Dummy</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>143</xloc>
-      <yloc>223</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ISIT_D</name>
-    <type>SetValueConstant</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <usevar>N</usevar>
-    <fields>
-      <field>
-        <name>EROGATORE</name>
-        <value>ISIT_D</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>37</xloc>
-      <yloc>136</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stream lookup</name>
-    <type>StreamLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <from>v_INT_Nomenclatore</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>COD_PREST</name>
-        <field>CODICE</field>
-      </key>
-      <value>
-        <name>ORIGINE</name>
-        <rename>origine_nomenclatore</rename>
-        <default />
-        <type>Number</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>386</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>v_INT_Nomenclatore</name>
     <type>TableInput</type>
     <description />
@@ -1260,8 +1333,8 @@ nvl(obsoleto, 'N') = 'N'
     </GUI>
   </step>
   <step>
-    <name>Switch / Case</name>
-    <type>SwitchCase</type>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1270,56 +1343,17 @@ nvl(obsoleto, 'N') = 'N'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <fieldname>origine_nomenclatore</fieldname>
-    <use_contains>N</use_contains>
-    <case_value_type>String</case_value_type>
-    <case_value_format />
-    <case_value_decimal />
-    <case_value_group />
-    <default_target_step>upd int_buffer_ORIGINE</default_target_step>
-    <cases>
-      <case>
-        <value>ANGIO</value>
-        <target_step>Angio</target_step>
-      </case>
-      <case>
-        <value>ANGIO_EMODINAMICA</value>
-        <target_step>EmoDinamica</target_step>
-      </case>
-    </cases>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>386</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Angio</name>
-    <type>SetValueConstant</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <usevar>N</usevar>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>N</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage>
+______________________________________________________________
+
+${Internal.Transformation.Name}(${ORIGINE},${YYYY},${MM})
+______________________________________________________________</logmessage>
     <fields>
-      <field>
-        <name>EROGATORE</name>
-        <value>I69_A</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
+      </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1328,41 +1362,8 @@ nvl(obsoleto, 'N') = 'N'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>271</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>EmoDinamica</name>
-    <type>SetValueConstant</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <usevar>N</usevar>
-    <fields>
-      <field>
-        <name>EROGATORE</name>
-        <value>I69_C</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>510</xloc>
-      <yloc>304</yloc>
+      <xloc>835</xloc>
+      <yloc>53</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
