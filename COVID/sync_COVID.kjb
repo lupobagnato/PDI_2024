@@ -8,7 +8,7 @@
   <created_user />
   <created_date>2020/08/25 10:34:06.469</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2020/10/21 14:04:06.381</modified_date>
+  <modified_date>2020/11/18 11:00:42.186</modified_date>
   <parameters>
     <parameter>
       <name>ora_max</name>
@@ -21,23 +21,38 @@
       <description>x esecuzione sync_Covid_Alisa</description>
     </parameter>
     <parameter>
+      <name>var_CC</name>
+      <default_value>${_email_CC}</default_value>
+      <description />
+    </parameter>
+    <parameter>
+      <name>var_CCN</name>
+      <default_value>${_email_CCN}</default_value>
+      <description />
+    </parameter>
+    <parameter>
       <name>var_From</name>
-      <default_value>report.intranet@asl1.liguria.it</default_value>
+      <default_value>${_email_From}</default_value>
+      <description />
+    </parameter>
+    <parameter>
+      <name>var_FromName</name>
+      <default_value>${_email_FromName}</default_value>
       <description />
     </parameter>
     <parameter>
       <name>var_Port</name>
-      <default_value>25</default_value>
+      <default_value>${_email_Port}</default_value>
       <description />
     </parameter>
     <parameter>
       <name>var_Smtp</name>
-      <default_value>smtp.usl1.imperiese</default_value>
+      <default_value>${_email_Smtp}</default_value>
       <description />
     </parameter>
     <parameter>
       <name>var_To</name>
-      <default_value>s.suppo@asl1.liguria.it</default_value>
+      <default_value>${_email_To}</default_value>
       <description />
     </parameter>
   </parameters>
@@ -1959,9 +1974,9 @@ ora_max = ${ora_max}</logmessage>
           <value>covid19@asl1.liguria.it</value>
         </parameter>
         <parameter>
-          <name>var_CC</name>
+          <name>var_To_Local</name>
           <stream_name />
-          <value />
+          <value>p.sciandra@asl1.liguria.it</value>
         </parameter>
       </parameters>
       <set_append_logfile>N</set_append_logfile>
