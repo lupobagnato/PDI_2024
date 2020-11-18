@@ -1,25 +1,15 @@
 <job>
-  <name>Export Ex_Ante</name>
+  <name>cron_h2200</name>
   <description />
   <extended_description />
   <job_version />
   <job_status>0</job_status>
-  <directory>/CUP/Ex_Ante</directory>
-  <created_user>admin</created_user>
-  <created_date>2007/09/05 10:01:28.000</created_date>
+  <directory>/crontab</directory>
+  <created_user />
+  <created_date>2019/09/16 11:46:33.107</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2020/11/18 16:45:53.604</modified_date>
+  <modified_date>2020/11/18 15:52:46.155</modified_date>
   <parameters>
-    <parameter>
-      <name>P</name>
-      <default_value>4</default_value>
-      <description>numero ordinale del periodo (1,2,3,4)</description>
-    </parameter>
-    <parameter>
-      <name>YY</name>
-      <default_value>20</default_value>
-      <description>ultime due cifre dell'anno</description>
-    </parameter>
     <parameter>
       <name>var_CC</name>
       <default_value>${_email_CC}</default_value>
@@ -53,21 +43,6 @@
     <parameter>
       <name>var_To</name>
       <default_value>${_email_To}</default_value>
-      <description />
-    </parameter>
-    <parameter>
-      <name>xml_path</name>
-      <default_value>${_Base_Path}/Ex_Ante</default_value>
-      <description />
-    </parameter>
-    <parameter>
-      <name>xml_template</name>
-      <default_value>${_Base_Path}/Ex_Ante</default_value>
-      <description />
-    </parameter>
-    <parameter>
-      <name>xsd_path</name>
-      <default_value>${_Base_Path}/Ex_Ante</default_value>
       <description />
     </parameter>
   </parameters>
@@ -910,22 +885,22 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
     <field>
       <id>EXECUTING_SERVER</id>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <name>EXECUTING_SERVER</name>
     </field>
     <field>
       <id>EXECUTING_USER</id>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <name>EXECUTING_USER</name>
     </field>
     <field>
       <id>START_JOB_ENTRY</id>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <name>START_JOB_ENTRY</name>
     </field>
     <field>
       <id>CLIENT</id>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <name>CLIENT</name>
     </field>
   </job-log-table>
@@ -1086,11 +1061,11 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>ROOT_CHANNEL_ID</name>
     </field>
   </channel-log-table>
-  <pass_batchid>Y</pass_batchid>
+  <pass_batchid>N</pass_batchid>
   <shared_objects_file />
   <entries>
     <entry>
-      <name>Start</name>
+      <name>START</name>
       <description />
       <type>SPECIAL</type>
       <start>Y</start>
@@ -1098,7 +1073,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <repeat>N</repeat>
       <schedulerType>0</schedulerType>
       <intervalSeconds>0</intervalSeconds>
-      <intervalMinutes>0</intervalMinutes>
+      <intervalMinutes>60</intervalMinutes>
       <hour>12</hour>
       <minutes>0</minutes>
       <weekDay>1</weekDay>
@@ -1106,18 +1081,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>112</xloc>
-      <yloc>64</yloc>
+      <xloc>16</xloc>
+      <yloc>80</yloc>
     </entry>
     <entry>
-      <name>Log_Parameters</name>
+      <name>sync_CUP</name>
       <description />
       <type>JOB</type>
       <specification_method>rep_name</specification_method>
       <job_object_id />
       <filename />
-      <jobname>Log_Parameters</jobname>
-      <directory>/__system__</directory>
+      <jobname>sync_CUP</jobname>
+      <directory>/CUP/sync_CUP</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -1140,124 +1115,45 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>64</yloc>
+      <xloc>170</xloc>
+      <yloc>80</yloc>
     </entry>
     <entry>
-      <name>Mail Err</name>
+      <name>Ricoveri Loader</name>
       <description />
-      <type>MAIL</type>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name} : Err</subject>
-      <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment>Err da ex_ante_XML</comment>
-      <include_files>Y</include_files>
-      <zip_files>N</zip_files>
-      <zip_name />
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user />
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity>normal</sensitivity>
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
-      <filetypes>      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>384</xloc>
-      <yloc>240</yloc>
-    </entry>
-    <entry>
-      <name>Success</name>
-      <description />
-      <type>SUCCESS</type>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>496</xloc>
-      <yloc>128</yloc>
-    </entry>
-    <entry>
-      <name>ex_ante_XML</name>
-      <description />
-      <type>TRANS</type>
+      <type>JOB</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
+      <job_object_id />
       <filename />
-      <transname>ex_ante_XML</transname>
-      <directory>${Internal.Entry.Current.Directory}</directory>
+      <jobname>Ricoveri Loader</jobname>
+      <directory>/Ricoveri Patidok</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
       <logfile />
       <logext />
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
+      <loglevel>Nothing</loglevel>
       <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
+      <pass_export>N</pass_export>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>xml_path</name>
-          <stream_name />
-          <value>${xml_path}</value>
-        </parameter>
-        <parameter>
-          <name>xml_template</name>
-          <stream_name />
-          <value>${xml_template}</value>
-        </parameter>
-        <parameter>
-          <name>xsd_path</name>
-          <stream_name />
-          <value>${xsd_path}</value>
-        </parameter>
-        <parameter>
-          <name>YY</name>
-          <stream_name />
-          <value>${YY}</value>
-        </parameter>
-        <parameter>
-          <name>P</name>
-          <stream_name />
-          <value>${P}</value>
-        </parameter>
       </parameters>
+      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>384</xloc>
-      <yloc>128</yloc>
+      <xloc>347</xloc>
+      <yloc>80</yloc>
     </entry>
     <entry>
-      <name>Mail OK</name>
+      <name>Mail Ok</name>
       <description />
       <type>MAIL</type>
       <server>${var_Smtp}</server>
@@ -1266,8 +1162,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <destinationCc />
       <destinationBCc />
       <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name} : OK</subject>
+      <replytoname>${var_FromName}</replytoname>
+      <subject>${Internal.Job.Name}: Ok </subject>
       <include_date>Y</include_date>
       <contact_person />
       <contact_phone />
@@ -1279,7 +1175,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <use_secure_auth>N</use_secure_auth>
       <auth_user />
       <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
+      <only_comment>Y</only_comment>
       <use_HTML>N</use_HTML>
       <use_Priority>N</use_Priority>
       <encoding>UTF-8</encoding>
@@ -1288,47 +1184,58 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <sensitivity>normal</sensitivity>
       <secureconnectiontype>SSL</secureconnectiontype>
       <replyToAddresses />
-      <filetypes>      </filetypes>
+      <filetypes>
+        <filetype>LOG</filetype>
+        <filetype>ERRORLINE</filetype>
+        <filetype>ERROR</filetype>
+      </filetypes>
       <embeddedimages>
       </embeddedimages>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>592</xloc>
-      <yloc>128</yloc>
+      <xloc>704</xloc>
+      <yloc>80</yloc>
+    </entry>
+    <entry>
+      <name>sync_Dipendenti</name>
+      <description />
+      <type>JOB</type>
+      <specification_method>rep_name</specification_method>
+      <job_object_id />
+      <filename />
+      <jobname>sync_Dipendenti</jobname>
+      <directory>/Vari/Dipendenti</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile />
+      <logext />
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name />
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>560</xloc>
+      <yloc>80</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>Log_Parameters</from>
-      <to>ex_ante_XML</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>ex_ante_XML</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>ex_ante_XML</from>
-      <to>Mail Err</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Start</from>
-      <to>Log_Parameters</to>
+      <from>START</from>
+      <to>sync_CUP</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1336,16 +1243,55 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Success</from>
-      <to>Mail OK</to>
+      <from>sync_CUP</from>
+      <to>Ricoveri Loader</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>sync_Dipendenti</from>
+      <to>Mail Ok</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Ricoveri Loader</from>
+      <to>sync_Dipendenti</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>2020</note>
+      <xloc>0</xloc>
+      <yloc>0</yloc>
+      <width>39</width>
+      <heigth>25</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>173</backgroundcolorred>
+      <backgroundcolorgreen>216</backgroundcolorgreen>
+      <backgroundcolorblue>230</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <attributes>
     <group>
