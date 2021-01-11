@@ -8,7 +8,7 @@
   <created_user />
   <created_date>2019/09/16 11:46:33.107</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2020/11/18 15:52:46.155</modified_date>
+  <modified_date>2020/12/15 15:27:40.801</modified_date>
   <parameters>
     <parameter>
       <name>var_CC</name>
@@ -1115,7 +1115,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>170</xloc>
+      <xloc>153</xloc>
       <yloc>80</yloc>
     </entry>
     <entry>
@@ -1149,7 +1149,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>347</xloc>
+      <xloc>290</xloc>
       <yloc>80</yloc>
     </entry>
     <entry>
@@ -1194,8 +1194,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>704</xloc>
-      <yloc>80</yloc>
+      <xloc>862</xloc>
+      <yloc>82</yloc>
     </entry>
     <entry>
       <name>sync_Dipendenti</name>
@@ -1228,7 +1228,75 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
+      <xloc>427</xloc>
+      <yloc>80</yloc>
+    </entry>
+    <entry>
+      <name>Inail_PS</name>
+      <description />
+      <type>JOB</type>
+      <specification_method>rep_name</specification_method>
+      <job_object_id />
+      <filename />
+      <jobname>Inail_PS</jobname>
+      <directory>/Pronto_Soccorso/Inail</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile />
+      <logext />
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name />
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>564</xloc>
+      <yloc>80</yloc>
+    </entry>
+    <entry>
+      <name>monitoraggio_VAR_PL</name>
+      <description />
+      <type>JOB</type>
+      <specification_method>rep_name</specification_method>
+      <job_object_id />
+      <filename />
+      <jobname>monitoraggio_VAR_PL</jobname>
+      <directory>/NSIS/monitorVariazioniPL</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile />
+      <logext />
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name />
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>708</xloc>
       <yloc>80</yloc>
     </entry>
   </entries>
@@ -1252,8 +1320,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>sync_Dipendenti</from>
-      <to>Mail Ok</to>
+      <from>Ricoveri Loader</from>
+      <to>sync_Dipendenti</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1261,8 +1329,26 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Ricoveri Loader</from>
-      <to>sync_Dipendenti</to>
+      <from>sync_Dipendenti</from>
+      <to>Inail_PS</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Inail_PS</from>
+      <to>monitoraggio_VAR_PL</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>monitoraggio_VAR_PL</from>
+      <to>Mail Ok</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
