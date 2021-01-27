@@ -8,9 +8,14 @@
   <created_user />
   <created_date>2019/09/16 11:46:32.393</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2020/10/26 16:33:19.372</modified_date>
+  <modified_date>2021/01/25 10:51:00.649</modified_date>
   <parameters>
-    </parameters>
+    <parameter>
+      <name>calling_job</name>
+      <default_value>non impostato</default_value>
+      <description />
+    </parameter>
+  </parameters>
   <connection>
     <name>db_sopra_logger</name>
     <server>ora_sopra.usl1.imperiese</server>
@@ -805,6 +810,8 @@ _LogTmpStep="${_LogTmpStep}"
       <type>WRITE_TO_LOG</type>
       <logmessage>HostEsecuzione=${__HostEsecuzione__} 
 (PDI ver. ${Internal.Kettle.Version} build ${Internal.Kettle.Build.Version})
+
+calling_job = ${calling_job}
 </logmessage>
       <loglevel>Basic</loglevel>
       <logsubject> Host di Esecuzione </logsubject>
