@@ -8,53 +8,8 @@
   <created_user>admin</created_user>
   <created_date>2010/01/27 12:33:34.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2020/08/17 09:46:12.418</modified_date>
+  <modified_date>2021/02/02 17:25:17.282</modified_date>
   <parameters>
-    <parameter>
-      <name>PARAMETER1</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER2</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER3</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER4</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER5</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER6</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER7</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER8</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER9</name>
-      <default_value />
-      <description />
-    </parameter>
     <parameter>
       <name>imap_Host</name>
       <default_value>imap.usl1.imperiese</default_value>
@@ -82,8 +37,8 @@
     </parameter>
     <parameter>
       <name>imap_file_folder</name>
-      <default_value>Documenti/PDI_email/allegati</default_value>
-      <description>dir dove vengono salvati gli allegati (sotto la user.home)</description>
+      <default_value>${_Base_Path}/PDI_email/allegati</default_value>
+      <description>dir dove vengono salvati gli allegati</description>
     </parameter>
     <parameter>
       <name>imap_file_wildcard</name>
@@ -92,8 +47,8 @@
     </parameter>
     <parameter>
       <name>imap_msg_folder</name>
-      <default_value>Documenti/PDI_email</default_value>
-      <description>dir dove vengono salvati i messaggi letti (sotto la user.home)</description>
+      <default_value>${_Base_Path}/PDI_email</default_value>
+      <description>dir dove vengono salvati i messaggi letti</description>
     </parameter>
   </parameters>
   <connection>
@@ -135,10 +90,18 @@
       </attribute>
       <attribute>
         <code>SQL_CONNECT</code>
-        <attribute>ALTER SESSION SET NLS_LANGUAGE=ITALIAN ;
-ALTER SESSION SET NLS_TERRITORY=ITALY;
-
---ALTER SESSION SET NLS_SORT=WEST_EUROPEAN:
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 </attribute>
       </attribute>
       <attribute>
@@ -859,6 +822,11 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <pass_export>N</pass_export>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>calling_job</name>
+          <stream_name />
+          <value>${Internal.Job.Name}</value>
+        </parameter>
       </parameters>
       <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
@@ -896,7 +864,7 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <password>${imap_Pwd}</password>
       <usessl>N</usessl>
       <sslport>${imap_Port}</sslport>
-      <outputdirectory>${user.home}/${imap_msg_folder}</outputdirectory>
+      <outputdirectory>${imap_msg_folder}</outputdirectory>
       <filenamepattern>msg_{SYS|yyyy.MM.dd hh-mm-ss|} id#IdFile#.mail</filenamepattern>
       <retrievemails>0</retrievemails>
       <firstmails />
@@ -905,7 +873,7 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <saveattachment>Y</saveattachment>
       <usedifferentfolderforattachment>Y</usedifferentfolderforattachment>
       <protocol>IMAP</protocol>
-      <attachmentfolder>${user.home}/${imap_file_folder}</attachmentfolder>
+      <attachmentfolder>${imap_file_folder}</attachmentfolder>
       <attachmentwildcard>${imap_file_wildcard}</attachmentwildcard>
       <valueimaplist>imaplistunread</valueimaplist>
       <imapfirstmails>0</imapfirstmails>
@@ -1043,17 +1011,14 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2020-05-18
-Riceve TUTTI (era "Riceve tutti i non letti")
-
-2020-08-17
+      <note>2020-08-17
 Tornato a "Riceve tutti i non letti" perchè altrimenti
 prende più file TMA e il SET la variabile Data Elaborazione
 riceve più di una riga</note>
       <xloc>528</xloc>
       <yloc>48</yloc>
       <width>295</width>
-      <heigth>87</heigth>
+      <heigth>54</heigth>
       <fontname>Sans</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>

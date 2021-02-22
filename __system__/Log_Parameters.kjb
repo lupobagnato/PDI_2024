@@ -8,7 +8,7 @@
   <created_user />
   <created_date>2019/09/16 11:46:32.393</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2021/01/25 10:51:00.649</modified_date>
+  <modified_date>2021/01/27 15:25:38.247</modified_date>
   <parameters>
     <parameter>
       <name>calling_job</name>
@@ -785,8 +785,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Variabili Condivise</name>
       <description />
       <type>WRITE_TO_LOG</type>
-      <logmessage>_Base_Path=${_Base_Path}
+      <logmessage>...
 
+_Base_Path=${_Base_Path}
 _LogDb="${_LogDb}"
 _LogSchema="${_LogSchema}"
 _LogJob="${_LogJob}"
@@ -795,7 +796,8 @@ _LogStep="${_LogStep}"
 _LogTmpJob="${_LogTmpJob}"
 _LogTmpTrans="${_LogTmpTrans}"
 _LogTmpStep="${_LogTmpStep}"
-</logmessage>
+
+...</logmessage>
       <loglevel>Basic</loglevel>
       <logsubject />
       <parallel>N</parallel>
@@ -808,13 +810,14 @@ _LogTmpStep="${_LogTmpStep}"
       <name>Host di Esecuzione</name>
       <description />
       <type>WRITE_TO_LOG</type>
-      <logmessage>HostEsecuzione=${__HostEsecuzione__} 
+      <logmessage>...
+
+HostEsecuzione=${__HostEsecuzione__}
 (PDI ver. ${Internal.Kettle.Version} build ${Internal.Kettle.Build.Version})
 
-calling_job = ${calling_job}
-</logmessage>
+...</logmessage>
       <loglevel>Basic</loglevel>
-      <logsubject> Host di Esecuzione </logsubject>
+      <logsubject>job  ${calling_job}</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
