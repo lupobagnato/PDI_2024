@@ -8,56 +8,11 @@
   <created_user />
   <created_date>2019/09/16 11:46:33.153</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2020/05/18 09:53:33.119</modified_date>
+  <modified_date>2021/02/02 17:26:29.482</modified_date>
   <parameters>
     <parameter>
-      <name>PARAMETER1</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER2</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER3</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER4</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER5</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER6</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER7</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER8</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
-      <name>PARAMETER9</name>
-      <default_value />
-      <description />
-    </parameter>
-    <parameter>
       <name>UVMO_in</name>
-      <default_value>Documenti/UVMO_in</default_value>
+      <default_value>${_Base_Path}/UVMO_in</default_value>
       <description>cartella,  sotto la user.home, dove vengono copiati gli allegati da caricare</description>
     </parameter>
     <parameter>
@@ -67,8 +22,8 @@
     </parameter>
     <parameter>
       <name>imap_file_folder</name>
-      <default_value>Documenti/PDI_email/allegati</default_value>
-      <description>dir dove vengono salvati gli allegati (sotto la user.home)</description>
+      <default_value>${_Base_Path}/PDI_email/allegati</default_value>
+      <description>dir dove vengono salvati gli allegati</description>
     </parameter>
     <parameter>
       <name>var_From</name>
@@ -130,10 +85,18 @@
       </attribute>
       <attribute>
         <code>SQL_CONNECT</code>
-        <attribute>ALTER SESSION SET NLS_LANGUAGE=ITALIAN ;
-ALTER SESSION SET NLS_TERRITORY=ITALY;
-
---ALTER SESSION SET NLS_SORT=WEST_EUROPEAN:
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 </attribute>
       </attribute>
       <attribute>
@@ -893,8 +856,8 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>239</xloc>
-      <yloc>199</yloc>
+      <xloc>224</xloc>
+      <yloc>208</yloc>
     </entry>
     <entry>
       <name>Load_single_UVMO.xls</name>
@@ -928,7 +891,7 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>624</xloc>
-      <yloc>199</yloc>
+      <yloc>208</yloc>
     </entry>
     <entry>
       <name>Move Allegati</name>
@@ -944,9 +907,9 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <create_destination_folder>Y</create_destination_folder>
       <fields>
         <field>
-          <source_filefolder>${user.home}/${imap_file_folder}</source_filefolder>
+          <source_filefolder>${imap_file_folder}</source_filefolder>
           <source_configuration_name>STATIC-SOURCE-FILE-0</source_configuration_name>
-          <destination_filefolder>${user.home}/${UVMO_in}</destination_filefolder>
+          <destination_filefolder>${UVMO_in}</destination_filefolder>
           <destination_configuration_name>STATIC-DEST-FILE-0</destination_configuration_name>
           <wildcard>${UVMO_wildcard}</wildcard>
         </field>
@@ -955,7 +918,7 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>343</xloc>
-      <yloc>199</yloc>
+      <yloc>208</yloc>
     </entry>
     <entry>
       <name>Sposta i file</name>
@@ -987,8 +950,8 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <simulate>N</simulate>
       <fields>
         <field>
-          <source_filefolder>${user.home}/${UVMO_in}</source_filefolder>
-          <destination_filefolder>${user.home}/${UVMO_in}/bak</destination_filefolder>
+          <source_filefolder>${UVMO_in}</source_filefolder>
+          <destination_filefolder>${UVMO_in}/bak</destination_filefolder>
           <wildcard>${UVMO_wildcard}</wildcard>
         </field>
       </fields>
@@ -996,7 +959,7 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>755</xloc>
-      <yloc>199</yloc>
+      <yloc>208</yloc>
     </entry>
     <entry>
       <name>Mail Ok</name>
@@ -1039,7 +1002,7 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>884</xloc>
-      <yloc>199</yloc>
+      <yloc>208</yloc>
     </entry>
     <entry>
       <name>Mail Err</name>
@@ -1140,7 +1103,7 @@ ALTER SESSION SET NLS_TERRITORY=ITALY;
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>473</xloc>
-      <yloc>199</yloc>
+      <yloc>208</yloc>
     </entry>
     <entry>
       <name>Abort job</name>
@@ -1302,20 +1265,24 @@ per gli xls UVMO</note>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Riceve TUTTI 2020-05-18
-(era "Riceve tutti i non letti")
+      <note>
 
-</note>
-      <xloc>64</xloc>
+
+
+
+
+
+Riceve i NON letti</note>
+      <xloc>192</xloc>
       <yloc>192</yloc>
-      <width>155</width>
-      <heigth>54</heigth>
+      <width>108</width>
+      <heigth>98</heigth>
       <fontname>Sans</fontname>
       <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorgreen>128</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>173</backgroundcolorred>
       <backgroundcolorgreen>216</backgroundcolorgreen>
