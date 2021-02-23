@@ -130,17 +130,17 @@
         </field>
         <field>
           <id>EXECUTING_SERVER</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>EXECUTING_SERVER</name>
         </field>
         <field>
           <id>EXECUTING_USER</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>EXECUTING_USER</name>
         </field>
         <field>
           <id>CLIENT</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>CLIENT</name>
         </field>
       </trans-log-table>
@@ -940,7 +940,7 @@
     <created_user />
     <created_date>2019/09/16 11:46:16.122</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2020/11/18 11:46:16.972</modified_date>
+    <modified_date>2021/02/23 12:12:48.730</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -973,8 +973,8 @@ quindi comprende anche quelle  annullate
 Truncate e Insert
 
 </note>
-      <xloc>86</xloc>
-      <yloc>452</yloc>
+      <xloc>867</xloc>
+      <yloc>562</yloc>
       <width>99</width>
       <heigth>62</heigth>
       <fontname>Microsoft Sans Serif</fontname>
@@ -1405,11 +1405,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>chk_Cod_Prest</from>
-      <to>togli campi LookUp</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>togli campi LookUp</from>
       <to>cube_PRESTAZIONI_PRENOTATE</to>
       <enabled>Y</enabled>
@@ -1429,7 +1424,90 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <to>Prestazioni NOPREZZO</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>chk_Cod_Prest</from>
+      <to>lookup VDIM_MEDICO</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>chk_CF_prescrittore</from>
+      <to>Medico da Dema OK</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>chk_CF_prescrittore</from>
+      <to>Medico da Dema KO</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Medico da Dema KO</from>
+      <to>togli campi LookUp</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Prescrittore da Medico_Dema</from>
+      <to>togli campi LookUp</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>lookup VDIM_MEDICO</from>
+      <to>Regex Dema</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Regex Dema</from>
+      <to>chk_CF_prescrittore</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Medico da Dema OK</from>
+      <to>Prescrittore da Medico_Dema</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
+  <step>
+    <name>Filter NOPREZZO</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Prestazioni NOPREZZO</send_true_to>
+    <send_false_to>lookup VDIM_NOM_ESTERNI</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>COD_PREST</leftvalue>
+        <function>=</function>
+        <rightvalue />
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>NOPREZZO</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask />
+        </value>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>121</xloc>
+      <yloc>108</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Get Variables x Mail</name>
     <type>GetVariable</type>
@@ -1571,6 +1649,30 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
+    <name>Prestazioni NOPREZZO</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>283</xloc>
+      <yloc>107</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>chk_Cod_Prest</name>
     <type>FilterRows</type>
     <description />
@@ -1581,7 +1683,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <send_true_to>togli campi LookUp</send_true_to>
+    <send_true_to>lookup VDIM_MEDICO</send_true_to>
     <send_false_to>Get Variables x Mail</send_false_to>
     <compare>
       <condition>
@@ -1651,8 +1753,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>119</xloc>
-      <yloc>495</yloc>
+      <xloc>900</xloc>
+      <yloc>605</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1728,6 +1830,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <remove>
         <name>oggetto_mail</name>
       </remove>
+      <remove>
+        <name>medico_in_vdim</name>
+      </remove>
+      <remove>
+        <name>regexp_result</name>
+      </remove>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -1737,8 +1845,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>120</xloc>
-      <yloc>373</yloc>
+      <xloc>901</xloc>
+      <yloc>461</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1843,7 +1951,54 @@ p.data_appuntamento >= trunc(add_months(sysdate, -36),'yyyy')	--3 anni + quello 
     </GUI>
   </step>
   <step>
-    <name>Filter NOPREZZO</name>
+    <name>lookup VDIM_MEDICO</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>VDIM_MEDICO</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>CF_MEDICO_DEMA</name>
+        <field>COD_FISC</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>COD_FISC</name>
+        <rename>medico_in_vdim</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>117</xloc>
+      <yloc>375</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>chk_CF_prescrittore</name>
     <type>FilterRows</type>
     <description />
     <distribute>Y</distribute>
@@ -1853,23 +2008,35 @@ p.data_appuntamento >= trunc(add_months(sysdate, -36),'yyyy')	--3 anni + quello 
       <method>none</method>
       <schema_name />
     </partitioning>
-    <send_true_to>Prestazioni NOPREZZO</send_true_to>
-    <send_false_to>lookup VDIM_NOM_ESTERNI</send_false_to>
+    <send_true_to>Medico da Dema OK</send_true_to>
+    <send_false_to>Medico da Dema KO</send_false_to>
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>COD_PREST</leftvalue>
-        <function>=</function>
-        <rightvalue />
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>NOPREZZO</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask />
-        </value>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>medico_in_vdim</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>regexp_result</leftvalue>
+            <function>=</function>
+            <rightvalue />
+            <value>
+              <name>constant</name>
+              <type>Boolean</type>
+              <text>Y</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask />
+            </value>
+          </condition>
+        </conditions>
       </condition>
     </compare>
     <cluster_schema />
@@ -1880,13 +2047,13 @@ p.data_appuntamento >= trunc(add_months(sysdate, -36),'yyyy')	--3 anni + quello 
       </output>
     </remotesteps>
     <GUI>
-      <xloc>121</xloc>
-      <yloc>108</yloc>
+      <xloc>116</xloc>
+      <yloc>581</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Prestazioni NOPREZZO</name>
+    <name>Medico da Dema KO</name>
     <type>Dummy</type>
     <description />
     <distribute>Y</distribute>
@@ -1904,8 +2071,101 @@ p.data_appuntamento >= trunc(add_months(sysdate, -36),'yyyy')	--3 anni + quello 
       </output>
     </remotesteps>
     <GUI>
-      <xloc>283</xloc>
-      <yloc>107</yloc>
+      <xloc>352</xloc>
+      <yloc>581</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Medico da Dema OK</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>462</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Prescrittore da Medico_Dema</name>
+    <type>SetValueField</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>CF_PRESCRITTORE</name>
+        <replaceby>CF_MEDICO_DEMA</replaceby>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>596</xloc>
+      <yloc>461</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Regex Dema</name>
+    <type>RegexEval</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <script>^[0-9]{3}0[A-C]{1}[0-9]{10}$</script>
+    <matcher>CODICE_IMPEGNATIVA</matcher>
+    <resultfieldname>regexp_result</resultfieldname>
+    <usevar>N</usevar>
+    <allowcapturegroups>N</allowcapturegroups>
+    <replacefields>Y</replacefields>
+    <canoneq>N</canoneq>
+    <caseinsensitive>N</caseinsensitive>
+    <comment>N</comment>
+    <dotall>N</dotall>
+    <multiline>N</multiline>
+    <unicode>N</unicode>
+    <unix>N</unix>
+    <fields>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>116</xloc>
+      <yloc>461</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

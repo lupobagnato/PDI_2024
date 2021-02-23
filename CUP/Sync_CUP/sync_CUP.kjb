@@ -8,7 +8,7 @@
   <created_user />
   <created_date>2019/09/16 11:46:30.855</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2020/11/18 11:13:34.393</modified_date>
+  <modified_date>2021/02/23 16:34:27.303</modified_date>
   <parameters>
     <parameter>
       <name>var_CC</name>
@@ -1462,7 +1462,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>462</xloc>
+      <xloc>466</xloc>
       <yloc>392</yloc>
     </entry>
     <entry>
@@ -1626,43 +1626,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <yloc>392</yloc>
     </entry>
     <entry>
-      <name>xform_Prescrittore</name>
-      <description />
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
-      <transname>xform_Prescrittore</transname>
-      <directory>/CUP/Sync_CUP</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>462</xloc>
-      <yloc>238</yloc>
-    </entry>
-    <entry>
       <name>Mail Err CUR</name>
       <description />
       <type>MAIL</type>
@@ -1740,6 +1703,43 @@ cupreport.catalogo_cur_ises --> vsrc_dim_CUR</comment>
       <nr>0</nr>
       <xloc>806</xloc>
       <yloc>238</yloc>
+    </entry>
+    <entry>
+      <name>xform_Prescrittore_altre_Dema</name>
+      <description />
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id />
+      <filename />
+      <transname>xform_Prescrittore_altre_Dema</transname>
+      <directory>/CUP/Sync_CUP</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile />
+      <logext />
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name />
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>467</xloc>
+      <yloc>237</yloc>
     </entry>
   </entries>
   <hops>
@@ -1834,33 +1834,6 @@ cupreport.catalogo_cur_ises --> vsrc_dim_CUR</comment>
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>xform_Prescrittore_Rosse</from>
-      <to>xform_Prescrittore</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>xform_Prescrittore</from>
-      <to>xform_Erogato</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>xform_Prescrittore</from>
-      <to>Err xform_Prescrittore</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>xform_Erogato</from>
       <to>pop_dim_CUR</to>
       <from_nr>0</from_nr>
@@ -1881,6 +1854,33 @@ cupreport.catalogo_cur_ises --> vsrc_dim_CUR</comment>
     <hop>
       <from>pop_dim_CUR</from>
       <to>Mail Err CUR</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>xform_Prescrittore_Rosse</from>
+      <to>xform_Prescrittore_altre_Dema</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>xform_Prescrittore_altre_Dema</from>
+      <to>xform_Erogato</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>xform_Prescrittore_altre_Dema</from>
+      <to>Err xform_Prescrittore</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
