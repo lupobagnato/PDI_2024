@@ -8,7 +8,7 @@
   <created_user />
   <created_date>2019/09/16 11:46:32.393</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2021/01/27 15:25:38.247</modified_date>
+  <modified_date>2021/03/22 12:12:26.634</modified_date>
   <parameters>
     <parameter>
       <name>calling_job</name>
@@ -785,9 +785,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Variabili Condivise</name>
       <description />
       <type>WRITE_TO_LOG</type>
-      <logmessage>...
+      <logmessage>_Base_Path=${_Base_Path}
 
-_Base_Path=${_Base_Path}
+... variabili per LOG ...
 _LogDb="${_LogDb}"
 _LogSchema="${_LogSchema}"
 _LogJob="${_LogJob}"
@@ -797,7 +797,15 @@ _LogTmpJob="${_LogTmpJob}"
 _LogTmpTrans="${_LogTmpTrans}"
 _LogTmpStep="${_LogTmpStep}"
 
-...</logmessage>
+... variabili per MAIL ...
+var_CC=${var_CC}
+var_CCN=${var_CCN}
+var_From=${var_From}
+var_FromName=${var_FromName}
+var_Port=${var_Port}
+var_Smtp=${var_Smtp}
+var_To=${var_To}
+</logmessage>
       <loglevel>Basic</loglevel>
       <logsubject />
       <parallel>N</parallel>
@@ -811,10 +819,8 @@ _LogTmpStep="${_LogTmpStep}"
       <description />
       <type>WRITE_TO_LOG</type>
       <logmessage>...
-
-HostEsecuzione=${__HostEsecuzione__}
-(PDI ver. ${Internal.Kettle.Version} build ${Internal.Kettle.Build.Version})
-
+HOST di ESECUZIONE: ${__HostEsecuzione__}
+Versione di PDI ${Internal.Kettle.Version} build ${Internal.Kettle.Build.Version})
 ...</logmessage>
       <loglevel>Basic</loglevel>
       <logsubject>job  ${calling_job}</logsubject>
@@ -846,6 +852,7 @@ mese=${mese}
 
 ===
 origine = ${ORIGINE}
+rootpath = ${ROOTPATH}
 ===
 
 

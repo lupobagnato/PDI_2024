@@ -8,7 +8,7 @@
   <created_user>admin</created_user>
   <created_date>2007/09/05 10:01:28.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2021/02/17 17:18:31.243</modified_date>
+  <modified_date>2021/03/22 13:04:39.418</modified_date>
   <parameters>
     <parameter>
       <name>ROOTPATH</name>
@@ -827,6 +827,41 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
           <stream_name />
           <value>${ROOTPATH}</value>
         </parameter>
+        <parameter>
+          <name>var_CC</name>
+          <stream_name />
+          <value>${var_CC}</value>
+        </parameter>
+        <parameter>
+          <name>var_CCN</name>
+          <stream_name />
+          <value>${var_CCN}</value>
+        </parameter>
+        <parameter>
+          <name>var_From</name>
+          <stream_name />
+          <value>${var_From}</value>
+        </parameter>
+        <parameter>
+          <name>var_FromName</name>
+          <stream_name />
+          <value>${var_FromName}</value>
+        </parameter>
+        <parameter>
+          <name>var_Port</name>
+          <stream_name />
+          <value>${var_Port}</value>
+        </parameter>
+        <parameter>
+          <name>var_Smtp</name>
+          <stream_name />
+          <value>${var_Smtp}</value>
+        </parameter>
+        <parameter>
+          <name>var_To</name>
+          <stream_name />
+          <value>${var_To}</value>
+        </parameter>
       </parameters>
       <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
@@ -1005,6 +1040,41 @@ user.timezone: ${user.timezone}
           <stream_name />
           <value>${ROOTPATH}</value>
         </parameter>
+        <parameter>
+          <name>var_CC</name>
+          <stream_name />
+          <value>${var_CC}</value>
+        </parameter>
+        <parameter>
+          <name>var_CCN</name>
+          <stream_name />
+          <value>${var_CCN}</value>
+        </parameter>
+        <parameter>
+          <name>var_From</name>
+          <stream_name />
+          <value>${var_From}</value>
+        </parameter>
+        <parameter>
+          <name>var_FromName</name>
+          <stream_name />
+          <value>${var_FromName}</value>
+        </parameter>
+        <parameter>
+          <name>var_Port</name>
+          <stream_name />
+          <value>${var_Port}</value>
+        </parameter>
+        <parameter>
+          <name>var_Smtp</name>
+          <stream_name />
+          <value>${var_Smtp}</value>
+        </parameter>
+        <parameter>
+          <name>var_To</name>
+          <stream_name />
+          <value>${var_To}</value>
+        </parameter>
       </parameters>
       <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
@@ -1151,24 +1221,6 @@ user.timezone: ${user.timezone}
     </entry>
   </entries>
   <hops>
-    <hop>
-      <from>PAC Loader</from>
-      <to>SDO Loader</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>N</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>SDO Loader</from>
-      <to>SDO_XML Loader</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>N</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
     <hop>
       <from>PAC Loader</from>
       <to>SDO_XML Loader</to>

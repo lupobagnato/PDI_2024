@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>PAC_load_01</name>
+    <name>_</name>
     <description />
     <extended_description />
     <trans_version />
@@ -920,7 +920,7 @@
     <created_user>admin</created_user>
     <created_date>2014/03/26 11:12:53.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2021/03/22 13:02:16.633</modified_date>
+    <modified_date>2021/03/22 12:23:13.646</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1081,6 +1081,26 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
+      <from>AnaFile</from>
+      <to>concatena Num_Prat</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>ClinFile</from>
+      <to>concatena Num_Prat 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>PAC_buffer_A</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>PAC_buffer_C</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>concatena Num_Prat</from>
       <to>Get System Info</to>
       <enabled>Y</enabled>
@@ -1101,149 +1121,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Files da Caricare</from>
-      <to>AnaFile</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Files da Caricare</from>
-      <to>ClinFile</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>concatena Num_Prat 3</from>
-      <to>Get System Info 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get System Info 3</from>
-      <to>Select values 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get System Info 4</from>
-      <to>PAC_buffer_T</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Files da Caricare</from>
-      <to>Esiste File Ricette</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Esiste File Ricette</from>
-      <to>Ricette</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Files da Caricare</from>
-      <to>Esiste File Tipi</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Esiste File Tipi</from>
-      <to>Tipi</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Esiste File Ricette</from>
-      <to>Dummy RC</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Esiste File Tipi</from>
-      <to>Dummy TC</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Unique rows</from>
-      <to>PAC_buffer_R</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 3</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows</from>
-      <to>Unique rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Tipi</from>
-      <to>AnnoMese e NomeFile</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>AnnoMese e NomeFile</from>
-      <to>Remove file_path</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Remove file_path</from>
-      <to>Get System Info 4</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Files da Caricare</from>
-      <to>Write to log</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select values</from>
-      <to>PAC_buffer_A</to>
-      <enabled>Y</enabled>
+      <to>AnaPac 2</to>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Select values 2</from>
-      <to>PAC_buffer_C</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>AnaFile</from>
-      <to>Cod Azi OK 1</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Cod Azi OK 1</from>
-      <to>concatena Num_Prat</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>ClinFile</from>
-      <to>Cod Azi OK 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Cod Azi OK 2</from>
-      <to>concatena Num_Prat 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Ricette</from>
-      <to>Cod Azi OK 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Cod Azi OK 3</from>
-      <to>concatena Num_Prat 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Cod Azi OK 3</from>
-      <to>Dummy RC</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Cod Azi OK 1</from>
-      <to>Dummy</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Cod Azi OK 2</from>
-      <to>Dummy</to>
-      <enabled>Y</enabled>
+      <to>ClinPac 2</to>
+      <enabled>N</enabled>
     </hop>
   </order>
   <step>
@@ -1546,14 +1431,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
+      <xloc>63</xloc>
       <yloc>98</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>AnnoMese e NomeFile</name>
-    <type>ScriptValueMod</type>
+    <name>AnaPac 2</name>
+    <type>TableOutput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1562,100 +1447,24 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel />
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var YY, M, Mese;
-var AnnoMese;
-var nome_file;
-
-// file_path è un path completo (\Input\PAC\TC001811A.000):
-// per cercare le sottostringhe si parte dal fondo !
-
-YY = substr(file_path, file_path.length -7 ,2);
-M  = substr(file_path, file_path.length -8 ,1);
-Mese = decode(M, "A","10", "B","11", "C","12", "0"+M);
-AnnoMese = "20" + YY + Mese;
-nome_file = substr(file_path, file_path.length -13 ,13);</jsScript_script>
-      </jsScript>
-      <jsScript>
-        <jsScript_type>-1</jsScript_type>
-        <jsScript_name>substr_Sample</jsScript_name>
-        <jsScript_script>// Perform the substring function
-// 
-// Usage:
-// substr(var, from);
-// substr(var, from, to);
-//
-// 2007-01-25
-//
-var str1= "Hello Pentaho!";
-var str2= substr(str1, 6);
-var str3;
-var nomefile ="\Input\PAC\TC001711A.000";
-
-//Alert("Input : " + str1);
-//Alert("From position 6: " + str2);
-str3= substr(nomefile, nomefile.length -7, 2);
-Alert(str3);
-</jsScript_script>
-      </jsScript>
-      <jsScript>
-        <jsScript_type>-1</jsScript_type>
-        <jsScript_name>decode_Sample</jsScript_name>
-        <jsScript_script>// Decode has the functonality like the IF-THEN-ELSE statement.
-// Decode searches for the first matching criteria and returns
-// the given value back. If no criteria could be found, decode
-// returns the default Value or the given String.
-//
-// Usage:
-// decode(var, var, var);
-// 1: String - The Variable with the content for matching.
-// 2: String - The Value to search for.
-// 3: String - The Return Value.
-// If no entriy found, decode returns the Search for Parameter
-//
-// decode(var, var, var, var,var,...)
-// 1: String - The Variable with the content to matching.
-// 2: String - The First Value to search for.
-// 3: String - The First Return Value with.
-// 4: String - The Second Value to search for.
-// 5: String - The Second Return Value with.
-// ...
-//
-// 2006-11-15
-//
-var str1 = "Hallo";
-Alert(decode(str1, "Hallo", "Hello"));
-Alert(decode(str1, "1", "Mr", "2", "Mrs", "N/A"));
-Alert(decode(str1, "1", "Mr", "2", "Mrs"));
-str1 = "Mrs";
-Alert(decode(str1, "1", "Mr", "2", "Mrs"));
-      </jsScript_script>
-      </jsScript>
-    </jsScripts>
+    <connection>HSP_db_sopra</connection>
+    <schema>HSP</schema>
+    <table>ANAPAC</table>
+    <commit>500</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
     <fields>
-      <field>
-        <name>AnnoMese</name>
-        <rename>AnnoMese</rename>
-        <type>String</type>
-        <length>6</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>nome_file</name>
-        <rename>nome_file</rename>
-        <type>String</type>
-        <length>13</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -1665,8 +1474,8 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>673</xloc>
-      <yloc>253</yloc>
+      <xloc>134</xloc>
+      <yloc>545</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1991,8 +1800,8 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
     </GUI>
   </step>
   <step>
-    <name>Dummy RC</name>
-    <type>Dummy</type>
+    <name>ClinPac 2</name>
+    <type>TableOutput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -2001,147 +1810,24 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
       <method>none</method>
       <schema_name />
     </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>526</xloc>
-      <yloc>205</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Dummy TC</name>
-    <type>Dummy</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>753</xloc>
-      <yloc>147</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Esiste File Ricette</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Ricette</send_true_to>
-    <send_false_to>Dummy RC</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>File_RC</leftvalue>
-        <function>IS NOT NULL</function>
-        <rightvalue />
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>103</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Esiste File Tipi</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Tipi</send_true_to>
-    <send_false_to>Dummy TC</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>File_TC</leftvalue>
-        <function>IS NOT NULL</function>
-        <rightvalue />
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>674</xloc>
-      <yloc>60</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Files da Caricare</name>
-    <type>RowsFromResult</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
+    <connection>HSP_db_sopra</connection>
+    <schema>HSP</schema>
+    <table>CLINPAC</table>
+    <commit>500</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
     <fields>
-      <field>
-        <name>File_AC</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>File_CC</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>File_RC</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>File_TC</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -2151,8 +1837,8 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>142</xloc>
-      <yloc>10</yloc>
+      <xloc>291</xloc>
+      <yloc>550</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2181,7 +1867,7 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
+      <xloc>63</xloc>
       <yloc>287</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2213,66 +1899,6 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
     <GUI>
       <xloc>221</xloc>
       <yloc>287</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get System Info 3</name>
-    <type>SystemInfo</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>mod_user_date</name>
-        <type>system date (fixed)</type>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>390</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get System Info 4</name>
-    <type>SystemInfo</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>mod_user_date</name>
-        <type>system date (fixed)</type>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>675</xloc>
-      <yloc>434</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2314,8 +1940,8 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>512</yloc>
+      <xloc>63</xloc>
+      <yloc>508</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2358,323 +1984,7 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
     </remotesteps>
     <GUI>
       <xloc>221</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>PAC_buffer_R</name>
-    <type>TableOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>HSP_db_sopra</connection>
-    <schema>HSP</schema>
-    <table>PAC_buffer_R</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field />
-    <fields>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>438</xloc>
-      <yloc>620</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>PAC_buffer_T</name>
-    <type>TableOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>HSP_db_sopra</connection>
-    <schema>HSP</schema>
-    <table>PAC_buffer_T</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field />
-    <fields>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>676</xloc>
-      <yloc>523</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Remove file_path</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>file_path</name>
-      </remove>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>673</xloc>
-      <yloc>331</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ricette</name>
-    <type>TextFileInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <accept_filenames>Y</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field>File_RC</accept_field>
-    <accept_stepname>Esiste File Ricette</accept_stepname>
-    <separator />
-    <enclosure />
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar />
-    <header>N</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field />
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field />
-    <format>DOS</format>
-    <encoding />
-    <length />
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>\\Minollo\kettle\Input\PAC\</name>
-      <filemask>RC.*\.000</filemask>
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>Fixed</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-      <filter>
-        <filter_string>Base64: Gg==</filter_string>
-        <filter_position>0</filter_position>
-        <filter_is_last_line>N</filter_is_last_line>
-        <filter_is_positive>N</filter_is_positive>
-      </filter>
-    </filters>
-    <fields>
-      <field>
-        <name>azienda</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>0</position>
-        <length>3</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>presidio</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>3</position>
-        <length>6</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>num_prat_A</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>11</position>
-        <length>2</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>num_prat_B</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>19</position>
-        <length>6</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>mese_rif</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>25</position>
-        <length>2</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ricetta</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>27</position>
-        <length>16</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>flag_inizio_dsa</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>43</position>
-        <length>1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field />
-    <file_error_message_field />
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field />
-    <error_fields_field />
-    <error_text_field />
-    <bad_line_files_destination_directory />
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>it_IT</date_format_locale>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>204</yloc>
+      <yloc>508</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2682,7 +1992,7 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
     <name>Select values</name>
     <type>SelectValues</type>
     <description />
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution />
     <copies>1</copies>
     <partitioning>
@@ -2742,7 +2052,7 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
+      <xloc>63</xloc>
       <yloc>387</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2751,7 +2061,7 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
     <name>Select values 2</name>
     <type>SelectValues</type>
     <description />
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution />
     <copies>1</copies>
     <partitioning>
@@ -2820,423 +2130,6 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
     </GUI>
   </step>
   <step>
-    <name>Select values 3</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>azienda</name>
-      </field>
-      <field>
-        <name>presidio</name>
-      </field>
-      <field>
-        <name>num_prat</name>
-      </field>
-      <field>
-        <name>mese_rif</name>
-      </field>
-      <field>
-        <name>ricetta</name>
-      </field>
-      <field>
-        <name>flag_inizio_dsa</name>
-      </field>
-      <field>
-        <name>mod_user_date</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>489</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size />
-    <free_memory>25</free_memory>
-    <compress>N</compress>
-    <compress_variable />
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>azienda</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>presidio</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>num_prat</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>ricetta</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>550</xloc>
-      <yloc>532</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Tipi</name>
-    <type>TextFileInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <accept_filenames>Y</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field>File_TC</accept_field>
-    <accept_stepname>Esiste File Tipi</accept_stepname>
-    <separator />
-    <enclosure />
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar />
-    <header>N</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>Y</include>
-    <include_field>file_path</include_field>
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field />
-    <format>DOS</format>
-    <encoding />
-    <length />
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>\\Minollo\kettle\Input\PAC\</name>
-      <filemask>TC.*\.000</filemask>
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>Fixed</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-      <filter>
-        <filter_string>Base64: Gg==</filter_string>
-        <filter_position>0</filter_position>
-        <filter_is_last_line>N</filter_is_last_line>
-        <filter_is_positive>N</filter_is_positive>
-      </filter>
-    </filters>
-    <fields>
-      <field>
-        <name>codice</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>0</position>
-        <length>10</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>descrizione</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>10</position>
-        <length>50</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>tipo_Dia_Ter</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>60</position>
-        <length>1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>flag_ripetibile</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>61</position>
-        <length>1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>num_acc_standard</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>62</position>
-        <length>2</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>note</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>64</position>
-        <length>100</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>data_inizio_val</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>164</position>
-        <length>8</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>data_fine_val</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <ifnull />
-        <position>172</position>
-        <length>8</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field />
-    <file_error_message_field />
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field />
-    <error_fields_field />
-    <error_text_field />
-    <bad_line_files_destination_directory />
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>it_IT</date_format_locale>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>674</xloc>
-      <yloc>159</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Unique rows</name>
-    <type>Unique</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <count_rows>Y</count_rows>
-    <count_field>err_ric_duplicate</count_field>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description />
-    <fields>
-      <field>
-        <name>azienda</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>presidio</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>num_prat</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>ricetta</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>550</xloc>
-      <yloc>596</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Write to log</name>
-    <type>WriteToLog</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>Y</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage />
-    <fields>
-      <field>
-        <name>File_AC</name>
-      </field>
-      <field>
-        <name>File_CC</name>
-      </field>
-      <field>
-        <name>File_RC</name>
-      </field>
-      <field>
-        <name>File_TC</name>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>32</xloc>
-      <yloc>16</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>concatena Num_Prat</name>
     <type>Calculator</type>
     <description />
@@ -3270,8 +2163,8 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>224</yloc>
+      <xloc>63</xloc>
+      <yloc>182</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3310,172 +2203,7 @@ Alert(decode(str1, "1", "Mr", "2", "Mrs"));
     </remotesteps>
     <GUI>
       <xloc>221</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>concatena Num_Prat 3</name>
-    <type>Calculator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <calculation>
-      <field_name>num_prat</field_name>
-      <calc_type>ADD</calc_type>
-      <field_a>num_prat_A</field_a>
-      <field_b>num_prat_B</field_b>
-      <field_c />
-      <value_type>String</value_type>
-      <value_length>8</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Cod Azi OK 1</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>concatena Num_Prat</send_true_to>
-    <send_false_to>Dummy</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>azienda</leftvalue>
-        <function>IS NOT NULL</function>
-        <rightvalue />
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>48</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Cod Azi OK 3</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>concatena Num_Prat 3</send_true_to>
-    <send_false_to>Dummy RC</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>azienda</leftvalue>
-        <function>IS NOT NULL</function>
-        <rightvalue />
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Cod Azi OK 2</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>concatena Num_Prat 2</send_true_to>
-    <send_false_to>Dummy</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>azienda</leftvalue>
-        <function>IS NOT NULL</function>
-        <rightvalue />
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>224</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Dummy</name>
-    <type>Dummy</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>144</xloc>
-      <yloc>160</yloc>
+      <yloc>182</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
