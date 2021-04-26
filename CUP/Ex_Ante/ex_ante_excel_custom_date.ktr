@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>ex_ante_excel</name>
+    <name>ex_ante_excel_custom_date</name>
     <description />
     <extended_description />
     <trans_version />
@@ -9,19 +9,19 @@
     <directory>/CUP/Ex_Ante</directory>
     <parameters>
       <parameter>
-        <name>P</name>
-        <default_value>1</default_value>
-        <description>numero ordinale del periodo (1,2,3,4)</description>
+        <name>date_from</name>
+        <default_value>2020-01-13</default_value>
+        <description>ora usate per definire il periodo</description>
       </parameter>
       <parameter>
-        <name>YY</name>
-        <default_value>21</default_value>
-        <description>ultime due cifre dell'anno</description>
+        <name>date_to</name>
+        <default_value>2020-01-17</default_value>
+        <description>e per comporre il nome --> formato YYYY-MM-DD</description>
       </parameter>
       <parameter>
         <name>xml_file</name>
-        <default_value>ex001${P}${YY}</default_value>
-        <description>Non viene passato dal job, si calcola qui usando YY e P</description>
+        <default_value>logExAnte ${date_from}   ${date_to}</default_value>
+        <description />
       </parameter>
       <parameter>
         <name>xml_path</name>
@@ -950,7 +950,7 @@
     <created_user />
     <created_date>2020/01/24 12:52:39.060</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2021/04/14 08:48:52.123</modified_date>
+    <modified_date>2021/04/14 09:37:01.056</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1340,13 +1340,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>vsrc_ex_ante</from>
-      <to>exante. XLS</to>
+      <from>vsrc_ex_ante_DETAIL</from>
+      <to>logExAnte</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>exante. XLS</name>
+    <name>logExAnte</name>
     <type>ExcelOutput</type>
     <description />
     <distribute>Y</distribute>
@@ -1418,7 +1418,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
-    <name>vsrc_ex_ante</name>
+    <name>vsrc_ex_ante_DETAIL</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1429,26 +1429,38 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <schema_name />
     </partitioning>
     <connection>db_sopra</connection>
-    <sql>SELECT
-  NR_ORDINE_TIPO
-, TIPO_MINISTERO
+    <sql>Select 
+nr_ordine_tipo
+, tipo_ministero
 , n.descr Prestazione
-, PRIORITA
-, COD_STS11
+, priorita
+, cod_sts11
 , s.des Struttura
-, AGENDA_SENZA_STS
-, TOTALI
-, DA_GARANTIRE
-, GARANTITE
-FROM 
-VSRC_EX_ANTE x
-left join strutture s on s.strutt = x.cod_sts11
-left join nomenclatore n on n.cod_prest = x.tipo_ministero
+, agenda_senza_sts 
+, count(*) totali           -- Tot e Da Garantire sono uguali perché ora non ci sono piu' le P e si ignorano i campi "rifiuta prima disp" e "primo accesso" di ISES
+, count(*) da_garantire
+, sum(p.garantite) garantite
+from 
+dwh.vsrc_ex_ante_detail p
+left join strutture s on s.strutt = p.cod_sts11
+left join nomenclatore n on n.cod_prest = p.tipo_ministero
+where
+data_prenotazione between date '${date_from}' and date '${date_to}'
+group by
+nr_ordine_tipo
+, tipo_ministero
+, n.descr
+, priorita 
+, cod_sts11
+, s.des
+, agenda_senza_sts 
+order by
+1,2,3,4,5
 </sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema />
     <remotesteps>
