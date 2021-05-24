@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>xform_int_02</name>
+    <name>xform_erogatori_speciali</name>
     <description />
     <extended_description />
     <trans_version />
@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>MM</name>
-        <default_value>06</default_value>
+        <default_value>12</default_value>
         <description />
       </parameter>
       <parameter>
@@ -56,7 +56,7 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject>ISIT_D</subject>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
@@ -68,13 +68,13 @@
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject>upd Erogatore</subject>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>int_buffer_ORIGINE</subject>
+          <subject>int_staging_area</subject>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
@@ -444,11 +444,79 @@
     <created_user>-</created_user>
     <created_date>2020/09/23 15:47:56.516</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/05/11 11:10:02.832</modified_date>
+    <modified_date>2021/05/18 14:30:48.580</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>erogatore ISIT_D
+per erogatore SIT
+richiedente DON</note>
+      <xloc>39</xloc>
+      <yloc>224</yloc>
+      <width>110</width>
+      <heigth>55</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>I69_A e I69_C
+definiti dal tipo
+di prestazione</note>
+      <xloc>200</xloc>
+      <yloc>304</yloc>
+      <width>94</width>
+      <heigth>55</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Erogatori definiti da 
+condizioni particolari</note>
+      <xloc>4</xloc>
+      <yloc>5</yloc>
+      <width>128</width>
+      <heigth>40</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>cardiopacs</name>
@@ -851,11 +919,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>int_buffer_ORIGINE</from>
-      <to>SIT x Donatori</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>SIT x Donatori</from>
       <to>ISIT_D</to>
       <enabled>Y</enabled>
@@ -887,7 +950,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>Switch / Case</from>
-      <to>upd int_buffer_ORIGINE</to>
+      <to>upd Erogatore</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -902,17 +965,22 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>Angio</from>
-      <to>upd int_buffer_ORIGINE</to>
+      <to>upd Erogatore</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>EmoDinamica</from>
-      <to>upd int_buffer_ORIGINE</to>
+      <to>upd Erogatore</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Generate Rows</from>
       <to>Write to log</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>int_staging_area</from>
+      <to>SIT x Donatori</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -944,8 +1012,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>271</xloc>
-      <yloc>304</yloc>
+      <xloc>309</xloc>
+      <yloc>303</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -977,8 +1045,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>510</xloc>
-      <yloc>304</yloc>
+      <xloc>548</xloc>
+      <yloc>303</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1053,8 +1121,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>37</xloc>
-      <yloc>136</yloc>
+      <xloc>65</xloc>
+      <yloc>135</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1117,8 +1185,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>143</xloc>
-      <yloc>137</yloc>
+      <xloc>171</xloc>
+      <yloc>136</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1158,8 +1226,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>386</xloc>
-      <yloc>224</yloc>
+      <xloc>424</xloc>
+      <yloc>223</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1180,7 +1248,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <case_value_format />
     <case_value_decimal />
     <case_value_group />
-    <default_target_step>upd int_buffer_ORIGINE</default_target_step>
+    <default_target_step>upd Erogatore</default_target_step>
     <cases>
       <case>
         <value>ANGIO</value>
@@ -1199,8 +1267,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>386</xloc>
-      <yloc>304</yloc>
+      <xloc>424</xloc>
+      <yloc>303</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1240,7 +1308,7 @@ ______________________________________________________________</logmessage>
     </GUI>
   </step>
   <step>
-    <name>int_buffer_ORIGINE</name>
+    <name>int_staging_area</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1258,14 +1326,18 @@ ______________________________________________________________</logmessage>
 , Erogatore
 , Richiedente
 , Cod_Prest
-, NUMERO
-, Importo
+--, NUMERO
+--, Importo
 , EROGATORE_ORIG
 , RICHIEDENTE_ORIG
 , COD_PREST_ORIG
 --, AUX
 --, Error_Cod
-FROM int_buffer_${ORIGINE}
+FROM int_staging_area
+where
+origine = '${ORIGINE}'
+and anno = '${YYYY}'
+and mese = '${MM}'
 
 </sql>
     <limit>0</limit>
@@ -1281,8 +1353,8 @@ FROM int_buffer_${ORIGINE}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>143</xloc>
-      <yloc>19</yloc>
+      <xloc>173</xloc>
+      <yloc>17</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1305,13 +1377,13 @@ FROM int_buffer_${ORIGINE}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>143</xloc>
+      <xloc>171</xloc>
       <yloc>223</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>upd int_buffer_ORIGINE</name>
+    <name>upd Erogatore</name>
     <type>Update</type>
     <description />
     <distribute>Y</distribute>
@@ -1329,7 +1401,7 @@ FROM int_buffer_${ORIGINE}
     <ignore_flag_field />
     <lookup>
       <schema />
-      <table>int_buffer_${ORIGINE}</table>
+      <table>int_staging_area</table>
       <key>
         <name>ORIGINE</name>
         <field>ORIGINE</field>
@@ -1379,8 +1451,8 @@ FROM int_buffer_${ORIGINE}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>386</xloc>
-      <yloc>430</yloc>
+      <xloc>424</xloc>
+      <yloc>429</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1421,8 +1493,8 @@ nvl(obsoleto, 'N') = 'N'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>484</xloc>
-      <yloc>130</yloc>
+      <xloc>522</xloc>
+      <yloc>129</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

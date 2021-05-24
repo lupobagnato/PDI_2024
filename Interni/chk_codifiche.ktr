@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>xform_int_02</name>
+    <name>chk_codifiche</name>
     <description />
     <extended_description />
     <trans_version />
@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>MM</name>
-        <default_value>06</default_value>
+        <default_value>12</default_value>
         <description />
       </parameter>
       <parameter>
@@ -68,13 +68,13 @@
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject>Set Error</subject>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>int_buffer_ORIGINE</subject>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
@@ -86,7 +86,7 @@
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject>Data Validator</subject>
         </field>
         <field>
           <id>ERRORS</id>
@@ -444,11 +444,32 @@
     <created_user>-</created_user>
     <created_date>2020/09/23 15:47:56.516</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/05/11 11:10:02.832</modified_date>
+    <modified_date>2021/05/18 14:51:35.561</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Validazione Codici</note>
+      <xloc>3</xloc>
+      <yloc>5</yloc>
+      <width>116</width>
+      <heigth>25</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>cardiopacs</name>
@@ -851,63 +872,23 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>int_buffer_ORIGINE</from>
-      <to>SIT x Donatori</to>
+      <from>Erogatori</from>
+      <to>Data Validator</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>SIT x Donatori</from>
-      <to>ISIT_D</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>SIT x Donatori</from>
-      <to>post_sit</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>ISIT_D</from>
-      <to>post_sit</to>
+      <from>Data Validator</from>
+      <to>Set Error</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>v_INT_Nomenclatore</from>
-      <to>Stream lookup</to>
+      <to>Data Validator</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>post_sit</from>
-      <to>Stream lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stream lookup</from>
-      <to>Switch / Case</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Switch / Case</from>
-      <to>upd int_buffer_ORIGINE</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Switch / Case</from>
-      <to>Angio</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Switch / Case</from>
-      <to>EmoDinamica</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Angio</from>
-      <to>upd int_buffer_ORIGINE</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>EmoDinamica</from>
-      <to>upd int_buffer_ORIGINE</to>
+      <from>Richiedenti</from>
+      <to>Data Validator</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -915,10 +896,20 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <to>Write to log</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Data Validator</from>
+      <to>Ok</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>int_staging_area</from>
+      <to>Data Validator</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
-    <name>Angio</name>
-    <type>SetValueConstant</type>
+    <name>Data Validator</name>
+    <type>Validator</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -927,15 +918,93 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <usevar>N</usevar>
-    <fields>
-      <field>
-        <name>EROGATORE</name>
-        <value>I69_A</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
+    <validate_all>N</validate_all>
+    <concat_errors>N</concat_errors>
+    <concat_separator>|</concat_separator>
+    <validator_field>
+      <name>COD_PREST</name>
+      <validation_name>prestazione</validation_name>
+      <max_length />
+      <min_length />
+      <null_allowed>N</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <max_value />
+      <min_value />
+      <start_string />
+      <end_string />
+      <start_string_not_allowed />
+      <end_string_not_allowed />
+      <regular_expression />
+      <regular_expression_not_allowed />
+      <error_code>prest</error_code>
+      <error_description />
+      <is_sourcing_values>Y</is_sourcing_values>
+      <sourcing_step>v_INT_Nomenclatore</sourcing_step>
+      <sourcing_field>CODICE</sourcing_field>
+      <allowed_value />
+    </validator_field>
+    <validator_field>
+      <name>EROGATORE</name>
+      <validation_name>erogatore</validation_name>
+      <max_length />
+      <min_length />
+      <null_allowed>N</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <max_value />
+      <min_value />
+      <start_string />
+      <end_string />
+      <start_string_not_allowed />
+      <end_string_not_allowed />
+      <regular_expression />
+      <regular_expression_not_allowed />
+      <error_code>erog</error_code>
+      <error_description />
+      <is_sourcing_values>Y</is_sourcing_values>
+      <sourcing_step>Erogatori</sourcing_step>
+      <sourcing_field>CODICE</sourcing_field>
+      <allowed_value />
+    </validator_field>
+    <validator_field>
+      <name>RICHIEDENTE</name>
+      <validation_name>richiedente</validation_name>
+      <max_length />
+      <min_length />
+      <null_allowed>N</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <max_value />
+      <min_value />
+      <start_string />
+      <end_string />
+      <start_string_not_allowed />
+      <end_string_not_allowed />
+      <regular_expression />
+      <regular_expression_not_allowed />
+      <error_code>rich</error_code>
+      <error_description />
+      <is_sourcing_values>Y</is_sourcing_values>
+      <sourcing_step>Richiedenti</sourcing_step>
+      <sourcing_field>CODICE</sourcing_field>
+      <allowed_value />
+    </validator_field>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -944,14 +1013,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>271</xloc>
-      <yloc>304</yloc>
+      <xloc>175</xloc>
+      <yloc>121</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>EmoDinamica</name>
-    <type>SetValueConstant</type>
+    <name>Erogatori</name>
+    <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -960,15 +1029,28 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <usevar>N</usevar>
-    <fields>
-      <field>
-        <name>EROGATORE</name>
-        <value>I69_C</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+  CODICE
+, DESCRIZIONE
+--, AMBITO
+--, EROGA
+--, RICHIEDE
+--, AREA
+--, BRANCA
+--, COD_CONT
+--, ATTIVO
+--, EQUIV_STS11
+FROM INT_STRUTTURE
+where 
+attivo = 'S'
+and eroga = 'I'
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -977,8 +1059,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>510</xloc>
-      <yloc>304</yloc>
+      <xloc>469</xloc>
+      <yloc>24</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1020,227 +1102,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>21</yloc>
+      <xloc>693</xloc>
+      <yloc>18</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>ISIT_D</name>
-    <type>SetValueConstant</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <usevar>N</usevar>
-    <fields>
-      <field>
-        <name>EROGATORE</name>
-        <value>ISIT_D</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>37</xloc>
-      <yloc>136</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>SIT x Donatori</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>ISIT_D</send_true_to>
-    <send_false_to>post_sit</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>EROGATORE</leftvalue>
-            <function>=</function>
-            <rightvalue />
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>ISIT</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask />
-            </value>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>RICHIEDENTE</leftvalue>
-            <function>=</function>
-            <rightvalue />
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>DON</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask />
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>143</xloc>
-      <yloc>137</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stream lookup</name>
-    <type>StreamLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <from>v_INT_Nomenclatore</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>COD_PREST</name>
-        <field>CODICE</field>
-      </key>
-      <value>
-        <name>ORIGINE</name>
-        <rename>origine_nomenclatore</rename>
-        <default />
-        <type>Number</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>386</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Switch / Case</name>
-    <type>SwitchCase</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fieldname>origine_nomenclatore</fieldname>
-    <use_contains>N</use_contains>
-    <case_value_type>String</case_value_type>
-    <case_value_format />
-    <case_value_decimal />
-    <case_value_group />
-    <default_target_step>upd int_buffer_ORIGINE</default_target_step>
-    <cases>
-      <case>
-        <value>ANGIO</value>
-        <target_step>Angio</target_step>
-      </case>
-      <case>
-        <value>ANGIO_EMODINAMICA</value>
-        <target_step>EmoDinamica</target_step>
-      </case>
-    </cases>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>386</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Write to log</name>
-    <type>WriteToLog</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>N</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage>
-______________________________________________________________
-
-${Internal.Transformation.Name}(${ORIGINE},${YYYY},${MM})
-______________________________________________________________</logmessage>
-    <fields>
-      </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>835</xloc>
-      <yloc>53</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>int_buffer_ORIGINE</name>
+    <name>Richiedenti</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1252,26 +1120,25 @@ ______________________________________________________________</logmessage>
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
-  ORIGINE
-, ANNO
-, MESE
-, Erogatore
-, Richiedente
-, Cod_Prest
-, NUMERO
-, Importo
-, EROGATORE_ORIG
-, RICHIEDENTE_ORIG
-, COD_PREST_ORIG
---, AUX
---, Error_Cod
-FROM int_buffer_${ORIGINE}
-
+  CODICE
+, DESCRIZIONE
+--, AMBITO
+--, EROGA
+--, RICHIEDE
+--, AREA
+--, BRANCA
+--, COD_CONT
+--, ATTIVO
+--, EQUIV_STS11
+FROM INT_STRUTTURE
+where 
+attivo = 'S'
+and richiede = 'I'
 </sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
+    <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema />
     <remotesteps>
@@ -1281,37 +1148,13 @@ FROM int_buffer_${ORIGINE}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>143</xloc>
-      <yloc>19</yloc>
+      <xloc>470</xloc>
+      <yloc>125</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>post_sit</name>
-    <type>Dummy</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>143</xloc>
-      <yloc>223</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>upd int_buffer_ORIGINE</name>
+    <name>Set Error</name>
     <type>Update</type>
     <description />
     <distribute>Y</distribute>
@@ -1329,7 +1172,7 @@ FROM int_buffer_${ORIGINE}
     <ignore_flag_field />
     <lookup>
       <schema />
-      <table>int_buffer_${ORIGINE}</table>
+      <table>int_staging_area</table>
       <key>
         <name>ORIGINE</name>
         <field>ORIGINE</field>
@@ -1367,8 +1210,8 @@ FROM int_buffer_${ORIGINE}
         <name2 />
       </key>
       <value>
-        <name>Erogatore</name>
-        <rename>Erogatore</rename>
+        <name>error_cod</name>
+        <rename>error_cod</rename>
       </value>
     </lookup>
     <cluster_schema />
@@ -1379,8 +1222,43 @@ FROM int_buffer_${ORIGINE}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>386</xloc>
-      <yloc>430</yloc>
+      <xloc>175</xloc>
+      <yloc>308</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>N</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage>
+______________________________________________________________
+
+${Internal.Transformation.Name}(${ORIGINE},${YYYY},${MM})
+______________________________________________________________</logmessage>
+    <fields>
+      </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>796</xloc>
+      <yloc>41</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1421,12 +1299,99 @@ nvl(obsoleto, 'N') = 'N'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>484</xloc>
-      <yloc>130</yloc>
+      <xloc>467</xloc>
+      <yloc>222</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Ok</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>42</xloc>
+      <yloc>121</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>int_staging_area</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+  ORIGINE
+, ANNO
+, MESE
+, Erogatore
+, Richiedente
+, Cod_Prest
+--, NUMERO
+--, Importo
+, EROGATORE_ORIG
+, RICHIEDENTE_ORIG
+, COD_PREST_ORIG
+--, AUX
+--, Error_Cod
+FROM int_staging_area
+where
+origine = '${ORIGINE}'
+and anno = '${YYYY}'
+and mese = '${MM}'
+
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>175</xloc>
+      <yloc>28</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
+    <error>
+      <source_step>Data Validator</source_step>
+      <target_step>Set Error</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename />
+      <descriptions_valuename />
+      <fields_valuename />
+      <codes_valuename>error_cod</codes_valuename>
+      <max_errors />
+      <max_pct_errors />
+      <min_pct_rows />
+    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
