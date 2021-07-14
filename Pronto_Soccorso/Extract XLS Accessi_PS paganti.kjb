@@ -1,38 +1,23 @@
 <job>
-  <name>Extract XLS UVMO</name>
+  <name>Extract XLS Accessi_PS paganti</name>
   <description />
   <extended_description />
   <job_version />
   <job_status>0</job_status>
-  <directory>/UVMO</directory>
+  <directory>/Pronto_Soccorso</directory>
   <created_user />
   <created_date>2019/09/16 11:46:33.107</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2021/06/01 11:27:59.649</modified_date>
+  <modified_date>2021/06/14 11:05:48.919</modified_date>
   <parameters>
     <parameter>
-      <name>UVMO_out</name>
-      <default_value>${_Base_Path}/UVMO_out</default_value>
-      <description>cartella,  sotto la user.home, dove vengono messi i file di output</description>
-    </parameter>
-    <parameter>
-      <name>YYYYMM</name>
-      <default_value>yyyymm</default_value>
-      <description>variabile impostata nel job e passata alla transf</description>
-    </parameter>
-    <parameter>
-      <name>anno</name>
-      <default_value>20YY</default_value>
-      <description>Anno e Mese da estrarre</description>
-    </parameter>
-    <parameter>
-      <name>mese</name>
-      <default_value>MM</default_value>
-      <description>se non sono valori buoni prende il mese precedente</description>
+      <name>out_path</name>
+      <default_value>${_Base_Path}</default_value>
+      <description />
     </parameter>
     <parameter>
       <name>var_Cc</name>
-      <default_value>g.mucci@asl1.liguria.it sr.uvmo@asl1.liguria.it</default_value>
+      <default_value />
       <description />
     </parameter>
     <parameter>
@@ -1140,11 +1125,11 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
+      <destinationCc>${var_Cc}</destinationCc>
       <destinationBCc />
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: Ok ${YYYYMM}</subject>
+      <subject>${Internal.Job.Name}: Ok</subject>
       <include_date>Y</include_date>
       <contact_person />
       <contact_phone />
@@ -1173,45 +1158,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>534</xloc>
-      <yloc>231</yloc>
-    </entry>
-    <entry>
-      <name>export_UVMO</name>
-      <description />
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
-      <transname>export_UVMO</transname>
-      <directory>${Internal.Entry.Current.Directory}</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name />
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>357</xloc>
-      <yloc>231</yloc>
+      <xloc>161</xloc>
+      <yloc>180</yloc>
     </entry>
     <entry>
       <name>START</name>
@@ -1244,7 +1192,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <destinationBCc />
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
-      <subject>${Internal.Job.Name}: Errore ${YYYYMM}</subject>
+      <subject>${Internal.Job.Name}: Errore</subject>
       <include_date>Y</include_date>
       <contact_person />
       <contact_phone />
@@ -1262,7 +1210,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity>normal</sensitivity>
       <secureconnectiontype>SSL</secureconnectiontype>
       <replyToAddresses />
       <filetypes>      </filetypes>
@@ -1271,56 +1219,17 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>357</xloc>
-      <yloc>353</yloc>
+      <xloc>309</xloc>
+      <yloc>83</yloc>
     </entry>
     <entry>
-      <name>Log_Parameters</name>
-      <description />
-      <type>JOB</type>
-      <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
-      <jobname>Log_Parameters</jobname>
-      <directory>/__system__</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name />
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>calling_job</name>
-          <stream_name />
-          <value>${Internal.Job.Name}</value>
-        </parameter>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>161</xloc>
-      <yloc>81</yloc>
-    </entry>
-    <entry>
-      <name>Set_YYYYMM</name>
+      <name>Accessi_PS_export</name>
       <description />
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id />
       <filename />
-      <transname>Set_YYYYMM</transname>
+      <transname>Accessi_PS_export</transname>
       <directory>${Internal.Entry.Current.Directory}</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -1343,35 +1252,31 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <run_configuration>Pentaho local</run_configuration>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>out_path</name>
+          <stream_name />
+          <value>${out_path}</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>357</xloc>
-      <yloc>81</yloc>
-    </entry>
-    <entry>
-      <name>Write To Log</name>
-      <description />
-      <type>WRITE_TO_LOG</type>
-      <logmessage>Input
-anno=${anno}
-mese=${mese}
-Output
-YYYYMM=${YYYYMM}
-UVMO_out=${UVMO_out}</logmessage>
-      <loglevel>Basic</loglevel>
-      <logsubject>Variabili</logsubject>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>534</xloc>
-      <yloc>141</yloc>
+      <xloc>161</xloc>
+      <yloc>83</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>export_UVMO</from>
+      <from>Accessi_PS_export</from>
+      <to>Mail Ok</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Accessi_PS_export</from>
       <to>Mail Err</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1381,143 +1286,15 @@ UVMO_out=${UVMO_out}</logmessage>
     </hop>
     <hop>
       <from>START</from>
-      <to>Log_Parameters</to>
+      <to>Accessi_PS_export</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>export_UVMO</from>
-      <to>Mail Ok</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Log_Parameters</from>
-      <to>Set_YYYYMM</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Set_YYYYMM</from>
-      <to>Write To Log</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Write To Log</from>
-      <to>export_UVMO</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>
-    <notepad>
-      <note>Parametri in INPUT
-anno e mese</note>
-      <xloc>26</xloc>
-      <yloc>5</yloc>
-      <width>122</width>
-      <heigth>40</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>(anno, mese) --> YYYYMM
-
-</note>
-      <xloc>286</xloc>
-      <yloc>42</yloc>
-      <width>168</width>
-      <heigth>57</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>
-
-Se anno e mese non sono buoni:
-YYYYMM = mese precedente</note>
-      <xloc>287</xloc>
-      <yloc>113</yloc>
-      <width>169</width>
-      <heigth>64</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>128</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Tolto temporaneamente  ${var_Cc}
-==> la mail a UVMO la devo inviare io
-==> dopo aver ricevuto quella automatica del 5</note>
-      <xloc>597</xloc>
-      <yloc>221</yloc>
-      <width>280</width>
-      <heigth>55</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <attributes>
     <group>
