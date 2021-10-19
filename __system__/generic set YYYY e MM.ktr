@@ -1,19 +1,29 @@
 <transformation>
   <info>
-    <name>Variazioni_PL xls</name>
+    <name>generic set YYYY e MM</name>
     <description />
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/NSIS</directory>
+    <directory>/__system__</directory>
     <parameters>
+      <parameter>
+        <name>anno</name>
+        <default_value>xxxx</default_value>
+        <description>Anno e Mese da estrarre</description>
+      </parameter>
+      <parameter>
+        <name>mese</name>
+        <default_value>xx</default_value>
+        <description>se non sono valori buoni prende il mese precedente</description>
+      </parameter>
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
+        <connection>${_LogDb}</connection>
+        <schema>${_LogSchema}</schema>
+        <table>${_LogTrans}</table>
         <size_limit_lines />
         <interval />
         <timeout_days />
@@ -41,13 +51,13 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject>Set YYYY e MM</subject>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject>Set YYYY e MM</subject>
         </field>
         <field>
           <id>LINES_UPDATED</id>
@@ -59,7 +69,7 @@
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject>yyyy e mm</subject>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
@@ -889,8 +899,8 @@
         <dynamic>N</dynamic>
         <slaveservers>
           <name>localhost:8080:Master</name>
-          <name>localhost:8081</name>
           <name>localhost:8082</name>
+          <name>localhost:8081</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -901,9 +911,9 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>sam 8081 slave</name>
           <name>sam 8082 slave</name>
           <name>sam 8080</name>
-          <name>sam 8081 slave</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -918,102 +928,76 @@
       </clusterschema>
     </clusterschemas>
     <created_user />
-    <created_date>2019/09/16 11:46:17.237</created_date>
+    <created_date>2019/09/16 11:46:27.626</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2021/09/29 15:32:31.851</modified_date>
+    <modified_date>2021/07/20 09:54:14.368</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>su Windows con  tipo file XLSX (Apache POI)
-non funziona (né file XLSX, né con file XLS)</note>
-      <xloc>10</xloc>
-      <yloc>93</yloc>
-      <width>274</width>
-      <heigth>40</heigth>
-      <fontname>Sans</fontname>
+      <note>Se i parametri sono formalmente buoni
+li usa per valorizzare YYYY e MM
+altrimenti usa il mese precedente</note>
+      <xloc>342</xloc>
+      <yloc>101</yloc>
+      <width>233</width>
+      <heigth>55</heigth>
+      <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Ha i flag
-- Ignora Errori
-- Scarta le righe con errori
-per caricare solo i record in cui la Data Variazione è una data
-
-Le variazioni "storiche", presenti nel file
-come riferimento / controllo, hanno il formato
-YYYYMMDD</note>
-      <xloc>413</xloc>
-      <yloc>93</yloc>
-      <width>305</width>
-      <heigth>115</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Aggiunta del Nome Reparto</note>
-      <xloc>409</xloc>
-      <yloc>257</yloc>
-      <width>170</width>
+      <note>Transf generica per impostare YYYY e MM</note>
+      <xloc>31</xloc>
+      <yloc>10</yloc>
+      <width>274</width>
       <heigth>25</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>variazioni_PL.xls
-(in Kettle\Input\Posti Letto)
+      <note>anno e mese: parametri in input
+
+YYYY e MM: variabili in output
 </note>
-      <xloc>272</xloc>
-      <yloc>16</yloc>
-      <width>166</width>
-      <heigth>56</heigth>
+      <xloc>342</xloc>
+      <yloc>11</yloc>
+      <width>193</width>
+      <heigth>72</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -1421,163 +1405,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>variazioni_PL.xls</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>HSP.postiletto_buffer</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Database lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Database lookup</from>
-      <to>Set field value</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Set field value</from>
-      <to>remove</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>remove</from>
-      <to>HSP.postiletto_buffer</to>
+      <from>yyyy e mm</from>
+      <to>Set YYYY e MM</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Database lookup</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra_hsp</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>reparti_hsp</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>COD_REP</name>
-        <field>COD_REP</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>DESCR</name>
-        <rename>des_reparto</rename>
-        <default />
-        <type>String</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>446</xloc>
-      <yloc>297</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>HSP.postiletto_buffer</send_true_to>
-    <send_false_to>Database lookup</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>REPARTO</leftvalue>
-        <function>IS NOT NULL</function>
-        <rightvalue />
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>334</xloc>
-      <yloc>297</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>HSP.postiletto_buffer</name>
-    <type>TableOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>db_sopra_hsp</connection>
-    <schema />
-    <table>postiletto_buffer</table>
-    <commit>1</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field />
-    <fields>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>334</xloc>
-      <yloc>425</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set field value</name>
-    <type>SetValueField</type>
+    <name>Set YYYY e MM</name>
+    <type>SetVariable</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1588,10 +1423,19 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </partitioning>
     <fields>
       <field>
-        <name>REPARTO</name>
-        <replaceby>des_reparto</replaceby>
+        <field_name>YYYY</field_name>
+        <variable_name>YYYY</variable_name>
+        <variable_type>ROOT_JOB</variable_type>
+        <default_value />
+      </field>
+      <field>
+        <field_name>MM</field_name>
+        <variable_name>MM</variable_name>
+        <variable_type>ROOT_JOB</variable_type>
+        <default_value />
       </field>
     </fields>
+    <use_formatting>Y</use_formatting>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1600,14 +1444,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>542</xloc>
-      <yloc>297</yloc>
+      <xloc>148</xloc>
+      <yloc>187</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>remove</name>
-    <type>SelectValues</type>
+    <name>yyyy e mm</name>
+    <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1616,157 +1460,23 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name />
     </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>des_reparto</name>
-      </remove>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>542</xloc>
-      <yloc>377</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>variazioni_PL.xls</name>
-    <type>ExcelInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <header>Y</header>
-    <noempty>Y</noempty>
-    <stoponempty>N</stoponempty>
-    <filefield />
-    <sheetfield />
-    <sheetrownumfield />
-    <rownumfield />
-    <sheetfield />
-    <filefield />
+    <connection>db_sopra</connection>
+    <sql>select
+case
+   when regexp_like('${anno}', '20[0-2][0-9]') and regexp_like('${mese}', '[0-1][0-9]') then '${anno}'
+   else to_char(add_months(sysdate, -1), 'YYYY')
+end yyyy
+,
+case
+   when regexp_like('${anno}', '20[0-2][0-9]') and regexp_like('${mese}', '[0-1][0-9]') then '${mese}'
+   else to_char(add_months(sysdate, -1), 'MM')
+end mm
+from dual</sql>
     <limit>0</limit>
-    <encoding />
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <accept_filenames>N</accept_filenames>
-    <accept_field />
-    <accept_stepname />
-    <file>
-      <name>${_Base_Path}/Input/Posti Letto/variazioni_PL.xls</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>COD_REP</name>
-        <type>String</type>
-        <length>4</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format>0000</format>
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>REPARTO</name>
-        <type>String</type>
-        <length>50</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>POSTI_ORD</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>POSTI_DH</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>POSTI_DS</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-      </field>
-      <field>
-        <name>DATA_VAR</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format>dd/MM/yyyy</format>
-        <currency />
-        <decimal />
-        <group />
-      </field>
-    </fields>
-    <sheets>
-      <sheet>
-        <name>Sheet 1</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-      </sheet>
-    </sheets>
-    <strict_types>N</strict_types>
-    <error_ignored>Y</error_ignored>
-    <error_line_skipped>Y</error_line_skipped>
-    <bad_line_files_destination_directory />
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
-    <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
-    <spreadsheet_type>JXL</spreadsheet_type>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1775,8 +1485,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>334</xloc>
-      <yloc>68</yloc>
+      <xloc>149</xloc>
+      <yloc>76</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
