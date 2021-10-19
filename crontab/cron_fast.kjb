@@ -8,9 +8,68 @@
   <created_user />
   <created_date>2019/09/16 11:46:33.107</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2021/02/24 16:07:34.418</modified_date>
+  <modified_date>2021/10/19 09:22:58.795</modified_date>
   <parameters>
     </parameters>
+  <connection>
+    <name>cardiopacs</name>
+    <server>10.106.111.14</server>
+    <type>MSSQLNATIVE</type>
+    <access>Native</access>
+    <database>ExtensaDataExport</database>
+    <port>1433</port>
+    <username>sia</username>
+    <password>Encrypted 293c5fd9014c6d9d7ff34a55187bc9f8d</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQLUseIntegratedSecurity</code>
+        <attribute>false</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1433</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <connection>
     <name>db_sopra</name>
     <server>ora_sopra.usl1.imperiese</server>
@@ -1125,7 +1184,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>361</xloc>
+      <xloc>358</xloc>
       <yloc>81</yloc>
     </entry>
     <entry>
@@ -1170,7 +1229,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>361</xloc>
+      <xloc>358</xloc>
       <yloc>177</yloc>
     </entry>
     <entry>
@@ -1207,6 +1266,17 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <xloc>150</xloc>
       <yloc>82</yloc>
     </entry>
+    <entry>
+      <name>Interrompi job</name>
+      <description />
+      <type>ABORT</type>
+      <message />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>358</xloc>
+      <yloc>275</yloc>
+    </entry>
   </entries>
   <hops>
     <hop>
@@ -1239,6 +1309,15 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>sync_vaccini_covid</from>
       <to>sync_COVID</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Mail Err</from>
+      <to>Interrompi job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

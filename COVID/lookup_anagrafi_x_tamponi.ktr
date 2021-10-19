@@ -920,12 +920,103 @@
     <created_user />
     <created_date>2020/08/25 10:34:06.123</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2020/10/16 13:02:08.871</modified_date>
+    <modified_date>2021/10/18 10:25:49.153</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Se due esecuzioni di sync_COVID si sovrappongono
+(6:15 di cron_fast e cron_h0700)
+questa transf è in conflitto con la sync_cube_863
+(che fa una TRUNCATE della cube_stat_863):
+
+Normalmente fallisce il 2° job sync_COVID
+perchè la sua sync_cube_863 non riesce a fare
+la truncate su cube_stat_863 a causa del 1° step
+di questa transf che stà leggendo dalla tabella
+
+Può succedere invece che fallisca il 1° dei due sync_COVID
+a causa dell'update nell'ultimo step di questa transf</note>
+      <xloc>278</xloc>
+      <yloc>6</yloc>
+      <width>300</width>
+      <heigth>168</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>160</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
+  <connection>
+    <name>cardiopacs</name>
+    <server>10.106.111.14</server>
+    <type>MSSQLNATIVE</type>
+    <access>Native</access>
+    <database>ExtensaDataExport</database>
+    <port>1433</port>
+    <username>sia</username>
+    <password>Encrypted 293c5fd9014c6d9d7ff34a55187bc9f8d</password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQLUseIntegratedSecurity</code>
+        <attribute>false</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1433</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <connection>
     <name>db_sopra</name>
     <server>ora_sopra.usl1.imperiese</server>
@@ -1438,8 +1529,8 @@ if (cell_lab != null &amp;&amp; cell_all.indexOf(cell_lab)&lt;0)
       </output>
     </remotesteps>
     <GUI>
-      <xloc>517</xloc>
-      <yloc>183</yloc>
+      <xloc>519</xloc>
+      <yloc>221</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
