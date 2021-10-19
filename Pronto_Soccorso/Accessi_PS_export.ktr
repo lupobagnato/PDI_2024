@@ -9,6 +9,16 @@
     <directory>/Pronto_Soccorso</directory>
     <parameters>
       <parameter>
+        <name>MM</name>
+        <default_value>MM</default_value>
+        <description />
+      </parameter>
+      <parameter>
+        <name>YYYY</name>
+        <default_value>YYYY</default_value>
+        <description />
+      </parameter>
+      <parameter>
         <name>out_path</name>
         <default_value>${_Base_Path}</default_value>
         <description />
@@ -434,7 +444,7 @@
     <created_user>-</created_user>
     <created_date>2019/11/12 11:09:10.130</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/06/14 11:29:15.331</modified_date>
+    <modified_date>2021/07/20 09:58:41.617</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -863,7 +873,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <append>N</append>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${out_path}/Accessi_PS_paganti</name>
+      <name>${out_path}/Accessi_PS_paganti_${YYYY}-${MM}</name>
       <extention>xls</extention>
       <do_not_open_newfile_init>Y</do_not_open_newfile_init>
       <create_parent_folder>N</create_parent_folder>
@@ -990,8 +1000,9 @@ from
 vcube_accessi_ps p
 where
 p.posizione_ticket = 'Pagante'
---and p.anno||p.mese between 'sYYYY_MM' and 'eYYYY_MM'
-and p.anno||p.mese = to_char(add_months(sysdate, -1),'yyyymm')
+and p.anno = ${YYYY}
+and p.mese = ${MM}
+--and p.anno||p.mese = to_char(add_months(sysdate, -1),'yyyymm')
 --and p.desc_cod_uo like '%'
 order by
 p.desc_cod_uo, p.datadimissione, p.nrocaso
