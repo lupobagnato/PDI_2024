@@ -1,9 +1,9 @@
 <transformation>
   <info>
     <name>Record_T_Accr</name>
-    <description />
-    <extended_description />
-    <trans_version />
+    <description/>
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/record_SeT</directory>
@@ -11,17 +11,17 @@
       <parameter>
         <name>ANNO</name>
         <default_value>19</default_value>
-        <description />
+        <description/>
       </parameter>
       <parameter>
         <name>COD_PC</name>
         <default_value>0CSF</default_value>
-        <description />
+        <description/>
       </parameter>
       <parameter>
         <name>MESE</name>
         <default_value>09</default_value>
-        <description />
+        <description/>
       </parameter>
       <parameter>
         <name>YYMM_CHK_CONTR</name>
@@ -34,9 +34,9 @@
         <connection>${_LogDb}</connection>
         <schema>${_LogSchema}</schema>
         <table>${_LogTmpTrans}</table>
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -61,7 +61,7 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
@@ -73,7 +73,7 @@
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject>ins Record_T_Accr</subject>
+          <subject>upd Record_T_Accr</subject>
         </field>
         <field>
           <id>LINES_INPUT</id>
@@ -91,7 +91,7 @@
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -145,11 +145,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -227,10 +227,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -293,10 +293,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -369,10 +369,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -421,9 +421,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -434,7 +434,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -456,7 +456,7 @@
           <id>P3</id>
         </partition>
         <dynamic>N</dynamic>
-        <partitions_per_slave />
+        <partitions_per_slave/>
       </partitionschema>
       <partitionschema>
         <name>Partitioning schema</name>
@@ -476,280 +476,33 @@
           <id>PartDB4</id>
         </partition>
         <dynamic>N</dynamic>
-        <partitions_per_slave />
+        <partitions_per_slave/>
       </partitionschema>
     </partitionschemas>
     <slaveservers>
       <slaveserver>
-        <name>Carte_server</name>
-        <hostname>minollo</hostname>
-        <port />
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8080:Master</name>
-        <hostname>localhost</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8082</name>
-        <hostname>localhost</hostname>
-        <port>8082</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8081</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8080</name>
-        <hostname>localhost</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8084</name>
-        <hostname>localhost</hostname>
-        <port>8084</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8083</name>
-        <hostname>localhost</hostname>
-        <port>8083</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>localhost:8080 master</name>
-        <hostname>localhost</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>pc115818</name>
-        <hostname>pc115818</hostname>
-        <port />
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>ruwvs07</name>
-        <hostname>ruwvs07</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>zebulon slave</name>
-        <hostname>192.168.1.277</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Jos 10.0.0.169</name>
-        <hostname>10.0.0.169</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Quasar</name>
-        <hostname>quasar</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Random</name>
-        <hostname>random</hostname>
-        <port>8081</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
         <name>carte</name>
         <hostname>localhost</hostname>
         <port>8181</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>server8080</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8080</port>
-        <webAppName />
+        <name>Carte_server</name>
+        <hostname>minollo</hostname>
+        <port/>
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server8090</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8090</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server9000</name>
-        <hostname>127.0.0.1</hostname>
-        <port>9000</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_2</name>
-        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_4</name>
-        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_3</name>
-        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName />
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -757,25 +510,90 @@
         <name>EC_MASTER_1</name>
         <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_1</name>
+        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_2</name>
+        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_3</name>
+        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_4</name>
+        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
         <name>EC_SLAVE_5</name>
         <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Jos 10.0.0.169</name>
+        <hostname>10.0.0.169</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -783,77 +601,103 @@
         <name>Localhost 8081</name>
         <hostname>localhost</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>EC_SLAVE_1</name>
-        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+        <name>localhost:8080</name>
+        <hostname>localhost</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>sam 8080</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8081</port>
-        <webAppName />
+        <name>localhost:8080 master</name>
+        <hostname>localhost</hostname>
+        <port>8080</port>
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>sam 8081 slave</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8081</port>
-        <webAppName />
+        <name>localhost:8080:Master</name>
+        <hostname>localhost</hostname>
+        <port>8080</port>
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8081</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>sam 8082 slave</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8081</port>
-        <webAppName />
+        <name>localhost:8082</name>
+        <hostname>localhost</hostname>
+        <port>8082</port>
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>Warmath</name>
-        <hostname>liveinalpharetta.com</hostname>
+        <name>localhost:8083</name>
+        <hostname>localhost</hostname>
         <port>8083</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8084</name>
+        <hostname>localhost</hostname>
+        <port>8084</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -861,12 +705,155 @@
         <name>Mike ETL Server</name>
         <hostname>localhost</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>pc115818</name>
+        <hostname>pc115818</hostname>
+        <port/>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Quasar</name>
+        <hostname>quasar</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Random</name>
+        <hostname>random</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>ruwvs07</name>
+        <hostname>ruwvs07</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>sam 8080</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>sam 8081 slave</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>sam 8082 slave</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server8080</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server8090</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8090</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server9000</name>
+        <hostname>127.0.0.1</hostname>
+        <port>9000</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Warmath</name>
+        <hostname>liveinalpharetta.com</hostname>
+        <port>8083</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -874,13 +861,26 @@
         <name>Wayne ETL Server</name>
         <hostname>localhost</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>zebulon slave</name>
+        <hostname>192.168.1.277</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
     </slaveservers>
@@ -937,10 +937,10 @@
         </slaveservers>
       </clusterschema>
     </clusterschemas>
-    <created_user />
+    <created_user/>
     <created_date>2020/09/01 12:16:59.784</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2019/11/20 15:02:16.000</modified_date>
+    <modified_date>2021/11/08 14:49:48.886</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -966,7 +966,7 @@ ___________________________________________________________
       <xloc>452</xloc>
       <yloc>44</yloc>
       <width>544</width>
-      <heigth>304</heigth>
+      <heigth>330</heigth>
       <fontname>Arial</fontname>
       <fontsize>12</fontsize>
       <fontbold>Y</fontbold>
@@ -990,9 +990,9 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
 ==> una serie casuale di Update e Identical 
 ==> e numero Delete  = Insert</note>
       <xloc>11</xloc>
-      <yloc>7</yloc>
+      <yloc>3</yloc>
       <width>354</width>
-      <heigth>86</heigth>
+      <heigth>89</heigth>
       <fontname>Arial</fontname>
       <fontsize>8</fontsize>
       <fontbold>N</fontbold>
@@ -1010,17 +1010,17 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
     </notepad>
   </notepads>
   <connection>
-    <name>db_sopra</name>
-    <server>ora_sopra.usl1.imperiese</server>
-    <type>ORACLE</type>
+    <name>cardiopacs</name>
+    <server>10.106.111.14</server>
+    <type>MSSQLNATIVE</type>
     <access>Native</access>
-    <database>DbSopra</database>
-    <port>1526</port>
-    <username>dwh</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be96b8d2</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <database>ExtensaDataExport</database>
+    <port>1433</port>
+    <username>sia</username>
+    <password>Encrypted 293c5fd9014c6d9d7ff34a55187bc9f8d</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -1031,16 +1031,12 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>INITIAL_POOL_SIZE</code>
-        <attribute>5</attribute>
-      </attribute>
-      <attribute>
         <code>IS_CLUSTERED</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>MAXIMUM_POOL_SIZE</code>
-        <attribute>10</attribute>
+        <code>MSSQLUseIntegratedSecurity</code>
+        <attribute>false</attribute>
       </attribute>
       <attribute>
         <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
@@ -1048,14 +1044,228 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>1526</attribute>
+        <attribute>1433</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>STREAM_RESULTS</code>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>db_sopra</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>dwh</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be96b8d2</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>db_sopra_cupreport</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>cupreport</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79bc75ce9dbdce</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+
+</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>db_sopra_hsp</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>hsp</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be9abcca</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_ORACLE.NLS_TERRITORY</code>
+        <attribute>america</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
         <attribute>Y</attribute>
       </attribute>
       <attribute>
@@ -1073,9 +1283,9 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
     <port>1526</port>
     <username>pdi_logger</username>
     <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -1094,12 +1304,103 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
         <attribute>1526</attribute>
       </attribute>
       <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>Patidok</name>
+    <server>svc_sio</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>SIO</database>
+    <port>1521</port>
+    <username>patidok</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb09af648f96ffd1</password>
+    <servername/>
+    <data_tablespace>PATI_MV</data_tablespace>
+    <index_tablespace>PATI_MV</index_tablespace>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -1182,15 +1483,16 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
   <step>
     <name>Ci sono</name>
     <type>Dummy</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1206,15 +1508,16 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
   <step>
     <name>Esistenti</name>
     <type>Dummy</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1230,13 +1533,13 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
   <step>
     <name>Filter rows</name>
     <type>FilterRows</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <send_true_to>Ci sono</send_true_to>
     <send_false_to>Scomparsi</send_false_to>
@@ -1245,10 +1548,11 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
         <negated>N</negated>
         <leftvalue>record_presente</leftvalue>
         <function>IS NOT NULL</function>
-        <rightvalue />
+        <rightvalue/>
       </condition>
     </compare>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1264,13 +1568,13 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
   <step>
     <name>Get System Info</name>
     <type>SystemInfo</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
@@ -1278,7 +1582,8 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
         <type>system date (fixed)</type>
       </field>
     </fields>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1294,15 +1599,16 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
   <step>
     <name>Nuovi</name>
     <type>Dummy</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1318,13 +1624,13 @@ Se un file viene re inviato con i record identici, ma in posizioni diverse
   <step>
     <name>Record_T_Accr</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
@@ -1355,11 +1661,14 @@ and mese = '${MESE}'
 
 </sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1375,49 +1684,49 @@ and mese = '${MESE}'
   <step>
     <name>Record_T_Accr_deleted</name>
     <type>InsertUpdate</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
-      <schema />
+      <schema/>
       <table>Record_T_Accr_deleted</table>
       <key>
         <name>ANNO</name>
         <field>ANNO</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>MESE</name>
         <field>MESE</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>STRUTT</name>
         <field>STRUTT</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>RIC</name>
         <field>RIC</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>LINE_NUM</name>
         <field>LINE_NUM</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <value>
         <name>ANNO</name>
@@ -1540,7 +1849,8 @@ and mese = '${MESE}'
         <update>Y</update>
       </value>
     </lookup>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1556,15 +1866,16 @@ and mese = '${MESE}'
   <step>
     <name>Scomparsi</name>
     <type>Dummy</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1580,13 +1891,13 @@ and mese = '${MESE}'
   <step>
     <name>Stream lookup</name>
     <type>StreamLookup</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <from>v_Record_T_Accr</from>
     <input_sorted>N</input_sorted>
@@ -1617,17 +1928,18 @@ and mese = '${MESE}'
       <value>
         <name>LINE_NUM</name>
         <rename>record_presente</rename>
-        <default />
+        <default/>
         <type>Integer</type>
       </value>
       <value>
         <name>DATA_SYSTEMA</name>
         <rename>DATA_SYSTEMA</rename>
-        <default />
+        <default/>
         <type>Date</type>
       </value>
     </lookup>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1643,13 +1955,13 @@ and mese = '${MESE}'
   <step>
     <name>Write to log</name>
     <type>WriteToLog</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <loglevel>log_level_basic</loglevel>
     <displayHeader>Y</displayHeader>
@@ -1663,7 +1975,8 @@ COD_PC=${COD_PC}</logmessage>
         <name>SystemDate</name>
       </field>
     </fields>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1679,13 +1992,13 @@ COD_PC=${COD_PC}</logmessage>
   <step>
     <name>chk Esiste</name>
     <type>FilterRows</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <send_true_to>Esistenti</send_true_to>
     <send_false_to>Nuovi</send_false_to>
@@ -1694,10 +2007,11 @@ COD_PC=${COD_PC}</logmessage>
         <negated>N</negated>
         <leftvalue>record_esistente</leftvalue>
         <function>IS NOT NULL</function>
-        <rightvalue />
+        <rightvalue/>
       </condition>
     </compare>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1713,51 +2027,52 @@ COD_PC=${COD_PC}</logmessage>
   <step>
     <name>del Record_T_Accr</name>
     <type>Delete</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
     <commit>100</commit>
     <lookup>
-      <schema />
+      <schema/>
       <table>Record_T_Accr</table>
       <key>
         <name>ANNO</name>
         <field>ANNO</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>MESE</name>
         <field>MESE</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>STRUTT</name>
         <field>STRUTT</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>RIC</name>
         <field>RIC</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>LINE_NUM</name>
         <field>LINE_NUM</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
     </lookup>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1773,49 +2088,49 @@ COD_PC=${COD_PC}</logmessage>
   <step>
     <name>ins Record_T_Accr</name>
     <type>InsertUpdate</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
     <commit>100</commit>
     <update_bypassed>Y</update_bypassed>
     <lookup>
-      <schema />
+      <schema/>
       <table>Record_T_Accr</table>
       <key>
         <name>ANNO</name>
         <field>ANNO</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>MESE</name>
         <field>MESE</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>STRUTT</name>
         <field>STRUTT</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>RIC</name>
         <field>RIC</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>LINE_NUM</name>
         <field>LINE_NUM</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <value>
         <name>ANNO</name>
@@ -1938,7 +2253,8 @@ COD_PC=${COD_PC}</logmessage>
         <update>Y</update>
       </value>
     </lookup>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1954,62 +2270,63 @@ COD_PC=${COD_PC}</logmessage>
   <step>
     <name>lookup Record_T_Accr</name>
     <type>DBLookup</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema />
+      <schema/>
       <table>Record_T_Accr</table>
-      <orderby />
+      <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
         <name>ANNO</name>
         <field>ANNO</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>MESE</name>
         <field>MESE</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>STRUTT</name>
         <field>STRUTT</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>RIC</name>
         <field>RIC</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>LINE_NUM</name>
         <field>LINE_NUM</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <value>
         <name>LINE_NUM</name>
         <rename>record_esistente</rename>
-        <default />
+        <default/>
         <type>Integer</type>
       </value>
     </lookup>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2025,52 +2342,52 @@ COD_PC=${COD_PC}</logmessage>
   <step>
     <name>upd Record_T_Accr</name>
     <type>Update</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
     <skip_lookup>N</skip_lookup>
     <commit>100</commit>
     <use_batch>N</use_batch>
     <error_ignored>Y</error_ignored>
-    <ignore_flag_field />
+    <ignore_flag_field/>
     <lookup>
-      <schema />
+      <schema/>
       <table>Record_T_Accr</table>
       <key>
         <name>ANNO</name>
         <field>ANNO</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>MESE</name>
         <field>MESE</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>STRUTT</name>
         <field>STRUTT</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>RIC</name>
         <field>RIC</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>LINE_NUM</name>
         <field>LINE_NUM</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <value>
         <name>ANNO</name>
@@ -2165,7 +2482,8 @@ COD_PC=${COD_PC}</logmessage>
         <rename>IMPORTO_UNITARIO</rename>
       </value>
     </lookup>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2181,13 +2499,13 @@ COD_PC=${COD_PC}</logmessage>
   <step>
     <name>v_Record_T_Accr</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
@@ -2221,11 +2539,14 @@ and anno||mese >= '${YYMM_CHK_CONTR}' -- inizio utilizzo Codice Contratto: dati 
 
 </sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2243,4 +2564,5 @@ and anno||mese >= '${YYMM_CHK_CONTR}' -- inizio utilizzo Codice Contratto: dati 
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
+  <attributes/>
 </transformation>

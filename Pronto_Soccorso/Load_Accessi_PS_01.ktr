@@ -2,8 +2,8 @@
   <info>
     <name>Load_Accessi_PS_01</name>
     <description>con la gestione dei Duplicati (controllata da PARAMETER2)</description>
-    <extended_description />
-    <trans_version />
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/Pronto_Soccorso</directory>
@@ -24,9 +24,9 @@
         <connection>${_LogDb}</connection>
         <schema>${_LogSchema}</schema>
         <table>${_LogTrans}</table>
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -57,13 +57,13 @@
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
@@ -136,10 +136,10 @@
       </trans-log-table>
       <perf-log-table>
         <connection>db_sopra</connection>
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -217,10 +217,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -359,10 +359,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -411,9 +411,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -424,10 +424,10 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
-    <step_performance_capturing_size_limit />
+    <step_performance_capturing_size_limit/>
     <dependencies>
     </dependencies>
     <partitionschemas>
@@ -446,7 +446,7 @@
           <id>P3</id>
         </partition>
         <dynamic>N</dynamic>
-        <partitions_per_slave />
+        <partitions_per_slave/>
       </partitionschema>
       <partitionschema>
         <name>Partitioning schema</name>
@@ -466,7 +466,7 @@
           <id>PartDB2</id>
         </partition>
         <dynamic>N</dynamic>
-        <partitions_per_slave />
+        <partitions_per_slave/>
       </partitionschema>
     </partitionschemas>
     <slaveservers>
@@ -474,25 +474,25 @@
         <name>carte</name>
         <hostname>localhost</hostname>
         <port>8181</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
         <name>Carte_server</name>
         <hostname>minollo</hostname>
-        <port />
-        <webAppName />
+        <port/>
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -500,12 +500,12 @@
         <name>EC_MASTER_1</name>
         <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -513,12 +513,12 @@
         <name>EC_SLAVE_1</name>
         <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -526,12 +526,12 @@
         <name>EC_SLAVE_2</name>
         <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -539,12 +539,12 @@
         <name>EC_SLAVE_3</name>
         <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -552,12 +552,12 @@
         <name>EC_SLAVE_4</name>
         <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -565,12 +565,12 @@
         <name>EC_SLAVE_5</name>
         <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -578,12 +578,12 @@
         <name>Jos 10.0.0.169</name>
         <hostname>10.0.0.169</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -591,12 +591,12 @@
         <name>Localhost 8081</name>
         <hostname>localhost</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -604,12 +604,12 @@
         <name>localhost:8080</name>
         <hostname>localhost</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -617,12 +617,12 @@
         <name>localhost:8080 master</name>
         <hostname>localhost</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -630,12 +630,12 @@
         <name>localhost:8080:Master</name>
         <hostname>localhost</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -643,12 +643,12 @@
         <name>localhost:8081</name>
         <hostname>localhost</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -656,12 +656,12 @@
         <name>localhost:8082</name>
         <hostname>localhost</hostname>
         <port>8082</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -669,12 +669,12 @@
         <name>localhost:8083</name>
         <hostname>localhost</hostname>
         <port>8083</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -682,12 +682,12 @@
         <name>localhost:8084</name>
         <hostname>localhost</hostname>
         <port>8084</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -695,25 +695,25 @@
         <name>Mike ETL Server</name>
         <hostname>localhost</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
         <name>pc115818</name>
         <hostname>pc115818</hostname>
-        <port />
-        <webAppName />
+        <port/>
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -721,12 +721,12 @@
         <name>Quasar</name>
         <hostname>quasar</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -734,12 +734,12 @@
         <name>Random</name>
         <hostname>random</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -747,12 +747,12 @@
         <name>ruwvs07</name>
         <hostname>ruwvs07</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -760,12 +760,12 @@
         <name>sam 8080</name>
         <hostname>127.0.0.1</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -773,12 +773,12 @@
         <name>sam 8081 slave</name>
         <hostname>127.0.0.1</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -786,12 +786,12 @@
         <name>sam 8082 slave</name>
         <hostname>127.0.0.1</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -799,12 +799,12 @@
         <name>server8080</name>
         <hostname>127.0.0.1</hostname>
         <port>8080</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -812,12 +812,12 @@
         <name>server8090</name>
         <hostname>127.0.0.1</hostname>
         <port>8090</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -825,12 +825,12 @@
         <name>server9000</name>
         <hostname>127.0.0.1</hostname>
         <port>9000</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -838,12 +838,12 @@
         <name>Warmath</name>
         <hostname>liveinalpharetta.com</hostname>
         <port>8083</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -851,12 +851,12 @@
         <name>Wayne ETL Server</name>
         <hostname>localhost</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -864,12 +864,12 @@
         <name>zebulon slave</name>
         <hostname>192.168.1.277</hostname>
         <port>8081</port>
-        <webAppName />
+        <webAppName/>
         <username>cluster</username>
         <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-        <proxy_hostname />
-        <proxy_port />
-        <non_proxy_hosts />
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
         <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
@@ -930,7 +930,7 @@
     <created_user>admin</created_user>
     <created_date>2012/05/14 15:19:58.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2020/09/01 09:41:26.529</modified_date>
+    <modified_date>2021/11/29 17:02:28.761</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -949,8 +949,8 @@ prima era fino a Sysdate, ora Sysdate -1 (eseguendo alle 00:10 cambia poco, ma
 con esecuzioni "manuali" durante il giorno si evita di caricare giorni incompleti)</note>
       <xloc>407</xloc>
       <yloc>4</yloc>
-      <width>390</width>
-      <heigth>131</heigth>
+      <width>520</width>
+      <heigth>177</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -971,8 +971,8 @@ con esecuzioni "manuali" durante il giorno si evita di caricare giorni incomplet
 Se vengono inseriti nel buffer devono essere tolti dalla tabella degli scartati</note>
       <xloc>522</xloc>
       <yloc>557</yloc>
-      <width>407</width>
-      <heigth>37</heigth>
+      <width>415</width>
+      <heigth>38</heigth>
       <fontname>Microsoft Sans Serif</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -995,8 +995,8 @@ sono loggati nella Accessi_PS_scartati
       <xloc>748</xloc>
       <yloc>400</yloc>
       <width>240</width>
-      <heigth>49</heigth>
-      <fontname />
+      <heigth>56</heigth>
+      <fontname/>
       <fontsize>-1</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
@@ -1023,8 +1023,8 @@ caricamento
 </note>
       <xloc>101</xloc>
       <yloc>64</yloc>
-      <width>91</width>
-      <heigth>109</heigth>
+      <width>110</width>
+      <heigth>148</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -1047,8 +1047,8 @@ Aggiunto il test anche sulla descrizione
 (c'è un caso del 2018 con codice 00)</note>
       <xloc>435</xloc>
       <yloc>294</yloc>
-      <width>190</width>
-      <heigth>54</heigth>
+      <width>238</width>
+      <heigth>70</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
@@ -1066,6 +1066,136 @@ Aggiunto il test anche sulla descrizione
     </notepad>
   </notepads>
   <connection>
+    <name>areas_formazione</name>
+    <server>svi1db.regione.liguria.it</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>AMCF</database>
+    <port>1524</port>
+    <username>dwh</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be96b8d2</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1524</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>cardiopacs</name>
+    <server>10.106.111.14</server>
+    <type>MSSQLNATIVE</type>
+    <access>Native</access>
+    <database>ExtensaDataExport</database>
+    <port>1433</port>
+    <username>sia</username>
+    <password>Encrypted 293c5fd9014c6d9d7ff34a55187bc9f8d</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQLUseIntegratedSecurity</code>
+        <attribute>false</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1433</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>db_sopra</name>
     <server>ora_sopra.usl1.imperiese</server>
     <type>ORACLE</type>
@@ -1074,10 +1204,149 @@ Aggiunto il test anche sulla descrizione
     <port>1526</port>
     <username>dwh</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10be96b8d2</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>db_sopra_cupreport</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>cupreport</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79bc75ce9dbdce</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+
+</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>db_sopra_hsp</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>hsp</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be9abcca</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_ORACLE.NLS_TERRITORY</code>
+        <attribute>america</attribute>
+      </attribute>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
@@ -1141,9 +1410,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <port>1526</port>
     <username>pdi_logger</username>
     <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -1160,6 +1429,73 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <attribute>
         <code>PORT_NUMBER</code>
         <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>Patidok</name>
+    <server>svc_sio</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>SIO</database>
+    <port>1521</port>
+    <username>patidok</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb09af648f96ffd1</password>
+    <servername/>
+    <data_tablespace>PATI_MV</data_tablespace>
+    <index_tablespace>PATI_MV</index_tablespace>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -1314,13 +1650,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   <step>
     <name>Accessi_PS da Patidok</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
@@ -1394,6 +1730,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 , Motivo_Trasf
 , Istituto_Trasf
 , Probl_Triage
+, num_rivalutazioni											-- dal FreeScreen VI_PS_RIVA (2545)
 FROM V_EXPORT_ACCESSI_PS@patidok p
 Where
 p.DATADIMISSIONE Between (Trunc(?) - ${BACK_DAYS}) And Trunc(?-1)
@@ -1412,7 +1749,1598 @@ datadimissione desc, ora_dim desc
     <execute_each_row>N</execute_each_row>
     <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ANNO</name>
+        <length>4</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>ANNO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>MESE</name>
+        <length>2</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>MESE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>NROCASO</name>
+        <length>12</length>
+        <precision>2</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>NROCASO</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>IDPAZIENTE</name>
+        <length>80</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>IDPAZIENTE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>COD_UO</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_UO</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>DESC_COD_UO</name>
+        <length>12</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>DESC_COD_UO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COD_FISCALE</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_FISCALE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>CRA</name>
+        <length>32</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>CRA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COGNOME</name>
+        <length>80</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COGNOME</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>NOME</name>
+        <length>80</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>NOME</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>SESSO</name>
+        <length>1</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>SESSO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATANASCITA</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>DATANASCITA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COMUNERESIDENZA</name>
+        <length>7</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COMUNERESIDENZA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>STATORESIDENZA</name>
+        <length>3</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>STATORESIDENZA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>ASL</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>ASL</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COD_MODALITA_DIMISSIONE</name>
+        <length>80</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_MODALITA_DIMISSIONE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATAENTRATA</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>DATAENTRATA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ORAENTRATA</name>
+        <length>4</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>ORAENTRATA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATADIMISSIONE</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>DATADIMISSIONE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>STATO</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>STATO</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>CODICE_COLORE_TRIAGE</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>CODICE_COLORE_TRIAGE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COLORE_TRIAGE</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COLORE_TRIAGE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COD_URGENZA_EXTRA</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_URGENZA_EXTRA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COD_MEZZO</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_MEZZO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>MEZZO</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>MEZZO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COD_MODALITA</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_MODALITA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>MODALITA_ACCESSO</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>MODALITA_ACCESSO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>LUOGO_EVENTO</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>LUOGO_EVENTO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>CODICE_COLORE_VISITA</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>CODICE_COLORE_VISITA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COLORE_VISITA</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COLORE_VISITA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>SALA_VISITA</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>SALA_VISITA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_VISITA</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>DATA_VISITA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ORA_VISITA</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>ORA_VISITA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ORA_DIM</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>ORA_DIM</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>PROGN_GIORNI</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>PROGN_GIORNI</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>PROGN_RISERVATA</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>PROGN_RISERVATA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>CODICE_COLORE_DIMISSIONE</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>CODICE_COLORE_DIMISSIONE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COLORE_DIMISSIONE</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COLORE_DIMISSIONE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ESITO</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>ESITO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>RIC_OBI</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>RIC_OBI</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>CDC</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>CDC</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>CDC_APPOGGI</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>CDC_APPOGGI</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COD_ESITPS</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_ESITPS</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ESITOBI</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>ESITOBI</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COD_ESITOBI</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_ESITOBI</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>MEDICO</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>MEDICO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COD_PRI_DIMI</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_PRI_DIMI</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COD_PRI_VISI</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_PRI_VISI</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COD_PRI_LAST</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_PRI_LAST</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>IMPORTO_TICKET</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>IMPORTO_TICKET</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>PROBL_PRINC</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>PROBL_PRINC</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>MOD_INVIO</name>
+        <length>200</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>MOD_INVIO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_ACCESSO</name>
+        <length>4000</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>DATA_ACCESSO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ORA_ACCESSO</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>ORA_ACCESSO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COD_DIAGNOSI</name>
+        <length>80</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_DIAGNOSI</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>DES_DIAGNOSI</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>DES_DIAGNOSI</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COD_TIPO_EVENTO</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>COD_TIPO_EVENTO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_EVENTO</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>TIPO_EVENTO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>INDIRIZZO</name>
+        <length>70</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>INDIRIZZO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>INDIRIZZO_2</name>
+        <length>70</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>INDIRIZZO_2</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TELEFONO</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>TELEFONO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>STATO_PAZIENTE</name>
+        <length>32</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>STATO_PAZIENTE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>INFERMIERE</name>
+        <length>32</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>INFERMIERE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>FLAG_DOLORE</name>
+        <length>32</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>FLAG_DOLORE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TXT_DOLORE</name>
+        <length>2560</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>TXT_DOLORE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>MOTIVO_TRASF</name>
+        <length>50</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>MOTIVO_TRASF</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ISTITUTO_TRASF</name>
+        <length>50</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>ISTITUTO_TRASF</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>PROBL_TRIAGE</name>
+        <length>3500</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>PROBL_TRIAGE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>NUM_RIVALUTAZIONI</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS da Patidok</origin>
+        <comments>NUM_RIVALUTAZIONI</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1428,16 +3356,16 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Accessi_PS_buffer</name>
     <type>TableOutput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
-    <schema />
+    <schema/>
     <table>Accessi_PS_buffer</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
@@ -1445,17 +3373,18 @@ datadimissione desc, ora_dim desc
     <use_batch>Y</use_batch>
     <specify_fields>N</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
+    <partitioning_field/>
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
+    <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field />
+    <return_field/>
     <fields>
     </fields>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1471,25 +3400,25 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Accessi_PS_scartati</name>
     <type>InsertUpdate</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
-      <schema />
+      <schema/>
       <table>Accessi_PS_scartati</table>
       <key>
         <name>NROCASO</name>
         <field>NROCASO</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <value>
         <name>ANNO</name>
@@ -1831,8 +3760,29 @@ datadimissione desc, ora_dim desc
         <rename>CDC_APPOGGI</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>MOTIVO_TRASF</name>
+        <rename>MOTIVO_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ISTITUTO_TRASF</name>
+        <rename>ISTITUTO_TRASF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PROBL_TRIAGE</name>
+        <rename>PROBL_TRIAGE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NUM_RIVALUTAZIONI</name>
+        <rename>NUM_RIVALUTAZIONI</rename>
+        <update>Y</update>
+      </value>
     </lookup>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1848,20 +3798,21 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Calculator</name>
     <type>Calculator</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
+    <failIfNoFile>N</failIfNoFile>
     <calculation>
       <field_name>meno_uno</field_name>
       <calc_type>CONSTANT</calc_type>
       <field_a>-1</field_a>
-      <field_b />
-      <field_c />
+      <field_b/>
+      <field_c/>
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -1869,69 +3820,70 @@ datadimissione desc, ora_dim desc
       <conversion_mask>0</conversion_mask>
       <decimal_symbol>.</decimal_symbol>
       <grouping_symbol>,</grouping_symbol>
-      <currency_symbol />
+      <currency_symbol/>
     </calculation>
     <calculation>
       <field_name>dataora_inizio</field_name>
       <calc_type>ADD_DAYS</calc_type>
       <field_a>lastexec</field_a>
       <field_b>meno_trenta</field_b>
-      <field_c />
+      <field_c/>
       <value_type>Date</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>Y</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
     <calculation>
       <field_name>dataora_fine</field_name>
       <calc_type>ADD_DAYS</calc_type>
       <field_a>sysdate</field_a>
       <field_b>meno_uno</field_b>
-      <field_c />
+      <field_c/>
       <value_type>Date</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>Y</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
     <calculation>
       <field_name>data_inizio</field_name>
       <calc_type>REMOVE_TIME_FROM_DATE</calc_type>
       <field_a>dataora_inizio</field_a>
-      <field_b />
-      <field_c />
+      <field_b/>
+      <field_c/>
       <value_type>None</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
     <calculation>
       <field_name>data_fine</field_name>
       <calc_type>REMOVE_TIME_FROM_DATE</calc_type>
       <field_a>dataora_fine</field_a>
-      <field_b />
-      <field_c />
+      <field_b/>
+      <field_c/>
       <value_type>None</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1947,13 +3899,13 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Chk Gestione Doppi</name>
     <type>FilterRows</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <send_true_to>Sort rows</send_true_to>
     <send_false_to>catch_Ins_per_Errrore</send_false_to>
@@ -1962,7 +3914,7 @@ datadimissione desc, ora_dim desc
         <negated>N</negated>
         <leftvalue>Gestione_Doppi</leftvalue>
         <function>=</function>
-        <rightvalue />
+        <rightvalue/>
         <value>
           <name>constant</name>
           <type>String</type>
@@ -1970,11 +3922,12 @@ datadimissione desc, ora_dim desc
           <length>-1</length>
           <precision>-1</precision>
           <isnull>N</isnull>
-          <mask />
+          <mask/>
         </value>
       </condition>
     </compare>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1990,42 +3943,43 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Date nel LOG</name>
     <type>SetVariable</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
         <field_name>lastexec</field_name>
         <variable_name>LASTEXEC</variable_name>
         <variable_type>ROOT_JOB</variable_type>
-        <default_value />
+        <default_value/>
       </field>
       <field>
         <field_name>sysdate</field_name>
         <variable_name>SYSDATE</variable_name>
         <variable_type>ROOT_JOB</variable_type>
-        <default_value />
+        <default_value/>
       </field>
       <field>
         <field_name>data_inizio</field_name>
         <variable_name>DATA_INIZIO</variable_name>
         <variable_type>ROOT_JOB</variable_type>
-        <default_value />
+        <default_value/>
       </field>
       <field>
         <field_name>data_fine</field_name>
         <variable_name>DATA_FINE</variable_name>
         <variable_type>ROOT_JOB</variable_type>
-        <default_value />
+        <default_value/>
       </field>
     </fields>
     <use_formatting>N</use_formatting>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2041,27 +3995,28 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Delete Accessi_PS_scartati</name>
     <type>Delete</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
     <commit>100</commit>
     <lookup>
-      <schema />
+      <schema/>
       <table>Accessi_PS_scartati</table>
       <key>
         <name>NrCaso_Corretto</name>
         <field>NROCASO</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
     </lookup>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2077,15 +4032,16 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Dummy (do nothing)</name>
     <type>Dummy</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2101,13 +4057,13 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Filter rows</name>
     <type>FilterRows</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <send_true_to>Delete Accessi_PS_scartati</send_true_to>
     <send_false_to>Dummy (do nothing)</send_false_to>
@@ -2116,10 +4072,11 @@ datadimissione desc, ora_dim desc
         <negated>N</negated>
         <leftvalue>NrCaso_Corretto</leftvalue>
         <function>IS NOT NULL</function>
-        <rightvalue />
+        <rightvalue/>
       </condition>
     </compare>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2135,13 +4092,13 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Get System Info</name>
     <type>SystemInfo</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
@@ -2153,7 +4110,8 @@ datadimissione desc, ora_dim desc
         <type>system date (fixed)</type>
       </field>
     </fields>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2169,13 +4127,13 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Get System Info 2</name>
     <type>SystemInfo</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
@@ -2191,7 +4149,8 @@ datadimissione desc, ora_dim desc
         <type>batch ID</type>
       </field>
     </fields>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2207,13 +4166,13 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Get System Info 3</name>
     <type>SystemInfo</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
@@ -2229,7 +4188,8 @@ datadimissione desc, ora_dim desc
         <type>system date (fixed)</type>
       </field>
     </fields>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2245,29 +4205,30 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Get Variables</name>
     <type>GetVariable</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
         <name>Gestione_Doppi</name>
         <variable>${DEL_DOUBLE_ID}</variable>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2283,38 +4244,39 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Lookup Scartati</name>
     <type>DBLookup</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema />
+      <schema/>
       <table>Accessi_PS_scartati</table>
-      <orderby />
+      <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
         <name>NROCASO</name>
         <field>NROCASO</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <value>
         <name>NROCASO</name>
         <rename>NrCaso_Corretto</rename>
-        <default />
+        <default/>
         <type>String</type>
       </value>
     </lookup>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2330,20 +4292,20 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Sort rows</name>
     <type>SortRows</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <directory>%%java.io.tmpdir%%</directory>
     <prefix>out</prefix>
     <sort_size>1000000</sort_size>
-    <free_memory />
+    <free_memory/>
     <compress>N</compress>
-    <compress_variable />
+    <compress_variable/>
     <unique_rows>N</unique_rows>
     <fields>
       <field>
@@ -2355,7 +4317,8 @@ datadimissione desc, ora_dim desc
         <presorted>N</presorted>
       </field>
     </fields>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2371,13 +4334,13 @@ datadimissione desc, ora_dim desc
   <step>
     <name>Unique rows</name>
     <type>Unique</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <count_rows>N</count_rows>
     <count_field>duplicazioni</count_field>
@@ -2389,7 +4352,8 @@ datadimissione desc, ora_dim desc
         <case_insensitive>N</case_insensitive>
       </field>
     </fields>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2405,13 +4369,13 @@ datadimissione desc, ora_dim desc
   <step>
     <name>catch_Ins_per_Errrore</name>
     <type>FilterRows</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <send_true_to>Get System Info 2</send_true_to>
     <send_false_to>catch_casi_TEST</send_false_to>
@@ -2423,7 +4387,7 @@ datadimissione desc, ora_dim desc
             <negated>N</negated>
             <leftvalue>COD_ESITPS</leftvalue>
             <function>=</function>
-            <rightvalue />
+            <rightvalue/>
             <value>
               <name>constant</name>
               <type>String</type>
@@ -2431,7 +4395,7 @@ datadimissione desc, ora_dim desc
               <length>-1</length>
               <precision>-1</precision>
               <isnull>N</isnull>
-              <mask />
+              <mask/>
             </value>
           </condition>
           <condition>
@@ -2439,7 +4403,7 @@ datadimissione desc, ora_dim desc
             <operator>OR</operator>
             <leftvalue>ESITO</leftvalue>
             <function>=</function>
-            <rightvalue />
+            <rightvalue/>
             <value>
               <name>constant</name>
               <type>String</type>
@@ -2447,13 +4411,14 @@ datadimissione desc, ora_dim desc
               <length>-1</length>
               <precision>-1</precision>
               <isnull>N</isnull>
-              <mask />
+              <mask/>
             </value>
           </condition>
         </conditions>
       </condition>
     </compare>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2469,13 +4434,13 @@ datadimissione desc, ora_dim desc
   <step>
     <name>catch_casi_TEST</name>
     <type>FilterRows</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <send_true_to>Get System Info 2</send_true_to>
     <send_false_to>remove</send_false_to>
@@ -2484,7 +4449,7 @@ datadimissione desc, ora_dim desc
         <negated>N</negated>
         <leftvalue>COGNOME</leftvalue>
         <function>=</function>
-        <rightvalue />
+        <rightvalue/>
         <value>
           <name>constant</name>
           <type>String</type>
@@ -2492,11 +4457,12 @@ datadimissione desc, ora_dim desc
           <length>-1</length>
           <precision>-1</precision>
           <isnull>N</isnull>
-          <mask />
+          <mask/>
         </value>
       </condition>
     </compare>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2512,25 +4478,25 @@ datadimissione desc, ora_dim desc
   <step>
     <name>ins Accessi_PS_Doppi</name>
     <type>InsertUpdate</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
     <commit>100</commit>
     <update_bypassed>Y</update_bypassed>
     <lookup>
-      <schema />
+      <schema/>
       <table>Accessi_PS_Doppi</table>
       <key>
         <name>NROCASO</name>
         <field>NROCASO</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <value>
         <name>ANNO</name>
@@ -2887,8 +4853,14 @@ datadimissione desc, ora_dim desc
         <rename>data_sys</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>NUM_RIVALUTAZIONI</name>
+        <rename>NUM_RIVALUTAZIONI</rename>
+        <update>Y</update>
+      </value>
     </lookup>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2904,29 +4876,30 @@ datadimissione desc, ora_dim desc
   <step>
     <name>meno BACK_DAYS</name>
     <type>GetVariable</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
         <name>meno_trenta</name>
         <variable>-${BACK_DAYS}</variable>
         <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2942,13 +4915,13 @@ datadimissione desc, ora_dim desc
   <step>
     <name>remove</name>
     <type>SelectValues</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <select_unspecified>N</select_unspecified>
@@ -2956,7 +4929,8 @@ datadimissione desc, ora_dim desc
         <name>Gestione_Doppi</name>
       </remove>
     </fields>
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2974,16 +4948,17 @@ datadimissione desc, ora_dim desc
       <source_step>Unique rows</source_step>
       <target_step>Get System Info 3</target_step>
       <is_enabled>Y</is_enabled>
-      <nr_valuename />
-      <descriptions_valuename />
-      <fields_valuename />
-      <codes_valuename />
-      <max_errors />
-      <max_pct_errors />
-      <min_pct_rows />
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
     </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
+  <attributes/>
 </transformation>

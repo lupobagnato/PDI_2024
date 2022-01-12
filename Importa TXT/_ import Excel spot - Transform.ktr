@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>icd9cm2009</name>
+    <name>_ import Excel spot - Transform</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -889,8 +889,8 @@
         <dynamic>N</dynamic>
         <slaveservers>
           <name>localhost:8080:Master</name>
-          <name>localhost:8081</name>
           <name>localhost:8082</name>
+          <name>localhost:8081</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -901,9 +901,9 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>sam 8081 slave</name>
           <name>sam 8082 slave</name>
           <name>sam 8080</name>
-          <name>sam 8081 slave</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -918,9 +918,9 @@
       </clusterschema>
     </clusterschemas>
     <created_user/>
-    <created_date>2019/09/16 11:46:17.278</created_date>
+    <created_date>2019/09/16 11:46:25.345</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2021/12/27 14:58:26.308</modified_date>
+    <modified_date>2021/12/21 16:40:03.349</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1330,6 +1330,61 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <connection>
+    <name>db_sopra_SPEC</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>spec</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cd82aad9</password>
+    <servername/>
+    <data_tablespace>SPEC</data_tablespace>
+    <index_tablespace>IDX_SPEC</index_tablespace>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>5</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>Patidok</name>
     <server>svc_sio</server>
     <type>ORACLE</type>
@@ -1398,14 +1453,39 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>Fixed file input</from>
-      <to>ICD9CM_2021</to>
+      <from>spot_xls</from>
+      <to>Database lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Database lookup</from>
+      <to>accesso PS ok</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Database lookup</from>
+      <to>accesso PS non trovato</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>accesso PS ok</from>
+      <to>Update</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>accesso PS non trovato</from>
+      <to>Database lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Database lookup 2</from>
+      <to>Update 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Fixed file input</name>
-    <type>FixedInput</type>
+    <name>Database lookup</name>
+    <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1414,78 +1494,143 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\__ Dati __\Progetti\SDO e PAC\Specifiche SDO\Tabelle\tabsdo2110 (solo tab variate)\2021-10-25 icd9cm07.txt</filename>
-    <line_width>208</line_width>
-    <header>N</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <line_feed>Y</line_feed>
-    <parallel>N</parallel>
-    <file_type>NONE</file_type>
-    <encoding/>
-    <add_to_result_filenames>N</add_to_result_filenames>
-    <fields>
-      <field>
-        <name>sezione</name>
+    <connection>db_sopra</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>x_ACCESSI_PS</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>DATA_SOMM</name>
+        <field>DATAENTRATA</field>
+        <condition>&gt;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>DATA_28</name>
+        <field>DATAENTRATA</field>
+        <condition>&lt;=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>COGNOME</name>
+        <field>COGNOME</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>NOME</name>
+        <field>NOME</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>NROCASO</name>
+        <rename>NROCASO</rename>
+        <default/>
         <type>String</type>
-        <format>null</format>
-        <trim_type>none</trim_type>
-        <currency>null</currency>
-        <decimal>null</decimal>
-        <group>null</group>
-        <width>1</width>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>codice</name>
+      </value>
+      <value>
+        <name>DESC_COD_UO</name>
+        <rename>DESC_COD_UO</rename>
+        <default/>
         <type>String</type>
-        <format>null</format>
-        <trim_type>both</trim_type>
-        <currency>null</currency>
-        <decimal>null</decimal>
-        <group>null</group>
-        <width>5</width>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>des</name>
+      </value>
+      <value>
+        <name>COD_FISCALE</name>
+        <rename>COD_FISCALE</rename>
+        <default/>
         <type>String</type>
-        <format>null</format>
-        <trim_type>both</trim_type>
-        <currency>null</currency>
-        <decimal>null</decimal>
-        <group>null</group>
-        <width>200</width>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>comp_sesso</name>
+      </value>
+      <value>
+        <name>DATAENTRATA</name>
+        <rename>DATAENTRATA</rename>
+        <default/>
+        <type>None</type>
+      </value>
+      <value>
+        <name>ORAENTRATA</name>
+        <rename>ORAENTRATA</rename>
+        <default/>
         <type>String</type>
-        <format>null</format>
-        <trim_type>both</trim_type>
-        <currency>null</currency>
-        <decimal>null</decimal>
-        <group>null</group>
-        <width>1</width>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>comp_eta</name>
+      </value>
+      <value>
+        <name>DATADIMISSIONE</name>
+        <rename>DATADIMISSIONE</rename>
+        <default/>
+        <type>Date</type>
+      </value>
+      <value>
+        <name>ORA_DIM</name>
+        <rename>ORA_DIM</rename>
+        <default/>
         <type>String</type>
-        <format>null</format>
-        <trim_type>both</trim_type>
-        <currency>null</currency>
-        <decimal>null</decimal>
-        <group>null</group>
-        <width>1</width>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
+      </value>
+      <value>
+        <name>SALA_VISITA</name>
+        <rename>SALA_VISITA</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>DATA_VISITA</name>
+        <rename>DATA_VISITA</rename>
+        <default/>
+        <type>Date</type>
+      </value>
+      <value>
+        <name>ORA_VISITA</name>
+        <rename>ORA_VISITA</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>CODICE_COLORE_DIMISSIONE</name>
+        <rename>CODICE_COLORE_DIMISSIONE</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>COLORE_DIMISSIONE</name>
+        <rename>COLORE_DIMISSIONE</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>RIC_OBI</name>
+        <rename>RIC_OBI</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>REP_RICOVERO</name>
+        <rename>REP_RICOVERO</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>DES_REP_RIC</name>
+        <rename>DES_REP_RIC</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>COGNOME</name>
+        <rename>cognome_ps</rename>
+        <default/>
+        <type>None</type>
+      </value>
+      <value>
+        <name>NOME</name>
+        <rename>nome_ps</rename>
+        <default/>
+        <type>None</type>
+      </value>
+    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1495,14 +1640,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>135</xloc>
-      <yloc>116</yloc>
+      <xloc>143</xloc>
+      <yloc>130</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>ICD9CM_2021</name>
-    <type>TableOutput</type>
+    <name>Update</name>
+    <type>Update</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1511,25 +1656,62 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db_sopra_hsp</connection>
-    <schema/>
-    <table>ICD9CM_2021</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-    </fields>
+    <connection>db_sopra</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema/>
+      <table>spot_xls</table>
+      <key>
+        <name>RIGA</name>
+        <field>RIGA</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>NROCASO</name>
+        <rename>NROCASO</rename>
+      </value>
+      <value>
+        <name>DESC_COD_UO</name>
+        <rename>DESC_COD_UO</rename>
+      </value>
+      <value>
+        <name>DATAENTRATA</name>
+        <rename>DATAENTRATA</rename>
+      </value>
+      <value>
+        <name>DATADIMISSIONE</name>
+        <rename>DATADIMISSIONE</rename>
+      </value>
+      <value>
+        <name>SALA_VISITA</name>
+        <rename>SALA_VISITA</rename>
+      </value>
+      <value>
+        <name>COLORE_DIMISSIONE</name>
+        <rename>COLORE_DIMISSIONE</rename>
+      </value>
+      <value>
+        <name>REP_RICOVERO</name>
+        <rename>REP_RICOVERO</rename>
+      </value>
+      <value>
+        <name>DES_REP_RIC</name>
+        <rename>DES_REP_RIC</rename>
+      </value>
+      <value>
+        <name>cognome_ps</name>
+        <rename>cognome_ps</rename>
+      </value>
+      <value>
+        <name>nome_ps</name>
+        <rename>nome_ps</rename>
+      </value>
+    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1539,12 +1721,571 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>137</xloc>
-      <yloc>232</yloc>
+      <xloc>143</xloc>
+      <yloc>341</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>accesso PS non trovato</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>309</xloc>
+      <yloc>130</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>accesso PS ok</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>143</xloc>
+      <yloc>226</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>spot_xls</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>SELECT
+  DATA_SOMM,   DATA_SOMM+28 data_28
+, upper(COGNOME) cognome
+, upper(NOME) nome
+, REGIME_SOMM
+, SHEET
+, RIGA
+FROM DWH.SPOT_XLS
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_SOMM</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>spot_xls</origin>
+        <comments>DATA_SOMM</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_28</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>spot_xls</origin>
+        <comments>DATA_28</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>COGNOME</name>
+        <length>2000</length>
+        <precision>-1</precision>
+        <origin>spot_xls</origin>
+        <comments>COGNOME</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>NOME</name>
+        <length>2000</length>
+        <precision>-1</precision>
+        <origin>spot_xls</origin>
+        <comments>NOME</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>REGIME_SOMM</name>
+        <length>2000</length>
+        <precision>-1</precision>
+        <origin>spot_xls</origin>
+        <comments>REGIME_SOMM</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>SHEET</name>
+        <length>250</length>
+        <precision>-1</precision>
+        <origin>spot_xls</origin>
+        <comments>SHEET</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>RIGA</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>spot_xls</origin>
+        <comments>RIGA</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>143</xloc>
+      <yloc>18</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Database lookup 2</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>db_sopra</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>x_dimessi</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>DATA_SOMM</name>
+        <field>DATA_ACC</field>
+        <condition>&gt;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>DATA_28</name>
+        <field>DATA_ACC</field>
+        <condition>&lt;=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>COGNOME</name>
+        <field>COGNOME</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>NOME</name>
+        <field>NOME</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>NUM_CASO</name>
+        <rename>NUM_CASO</rename>
+        <default/>
+        <type>Number</type>
+      </value>
+      <value>
+        <name>TIPO_RICOV</name>
+        <rename>TIPO_RICOV</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>DATA_ACC</name>
+        <rename>DATA_ACC</rename>
+        <default/>
+        <type>Timestamp</type>
+      </value>
+      <value>
+        <name>ORA_ACC</name>
+        <rename>ORA_ACC</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>PRESIDIO_ACC</name>
+        <rename>PRESIDIO_ACC</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>COD_REP_ACC</name>
+        <rename>COD_REP_ACC</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>DES_REP_ACC</name>
+        <rename>DES_REP_ACC</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>DATA_DIM</name>
+        <rename>DATA_DIM</rename>
+        <default/>
+        <type>Timestamp</type>
+      </value>
+      <value>
+        <name>ORA_DIM</name>
+        <rename>ORA_DIM</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>PRESIDIO_DIM</name>
+        <rename>PRESIDIO_DIM</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>COD_REP_DIM</name>
+        <rename>COD_REP_DIM</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>DES_REP_DIM</name>
+        <rename>DES_REP_DIM</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>STANZA</name>
+        <rename>STANZA</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>ESITO_COD</name>
+        <rename>ESITO_COD</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>ESITO_DES</name>
+        <rename>ESITO_DES</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>COD_FISC</name>
+        <rename>COD_FISC</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>COGNOME</name>
+        <rename>COGNOME_ricov</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>NOME</name>
+        <rename>NOME_ricov</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>SESSO</name>
+        <rename>SESSO</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>DATA_NASCITA</name>
+        <rename>DATA_NASCITA</rename>
+        <default/>
+        <type>Timestamp</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>501</xloc>
+      <yloc>131</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Update 2</name>
+    <type>Update</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>db_sopra</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema/>
+      <table>spot_xls</table>
+      <key>
+        <name>RIGA</name>
+        <field>RIGA</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>NUM_CASO</name>
+        <rename>NUM_CASO</rename>
+      </value>
+      <value>
+        <name>TIPO_RICOV</name>
+        <rename>TIPO_RICOV</rename>
+      </value>
+      <value>
+        <name>DATA_ACC</name>
+        <rename>DATA_ACC</rename>
+      </value>
+      <value>
+        <name>ORA_ACC</name>
+        <rename>ORA_ACC</rename>
+      </value>
+      <value>
+        <name>PRESIDIO_ACC</name>
+        <rename>PRESIDIO_ACC</rename>
+      </value>
+      <value>
+        <name>COD_REP_ACC</name>
+        <rename>COD_REP_ACC</rename>
+      </value>
+      <value>
+        <name>DES_REP_ACC</name>
+        <rename>DES_REP_ACC</rename>
+      </value>
+      <value>
+        <name>DATA_DIM</name>
+        <rename>DATA_DIM</rename>
+      </value>
+      <value>
+        <name>ORA_DIM</name>
+        <rename>ORA_DIM</rename>
+      </value>
+      <value>
+        <name>PRESIDIO_DIM</name>
+        <rename>PRESIDIO_DIM</rename>
+      </value>
+      <value>
+        <name>COD_REP_DIM</name>
+        <rename>COD_REP_DIM</rename>
+      </value>
+      <value>
+        <name>DES_REP_DIM</name>
+        <rename>DES_REP_DIM</rename>
+      </value>
+      <value>
+        <name>STANZA</name>
+        <rename>STANZA</rename>
+      </value>
+      <value>
+        <name>ESITO_COD</name>
+        <rename>ESITO_COD</rename>
+      </value>
+      <value>
+        <name>ESITO_DES</name>
+        <rename>ESITO_DES</rename>
+      </value>
+      <value>
+        <name>COD_FISC</name>
+        <rename>COD_FISC</rename>
+      </value>
+      <value>
+        <name>COGNOME_ricov</name>
+        <rename>COGNOME_ricov</rename>
+      </value>
+      <value>
+        <name>NOME_ricov</name>
+        <rename>NOME_ricov</rename>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>504</xloc>
+      <yloc>343</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
+    <error>
+      <source_step>Database lookup</source_step>
+      <target_step>accesso PS non trovato</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
