@@ -1,61 +1,132 @@
 <job>
   <name>sync_COVID</name>
-  <description />
-  <extended_description />
-  <job_version />
+  <description/>
+  <extended_description/>
+  <job_version/>
   <job_status>0</job_status>
   <directory>/COVID</directory>
-  <created_user />
+  <created_user/>
   <created_date>2020/08/25 10:34:06.469</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2021/10/18 12:01:00.549</modified_date>
+  <modified_date>2021/12/28 10:35:31.450</modified_date>
   <parameters>
     <parameter>
       <name>ora_max</name>
       <default_value>11</default_value>
-      <description>x esecuzione sync_Covid_Alisa</description>
+      <description>x esecuzione sync_Covid_Alisa ( &lt; )</description>
     </parameter>
     <parameter>
       <name>ora_min</name>
-      <default_value>5</default_value>
-      <description>x esecuzione sync_Covid_Alisa</description>
+      <default_value>4</default_value>
+      <description>x esecuzione sync_Covid_Alisa ( >= )</description>
     </parameter>
     <parameter>
       <name>var_CC</name>
       <default_value>${_email_CC}</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_CCN</name>
       <default_value>${_email_CCN}</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_From</name>
       <default_value>${_email_From}</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_FromName</name>
       <default_value>${_email_FromName}</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_Port</name>
       <default_value>${_email_Port}</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_Smtp</name>
       <default_value>${_email_Smtp}</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_To</name>
       <default_value>${_email_To}</default_value>
-      <description />
+      <description/>
     </parameter>
   </parameters>
+  <connection>
+    <name>areas_formazione</name>
+    <server>svi1db.regione.liguria.it</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>AMCF</database>
+    <port>1524</port>
+    <username>dwh</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be96b8d2</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1524</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <connection>
     <name>cardiopacs</name>
     <server>10.106.111.14</server>
@@ -65,9 +136,9 @@
     <port>1433</port>
     <username>sia</username>
     <password>Encrypted 293c5fd9014c6d9d7ff34a55187bc9f8d</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -124,9 +195,9 @@
     <port>1526</port>
     <username>dwh</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10be96b8d2</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -191,9 +262,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <port>1526</port>
     <username>cupreport</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79bc75ce9dbdce</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -259,9 +330,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <port>1526</port>
     <username>hsp</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10be9abcca</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>EXTRA_OPTION_ORACLE.NLS_TERRITORY</code>
@@ -330,9 +401,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <port>1526</port>
     <username>pdi_logger</username>
     <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -397,7 +468,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <port>1521</port>
     <username>patidok</username>
     <password>Encrypted 2be98afc86aa7f2e4cb09af648f96ffd1</password>
-    <servername />
+    <servername/>
     <data_tablespace>PATI_MV</data_tablespace>
     <index_tablespace>PATI_MV</index_tablespace>
     <attributes>
@@ -460,25 +531,25 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>carte</name>
       <hostname>localhost</hostname>
       <port>8181</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
       <name>Carte_server</name>
       <hostname>minollo</hostname>
-      <port />
-      <webAppName />
+      <port/>
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -486,12 +557,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>EC_MASTER_1</name>
       <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -499,12 +570,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>EC_SLAVE_1</name>
       <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -512,12 +583,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>EC_SLAVE_2</name>
       <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -525,12 +596,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>EC_SLAVE_3</name>
       <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -538,12 +609,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>EC_SLAVE_4</name>
       <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -551,12 +622,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>EC_SLAVE_5</name>
       <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -564,12 +635,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Jos 10.0.0.169</name>
       <hostname>10.0.0.169</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -577,12 +648,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Localhost 8081</name>
       <hostname>localhost</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -590,12 +661,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8080</name>
       <hostname>localhost</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -603,12 +674,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8080 master</name>
       <hostname>localhost</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -616,12 +687,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8080:Master</name>
       <hostname>localhost</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -629,12 +700,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8081</name>
       <hostname>localhost</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -642,12 +713,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8082</name>
       <hostname>localhost</hostname>
       <port>8082</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -655,12 +726,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8083</name>
       <hostname>localhost</hostname>
       <port>8083</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -668,12 +739,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8084</name>
       <hostname>localhost</hostname>
       <port>8084</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -681,25 +752,25 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Mike ETL Server</name>
       <hostname>localhost</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
       <name>pc115818</name>
       <hostname>pc115818</hostname>
-      <port />
-      <webAppName />
+      <port/>
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -707,12 +778,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Quasar</name>
       <hostname>quasar</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -720,12 +791,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Random</name>
       <hostname>random</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -733,12 +804,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>ruwvs07</name>
       <hostname>ruwvs07</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -746,12 +817,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>sam 8080</name>
       <hostname>127.0.0.1</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -759,12 +830,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>sam 8081 slave</name>
       <hostname>127.0.0.1</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -772,12 +843,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>sam 8082 slave</name>
       <hostname>127.0.0.1</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -785,12 +856,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>server8080</name>
       <hostname>127.0.0.1</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -798,12 +869,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>server8090</name>
       <hostname>127.0.0.1</hostname>
       <port>8090</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -811,12 +882,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>server9000</name>
       <hostname>127.0.0.1</hostname>
       <port>9000</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -824,12 +895,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Warmath</name>
       <hostname>liveinalpharetta.com</hostname>
       <port>8083</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -837,12 +908,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Wayne ETL Server</name>
       <hostname>localhost</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -850,12 +921,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>zebulon slave</name>
       <hostname>192.168.1.277</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -864,9 +935,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <connection>${_LogDb}</connection>
     <schema>${_LogSchema}</schema>
     <table>${_LogJob}</table>
-    <size_limit_lines />
-    <interval />
-    <timeout_days />
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
     <field>
       <id>ID_JOB</id>
       <enabled>Y</enabled>
@@ -974,10 +1045,10 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
   </job-log-table>
   <jobentry-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -1065,10 +1136,10 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
   </jobentry-log-table>
   <channel-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -1131,32 +1202,34 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
   </channel-log-table>
   <pass_batchid>N</pass_batchid>
-  <shared_objects_file />
+  <shared_objects_file/>
   <entries>
     <entry>
       <name>sync_Covid_Alisa</name>
-      <description />
+      <description/>
       <type>JOB</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
+      <job_object_id/>
+      <filename/>
       <jobname>sync_Covid_Alisa</jobname>
       <directory>/COVID</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
-      <slave_server_name />
+      <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <run_configuration/>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -1166,11 +1239,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <nr>0</nr>
       <xloc>1128</xloc>
       <yloc>377</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Covid_Alisa SI</name>
-      <description />
+      <description/>
       <type>WRITE_TO_LOG</type>
+      <attributes/>
       <logmessage>ora_min = ${ora_min}
 ora_max = ${ora_max}</logmessage>
       <loglevel>Basic</loglevel>
@@ -1180,14 +1255,16 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>948</xloc>
       <yloc>375</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>lookup_863</name>
-      <description />
+      <description/>
       <type>TRANS</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>lookup_863</transname>
       <directory>/COVID</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -1196,19 +1273,20 @@ ora_max = ${ora_max}</logmessage>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration/>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -1217,29 +1295,31 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>582</xloc>
       <yloc>75</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Err sync_Covid_Alisa</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
+      <destinationCc/>
+      <destinationBCc/>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: Errore dal Job sync_Covid_Alisa</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1247,9 +1327,9 @@ ora_max = ${ora_max}</logmessage>
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity/>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>      </filetypes>
       <embeddedimages>
       </embeddedimages>
@@ -1258,29 +1338,31 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>1263</xloc>
       <yloc>377</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Mail Ok</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
+      <destinationCc/>
+      <destinationBCc/>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: Ok</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1288,9 +1370,9 @@ ora_max = ${ora_max}</logmessage>
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity/>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>      </filetypes>
       <embeddedimages>
       </embeddedimages>
@@ -1299,29 +1381,31 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>1124</xloc>
       <yloc>479</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Err agg_tamponi_x_CF</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
+      <destinationCc/>
+      <destinationBCc/>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: Errore da agg_tamponi_x_CF</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1329,9 +1413,9 @@ ora_max = ${ora_max}</logmessage>
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity/>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>      </filetypes>
       <embeddedimages>
       </embeddedimages>
@@ -1340,31 +1424,34 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>620</xloc>
       <yloc>590</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>sync_buffers</name>
-      <description />
+      <description/>
       <type>JOB</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
+      <job_object_id/>
+      <filename/>
       <jobname>sync_buffers</jobname>
       <directory>/COVID</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
-      <slave_server_name />
+      <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <run_configuration/>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -1374,14 +1461,16 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>41</xloc>
       <yloc>200</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>sync_cube_866</name>
-      <description />
+      <description/>
       <type>TRANS</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>sync_cube_866</transname>
       <directory>/COVID</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -1390,19 +1479,20 @@ ora_max = ${ora_max}</logmessage>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration/>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -1411,29 +1501,31 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>168</xloc>
       <yloc>75</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Err cube_866</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
+      <destinationCc/>
+      <destinationBCc/>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: Errore da sync_cube_866</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1441,9 +1533,9 @@ ora_max = ${ora_max}</logmessage>
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity/>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>      </filetypes>
       <embeddedimages>
       </embeddedimages>
@@ -1452,14 +1544,16 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>168</xloc>
       <yloc>205</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>sync_cube_degenti</name>
-      <description />
+      <description/>
       <type>TRANS</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>sync_cube_degenti</transname>
       <directory>/COVID</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -1468,19 +1562,20 @@ ora_max = ${ora_max}</logmessage>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration/>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -1489,29 +1584,31 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>437</xloc>
       <yloc>75</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Err cube_degenti</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
+      <destinationCc/>
+      <destinationBCc/>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: Errore da sync_cube_degenti</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1519,9 +1616,9 @@ ora_max = ${ora_max}</logmessage>
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity/>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>      </filetypes>
       <embeddedimages>
       </embeddedimages>
@@ -1530,11 +1627,13 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>437</xloc>
       <yloc>205</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>START</name>
-      <description />
+      <description/>
       <type>SPECIAL</type>
+      <attributes/>
       <start>Y</start>
       <dummy>N</dummy>
       <repeat>N</repeat>
@@ -1550,30 +1649,32 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>42</xloc>
       <yloc>14</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Err lookup_863_ATT</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
+      <destinationCc/>
+      <destinationBCc/>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: Errore da lookup_863_ATT</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
+      <contact_person/>
+      <contact_phone/>
       <comment>lookup per valorizzare i campi ta_*
 della Cube_Degenti</comment>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1581,9 +1682,9 @@ della Cube_Degenti</comment>
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity/>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>      </filetypes>
       <embeddedimages>
       </embeddedimages>
@@ -1592,14 +1693,16 @@ della Cube_Degenti</comment>
       <nr>0</nr>
       <xloc>717</xloc>
       <yloc>205</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>lookup_degenti_x_tamponi</name>
-      <description />
+      <description/>
       <type>TRANS</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>lookup_degenti_x_tamponi</transname>
       <directory>/COVID</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -1608,19 +1711,20 @@ della Cube_Degenti</comment>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration/>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -1629,14 +1733,16 @@ della Cube_Degenti</comment>
       <nr>0</nr>
       <xloc>201</xloc>
       <yloc>478</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>sync_cube_863</name>
-      <description />
+      <description/>
       <type>TRANS</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>sync_cube_863</transname>
       <directory>/COVID</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -1645,19 +1751,20 @@ della Cube_Degenti</comment>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration/>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -1666,30 +1773,32 @@ della Cube_Degenti</comment>
       <nr>0</nr>
       <xloc>280</xloc>
       <yloc>75</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Err lookup_863</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
+      <destinationCc/>
+      <destinationBCc/>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: Errore da lookup_863</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
+      <contact_person/>
+      <contact_phone/>
       <comment>lookup per valorizzare i campi t_*
 della Cube_Degenti</comment>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1697,9 +1806,9 @@ della Cube_Degenti</comment>
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity/>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>      </filetypes>
       <embeddedimages>
       </embeddedimages>
@@ -1708,14 +1817,16 @@ della Cube_Degenti</comment>
       <nr>0</nr>
       <xloc>582</xloc>
       <yloc>205</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>lookup_863_ATT</name>
-      <description />
+      <description/>
       <type>TRANS</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>lookup_863_ATT</transname>
       <directory>/COVID</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -1724,19 +1835,20 @@ della Cube_Degenti</comment>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration/>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -1745,29 +1857,31 @@ della Cube_Degenti</comment>
       <nr>0</nr>
       <xloc>717</xloc>
       <yloc>75</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Err cube_863</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
+      <destinationCc/>
+      <destinationBCc/>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: Errore da sync_cube_863</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1775,9 +1889,9 @@ della Cube_Degenti</comment>
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity/>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>      </filetypes>
       <embeddedimages>
       </embeddedimages>
@@ -1786,30 +1900,32 @@ della Cube_Degenti</comment>
       <nr>0</nr>
       <xloc>281</xloc>
       <yloc>205</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Err lookup_degenti_x_tamponi</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
+      <destinationCc/>
+      <destinationBCc/>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: Errore da  lookup_degenti_x_tamponi</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
+      <contact_person/>
+      <contact_phone/>
       <comment>lookup per valorizzare DEG_Num_Caso
 della Cube_Stat_863</comment>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1817,9 +1933,9 @@ della Cube_Stat_863</comment>
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity/>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>      </filetypes>
       <embeddedimages>
       </embeddedimages>
@@ -1828,14 +1944,16 @@ della Cube_Stat_863</comment>
       <nr>0</nr>
       <xloc>202</xloc>
       <yloc>593</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>lookup_anagrafi_x_tamponi</name>
-      <description />
+      <description/>
       <type>TRANS</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>lookup_anagrafi_x_tamponi</transname>
       <directory>/COVID</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -1844,19 +1962,20 @@ della Cube_Stat_863</comment>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration/>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -1865,14 +1984,16 @@ della Cube_Stat_863</comment>
       <nr>0</nr>
       <xloc>403</xloc>
       <yloc>478</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>agg_tamponi_x_CF</name>
-      <description />
+      <description/>
       <type>TRANS</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>agg_tamponi_x_CF</transname>
       <directory>/COVID</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -1881,19 +2002,20 @@ della Cube_Stat_863</comment>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration/>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -1902,13 +2024,15 @@ della Cube_Stat_863</comment>
       <nr>0</nr>
       <xloc>620</xloc>
       <yloc>478</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>JS CovidAlisa</name>
-      <description />
+      <description/>
       <type>EVAL</type>
+      <attributes/>
       <script>var d = new Date();
-var HH = d.getHours();
+var HH = d.getHours();     // ritorna un numero intero (niente minuti)
 
 ora_min = parent_job.getVariable("ora_min");
 hh_min = new java.lang.Integer(ora_min);
@@ -1917,7 +2041,7 @@ ora_max = parent_job.getVariable("ora_max");
 hh_max = new java.lang.Integer(ora_max);
 
 
-if (HH > hh_min &amp;&amp; HH &lt; hh_max) true;
+if (HH >= hh_min &amp;&amp; HH &lt; hh_max) true;    // inizio dalle 4 alle 10:59, con il cron_fast delle 4 e delle 8
 else false;
 </script>
       <parallel>N</parallel>
@@ -1925,29 +2049,31 @@ else false;
       <nr>0</nr>
       <xloc>875</xloc>
       <yloc>478</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Err lookup_anagrafi_x_tamponi</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
+      <destinationCc/>
+      <destinationBCc/>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: Errore da  lookup_anagrafi_x_tamponi</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1955,9 +2081,9 @@ else false;
       <encoding>UTF-8</encoding>
       <priority>normal</priority>
       <importance>normal</importance>
-      <sensitivity />
+      <sensitivity/>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>      </filetypes>
       <embeddedimages>
       </embeddedimages>
@@ -1966,11 +2092,13 @@ else false;
       <nr>0</nr>
       <xloc>403</xloc>
       <yloc>591</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Covid_Alisa NO</name>
-      <description />
+      <description/>
       <type>WRITE_TO_LOG</type>
+      <attributes/>
       <logmessage>ora_min = ${ora_min}
 ora_max = ${ora_max}</logmessage>
       <loglevel>Basic</loglevel>
@@ -1980,11 +2108,13 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>1012</xloc>
       <yloc>477</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Host di Esecuzione</name>
-      <description />
+      <description/>
       <type>WRITE_TO_LOG</type>
+      <attributes/>
       <logmessage>
 "Host: ${__HostEsecuzione__}"
 </logmessage>
@@ -1995,46 +2125,49 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>41</xloc>
       <yloc>70</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>TX_report_covid</name>
-      <description />
+      <description/>
       <type>JOB</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
+      <job_object_id/>
+      <filename/>
       <jobname>TX_report_covid</jobname>
       <directory>/COVID</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
-      <slave_server_name />
+      <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <run_configuration/>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
           <name>output_path</name>
-          <stream_name />
-          <value />
+          <stream_name/>
+          <value/>
         </parameter>
         <parameter>
           <name>var_To</name>
-          <stream_name />
-          <value>covid19@asl1.liguria.it</value>
+          <stream_name/>
+          <value>p.sciandra@asl1.liguria.it, covid19@asl1.liguria.it</value>
         </parameter>
         <parameter>
           <name>var_To_Local</name>
-          <stream_name />
+          <stream_name/>
           <value>p.sciandra@asl1.liguria.it</value>
         </parameter>
       </parameters>
@@ -2044,28 +2177,33 @@ ora_max = ${ora_max}</logmessage>
       <nr>0</nr>
       <xloc>754</xloc>
       <yloc>478</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Interrompi job 1</name>
-      <description />
+      <description/>
       <type>ABORT</type>
+      <attributes/>
       <message>Errore nelle prime 5 transf</message>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>437</xloc>
       <yloc>341</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Interrompi job 2</name>
-      <description />
+      <description/>
       <type>ABORT</type>
+      <attributes/>
       <message>Errore da ultime 4 transf</message>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1059</xloc>
       <yloc>659</yloc>
+      <attributes_kjc/>
     </entry>
   </entries>
   <hops>
@@ -2393,7 +2531,7 @@ Ultima Richiesta</note>
       <yloc>36</yloc>
       <width>106</width>
       <heigth>40</heigth>
-      <fontname />
+      <fontname/>
       <fontsize>-1</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
@@ -2480,7 +2618,7 @@ di degenza</note>
       <yloc>47</yloc>
       <width>55</width>
       <heigth>25</heigth>
-      <fontname />
+      <fontname/>
       <fontsize>-1</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
@@ -2612,4 +2750,5 @@ in base all'ora
       <drawshadow>Y</drawshadow>
     </notepad>
   </notepads>
+  <attributes/>
 </job>
