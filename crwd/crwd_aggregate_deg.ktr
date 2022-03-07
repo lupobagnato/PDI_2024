@@ -63,7 +63,7 @@
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject>InsUpd tab_ril</subject>
         </field>
         <field>
           <id>LINES_INPUT</id>
@@ -75,7 +75,7 @@
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>vsrc_ril</subject>
+          <subject>InsUpd tab_ril</subject>
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -930,7 +930,7 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/03/01 09:14:30.910</modified_date>
+    <modified_date>2022/03/02 16:19:43.235</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1419,10 +1419,137 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>calcolo PL liberi</from>
-      <to>tab_ril</to>
+      <to>InsUpd tab_ril</to>
       <enabled>Y</enabled>
     </hop>
   </order>
+  <step>
+    <name>calcolo PL liberi</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script qua
+var pl_liberi;     // differenza fra tot e occupati
+var num_pl_urg;    // = liberi se >= 0, altrimenti 0
+
+pl_liberi = tot_pl_ord - NUM_PL_OCC;
+if (pl_liberi >= 0) 
+	num_pl_urg = pl_liberi;
+else
+	num_pl_urg = 0;
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>pl_liberi</name>
+        <rename>pl_liberi</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>num_pl_urg</name>
+        <rename>num_pl_urg</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>58</xloc>
+      <yloc>178</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>crwd_Reparti_hsp</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>db_sopra</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>vsrc_crwd_Reparti_hsp</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>COD_REP_HSP</name>
+        <field>COD_REP_HSP</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>COD_OSP</name>
+        <rename>COD_OSP</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>COD_REP</name>
+        <rename>COD_REP</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>PROG_REP</name>
+        <rename>PROG_REP</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>NUM_PL</name>
+        <rename>tot_pl_ord</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>58</xloc>
+      <yloc>90</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>vsrc_ril</name>
     <type>TableInput</type>
@@ -1439,8 +1566,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   COD_REP_HSP, data_ril
 , NUM_PL_OCC
 , NUM_DIM_PRE
-, ORE_DEG
 , DEG_MEDIA
+, ORE_DEG
+, data_agg
 FROM 
 ${vsrc_ril}
 --VSRC_CRWD_DEG_RIL
@@ -1547,6 +1675,29 @@ ${vsrc_ril}
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
+        <name>DEG_MEDIA</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>vsrc_ril</origin>
+        <comments>DEG_MEDIA</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
         <name>ORE_DEG</name>
         <length>-1</length>
         <precision>-1</precision>
@@ -1568,16 +1719,16 @@ ${vsrc_ril}
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>BigNumber</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
-        <name>DEG_MEDIA</name>
-        <length>-1</length>
+        <name>DATA_AGG</name>
+        <length>0</length>
         <precision>-1</precision>
         <origin>vsrc_ril</origin>
-        <comments>DEG_MEDIA</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
+        <comments>DATA_AGG</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -1600,14 +1751,14 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>194</xloc>
-      <yloc>52</yloc>
+      <xloc>58</xloc>
+      <yloc>15</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>tab_ril</name>
-    <type>TableOutput</type>
+    <name>InsUpd tab_ril</name>
+    <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1617,88 +1768,99 @@ ${vsrc_ril}
       <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
-    <schema/>
-    <table>${tab_ril}</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>194</xloc>
-      <yloc>337</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>crwd_Reparti_hsp</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>vsrc_crwd_Reparti_hsp</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
+      <table>${tab_ril}</table>
       <key>
-        <name>COD_REP_HSP</name>
-        <field>COD_REP_HSP</field>
+        <name>COD_OSP</name>
+        <field>COD_OSP</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>COD_REP</name>
+        <field>COD_REP</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>PROG_REP</name>
+        <field>PROG_REP</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>DATA_RIL</name>
+        <field>DATA_RIL</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
+        <name>COD_REP_HSP</name>
+        <rename>COD_REP_HSP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_RIL</name>
+        <rename>DATA_RIL</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NUM_PL_OCC</name>
+        <rename>NUM_PL_OCC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NUM_DIM_PRE</name>
+        <rename>NUM_DIM_PRE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DEG_MEDIA</name>
+        <rename>DEG_MEDIA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ORE_DEG</name>
+        <rename>ORE_DEG</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>COD_OSP</name>
         <rename>COD_OSP</rename>
-        <default/>
-        <type>String</type>
+        <update>Y</update>
       </value>
       <value>
         <name>COD_REP</name>
         <rename>COD_REP</rename>
-        <default/>
-        <type>String</type>
+        <update>Y</update>
       </value>
       <value>
         <name>PROG_REP</name>
         <rename>PROG_REP</rename>
-        <default/>
-        <type>String</type>
+        <update>Y</update>
       </value>
       <value>
-        <name>NUM_PL</name>
+        <name>tot_pl_ord</name>
         <rename>tot_pl_ord</rename>
-        <default/>
-        <type>Integer</type>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>pl_liberi</name>
+        <rename>pl_liberi</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_pl_urg</name>
+        <rename>num_pl_urg</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_AGG</name>
+        <rename>DATA_AGG</rename>
+        <update>Y</update>
       </value>
     </lookup>
     <attributes/>
@@ -1710,69 +1872,8 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>194</xloc>
-      <yloc>146</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>calcolo PL liberi</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script qua
-var pl_liberi;     // differenza fra tot e occupati
-var num_pl_urg;    // = liberi se >= 0, altrimenti 0
-
-pl_liberi = tot_pl_ord - NUM_PL_OCC;
-if (pl_liberi >= 0) 
-	num_pl_urg = pl_liberi;
-else
-	num_pl_urg = 0;
-</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>pl_liberi</name>
-        <rename>pl_liberi</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>num_pl_urg</name>
-        <rename>num_pl_urg</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>194</xloc>
-      <yloc>234</yloc>
+      <xloc>58</xloc>
+      <yloc>255</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -930,7 +930,7 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/03/01 17:25:24.835</modified_date>
+    <modified_date>2022/03/02 15:19:26.421</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1419,7 +1419,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>Filter rows</from>
-      <to>old</to>
+      <to>old1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -1442,7 +1442,313 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <to>12h</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>24h</from>
+      <to>Accessi nelle 24h</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Accessi nelle 24h</from>
+      <to>Denormaliser</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>48h</from>
+      <to>Max x RICOVERO</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Denormaliser</from>
+      <to>If field value is null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>12h</from>
+      <to>Max x VISITA</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>old2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2 2</from>
+      <to>old3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If field value is null</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Max x VISITA</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup</from>
+      <to>Stream lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Max x RICOVERO</from>
+      <to>Stream lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup 2</from>
+      <to>crwd_Reparti_PS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>crwd_Reparti_PS</from>
+      <to>InsUpd tab_ril</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
+  <step>
+    <name>12h</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>773</xloc>
+      <yloc>21</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>24h</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>527</xloc>
+      <yloc>21</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>48h</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>281</xloc>
+      <yloc>21</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>48h</send_true_to>
+    <send_false_to>old1</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>ORE_TRASCORSE</leftvalue>
+        <function>&lt;=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>BigNumber</type>
+          <text>48.0</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask>######0.0###################;-######0.0###################</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>158</xloc>
+      <yloc>21</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>24h</send_true_to>
+    <send_false_to>old2</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>ORE_TRASCORSE</leftvalue>
+        <function>&lt;=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>BigNumber</type>
+          <text>24.0</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask>######0.0###################;-######0.0###################</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>404</xloc>
+      <yloc>21</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>12h</send_true_to>
+    <send_false_to>old3</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>ORE_TRASCORSE</leftvalue>
+        <function>&lt;=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>BigNumber</type>
+          <text>12.0</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask>######0.0###################;-######0.0###################</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>650</xloc>
+      <yloc>21</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>If field value is null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue>0</replaceAllByValue>
+    <replaceAllMask/>
+    <selectFields>N</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>527</xloc>
+      <yloc>262</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>crwd_Reparti_PS</name>
     <type>DBLookup</type>
@@ -1471,18 +1777,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <name2/>
       </key>
       <value>
-        <name>NUM_BARELLE</name>
-        <rename>NUM_BARELLE</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>NUM_MEDICI</name>
-        <rename>num_med_urg</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
         <name>COD_OSP</name>
         <rename>COD_OSP</rename>
         <default/>
@@ -1510,8 +1804,33 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>246</xloc>
-      <yloc>431</yloc>
+      <xloc>691</xloc>
+      <yloc>387</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>old1</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>158</xloc>
+      <yloc>90</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1531,14 +1850,20 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   COD_UO
 , DATA_RIL
 , COLORE_TRIAGE
-, TIME_ACCETTAZIONE
-, TIME_VISITA
-, TIME_PRONTO
-, TIME_DIMISSIONE
+--, TIME_ACCETTAZIONE
+--, TIME_VISITA
+--, TIME_PRONTO
+--, TIME_DIMISSIONE
+, attesa_visita
+, attesa_ricovero
 , ore_trascorse
+, flag_accessi
+, flag_autopresentati
 FROM 
 ${vsrc_ril}
 --VSRC_CRWD_PS_STORICO
+order by
+1,2
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -1617,16 +1942,16 @@ ${vsrc_ril}
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Timestamp</type>
+        <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>TIME_ACCETTAZIONE</name>
-        <length>0</length>
+        <name>ATTESA_VISITA</name>
+        <length>-1</length>
         <precision>-1</precision>
         <origin>vsrc_ril</origin>
-        <comments>TIME_ACCETTAZIONE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
+        <comments>ATTESA_VISITA</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -1640,62 +1965,16 @@ ${vsrc_ril}
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Timestamp</type>
+        <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>TIME_VISITA</name>
-        <length>0</length>
+        <name>ATTESA_RICOVERO</name>
+        <length>-1</length>
         <precision>-1</precision>
         <origin>vsrc_ril</origin>
-        <comments>TIME_VISITA</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>TIME_PRONTO</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>TIME_PRONTO</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>TIME_DIMISSIONE</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>TIME_DIMISSIONE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
+        <comments>ATTESA_RICOVERO</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -1731,6 +2010,52 @@ ${vsrc_ril}
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>FLAG_ACCESSI</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>vsrc_ril</origin>
+        <comments>FLAG_ACCESSI</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>FLAG_AUTOPRESENTATI</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>vsrc_ril</origin>
+        <comments>FLAG_AUTOPRESENTATI</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
     </row-meta>
     <attributes/>
     <cluster_schema/>
@@ -1741,14 +2066,14 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>87</xloc>
-      <yloc>27</yloc>
+      <xloc>35</xloc>
+      <yloc>21</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
+    <name>Denormaliser</name>
+    <type>Denormaliser</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1757,15 +2082,157 @@ ${vsrc_ril}
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <replaceAllByValue>0</replaceAllByValue>
-    <replaceAllMask/>
-    <selectFields>N</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
+    <key_field>COLORE_TRIAGE</key_field>
+    <group>
+      <field>
+        <name>COD_UO</name>
+      </field>
+      <field>
+        <name>DATA_RIL</name>
+      </field>
+    </group>
     <fields>
-      </fields>
+      <field>
+        <field_name>FLAG_ACCESSI</field_name>
+        <key_value>Bianco</key_value>
+        <target_name>num_acc_bia</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>SUM</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>FLAG_ACCESSI</field_name>
+        <key_value>Verde</key_value>
+        <target_name>num_acc_ver</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>SUM</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>FLAG_ACCESSI</field_name>
+        <key_value>Azzurro</key_value>
+        <target_name>num_acc_azz</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>SUM</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>FLAG_ACCESSI</field_name>
+        <key_value>Arancio</key_value>
+        <target_name>num_acc_ara</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>SUM</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>FLAG_ACCESSI</field_name>
+        <key_value>Rosso</key_value>
+        <target_name>num_acc_ros</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>SUM</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>FLAG_AUTOPRESENTATI</field_name>
+        <key_value>Bianco</key_value>
+        <target_name>num_aut_bia</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>SUM</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>FLAG_AUTOPRESENTATI</field_name>
+        <key_value>Verde</key_value>
+        <target_name>num_aut_ver</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>SUM</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>FLAG_AUTOPRESENTATI</field_name>
+        <key_value>Azzurro</key_value>
+        <target_name>num_aut_azz</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>SUM</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>FLAG_AUTOPRESENTATI</field_name>
+        <key_value>Arancio</key_value>
+        <target_name>num_aut_ara</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>SUM</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>FLAG_AUTOPRESENTATI</field_name>
+        <key_value>Rosso</key_value>
+        <target_name>num_aut_ros</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>SUM</target_aggregation_type>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1775,14 +2242,14 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>606</xloc>
-      <yloc>431</yloc>
+      <xloc>527</xloc>
+      <yloc>178</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
+    <name>Accessi nelle 24h</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1791,25 +2258,29 @@ ${vsrc_ril}
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>48h</send_true_to>
-    <send_false_to>old</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>ORE_TRASCORSE</leftvalue>
-        <function>&lt;=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>BigNumber</type>
-          <text>48.0</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask>######0.0###################;-######0.0###################</mask>
-        </value>
-      </condition>
-    </compare>
+    <fields>
+      <field>
+        <name>COD_UO</name>
+        <rename/>
+      </field>
+      <field>
+        <name>DATA_RIL</name>
+        <rename/>
+      </field>
+      <field>
+        <name>COLORE_TRIAGE</name>
+        <rename/>
+      </field>
+      <field>
+        <name>FLAG_ACCESSI</name>
+        <rename/>
+      </field>
+      <field>
+        <name>FLAG_AUTOPRESENTATI</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1819,13 +2290,97 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>86</xloc>
-      <yloc>133</yloc>
+      <xloc>527</xloc>
+      <yloc>90</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>old</name>
+    <name>Max x RICOVERO</name>
+    <type>MemoryGroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>COD_UO</name>
+      </field>
+      <field>
+        <name>DATA_RIL</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>max_att_ric</aggregate>
+        <subject>ATTESA_RICOVERO</subject>
+        <type>MAX</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>283</xloc>
+      <yloc>260</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Max x VISITA</name>
+    <type>MemoryGroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>COD_UO</name>
+      </field>
+      <field>
+        <name>DATA_RIL</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>max_att_val</aggregate>
+        <subject>ATTESA_VISITA</subject>
+        <type>MAX</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>773</xloc>
+      <yloc>152</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>old3</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -1844,13 +2399,13 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>216</xloc>
-      <yloc>132</yloc>
+      <xloc>650</xloc>
+      <yloc>90</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>48h</name>
+    <name>old2</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -1869,14 +2424,14 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>85</xloc>
-      <yloc>225</yloc>
+      <xloc>404</xloc>
+      <yloc>90</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter rows 2</name>
-    <type>FilterRows</type>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1885,25 +2440,27 @@ ${vsrc_ril}
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>24h</send_true_to>
-    <send_false_to>old</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>ORE_TRASCORSE</leftvalue>
-        <function>&lt;=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>BigNumber</type>
-          <text>24.0</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask>######0.0###################;-######0.0###################</mask>
-        </value>
-      </condition>
-    </compare>
+    <from>Max x VISITA</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>COD_UO</name>
+        <field>COD_UO</field>
+      </key>
+      <key>
+        <name>DATA_RIL</name>
+        <field>DATA_RIL</field>
+      </key>
+      <value>
+        <name>max_att_val</name>
+        <rename>max_att_val</rename>
+        <default/>
+        <type>Number</type>
+      </value>
+    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1913,14 +2470,14 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>216</xloc>
-      <yloc>223</yloc>
+      <xloc>712</xloc>
+      <yloc>262</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>24h</name>
-    <type>Dummy</type>
+    <name>Stream lookup 2</name>
+    <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1929,6 +2486,27 @@ ${vsrc_ril}
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <from>Max x RICOVERO</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>COD_UO</name>
+        <field>COD_UO</field>
+      </key>
+      <key>
+        <name>DATA_RIL</name>
+        <field>DATA_RIL</field>
+      </key>
+      <value>
+        <name>max_att_ric</name>
+        <rename>max_att_ric</rename>
+        <default/>
+        <type>BigNumber</type>
+      </value>
+    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1938,14 +2516,14 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>357</xloc>
-      <yloc>221</yloc>
+      <xloc>527</xloc>
+      <yloc>387</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter rows 2 2</name>
-    <type>FilterRows</type>
+    <name>InsUpd tab_ril</name>
+    <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1954,25 +2532,117 @@ ${vsrc_ril}
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>12h</send_true_to>
-    <send_false_to>old</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>ORE_TRASCORSE</leftvalue>
-        <function>&lt;=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>BigNumber</type>
-          <text>12.0</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask>######0.0###################;-######0.0###################</mask>
-        </value>
-      </condition>
-    </compare>
+    <connection>db_sopra</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>${tab_ril}</table>
+      <key>
+        <name>COD_OSP</name>
+        <field>COD_OSP</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>COD_REP</name>
+        <field>COD_REP</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>PROG_REP</name>
+        <field>PROG_REP</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>DATA_RIL</name>
+        <field>DATA_RIL</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>COD_OSP</name>
+        <rename>COD_OSP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>COD_REP</name>
+        <rename>COD_REP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PROG_REP</name>
+        <rename>PROG_REP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_RIL</name>
+        <rename>DATA_RIL</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_acc_bia</name>
+        <rename>num_acc_bia</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_acc_ver</name>
+        <rename>num_acc_ver</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_acc_azz</name>
+        <rename>num_acc_azz</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_acc_ara</name>
+        <rename>num_acc_ara</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_acc_ros</name>
+        <rename>num_acc_ros</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_aut_bia</name>
+        <rename>num_aut_bia</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_aut_ver</name>
+        <rename>num_aut_ver</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_aut_azz</name>
+        <rename>num_aut_azz</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_aut_ara</name>
+        <rename>num_aut_ara</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_aut_ros</name>
+        <rename>num_aut_ros</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>max_att_val</name>
+        <rename>max_att_val</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>max_att_ric</name>
+        <rename>max_att_ric</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1982,33 +2652,8 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>500</xloc>
-      <yloc>223</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>12h</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>666</xloc>
-      <yloc>222</yloc>
+      <xloc>858</xloc>
+      <yloc>387</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

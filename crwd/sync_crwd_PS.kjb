@@ -1,5 +1,5 @@
 <job>
-  <name>sync_crwd</name>
+  <name>sync_crwd_PS</name>
   <description/>
   <extended_description/>
   <job_version/>
@@ -8,7 +8,7 @@
   <created_user/>
   <created_date>2020/08/25 10:34:06.455</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2022/03/02 11:11:07.974</modified_date>
+  <modified_date>2022/03/02 15:24:18.116</modified_date>
   <parameters>
     <parameter>
       <name>var_CC</name>
@@ -1213,7 +1213,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>45</xloc>
-      <yloc>59</yloc>
+      <yloc>61</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1228,7 +1228,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <destinationBCc>${var_CCN}</destinationBCc>
       <replyto>${var_From}</replyto>
       <replytoname>${var_FromName}</replytoname>
-      <subject>${Internal.Job.Name}: Errore da crwd_import_REPARTI</subject>
+      <subject>${Internal.Job.Name}: Errore ${Internal.Step.Name}</subject>
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
@@ -1255,51 +1255,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>191</xloc>
-      <yloc>186</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Err1 2</name>
-      <description/>
-      <type>MAIL</type>
-      <attributes/>
-      <server>${var_Smtp}</server>
-      <port>${var_Port}</port>
-      <destination>${var_To}</destination>
-      <destinationCc/>
-      <destinationBCc>${var_CCN}</destinationBCc>
-      <replyto>${var_From}</replyto>
-      <replytoname>${var_FromName}</replytoname>
-      <subject>${Internal.Job.Name}: Errore da sync_crwd_deg</subject>
-      <include_date>Y</include_date>
-      <contact_person/>
-      <contact_phone/>
-      <comment/>
-      <include_files>N</include_files>
-      <zip_files>N</zip_files>
-      <zip_name/>
-      <use_auth>N</use_auth>
-      <use_secure_auth>N</use_secure_auth>
-      <auth_user/>
-      <auth_password>Encrypted </auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>N</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity>normal</sensitivity>
-      <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses/>
-      <filetypes>      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>342</xloc>
-      <yloc>186</yloc>
+      <xloc>412</xloc>
+      <yloc>332</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1341,19 +1298,19 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>693</xloc>
-      <yloc>59</yloc>
+      <xloc>755</xloc>
+      <yloc>61</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>crwd_import_REPARTI</name>
+      <name>crwd_import_PS</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>crwd_import_REPARTI</transname>
+      <transname>crwd_import_PS</transname>
       <directory>/crwd</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -1381,52 +1338,135 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>191</xloc>
-      <yloc>59</yloc>
+      <xloc>187</xloc>
+      <yloc>61</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>sync_crwd_deg</name>
+      <name>crwd_xform_PS</name>
       <description/>
-      <type>JOB</type>
+      <type>TRANS</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id/>
+      <trans_object_id/>
       <filename/>
-      <jobname>sync_crwd_deg</jobname>
+      <transname>crwd_xform_PS</transname>
       <directory>/crwd</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
       <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
+      <logging_remote_work>N</logging_remote_work>
       <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
-      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>342</xloc>
-      <yloc>59</yloc>
+      <xloc>329</xloc>
+      <yloc>61</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>crwd_presenti_PS</name>
+      <description/>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>crwd_presenti_PS</transname>
+      <directory>/crwd</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>465</xloc>
+      <yloc>61</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>crwd_storico_PS</name>
+      <description/>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>crwd_storico_PS</transname>
+      <directory>/crwd</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>591</xloc>
+      <yloc>61</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>crwd_import_REPARTI</to>
+      <to>crwd_import_PS</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1434,7 +1474,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>crwd_import_REPARTI</from>
+      <from>crwd_import_PS</from>
+      <to>crwd_xform_PS</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>crwd_import_PS</from>
       <to>Err1</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1443,16 +1492,34 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>crwd_import_REPARTI</from>
-      <to>sync_crwd_deg</to>
+      <from>crwd_xform_PS</from>
+      <to>Err1</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>crwd_xform_PS</from>
+      <to>crwd_presenti_PS</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
+      <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>sync_crwd_deg</from>
+      <from>crwd_presenti_PS</from>
+      <to>crwd_storico_PS</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>crwd_storico_PS</from>
       <to>Mail OK</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1461,8 +1528,17 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>sync_crwd_deg</from>
-      <to>Err1 2</to>
+      <from>crwd_presenti_PS</from>
+      <to>Err1</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>crwd_storico_PS</from>
+      <to>Err1</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
