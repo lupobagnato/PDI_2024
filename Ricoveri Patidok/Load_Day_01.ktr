@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>Overlap_Days</name>
-        <default_value>1</default_value>
+        <default_value>30</default_value>
         <description>Giorni prima dell'ultima esecuzione</description>
       </parameter>
     </parameters>
@@ -925,7 +925,7 @@
     <created_user>admin</created_user>
     <created_date>2012/12/20 12:28:45.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/01/20 19:15:28.607</modified_date>
+    <modified_date>2022/03/09 14:21:40.824</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -2155,6 +2155,7 @@ where
 -- dimessi N giorni prima ultima esecuzione a Oggi + Tutti i non dimessi
 nvl(DATA_DIM, trunc(sysdate)) Between (Trunc(?) - ${Overlap_Days}) And Trunc(sysdate)
 --and num_caso = 2013159627
+and data_acc >= sysdate - (2*365)		-- 09.03.2022 sembra che con questa condizione il piano inizi dalla Ka_Fall anziché dalla FF_Val (freescreen)
 order by
 num_caso, nr</sql>
     <limit>0</limit>
