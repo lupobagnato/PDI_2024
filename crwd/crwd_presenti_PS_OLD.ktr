@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>crwd_presenti_PS</name>
+    <name>crwd_presenti_PS_OLD</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -930,53 +930,11 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/04/11 11:30:30.667</modified_date>
+    <modified_date>2022/04/06 10:58:47.506</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Elenco dei 3 PS</note>
-      <xloc>11</xloc>
-      <yloc>24</yloc>
-      <width>104</width>
-      <heigth>25</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Dati correnti dei PS</note>
-      <xloc>56</xloc>
-      <yloc>157</yloc>
-      <width>123</width>
-      <heigth>25</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>areas_formazione</name>
@@ -1531,7 +1489,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>Denormaliser AT</from>
-      <to>Stream lookup 1</to>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>vsrc_ril</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -1540,12 +1503,17 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>vsrc_ril</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Select values 2</from>
       <to>Memory group by</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Stream lookup 1</from>
+      <from>Stream lookup</from>
       <to>Stream lookup 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -1561,7 +1529,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>Sort rows</from>
-      <to>Stream lookup 1</to>
+      <to>Stream lookup</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -1582,26 +1550,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>If field value is null</from>
       <to>InsUpd tab_ril</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>vsrc_crwd_Reparti_PS</from>
-      <to>Stream lookup 0</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>vsrc_ril</from>
-      <to>Stream lookup 0</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stream lookup 0</from>
-      <to>Select values 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stream lookup 0</from>
-      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1706,8 +1654,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>674</xloc>
-      <yloc>204</yloc>
+      <xloc>273</xloc>
+      <yloc>200</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1812,8 +1760,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>867</xloc>
-      <yloc>204</yloc>
+      <xloc>466</xloc>
+      <yloc>200</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1837,8 +1785,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>956</xloc>
-      <yloc>23</yloc>
+      <xloc>555</xloc>
+      <yloc>19</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1859,25 +1807,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
     <valuetypes>
-      <valuetype>
-        <name>Number</name>
-        <value>0</value>
-        <mask/>
-        <set_type_empty_string>N</set_type_empty_string>
-      </valuetype>
-      <valuetype>
-        <name>BigNumber</name>
-        <value>0</value>
-        <mask/>
-        <set_type_empty_string>N</set_type_empty_string>
-      </valuetype>
-      <valuetype>
-        <name>Integer</name>
-        <value>0</value>
-        <mask/>
-        <set_type_empty_string>N</set_type_empty_string>
-      </valuetype>
-    </valuetypes>
+      </valuetypes>
     <fields>
       </fields>
     <attributes/>
@@ -1889,8 +1819,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1007</xloc>
-      <yloc>435</yloc>
+      <xloc>606</xloc>
+      <yloc>431</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2055,8 +1985,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1188</xloc>
-      <yloc>435</yloc>
+      <xloc>787</xloc>
+      <yloc>428</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2115,8 +2045,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>439</xloc>
-      <yloc>171</yloc>
+      <xloc>38</xloc>
+      <yloc>167</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2158,8 +2088,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>570</xloc>
-      <yloc>23</yloc>
+      <xloc>169</xloc>
+      <yloc>19</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2204,8 +2134,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>440</xloc>
-      <yloc>97</yloc>
+      <xloc>39</xloc>
+      <yloc>93</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2254,13 +2184,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>439</xloc>
-      <yloc>242</yloc>
+      <xloc>38</xloc>
+      <yloc>238</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Stream lookup 1</name>
+    <name>Stream lookup</name>
     <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -2324,8 +2254,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>440</xloc>
-      <yloc>339</yloc>
+      <xloc>39</xloc>
+      <yloc>335</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2394,8 +2324,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>440</xloc>
-      <yloc>435</yloc>
+      <xloc>39</xloc>
+      <yloc>431</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2436,8 +2366,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>769</xloc>
-      <yloc>23</yloc>
+      <xloc>368</xloc>
+      <yloc>19</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2487,8 +2417,8 @@ else
       </output>
     </remotesteps>
     <GUI>
-      <xloc>806</xloc>
-      <yloc>435</yloc>
+      <xloc>405</xloc>
+      <yloc>431</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2559,8 +2489,8 @@ else
       </output>
     </remotesteps>
     <GUI>
-      <xloc>647</xloc>
-      <yloc>435</yloc>
+      <xloc>246</xloc>
+      <yloc>431</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2584,8 +2514,8 @@ else
       </output>
     </remotesteps>
     <GUI>
-      <xloc>674</xloc>
-      <yloc>123</yloc>
+      <xloc>273</xloc>
+      <yloc>119</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2609,8 +2539,8 @@ else
       </output>
     </remotesteps>
     <GUI>
-      <xloc>867</xloc>
-      <yloc>123</yloc>
+      <xloc>466</xloc>
+      <yloc>119</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2618,7 +2548,7 @@ else
     <name>vsrc_ril</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -2628,7 +2558,7 @@ else
     <connection>db_sopra</connection>
     <sql>SELECT
   COD_UO
---, DATA_RIL -- PRESO dall'elenco dei PS
+, DATA_RIL
 , STATOORDINE
 , COLORE_TRIAGE
 , num_pl_obi
@@ -2638,7 +2568,6 @@ else
 FROM 
 ${vsrc_ril}
 --VSRC_CRWD_PS_PRESENTI
---where cod_uo &lt;&gt; '8063'		-- 8063 BO, 8065 IM, 8066 SR
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -2655,6 +2584,29 @@ ${vsrc_ril}
         <precision>-1</precision>
         <origin>vsrc_ril</origin>
         <comments>COD_UO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_RIL</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>vsrc_ril</origin>
+        <comments>DATA_RIL</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2818,182 +2770,8 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>197</xloc>
-      <yloc>157</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>vsrc_crwd_Reparti_PS</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>SELECT
-  COD_UO
-, data_ril
-/*
-, NOME_UO
-, NUM_BARELLE
-, NUM_MEDICI
-, COD_OSP
-, COD_REP
-, PROG_REP
-, DESC_REP
-, NUM_PL
-, NUM_MONITOR
-*/
-FROM VSRC_CRWD_REPARTI_PS
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COD_UO</name>
-        <length>4</length>
-        <precision>-1</precision>
-        <origin>vsrc_crwd_Reparti_PS</origin>
-        <comments>COD_UO</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_RIL</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>vsrc_crwd_Reparti_PS</origin>
-        <comments>DATA_RIL</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>138</xloc>
-      <yloc>24</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stream lookup 0</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <from>vsrc_ril</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>COD_UO</name>
-        <field>COD_UO</field>
-      </key>
-      <value>
-        <name>COD_UO</name>
-        <rename>COD_UO</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>STATOORDINE</name>
-        <rename>STATOORDINE</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>COLORE_TRIAGE</name>
-        <rename>COLORE_TRIAGE</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>NUM_PL_OBI</name>
-        <rename>NUM_PL_OBI</rename>
-        <default/>
-        <type>BigNumber</type>
-      </value>
-      <value>
-        <name>NUM_PAZ_TOT</name>
-        <rename>NUM_PAZ_TOT</rename>
-        <default/>
-        <type>BigNumber</type>
-      </value>
-      <value>
-        <name>TOTALE_NO_BIANCHI</name>
-        <rename>TOTALE_NO_BIANCHI</rename>
-        <default/>
-        <type>BigNumber</type>
-      </value>
-      <value>
-        <name>NUM_PAZ_RIC</name>
-        <rename>NUM_PAZ_RIC</rename>
-        <default/>
-        <type>BigNumber</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>274</xloc>
-      <yloc>23</yloc>
+      <xloc>39</xloc>
+      <yloc>21</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>crwd_presenti_PS</name>
+    <name>crwd_presenti_PS_NEW</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -930,7 +930,7 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/04/11 11:30:30.667</modified_date>
+    <modified_date>2022/04/06 10:57:34.969</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1859,25 +1859,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
     <valuetypes>
-      <valuetype>
-        <name>Number</name>
-        <value>0</value>
-        <mask/>
-        <set_type_empty_string>N</set_type_empty_string>
-      </valuetype>
-      <valuetype>
-        <name>BigNumber</name>
-        <value>0</value>
-        <mask/>
-        <set_type_empty_string>N</set_type_empty_string>
-      </valuetype>
-      <valuetype>
-        <name>Integer</name>
-        <value>0</value>
-        <mask/>
-        <set_type_empty_string>N</set_type_empty_string>
-      </valuetype>
-    </valuetypes>
+      </valuetypes>
     <fields>
       </fields>
     <attributes/>
@@ -2056,7 +2038,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </remotesteps>
     <GUI>
       <xloc>1188</xloc>
-      <yloc>435</yloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2628,7 +2610,7 @@ else
     <connection>db_sopra</connection>
     <sql>SELECT
   COD_UO
---, DATA_RIL -- PRESO dall'elenco dei PS
+, DATA_RIL
 , STATOORDINE
 , COLORE_TRIAGE
 , num_pl_obi
@@ -2638,7 +2620,6 @@ else
 FROM 
 ${vsrc_ril}
 --VSRC_CRWD_PS_PRESENTI
---where cod_uo &lt;&gt; '8063'		-- 8063 BO, 8065 IM, 8066 SR
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -2655,6 +2636,29 @@ ${vsrc_ril}
         <precision>-1</precision>
         <origin>vsrc_ril</origin>
         <comments>COD_UO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_RIL</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>vsrc_ril</origin>
+        <comments>DATA_RIL</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2837,7 +2841,6 @@ ${vsrc_ril}
     <connection>db_sopra</connection>
     <sql>SELECT
   COD_UO
-, data_ril
 /*
 , NOME_UO
 , NUM_BARELLE
@@ -2864,31 +2867,8 @@ FROM VSRC_CRWD_REPARTI_PS
         <name>COD_UO</name>
         <length>4</length>
         <precision>-1</precision>
-        <origin>vsrc_crwd_Reparti_PS</origin>
+        <origin>Table input</origin>
         <comments>COD_UO</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_RIL</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>vsrc_crwd_Reparti_PS</origin>
-        <comments>DATA_RIL</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2945,6 +2925,12 @@ FROM VSRC_CRWD_REPARTI_PS
         <rename>COD_UO</rename>
         <default/>
         <type>String</type>
+      </value>
+      <value>
+        <name>DATA_RIL</name>
+        <rename>DATA_RIL</rename>
+        <default/>
+        <type>Timestamp</type>
       </value>
       <value>
         <name>STATOORDINE</name>
