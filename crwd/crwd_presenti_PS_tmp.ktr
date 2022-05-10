@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>crwd_presenti_PS</name>
+    <name>crwd_presenti_PS_tmp</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -930,31 +930,27 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/05/09 13:47:35.408</modified_date>
+    <modified_date>2022/05/09 11:55:31.516</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Elenco dei 3 PS con dati a 0
-serve per evitare che se non
-ci sono pazienti presenti
-il PS BO abbia tutti null
-compreso il Numero Medici</note>
-      <xloc>86</xloc>
-      <yloc>213</yloc>
-      <width>151</width>
-      <heigth>75</heigth>
+      <note>Elenco dei 3 PS</note>
+      <xloc>11</xloc>
+      <yloc>24</yloc>
+      <width>104</width>
+      <heigth>25</heigth>
       <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
+      <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -962,8 +958,8 @@ compreso il Numero Medici</note>
     </notepad>
     <notepad>
       <note>Dati correnti dei PS</note>
-      <xloc>5</xloc>
-      <yloc>6</yloc>
+      <xloc>56</xloc>
+      <yloc>157</yloc>
       <width>123</width>
       <heigth>25</heigth>
       <fontname>Arial</fontname>
@@ -1589,28 +1585,23 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>vsrc_ril</from>
-      <to>Sort rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>vsrc_crwd_Reparti_PS</from>
-      <to>Sort rows 2</to>
+      <to>Stream lookup 0</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 2</from>
-      <to>Select values</to>
+      <from>vsrc_ril</from>
+      <to>Stream lookup 0</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 2</from>
+      <from>Stream lookup 0</from>
       <to>Select values 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Switch AT e IN</from>
-      <to>stato XX</to>
+      <from>Stream lookup 0</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1846,7 +1837,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1233</xloc>
+      <xloc>956</xloc>
       <yloc>23</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2269,6 +2260,84 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
+    <name>Stream lookup 0</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>vsrc_ril</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>COD_UO</name>
+        <field>COD_UO</field>
+      </key>
+      <value>
+        <name>COD_UO</name>
+        <rename>COD_UO</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>STATOORDINE</name>
+        <rename>STATOORDINE</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>COLORE_TRIAGE</name>
+        <rename>COLORE_TRIAGE</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>NUM_PL_OBI</name>
+        <rename>NUM_PL_OBI</rename>
+        <default/>
+        <type>BigNumber</type>
+      </value>
+      <value>
+        <name>NUM_PAZ_TOT</name>
+        <rename>NUM_PAZ_TOT</rename>
+        <default/>
+        <type>BigNumber</type>
+      </value>
+      <value>
+        <name>TOTALE_NO_BIANCHI</name>
+        <rename>TOTALE_NO_BIANCHI</rename>
+        <default/>
+        <type>BigNumber</type>
+      </value>
+      <value>
+        <name>NUM_PAZ_RIC</name>
+        <rename>NUM_PAZ_RIC</rename>
+        <default/>
+        <type>BigNumber</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>274</xloc>
+      <yloc>23</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Stream lookup 1</name>
     <type>StreamLookup</type>
     <description/>
@@ -2434,10 +2503,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <case>
         <value>IN</value>
         <target_step>in Trattamento</target_step>
-      </case>
-      <case>
-        <value>XX</value>
-        <target_step>stato XX</target_step>
       </case>
     </cases>
     <attributes/>
@@ -2642,13 +2707,17 @@ else
     <sql>SELECT
   COD_UO
 , data_ril
----
-, 'XX' STATOORDINE
-, null COLORE_TRIAGE
-, 0 num_pl_obi
-, 0 num_paz_tot
-, 0 totale_no_bianchi
-, 0 num_paz_ric
+/*
+, NOME_UO
+, NUM_BARELLE
+, NUM_MEDICI
+, COD_OSP
+, COD_REP
+, PROG_REP
+, DESC_REP
+, NUM_PL
+, NUM_MONITOR
+*/
 FROM VSRC_CRWD_REPARTI_PS
 </sql>
     <limit>0</limit>
@@ -2704,144 +2773,6 @@ FROM VSRC_CRWD_REPARTI_PS
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>STATOORDINE</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>vsrc_crwd_Reparti_PS</origin>
-        <comments>STATOORDINE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COLORE_TRIAGE</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>vsrc_crwd_Reparti_PS</origin>
-        <comments>COLORE_TRIAGE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>NUM_PL_OBI</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>vsrc_crwd_Reparti_PS</origin>
-        <comments>NUM_PL_OBI</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>NUM_PAZ_TOT</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>vsrc_crwd_Reparti_PS</origin>
-        <comments>NUM_PAZ_TOT</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>TOTALE_NO_BIANCHI</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>vsrc_crwd_Reparti_PS</origin>
-        <comments>TOTALE_NO_BIANCHI</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>NUM_PAZ_RIC</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>vsrc_crwd_Reparti_PS</origin>
-        <comments>NUM_PAZ_RIC</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
     </row-meta>
     <attributes/>
     <cluster_schema/>
@@ -2852,8 +2783,8 @@ FROM VSRC_CRWD_REPARTI_PS
       </output>
     </remotesteps>
     <GUI>
-      <xloc>149</xloc>
-      <yloc>153</yloc>
+      <xloc>138</xloc>
+      <yloc>24</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2871,7 +2802,7 @@ FROM VSRC_CRWD_REPARTI_PS
     <connection>db_sopra</connection>
     <sql>SELECT
   COD_UO
-, DATA_RIL 
+--, DATA_RIL -- PRESO dall'elenco dei PS
 , STATOORDINE
 , COLORE_TRIAGE
 , num_pl_obi
@@ -2898,29 +2829,6 @@ ${vsrc_ril}
         <precision>-1</precision>
         <origin>vsrc_ril</origin>
         <comments>COD_UO</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_RIL</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>DATA_RIL</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -3084,83 +2992,8 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>152</xloc>
-      <yloc>23</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>COD_UO</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>DATA_RIL</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>310</xloc>
-      <yloc>22</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>stato XX</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1049</xloc>
-      <yloc>125</yloc>
+      <xloc>197</xloc>
+      <yloc>157</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
