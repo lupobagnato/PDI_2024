@@ -920,7 +920,7 @@
     <created_user>admin</created_user>
     <created_date>2012/05/14 15:19:59.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2021/11/29 17:07:28.911</modified_date>
+    <modified_date>2022/05/10 12:35:31.578</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1330,6 +1330,61 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <connection>
+    <name>db_sopra_SPEC</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>spec</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cd82aad9</password>
+    <servername/>
+    <data_tablespace>SPEC</data_tablespace>
+    <index_tablespace>IDX_SPEC</index_tablespace>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>5</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>Patidok</name>
     <server>svc_sio</server>
     <type>ORACLE</type>
@@ -1517,6 +1572,7 @@ End Esito_Accesso_des
 , Indirizzo													-- Aggiunti 27.07.2011
 , Indirizzo_2
 , Telefono
+, Cellulare
 , Stato_Paziente
 , Infermiere
 , flag_Dolore
@@ -3216,6 +3272,29 @@ order by NROCASO</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
+        <name>CELLULARE</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>Accessi_PS_buffer</origin>
+        <comments>CELLULARE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
         <name>STATO_PAZIENTE</name>
         <length>20</length>
         <precision>-1</precision>
@@ -3894,6 +3973,11 @@ order by NROCASO</sql>
         <rename>NUM_RIVALUTAZIONI</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>CELLULARE</name>
+        <rename>CELLULARE</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -4258,6 +4342,10 @@ order by NROCASO</sql>
       <value>
         <name>NUM_RIVALUTAZIONI</name>
         <rename>NUM_RIVALUTAZIONI</rename>
+      </value>
+      <value>
+        <name>CELLULARE</name>
+        <rename>CELLULARE</rename>
       </value>
     </lookup>
     <attributes/>
