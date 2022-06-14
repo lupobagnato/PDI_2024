@@ -930,11 +930,36 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/03/07 11:46:45.854</modified_date>
+    <modified_date>2022/06/07 15:31:36.817</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>prima era Max attesa ricovero
+ora è Stazionamento
+il nome del campo di output
+max_att_ric
+è invariato</note>
+      <xloc>211</xloc>
+      <yloc>321</yloc>
+      <width>155</width>
+      <heigth>75</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>areas_formazione</name>
@@ -1340,6 +1365,61 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <connection>
+    <name>db_sopra_SPEC</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>spec</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cd82aad9</password>
+    <servername/>
+    <data_tablespace>SPEC</data_tablespace>
+    <index_tablespace>IDX_SPEC</index_tablespace>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>5</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>Patidok</name>
     <server>svc_sio</server>
     <type>ORACLE</type>
@@ -1454,7 +1534,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>48h</from>
-      <to>Max x RICOVERO</to>
+      <to>Max Stazionamento</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -1493,7 +1573,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Max x RICOVERO</from>
+      <from>Max Stazionamento</from>
       <to>Stream lookup 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -2110,7 +2190,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
-    <name>Max x RICOVERO</name>
+    <name>Max Stazionamento</name>
     <type>MemoryGroupBy</type>
     <description/>
     <distribute>Y</distribute>
@@ -2132,7 +2212,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <fields>
       <field>
         <aggregate>max_att_ric</aggregate>
-        <subject>ATTESA_RICOVERO</subject>
+        <subject>TEMPO_STAZIONAMENTO</subject>
         <type>MAX</type>
         <valuefield/>
       </field>
@@ -2256,7 +2336,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <from>Max x RICOVERO</from>
+    <from>Max Stazionamento</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
     <sorted_list>N</sorted_list>
@@ -2452,8 +2532,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 --, TIME_VISITA
 --, TIME_PRONTO
 --, TIME_DIMISSIONE
-, attesa_visita
+, attesa_visita     -- i bianchi sono esclusi nella vista vsrc_crwd_PS_RIL_storico
 , attesa_ricovero
+, tempo_stazionamento  -- usato per la ver.2 di max_att_ric che diventa Max Tempo di Stazionamento (ma il nome del campo resta invariato)
 , ore_trascorse
 , flag_accessi
 , flag_autopresentati

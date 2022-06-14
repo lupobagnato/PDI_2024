@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>crwd_presenti_PS_test</name>
+    <name>crwd_presenti_DEG</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -10,12 +10,12 @@
     <parameters>
       <parameter>
         <name>tab_ril</name>
-        <default_value>crwd_ps_ril</default_value>
+        <default_value>crwd_deg_ril</default_value>
         <description/>
       </parameter>
       <parameter>
         <name>vsrc_ril</name>
-        <default_value>ps_RIL_presenti</default_value>
+        <default_value>vsrc_crwd_DEG_RIL_presenti</default_value>
         <description/>
       </parameter>
     </parameters>
@@ -930,32 +930,11 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/05/10 10:34:06.844</modified_date>
+    <modified_date>2022/06/14 09:30:24.075</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Dati correnti dei PS</note>
-      <xloc>5</xloc>
-      <yloc>6</yloc>
-      <width>123</width>
-      <heigth>25</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>areas_formazione</name>
@@ -1484,395 +1463,21 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>Switch AT e IN</from>
-      <to>in Attesa</to>
+      <from>vsrc_ril</from>
+      <to>crwd_Reparti_hsp</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Switch AT e IN</from>
-      <to>in Trattamento</to>
+      <from>crwd_Reparti_hsp</from>
+      <to>calcolo PL liberi</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Switch AT e IN</from>
-      <to>Err - stato imprevisto</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>in Attesa</from>
-      <to>Denormaliser AT</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>in Trattamento</from>
-      <to>Denormaliser IN</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Denormaliser AT</from>
-      <to>Stream lookup 1</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values</from>
-      <to>Switch AT e IN</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 2</from>
-      <to>Memory group by</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stream lookup 1</from>
-      <to>Stream lookup 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Denormaliser IN</from>
-      <to>Stream lookup 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Memory group by</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows</from>
-      <to>Stream lookup 1</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>crwd_Reparti_PS</from>
-      <to>calcolo Paz barellati</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stream lookup 2</from>
-      <to>crwd_Reparti_PS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>calcolo Paz barellati</from>
-      <to>If field value is null</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>If field value is null</from>
+      <from>calcolo PL liberi</from>
       <to>InsUpd tab_ril</to>
       <enabled>Y</enabled>
     </hop>
-    <hop>
-      <from>vsrc_ril</from>
-      <to>Sort rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 2</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 2</from>
-      <to>Select values 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Switch AT e IN</from>
-      <to>stato XX</to>
-      <enabled>Y</enabled>
-    </hop>
   </order>
-  <step>
-    <name>Denormaliser AT</name>
-    <type>Denormaliser</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <key_field>COLORE_TRIAGE</key_field>
-    <group>
-      <field>
-        <name>COD_UO</name>
-      </field>
-      <field>
-        <name>DATA_RIL</name>
-      </field>
-    </group>
-    <fields>
-      <field>
-        <field_name>NUM_PAZ_TOT</field_name>
-        <key_value>Bianco</key_value>
-        <target_name>num_att_bia</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>NUM_PAZ_TOT</field_name>
-        <key_value>Verde</key_value>
-        <target_name>num_att_ver</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>NUM_PAZ_TOT</field_name>
-        <key_value>Azzurro</key_value>
-        <target_name>num_att_azz</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>NUM_PAZ_TOT</field_name>
-        <key_value>Arancio</key_value>
-        <target_name>num_att_ara</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>NUM_PAZ_TOT</field_name>
-        <key_value>Rosso</key_value>
-        <target_name>num_att_ros</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>674</xloc>
-      <yloc>204</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Denormaliser IN</name>
-    <type>Denormaliser</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <key_field>COLORE_TRIAGE</key_field>
-    <group>
-      <field>
-        <name>COD_UO</name>
-      </field>
-      <field>
-        <name>DATA_RIL</name>
-      </field>
-    </group>
-    <fields>
-      <field>
-        <field_name>NUM_PAZ_TOT</field_name>
-        <key_value>Bianco</key_value>
-        <target_name>num_tra_bia</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>NUM_PAZ_TOT</field_name>
-        <key_value>Verde</key_value>
-        <target_name>num_tra_ver</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>NUM_PAZ_TOT</field_name>
-        <key_value>Azzurro</key_value>
-        <target_name>num_tra_azz</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>NUM_PAZ_TOT</field_name>
-        <key_value>Arancio</key_value>
-        <target_name>num_tra_ara</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>NUM_PAZ_TOT</field_name>
-        <key_value>Rosso</key_value>
-        <target_name>num_tra_ros</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>867</xloc>
-      <yloc>204</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Err - stato imprevisto</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1233</xloc>
-      <yloc>23</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <replaceAllByValue>0</replaceAllByValue>
-    <replaceAllMask/>
-    <selectFields>N</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      <valuetype>
-        <name>Number</name>
-        <value>0</value>
-        <mask/>
-        <set_type_empty_string>N</set_type_empty_string>
-      </valuetype>
-      <valuetype>
-        <name>BigNumber</name>
-        <value>0</value>
-        <mask/>
-        <set_type_empty_string>N</set_type_empty_string>
-      </valuetype>
-      <valuetype>
-        <name>Integer</name>
-        <value>0</value>
-        <mask/>
-        <set_type_empty_string>N</set_type_empty_string>
-      </valuetype>
-    </valuetypes>
-    <fields>
-      </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1007</xloc>
-      <yloc>435</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>InsUpd tab_ril</name>
     <type>InsertUpdate</type>
@@ -1915,8 +1520,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <name2/>
       </key>
       <value>
-        <name>COD_UO</name>
-        <rename>COD_UO</rename>
+        <name>COD_REP_HSP</name>
+        <rename>COD_REP_HSP</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1925,84 +1530,24 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <update>Y</update>
       </value>
       <value>
-        <name>NUM_PL_OBI</name>
-        <rename>NUM_PL_OBI</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>NUM_PAZ_TOT</name>
-        <rename>NUM_PAZ_TOT</rename>
+        <name>NUM_PL_OCC</name>
+        <rename>NUM_PL_OCC</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>TOTALE_NO_BIANCHI</name>
-        <rename>TOTALE_NO_BIANCHI</rename>
+        <name>NUM_DIM_PRE</name>
+        <rename>NUM_DIM_PRE</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>NUM_PAZ_RIC</name>
-        <rename>NUM_PAZ_RIC</rename>
+        <name>DEG_MEDIA</name>
+        <rename>DEG_MEDIA</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>num_att_bia</name>
-        <rename>num_att_bia</rename>
+        <name>ORE_DEG</name>
+        <rename>ORE_DEG</rename>
         <update>Y</update>
-      </value>
-      <value>
-        <name>num_att_ver</name>
-        <rename>num_att_ver</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_att_azz</name>
-        <rename>num_att_azz</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_att_ara</name>
-        <rename>num_att_ara</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_att_ros</name>
-        <rename>num_att_ros</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_tra_bia</name>
-        <rename>num_tra_bia</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_tra_ver</name>
-        <rename>num_tra_ver</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_tra_azz</name>
-        <rename>num_tra_azz</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_tra_ara</name>
-        <rename>num_tra_ara</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_tra_ros</name>
-        <rename>num_tra_ros</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NUM_BARELLE</name>
-        <rename>NUM_BARELLE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_med_urg</name>
-        <rename>num_med_urg</rename>
-        <update>N</update>
       </value>
       <value>
         <name>COD_OSP</name>
@@ -2020,8 +1565,28 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <update>Y</update>
       </value>
       <value>
-        <name>num_paz_bar</name>
-        <rename>num_paz_bar</rename>
+        <name>tot_pl_ord</name>
+        <rename>tot_pl_ord</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>pl_liberi</name>
+        <rename>pl_liberi</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_pl_urg</name>
+        <rename>num_pl_urg</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_AGG</name>
+        <rename>DATA_AGG</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ETA_MEDIA</name>
+        <rename>ETA_MEDIA</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -2034,398 +1599,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1188</xloc>
-      <yloc>435</yloc>
+      <xloc>58</xloc>
+      <yloc>255</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Memory group by</name>
-    <type>MemoryGroupBy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <give_back_row>N</give_back_row>
-    <group>
-      <field>
-        <name>COD_UO</name>
-      </field>
-      <field>
-        <name>DATA_RIL</name>
-      </field>
-    </group>
-    <fields>
-      <field>
-        <aggregate>NUM_PL_OBI</aggregate>
-        <subject>NUM_PL_OBI</subject>
-        <type>SUM</type>
-        <valuefield/>
-      </field>
-      <field>
-        <aggregate>NUM_PAZ_TOT</aggregate>
-        <subject>NUM_PAZ_TOT</subject>
-        <type>SUM</type>
-        <valuefield/>
-      </field>
-      <field>
-        <aggregate>TOTALE_NO_BIANCHI</aggregate>
-        <subject>TOTALE_NO_BIANCHI</subject>
-        <type>SUM</type>
-        <valuefield/>
-      </field>
-      <field>
-        <aggregate>NUM_PAZ_RIC</aggregate>
-        <subject>NUM_PAZ_RIC</subject>
-        <type>SUM</type>
-        <valuefield/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>439</xloc>
-      <yloc>171</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>COD_UO</name>
-      </field>
-      <field>
-        <name>DATA_RIL</name>
-      </field>
-      <field>
-        <name>STATOORDINE</name>
-      </field>
-      <field>
-        <name>COLORE_TRIAGE</name>
-      </field>
-      <field>
-        <name>NUM_PAZ_TOT</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>570</xloc>
-      <yloc>23</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>COD_UO</name>
-      </field>
-      <field>
-        <name>DATA_RIL</name>
-      </field>
-      <field>
-        <name>NUM_PL_OBI</name>
-      </field>
-      <field>
-        <name>NUM_PAZ_TOT</name>
-      </field>
-      <field>
-        <name>TOTALE_NO_BIANCHI</name>
-      </field>
-      <field>
-        <name>NUM_PAZ_RIC</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>440</xloc>
-      <yloc>97</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>COD_UO</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>DATA_RIL</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>439</xloc>
-      <yloc>242</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stream lookup 1</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <from>Denormaliser AT</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>COD_UO</name>
-        <field>COD_UO</field>
-      </key>
-      <key>
-        <name>DATA_RIL</name>
-        <field>DATA_RIL</field>
-      </key>
-      <value>
-        <name>num_att_bia</name>
-        <rename>num_att_bia</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>num_att_ver</name>
-        <rename>num_att_ver</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>num_att_azz</name>
-        <rename>num_att_azz</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>num_att_ara</name>
-        <rename>num_att_ara</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>num_att_ros</name>
-        <rename>num_att_ros</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>440</xloc>
-      <yloc>339</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stream lookup 2</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <from>Denormaliser IN</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>COD_UO</name>
-        <field>COD_UO</field>
-      </key>
-      <key>
-        <name>DATA_RIL</name>
-        <field>DATA_RIL</field>
-      </key>
-      <value>
-        <name>num_tra_bia</name>
-        <rename>num_tra_bia</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>num_tra_ver</name>
-        <rename>num_tra_ver</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>num_tra_azz</name>
-        <rename>num_tra_azz</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>num_tra_ara</name>
-        <rename>num_tra_ara</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>num_tra_ros</name>
-        <rename>num_tra_ros</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>440</xloc>
-      <yloc>435</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Switch AT e IN</name>
-    <type>SwitchCase</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fieldname>STATOORDINE</fieldname>
-    <use_contains>N</use_contains>
-    <case_value_type>String</case_value_type>
-    <case_value_format/>
-    <case_value_decimal/>
-    <case_value_group/>
-    <default_target_step>Err - stato imprevisto</default_target_step>
-    <cases>
-      <case>
-        <value>AT</value>
-        <target_step>in Attesa</target_step>
-      </case>
-      <case>
-        <value>IN</value>
-        <target_step>in Trattamento</target_step>
-      </case>
-      <case>
-        <value>XX</value>
-        <target_step>stato XX</target_step>
-      </case>
-    </cases>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>769</xloc>
-      <yloc>23</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>calcolo Paz barellati</name>
+    <name>calcolo PL liberi</name>
     <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
@@ -2442,19 +1622,29 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script qua
-var num_paz_bar; // pazienti barellati
+var pl_liberi;     // differenza fra tot e occupati
+var num_pl_urg;    // = liberi se >= 0, altrimenti 0
 
-if (TOTALE_NO_BIANCHI &lt; NUM_BARELLE) 
-	num_paz_bar = TOTALE_NO_BIANCHI;
+pl_liberi = tot_pl_ord - NUM_PL_OCC;
+if (pl_liberi >= 0) 
+	num_pl_urg = pl_liberi;
 else
-	num_paz_bar = NUM_BARELLE;
+	num_pl_urg = 0;
 </jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
       <field>
-        <name>num_paz_bar</name>
-        <rename>num_paz_bar</rename>
+        <name>pl_liberi</name>
+        <rename>pl_liberi</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>num_pl_urg</name>
+        <rename>num_pl_urg</rename>
         <type>Integer</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -2470,13 +1660,13 @@ else
       </output>
     </remotesteps>
     <GUI>
-      <xloc>806</xloc>
-      <yloc>435</yloc>
+      <xloc>58</xloc>
+      <yloc>178</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>crwd_Reparti_PS</name>
+    <name>crwd_Reparti_hsp</name>
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -2492,28 +1682,16 @@ else
     <cache_size>0</cache_size>
     <lookup>
       <schema/>
-      <table>vsrc_crwd_Reparti_PS</table>
+      <table>vsrc_crwd_Reparti_hsp</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>COD_UO</name>
-        <field>COD_UO</field>
+        <name>COD_REP_HSP</name>
+        <field>COD_REP_HSP</field>
         <condition>=</condition>
         <name2/>
       </key>
-      <value>
-        <name>NUM_BARELLE</name>
-        <rename>NUM_BARELLE</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>NUM_MEDICI</name>
-        <rename>num_med_urg</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
       <value>
         <name>COD_OSP</name>
         <rename>COD_OSP</rename>
@@ -2532,6 +1710,12 @@ else
         <default/>
         <type>String</type>
       </value>
+      <value>
+        <name>NUM_PL</name>
+        <rename>tot_pl_ord</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -2542,58 +1726,8 @@ else
       </output>
     </remotesteps>
     <GUI>
-      <xloc>647</xloc>
-      <yloc>435</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>in Attesa</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>674</xloc>
-      <yloc>123</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>in Trattamento</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>867</xloc>
-      <yloc>123</yloc>
+      <xloc>58</xloc>
+      <yloc>90</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2610,18 +1744,16 @@ else
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
-  COD_UO
-, DATA_RIL 
-, STATOORDINE
-, COLORE_TRIAGE
-, num_pl_obi
-, num_paz_tot
-, totale_no_bianchi
-, num_paz_ric
+  COD_REP_HSP, data_ril
+, NUM_PL_OCC
+, NUM_DIM_PRE
+, DEG_MEDIA
+, eta_media
+, ORE_DEG
+, data_agg
 FROM 
 ${vsrc_ril}
---VSRC_CRWD_PS_PRESENTI
---where cod_uo &lt;&gt; '8063'		-- 8063 BO, 8065 IM, 8066 SR
+--VSRC_CRWD_DEG_RIL
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -2633,11 +1765,11 @@ ${vsrc_ril}
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>COD_UO</name>
+        <name>COD_REP_HSP</name>
         <length>5</length>
         <precision>-1</precision>
         <origin>vsrc_ril</origin>
-        <comments>COD_UO</comments>
+        <comments>COD_REP_HSP</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2677,131 +1809,131 @@ ${vsrc_ril}
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>String</type>
+        <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>STATOORDINE</name>
-        <length>2</length>
+        <name>NUM_PL_OCC</name>
+        <length>-1</length>
         <precision>-1</precision>
         <origin>vsrc_ril</origin>
-        <comments>STATOORDINE</comments>
+        <comments>NUM_PL_OCC</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>NUM_DIM_PRE</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>vsrc_ril</origin>
+        <comments>NUM_DIM_PRE</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>DEG_MEDIA</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>vsrc_ril</origin>
+        <comments>DEG_MEDIA</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>ETA_MEDIA</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>vsrc_ril</origin>
+        <comments>ETA_MEDIA</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>ORE_DEG</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>vsrc_ril</origin>
+        <comments>ORE_DEG</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_AGG</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>vsrc_ril</origin>
+        <comments>DATA_AGG</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COLORE_TRIAGE</name>
-        <length>30</length>
-        <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>COLORE_TRIAGE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>NUM_PL_OBI</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>NUM_PL_OBI</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>NUM_PAZ_TOT</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>NUM_PAZ_TOT</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>TOTALE_NO_BIANCHI</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>TOTALE_NO_BIANCHI</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>NUM_PAZ_RIC</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>NUM_PAZ_RIC</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -2824,83 +1956,8 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>152</xloc>
-      <yloc>23</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>COD_UO</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>DATA_RIL</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>310</xloc>
-      <yloc>22</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>stato XX</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1049</xloc>
-      <yloc>125</yloc>
+      <xloc>58</xloc>
+      <yloc>15</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
