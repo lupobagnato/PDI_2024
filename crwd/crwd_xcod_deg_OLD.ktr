@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>crwd_storico_PS</name>
+    <name>crwd_xcod_deg_OLD</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -9,13 +9,8 @@
     <directory>/crwd</directory>
     <parameters>
       <parameter>
-        <name>tab_ril</name>
-        <default_value>crwd_ps_ril</default_value>
-        <description/>
-      </parameter>
-      <parameter>
-        <name>vsrc_ril</name>
-        <default_value>vsrc_crwd_ps_RIL_storico</default_value>
+        <name>buffer</name>
+        <default_value>crwd_deg_buf</default_value>
         <description/>
       </parameter>
     </parameters>
@@ -63,19 +58,19 @@
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject>InsUpd tab_ril</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>vsrc_ril</subject>
+          <subject>buffer</subject>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>InsUpd tab_ril</subject>
+          <subject>buffer</subject>
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -930,59 +925,11 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/06/14 18:09:50.238</modified_date>
+    <modified_date>2022/06/14 14:19:48.133</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>prima era Max attesa ricovero
-ora è Stazionamento
-il nome del campo di output
-max_att_ric
-è invariato</note>
-      <xloc>211</xloc>
-      <yloc>321</yloc>
-      <width>155</width>
-      <heigth>75</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>QUESTO POTREBBE
-DIVENTARE UNO STEP
-SOLO UPDATE</note>
-      <xloc>899</xloc>
-      <yloc>341</yloc>
-      <width>152</width>
-      <heigth>55</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>areas_formazione</name>
@@ -1511,1032 +1458,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>vsrc_ril</from>
-      <to>Filter rows</to>
+      <from>buffer</from>
+      <to>reparto Corrente  2 HSP</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows</from>
-      <to>48h</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>old1</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>48h</from>
-      <to>Filter rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 2</from>
-      <to>24h</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>24h</from>
-      <to>Filter rows 2 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 2 2</from>
-      <to>12h</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>24h</from>
-      <to>Accessi nelle 24h</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Accessi nelle 24h</from>
-      <to>Denormaliser</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>48h</from>
-      <to>Max Stazionamento</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Denormaliser</from>
-      <to>If field value is null</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>12h</from>
-      <to>Max x VISITA</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 2</from>
-      <to>old2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 2 2</from>
-      <to>old3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>If field value is null</from>
-      <to>Stream lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Max x VISITA</from>
-      <to>Stream lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stream lookup</from>
-      <to>Stream lookup 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Max Stazionamento</from>
-      <to>Stream lookup 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stream lookup 2</from>
-      <to>crwd_Reparti_PS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>crwd_Reparti_PS</from>
-      <to>InsUpd tab_ril</to>
+      <from>reparto Corrente  2 HSP</from>
+      <to>upd_buffer</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>12h</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>773</xloc>
-      <yloc>21</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>24h</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>527</xloc>
-      <yloc>21</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>48h</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>281</xloc>
-      <yloc>21</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Accessi nelle 24h</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>COD_UO</name>
-      </field>
-      <field>
-        <name>DATA_RIL</name>
-      </field>
-      <field>
-        <name>COLORE_TRIAGE</name>
-      </field>
-      <field>
-        <name>FLAG_ACCESSI</name>
-      </field>
-      <field>
-        <name>FLAG_AUTOPRESENTATI</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>527</xloc>
-      <yloc>90</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Denormaliser</name>
-    <type>Denormaliser</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <key_field>COLORE_TRIAGE</key_field>
-    <group>
-      <field>
-        <name>COD_UO</name>
-      </field>
-      <field>
-        <name>DATA_RIL</name>
-      </field>
-    </group>
-    <fields>
-      <field>
-        <field_name>FLAG_ACCESSI</field_name>
-        <key_value>Bianco</key_value>
-        <target_name>num_acc_bia</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>FLAG_ACCESSI</field_name>
-        <key_value>Verde</key_value>
-        <target_name>num_acc_ver</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>FLAG_ACCESSI</field_name>
-        <key_value>Azzurro</key_value>
-        <target_name>num_acc_azz</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>FLAG_ACCESSI</field_name>
-        <key_value>Arancio</key_value>
-        <target_name>num_acc_ara</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>FLAG_ACCESSI</field_name>
-        <key_value>Rosso</key_value>
-        <target_name>num_acc_ros</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>FLAG_AUTOPRESENTATI</field_name>
-        <key_value>Bianco</key_value>
-        <target_name>num_aut_bia</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>FLAG_AUTOPRESENTATI</field_name>
-        <key_value>Verde</key_value>
-        <target_name>num_aut_ver</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>FLAG_AUTOPRESENTATI</field_name>
-        <key_value>Azzurro</key_value>
-        <target_name>num_aut_azz</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>FLAG_AUTOPRESENTATI</field_name>
-        <key_value>Arancio</key_value>
-        <target_name>num_aut_ara</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-      <field>
-        <field_name>FLAG_AUTOPRESENTATI</field_name>
-        <key_value>Rosso</key_value>
-        <target_name>num_aut_ros</target_name>
-        <target_type>Integer</target_type>
-        <target_format/>
-        <target_length>-1</target_length>
-        <target_precision>-1</target_precision>
-        <target_decimal_symbol/>
-        <target_grouping_symbol/>
-        <target_currency_symbol/>
-        <target_null_string/>
-        <target_aggregation_type>SUM</target_aggregation_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>527</xloc>
-      <yloc>178</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>48h</send_true_to>
-    <send_false_to>old1</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>ORE_TRASCORSE</leftvalue>
-        <function>&lt;=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>BigNumber</type>
-          <text>48.0</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask>######0.0###################;-######0.0###################</mask>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>158</xloc>
-      <yloc>21</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows 2</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>24h</send_true_to>
-    <send_false_to>old2</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>ORE_TRASCORSE</leftvalue>
-        <function>&lt;=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>BigNumber</type>
-          <text>24.0</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask>######0.0###################;-######0.0###################</mask>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>404</xloc>
-      <yloc>21</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows 2 2</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>12h</send_true_to>
-    <send_false_to>old3</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>ORE_TRASCORSE</leftvalue>
-        <function>&lt;=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>BigNumber</type>
-          <text>12.0</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask>######0.0###################;-######0.0###################</mask>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>650</xloc>
-      <yloc>21</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <replaceAllByValue>0</replaceAllByValue>
-    <replaceAllMask/>
-    <selectFields>N</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>527</xloc>
-      <yloc>262</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>InsUpd tab_ril</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>${tab_ril}</table>
-      <key>
-        <name>COD_OSP</name>
-        <field>COD_OSP</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>COD_REP</name>
-        <field>COD_REP</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>PROG_REP</name>
-        <field>PROG_REP</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>DATA_RIL</name>
-        <field>DATA_RIL</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>COD_OSP</name>
-        <rename>COD_OSP</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_REP</name>
-        <rename>COD_REP</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PROG_REP</name>
-        <rename>PROG_REP</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_RIL</name>
-        <rename>DATA_RIL</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_acc_bia</name>
-        <rename>num_acc_bia</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_acc_ver</name>
-        <rename>num_acc_ver</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_acc_azz</name>
-        <rename>num_acc_azz</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_acc_ara</name>
-        <rename>num_acc_ara</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_acc_ros</name>
-        <rename>num_acc_ros</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_aut_bia</name>
-        <rename>num_aut_bia</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_aut_ver</name>
-        <rename>num_aut_ver</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_aut_azz</name>
-        <rename>num_aut_azz</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_aut_ara</name>
-        <rename>num_aut_ara</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>num_aut_ros</name>
-        <rename>num_aut_ros</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>max_att_val</name>
-        <rename>max_att_val</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>max_att_ric</name>
-        <rename>max_att_ric</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>data_agg</name>
-        <rename>data_agg</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>858</xloc>
-      <yloc>387</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Max Stazionamento</name>
-    <type>MemoryGroupBy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <give_back_row>N</give_back_row>
-    <group>
-      <field>
-        <name>COD_UO</name>
-      </field>
-      <field>
-        <name>DATA_RIL</name>
-      </field>
-    </group>
-    <fields>
-      <field>
-        <aggregate>max_att_ric</aggregate>
-        <subject>TEMPO_STAZIONAMENTO</subject>
-        <type>MAX</type>
-        <valuefield/>
-      </field>
-      <field>
-        <aggregate>data_agg</aggregate>
-        <subject>DATA_AGG</subject>
-        <type>MAX</type>
-        <valuefield/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>283</xloc>
-      <yloc>260</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Max x VISITA</name>
-    <type>MemoryGroupBy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <give_back_row>N</give_back_row>
-    <group>
-      <field>
-        <name>COD_UO</name>
-      </field>
-      <field>
-        <name>DATA_RIL</name>
-      </field>
-    </group>
-    <fields>
-      <field>
-        <aggregate>max_att_val</aggregate>
-        <subject>ATTESA_VISITA</subject>
-        <type>MAX</type>
-        <valuefield/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>773</xloc>
-      <yloc>152</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stream lookup</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <from>Max x VISITA</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>COD_UO</name>
-        <field>COD_UO</field>
-      </key>
-      <key>
-        <name>DATA_RIL</name>
-        <field>DATA_RIL</field>
-      </key>
-      <value>
-        <name>max_att_val</name>
-        <rename>max_att_val</rename>
-        <default/>
-        <type>Number</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>712</xloc>
-      <yloc>262</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stream lookup 2</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <from>Max Stazionamento</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>COD_UO</name>
-        <field>COD_UO</field>
-      </key>
-      <key>
-        <name>DATA_RIL</name>
-        <field>DATA_RIL</field>
-      </key>
-      <value>
-        <name>max_att_ric</name>
-        <rename>max_att_ric</rename>
-        <default/>
-        <type>BigNumber</type>
-      </value>
-      <value>
-        <name>data_agg</name>
-        <rename>data_agg</rename>
-        <default/>
-        <type>Date</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>527</xloc>
-      <yloc>387</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>crwd_Reparti_PS</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>vsrc_crwd_Reparti_PS</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>COD_UO</name>
-        <field>COD_UO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>COD_OSP</name>
-        <rename>COD_OSP</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>COD_REP</name>
-        <rename>COD_REP</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>PROG_REP</name>
-        <rename>PROG_REP</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>691</xloc>
-      <yloc>387</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>old1</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>158</xloc>
-      <yloc>90</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>old2</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>404</xloc>
-      <yloc>90</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>old3</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>650</xloc>
-      <yloc>90</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>vsrc_ril</name>
+    <name>buffer</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -2548,25 +1481,34 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
-  COD_UO
-, DATA_RIL
-, COLORE_TRIAGE
---, TIME_ACCETTAZIONE
---, TIME_VISITA
---, TIME_PRONTO
---, TIME_DIMISSIONE
-, attesa_visita     -- i bianchi sono esclusi nella vista vsrc_crwd_PS_RIL_storico
-, attesa_ricovero
-, tempo_stazionamento  -- usato per la ver.2 di max_att_ric che diventa Max Tempo di Stazionamento (ma il nome del campo resta invariato)
-, ore_trascorse
-, flag_accessi
-, flag_autopresentati
-, data_agg
-FROM 
-${vsrc_ril}
---VSRC_CRWD_PS_STORICO
-order by
-1,2
+NROCASO
+, data_accettazione
+--, PIN_AZIENDA_AAC
+--, ID_PATIDOK
+--, SESSO
+--, COD_FISCALE
+--, DATANASCITA
+--, COGNOME
+--, NOME
+--, REP_AMM_COD
+--, REP_AMM_DES
+--, REP_APP_COD
+--, REP_APP_DES
+--, DATA_DIMISSIBILE
+--, ORA_DIMISSIBILE
+, cod_rep_patidok
+, stanza
+, REP_ACCETTAZIONE
+, REP_DIMISSIONE
+, STANZA_ACC
+, STANZA_DIM     
+--  cod_rep_hsp
+--  HSP_ACC
+--  HSP_DIM
+FROM
+${buffer}
+
+
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -2576,36 +1518,59 @@ order by
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
       <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>NROCASO</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>buffer</origin>
+        <comments>NROCASO</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_ACCETTAZIONE</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>buffer</origin>
+        <comments>DATA_ACCETTAZIONE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>COD_UO</name>
+        <name>COD_REP_PATIDOK</name>
         <length>5</length>
         <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>COD_UO</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_RIL</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>DATA_RIL</comments>
+        <origin>buffer</origin>
+        <comments>COD_REP_PATIDOK</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2624,11 +1589,11 @@ order by
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>COLORE_TRIAGE</name>
-        <length>30</length>
+        <name>STANZA</name>
+        <length>50</length>
         <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>COLORE_TRIAGE</comments>
+        <origin>buffer</origin>
+        <comments>STANZA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2645,16 +1610,16 @@ order by
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>BigNumber</type>
+        <type>String</type>
         <storagetype>normal</storagetype>
-        <name>ATTESA_VISITA</name>
-        <length>-1</length>
+        <name>REP_ACCETTAZIONE</name>
+        <length>150</length>
         <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>ATTESA_VISITA</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
+        <origin>buffer</origin>
+        <comments>REP_ACCETTAZIONE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -2668,16 +1633,16 @@ order by
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>BigNumber</type>
+        <type>String</type>
         <storagetype>normal</storagetype>
-        <name>ATTESA_RICOVERO</name>
-        <length>-1</length>
+        <name>REP_DIMISSIONE</name>
+        <length>150</length>
         <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>ATTESA_RICOVERO</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
+        <origin>buffer</origin>
+        <comments>REP_DIMISSIONE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -2691,16 +1656,16 @@ order by
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>BigNumber</type>
+        <type>String</type>
         <storagetype>normal</storagetype>
-        <name>ORE_TRASCORSE</name>
-        <length>-1</length>
+        <name>STANZA_ACC</name>
+        <length>50</length>
         <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>ORE_TRASCORSE</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
+        <origin>buffer</origin>
+        <comments>STANZA_ACC</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -2714,59 +1679,13 @@ order by
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>BigNumber</type>
+        <type>String</type>
         <storagetype>normal</storagetype>
-        <name>FLAG_ACCESSI</name>
-        <length>-1</length>
+        <name>STANZA_DIM</name>
+        <length>50</length>
         <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>FLAG_ACCESSI</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>FLAG_AUTOPRESENTATI</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>FLAG_AUTOPRESENTATI</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_AGG</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>vsrc_ril</origin>
-        <comments>DATA_AGG</comments>
+        <origin>buffer</origin>
+        <comments>STANZA_DIM</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2792,8 +1711,119 @@ order by
       </output>
     </remotesteps>
     <GUI>
-      <xloc>35</xloc>
-      <yloc>21</yloc>
+      <xloc>187</xloc>
+      <yloc>52</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>reparto Corrente  2 HSP</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>db_sopra</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>Rep_Patidok_2_HSP</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>COD_REP_PATIDOK</name>
+        <field>COD_REP_PATIDOK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>STANZA</name>
+        <field>COD_STZ_PATIDOK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>DATA_ACCETTAZIONE</name>
+        <field>DATA_INIZIO</field>
+        <condition>&lt;=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>DATA_ACCETTAZIONE</name>
+        <field>DATA_FINE</field>
+        <condition>&gt;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>COD_REP_HSP</name>
+        <rename>COD_REP_HSP</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>187</xloc>
+      <yloc>170</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>upd_buffer</name>
+    <type>Update</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>db_sopra</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema/>
+      <table>${buffer}</table>
+      <key>
+        <name>NROCASO</name>
+        <field>NROCASO</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>COD_REP_HSP</name>
+        <rename>COD_REP_HSP</rename>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>187</xloc>
+      <yloc>291</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
