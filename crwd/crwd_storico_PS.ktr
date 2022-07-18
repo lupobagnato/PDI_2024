@@ -930,7 +930,7 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/06/29 09:27:34.939</modified_date>
+    <modified_date>2022/07/26 16:30:22.016</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -2212,7 +2212,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <fields>
       <field>
         <aggregate>max_att_ric</aggregate>
-        <subject>TEMPO_STAZIONAMENTO</subject>
+        <subject>TEMPO_STAZIONAMENTO_HH</subject>
         <type>MAX</type>
         <valuefield/>
       </field>
@@ -2260,7 +2260,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <fields>
       <field>
         <aggregate>max_att_val</aggregate>
-        <subject>ATTESA_VISITA</subject>
+        <subject>ATTESA_VISITA_HH</subject>
         <type>MAX</type>
         <valuefield/>
       </field>
@@ -2532,9 +2532,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 --, TIME_VISITA
 --, TIME_PRONTO
 --, TIME_DIMISSIONE
-, attesa_visita     -- i bianchi sono esclusi nella vista vsrc_crwd_PS_RIL_storico
-, attesa_ricovero
-, tempo_stazionamento  -- usato per la ver.2 di max_att_ric che diventa Max Tempo di Stazionamento (ma il nome del campo resta invariato)
+, attesa_visita_hh     -- i bianchi sono esclusi nella vista vsrc_crwd_PS_RIL_storico
+--, attesa_ricovero
+, tempo_stazionamento_hh  -- usato per la ver.2 di max_att_ric che diventa Max Tempo di Stazionamento (ma il nome del campo resta invariato)
 , ore_trascorse
 , flag_accessi
 , flag_autopresentati
@@ -2624,11 +2624,11 @@ order by
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>ATTESA_VISITA</name>
+        <name>ATTESA_VISITA_HH</name>
         <length>-1</length>
         <precision>-1</precision>
         <origin>vsrc_ril</origin>
-        <comments>ATTESA_VISITA</comments>
+        <comments>ATTESA_VISITA_HH</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -2647,11 +2647,11 @@ order by
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>ATTESA_RICOVERO</name>
+        <name>TEMPO_STAZIONAMENTO_HH</name>
         <length>-1</length>
         <precision>-1</precision>
         <origin>vsrc_ril</origin>
-        <comments>ATTESA_RICOVERO</comments>
+        <comments>TEMPO_STAZIONAMENTO_HH</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
