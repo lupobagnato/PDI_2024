@@ -1,14 +1,14 @@
 <job>
   <name>Export_SeT_loop</name>
-  <description />
-  <extended_description />
-  <job_version />
+  <description/>
+  <extended_description/>
+  <job_version/>
   <job_status>0</job_status>
   <directory>/record_SeT/export</directory>
   <created_user>admin</created_user>
   <created_date>2010/02/16 12:12:25.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2020/12/15 17:22:27.658</modified_date>
+  <modified_date>2022/07/13 16:24:08.948</modified_date>
   <parameters>
     <parameter>
       <name>ANNO_FINE</name>
@@ -27,13 +27,13 @@
     </parameter>
     <parameter>
       <name>DESTINATARIO</name>
-      <default_value />
-      <description />
+      <default_value/>
+      <description/>
     </parameter>
     <parameter>
       <name>EXPORT_DIR</name>
-      <default_value>${_Base_Path}\output_SeT</default_value>
-      <description />
+      <default_value>${_Base_Path}\record_SeT_OUT</default_value>
+      <description/>
     </parameter>
     <parameter>
       <name>MESE_FINE</name>
@@ -48,41 +48,171 @@
     <parameter>
       <name>var_From</name>
       <default_value>report.intranet@asl1.liguria.it</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_Port</name>
       <default_value>25</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_Smtp</name>
       <default_value>smtp.usl1.imperiese</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_To</name>
       <default_value>s.suppo@asl1.liguria.it</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_To_CCN</name>
       <default_value>s.suppo@asl1.liguria.it</default_value>
-      <description />
+      <description/>
     </parameter>
   </parameters>
   <connection>
-    <name>db_sopra_logger</name>
+    <name>areas_formazione</name>
+    <server>svi1db.regione.liguria.it</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>AMCF</database>
+    <port>1524</port>
+    <username>dwh</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be96b8d2</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1524</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>cardiopacs</name>
+    <server>10.106.111.14</server>
+    <type>MSSQLNATIVE</type>
+    <access>Native</access>
+    <database>ExtensaDataExport</database>
+    <port>1433</port>
+    <username>sia</username>
+    <password>Encrypted 293c5fd9014c6d9d7ff34a55187bc9f8d</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQLUseIntegratedSecurity</code>
+        <attribute>false</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1433</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>db_sopra</name>
     <server>ora_sopra.usl1.imperiese</server>
     <type>ORACLE</type>
     <access>Native</access>
     <database>DbSopra</database>
     <port>1526</port>
-    <username>pdi_logger</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <username>dwh</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be96b8d2</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -138,30 +268,358 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>db_sopra_cupreport</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>cupreport</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79bc75ce9dbdce</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+
+</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>db_sopra_hsp</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>hsp</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be9abcca</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_ORACLE.NLS_TERRITORY</code>
+        <attribute>america</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>db_sopra_logger</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>pdi_logger</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>db_sopra_SPEC</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>spec</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cd82aad9</password>
+    <servername/>
+    <data_tablespace>SPEC</data_tablespace>
+    <index_tablespace>IDX_SPEC</index_tablespace>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>5</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>Patidok</name>
+    <server>svc_sio</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>SIO</database>
+    <port>1521</port>
+    <username>patidok</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb09af648f96ffd1</password>
+    <servername/>
+    <data_tablespace>PATI_MV</data_tablespace>
+    <index_tablespace>PATI_MV</index_tablespace>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <slaveservers>
     <slaveserver>
       <name>carte</name>
       <hostname>localhost</hostname>
       <port>8181</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
       <name>Carte_server</name>
       <hostname>minollo</hostname>
-      <port />
-      <webAppName />
+      <port/>
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -169,12 +627,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>EC_MASTER_1</name>
       <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -182,12 +640,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>EC_SLAVE_1</name>
       <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -195,12 +653,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>EC_SLAVE_2</name>
       <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -208,12 +666,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>EC_SLAVE_3</name>
       <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -221,12 +679,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>EC_SLAVE_4</name>
       <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -234,12 +692,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>EC_SLAVE_5</name>
       <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -247,12 +705,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Jos 10.0.0.169</name>
       <hostname>10.0.0.169</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -260,12 +718,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Localhost 8081</name>
       <hostname>localhost</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -273,12 +731,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8080</name>
       <hostname>localhost</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -286,12 +744,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8080 master</name>
       <hostname>localhost</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -299,12 +757,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8080:Master</name>
       <hostname>localhost</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -312,12 +770,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8081</name>
       <hostname>localhost</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -325,12 +783,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8082</name>
       <hostname>localhost</hostname>
       <port>8082</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -338,12 +796,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8083</name>
       <hostname>localhost</hostname>
       <port>8083</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -351,12 +809,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>localhost:8084</name>
       <hostname>localhost</hostname>
       <port>8084</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -364,25 +822,25 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Mike ETL Server</name>
       <hostname>localhost</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
     <slaveserver>
       <name>pc115818</name>
       <hostname>pc115818</hostname>
-      <port />
-      <webAppName />
+      <port/>
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -390,12 +848,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Quasar</name>
       <hostname>quasar</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -403,12 +861,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Random</name>
       <hostname>random</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -416,12 +874,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>ruwvs07</name>
       <hostname>ruwvs07</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -429,12 +887,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>sam 8080</name>
       <hostname>127.0.0.1</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -442,12 +900,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>sam 8081 slave</name>
       <hostname>127.0.0.1</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -455,12 +913,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>sam 8082 slave</name>
       <hostname>127.0.0.1</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -468,12 +926,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>server8080</name>
       <hostname>127.0.0.1</hostname>
       <port>8080</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -481,12 +939,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>server8090</name>
       <hostname>127.0.0.1</hostname>
       <port>8090</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -494,12 +952,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>server9000</name>
       <hostname>127.0.0.1</hostname>
       <port>9000</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -507,12 +965,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Warmath</name>
       <hostname>liveinalpharetta.com</hostname>
       <port>8083</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -520,12 +978,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>Wayne ETL Server</name>
       <hostname>localhost</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>N</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -533,12 +991,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>zebulon slave</name>
       <hostname>192.168.1.277</hostname>
       <port>8081</port>
-      <webAppName />
+      <webAppName/>
       <username>cluster</username>
       <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-      <proxy_hostname />
-      <proxy_port />
-      <non_proxy_hosts />
+      <proxy_hostname/>
+      <proxy_port/>
+      <non_proxy_hosts/>
       <master>Y</master>
       <sslMode>N</sslMode>
     </slaveserver>
@@ -547,9 +1005,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <connection>${_LogDb}</connection>
     <schema>${_LogSchema}</schema>
     <table>${_LogTmpJob}</table>
-    <size_limit_lines />
-    <interval />
-    <timeout_days />
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
     <field>
       <id>ID_JOB</id>
       <enabled>Y</enabled>
@@ -657,10 +1115,10 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
   </job-log-table>
   <jobentry-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -748,10 +1206,10 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
   </jobentry-log-table>
   <channel-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -814,12 +1272,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
   </channel-log-table>
   <pass_batchid>N</pass_batchid>
-  <shared_objects_file />
+  <shared_objects_file/>
   <entries>
     <entry>
       <name>START</name>
       <description>Special entries</description>
       <type>SPECIAL</type>
+      <attributes/>
       <start>Y</start>
       <dummy>N</dummy>
       <repeat>N</repeat>
@@ -835,14 +1294,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <nr>0</nr>
       <xloc>17</xloc>
       <yloc>22</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Lista_Parametri</name>
       <description>Transformation</description>
       <type>TRANS</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>Lista_Parametri</transname>
       <directory>/record_SeT/export</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -851,44 +1312,45 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
       <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
           <name>ANNO_FINE</name>
-          <stream_name />
+          <stream_name/>
           <value>${ANNO_FINE}</value>
         </parameter>
         <parameter>
           <name>ANNO_INIZIO</name>
-          <stream_name />
+          <stream_name/>
           <value>${ANNO_INIZIO}</value>
         </parameter>
         <parameter>
           <name>BACK_MONTHS</name>
-          <stream_name />
+          <stream_name/>
           <value>${BACK_MONTHS}</value>
         </parameter>
         <parameter>
           <name>MESE_FINE</name>
-          <stream_name />
+          <stream_name/>
           <value>${MESE_FINE}</value>
         </parameter>
         <parameter>
           <name>MESE_INIZIO</name>
-          <stream_name />
+          <stream_name/>
           <value>${MESE_INIZIO}</value>
         </parameter>
       </parameters>
@@ -897,51 +1359,54 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <nr>0</nr>
       <xloc>189</xloc>
       <yloc>256</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Export_SeT_mese</name>
       <description>Job</description>
       <type>JOB</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
+      <job_object_id/>
+      <filename/>
       <jobname>Export_SeT_mese</jobname>
       <directory>/record_SeT/export</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>Y</exec_per_row>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
-      <slave_server_name />
+      <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <run_configuration/>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
           <name>anno</name>
           <stream_name>YYYY</stream_name>
-          <value />
+          <value/>
         </parameter>
         <parameter>
           <name>mese</name>
           <stream_name>MM</stream_name>
-          <value />
+          <value/>
         </parameter>
         <parameter>
           <name>DESTINATARIO</name>
-          <stream_name />
+          <stream_name/>
           <value>${DESTINATARIO}</value>
         </parameter>
         <parameter>
           <name>EXPORT_DIR</name>
-          <stream_name />
+          <stream_name/>
           <value>${EXPORT_DIR}</value>
         </parameter>
       </parameters>
@@ -951,11 +1416,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <nr>0</nr>
       <xloc>496</xloc>
       <yloc>256</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Log</name>
-      <description />
+      <description/>
       <type>WRITE_TO_LOG</type>
+      <attributes/>
       <logmessage>..... Anno_Fine=${ANNO_FINE} .....
 ..... Anno_Inizio=${ANNO_INIZIO} .....
 ..... Back_Months=${BACK_MONTHS} .....
@@ -966,28 +1433,30 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 ..... EXECUTING_USER=${EXECUTING_USER} .....
 ............................................</logmessage>
       <loglevel>Basic</loglevel>
-      <logsubject />
+      <logsubject/>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>90</xloc>
       <yloc>126</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Mail Ok</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To_CCN}</destination>
-      <destinationCc />
+      <destinationCc/>
       <destinationBCc>${var_To_CCN}</destinationBCc>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: Ok</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
+      <contact_person/>
+      <contact_phone/>
       <comment>Anno_Fine=${ANNO_FINE} 
 Anno_Inizio=${ANNO_INIZIO} 
 Back_Months=${BACK_MONTHS} 
@@ -999,10 +1468,10 @@ var_To=${var_To}
 var_To_CCN=${var_To_CCN} </comment>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1012,7 +1481,7 @@ var_To_CCN=${var_To_CCN} </comment>
       <importance>normal</importance>
       <sensitivity>normal</sensitivity>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>
         <filetype>GENERAL</filetype>
       </filetypes>
@@ -1023,41 +1492,44 @@ var_To_CCN=${var_To_CCN} </comment>
       <nr>0</nr>
       <xloc>768</xloc>
       <yloc>480</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>ZIP chiamante</name>
-      <description />
+      <description/>
       <type>JOB</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
+      <job_object_id/>
+      <filename/>
       <jobname>ZIP chiamante</jobname>
       <directory>/record_SeT/export</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
-      <slave_server_name />
+      <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <run_configuration/>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
           <name>Cartella</name>
-          <stream_name />
+          <stream_name/>
           <value>${EXPORT_DIR}</value>
         </parameter>
         <parameter>
           <name>var_To</name>
-          <stream_name />
+          <stream_name/>
           <value>${DESTINATARIO}</value>
         </parameter>
       </parameters>
@@ -1067,29 +1539,31 @@ var_To_CCN=${var_To_CCN} </comment>
       <nr>0</nr>
       <xloc>768</xloc>
       <yloc>256</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Mail Err ZIP</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
+      <destinationCc/>
       <destinationBCc>${var_To_CCN}</destinationBCc>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: Errore ZIP</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
-      <comment />
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1099,7 +1573,7 @@ var_To_CCN=${var_To_CCN} </comment>
       <importance>normal</importance>
       <sensitivity>normal</sensitivity>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>      </filetypes>
       <embeddedimages>
       </embeddedimages>
@@ -1108,14 +1582,16 @@ var_To_CCN=${var_To_CCN} </comment>
       <nr>0</nr>
       <xloc>944</xloc>
       <yloc>256</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>email_address</name>
-      <description />
+      <description/>
       <type>TRANS</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>email_address</transname>
       <directory>/record_SeT/export</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -1124,19 +1600,20 @@ var_To_CCN=${var_To_CCN} </comment>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration />
+      <run_configuration/>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -1145,22 +1622,24 @@ var_To_CCN=${var_To_CCN} </comment>
       <nr>0</nr>
       <xloc>189</xloc>
       <yloc>126</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Mail Ok dopo la transf</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To_CCN}</destination>
-      <destinationCc />
+      <destinationCc/>
       <destinationBCc>${var_To_CCN}</destinationBCc>
       <replyto>${var_From}</replyto>
       <replytoname>${var_From}</replytoname>
       <subject>${Internal.Job.Name}: dopo la transf "Lista Parametri"</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
+      <contact_person/>
+      <contact_phone/>
       <comment>Anno_Fine=${ANNO_FINE} 
 Anno_Inizio=${ANNO_INIZIO} 
 Back_Months=${BACK_MONTHS} 
@@ -1172,10 +1651,10 @@ Export Dir=${EXPORT_DIR}
 var_To=${var_To} </comment>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -1185,7 +1664,7 @@ var_To=${var_To} </comment>
       <importance>normal</importance>
       <sensitivity>normal</sensitivity>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>
         <filetype>GENERAL</filetype>
       </filetypes>
@@ -1196,11 +1675,13 @@ var_To=${var_To} </comment>
       <nr>0</nr>
       <xloc>189</xloc>
       <yloc>443</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Sposta SeT in bak</name>
-      <description />
+      <description/>
       <type>MOVE_FILES</type>
+      <attributes/>
       <move_empty_folders>N</move_empty_folders>
       <arg_from_previous>N</arg_from_previous>
       <include_subfolders>N</include_subfolders>
@@ -1216,9 +1697,9 @@ var_To=${var_To} </comment>
       <AddDateBeforeExtension>Y</AddDateBeforeExtension>
       <DoNotKeepFolderStructure>N</DoNotKeepFolderStructure>
       <iffileexists>unique_name</iffileexists>
-      <destinationFolder />
+      <destinationFolder/>
       <ifmovedfileexists>do_nothing</ifmovedfileexists>
-      <moved_date_time_format />
+      <moved_date_time_format/>
       <create_move_to_folder>N</create_move_to_folder>
       <add_moved_date>N</add_moved_date>
       <add_moved_time>N</add_moved_time>
@@ -1242,6 +1723,7 @@ var_To=${var_To} </comment>
       <nr>0</nr>
       <xloc>768</xloc>
       <yloc>368</yloc>
+      <attributes_kjc/>
     </entry>
   </entries>
   <hops>
