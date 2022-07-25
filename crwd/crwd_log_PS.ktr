@@ -930,7 +930,7 @@
     <created_user>admin</created_user>
     <created_date>2011/05/02 12:41:18.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/06/14 09:49:45.127</modified_date>
+    <modified_date>2022/07/25 11:54:23.018</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1642,6 +1642,26 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <rename>SALA_ASS_TRIAGE</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>ESITO_TRIAGE</name>
+        <rename>ESITO_TRIAGE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TEMPO_ATTESA</name>
+        <rename>TEMPO_ATTESA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TEMPO_STAZIONAMENTO</name>
+        <rename>TEMPO_STAZIONAMENTO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TEMPO_ATT_RICOVERO</name>
+        <rename>TEMPO_ATT_RICOVERO</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1699,6 +1719,10 @@ NROCASO
 , TIME_DIMISSIONE
 , FLAG_PRONTO
 , sala_ass_triage
+, ESITO_TRIAGE
+, TEMPO_ATTESA
+, TEMPO_STAZIONAMENTO
+, TEMPO_ATT_RICOVERO
 FROM 
 ${buffer}
 order by
@@ -2368,6 +2392,98 @@ nrocaso
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ESITO_TRIAGE</name>
+        <length>1</length>
+        <precision>-1</precision>
+        <origin>buffer</origin>
+        <comments>ESITO_TRIAGE</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>TEMPO_ATTESA</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>buffer</origin>
+        <comments>TEMPO_ATTESA</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>TEMPO_STAZIONAMENTO</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>buffer</origin>
+        <comments>TEMPO_STAZIONAMENTO</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>TEMPO_ATT_RICOVERO</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>buffer</origin>
+        <comments>TEMPO_ATT_RICOVERO</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
