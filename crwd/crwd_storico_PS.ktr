@@ -930,21 +930,24 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
+<<<<<<< Updated upstream
     <modified_date>2022/07/26 16:30:22.016</modified_date>
+=======
+    <modified_date>2022/07/25 17:49:50.529</modified_date>
+>>>>>>> Stashed changes
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>prima era Max attesa ricovero
-ora è Stazionamento
-il nome del campo di output
-max_att_ric
-è invariato</note>
-      <xloc>211</xloc>
-      <yloc>321</yloc>
-      <width>155</width>
-      <heigth>75</heigth>
+      <note>Ora il significato è Stazionamento
+ma il nome del campo è rimasto
+quello vecchio max_att_ric
+(Max Attesa Ricovero)</note>
+      <xloc>448</xloc>
+      <yloc>214</yloc>
+      <width>171</width>
+      <heigth>62</heigth>
       <fontname>Arial</fontname>
       <fontsize>8</fontsize>
       <fontbold>N</fontbold>
@@ -1494,12 +1497,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>Filter rows</from>
-      <to>48h</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>old1</to>
+      <to>maggiore di 72</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -1587,6 +1585,31 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <to>InsUpd tab_ril</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Filter rows 3</from>
+      <to>48h</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>72h</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>72h</from>
+      <to>Filter rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 3</from>
+      <to>old1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>72h</from>
+      <to>Media Att Ricovero</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>12h</name>
@@ -1608,8 +1631,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>773</xloc>
-      <yloc>21</yloc>
+      <xloc>1090</xloc>
+      <yloc>20</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1633,8 +1656,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>527</xloc>
-      <yloc>21</yloc>
+      <xloc>844</xloc>
+      <yloc>20</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1658,8 +1681,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>281</xloc>
-      <yloc>21</yloc>
+      <xloc>598</xloc>
+      <yloc>20</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1677,18 +1700,27 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <fields>
       <field>
         <name>COD_UO</name>
+        <rename/>
       </field>
       <field>
         <name>DATA_RIL</name>
+        <rename/>
       </field>
       <field>
         <name>COLORE_TRIAGE</name>
+        <rename/>
       </field>
       <field>
         <name>FLAG_ACCESSI</name>
+        <rename/>
       </field>
       <field>
         <name>FLAG_AUTOPRESENTATI</name>
+        <rename/>
+      </field>
+      <field>
+        <name>TEMPO_STAZIONAMENTO</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1701,8 +1733,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>527</xloc>
-      <yloc>90</yloc>
+      <xloc>844</xloc>
+      <yloc>89</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1867,6 +1899,76 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <target_null_string/>
         <target_aggregation_type>SUM</target_aggregation_type>
       </field>
+      <field>
+        <field_name>TEMPO_STAZIONAMENTO</field_name>
+        <key_value>Bianco</key_value>
+        <target_name>med_sta_bia</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>AVERAGE</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>TEMPO_STAZIONAMENTO</field_name>
+        <key_value>Verde</key_value>
+        <target_name>med_sta_ver</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>AVERAGE</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>TEMPO_STAZIONAMENTO</field_name>
+        <key_value>Azzurro</key_value>
+        <target_name>med_sta_azz</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>AVERAGE</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>TEMPO_STAZIONAMENTO</field_name>
+        <key_value>Arancio</key_value>
+        <target_name>med_sta_ara</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>AVERAGE</target_aggregation_type>
+      </field>
+      <field>
+        <field_name>TEMPO_STAZIONAMENTO</field_name>
+        <key_value>Rosso</key_value>
+        <target_name>med_sta_ros</target_name>
+        <target_type>Integer</target_type>
+        <target_format/>
+        <target_length>-1</target_length>
+        <target_precision>-1</target_precision>
+        <target_decimal_symbol/>
+        <target_grouping_symbol/>
+        <target_currency_symbol/>
+        <target_null_string/>
+        <target_aggregation_type>AVERAGE</target_aggregation_type>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1877,8 +1979,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>527</xloc>
-      <yloc>178</yloc>
+      <xloc>844</xloc>
+      <yloc>177</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1893,8 +1995,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>48h</send_true_to>
-    <send_false_to>old1</send_false_to>
+    <send_true_to>72h</send_true_to>
+    <send_false_to>maggiore di 72</send_false_to>
     <compare>
       <condition>
         <negated>N</negated>
@@ -1904,7 +2006,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <value>
           <name>constant</name>
           <type>BigNumber</type>
-          <text>48.0</text>
+          <text>72.0</text>
           <length>-1</length>
           <precision>-1</precision>
           <isnull>N</isnull>
@@ -1965,8 +2067,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>404</xloc>
-      <yloc>21</yloc>
+      <xloc>721</xloc>
+      <yloc>20</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2009,8 +2111,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>650</xloc>
-      <yloc>21</yloc>
+      <xloc>967</xloc>
+      <yloc>20</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2043,8 +2145,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>527</xloc>
-      <yloc>262</yloc>
+      <xloc>844</xloc>
+      <yloc>261</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2174,6 +2276,31 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <rename>data_agg</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>med_sta_bia</name>
+        <rename>med_sta_bia</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>med_sta_ver</name>
+        <rename>med_sta_ver</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>med_sta_azz</name>
+        <rename>med_sta_azz</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>med_sta_ara</name>
+        <rename>med_sta_ara</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>med_sta_ros</name>
+        <rename>med_sta_ros</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -2184,8 +2311,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>858</xloc>
-      <yloc>387</yloc>
+      <xloc>1175</xloc>
+      <yloc>386</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2232,8 +2359,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>283</xloc>
-      <yloc>260</yloc>
+      <xloc>600</xloc>
+      <yloc>259</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2274,8 +2401,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>773</xloc>
-      <yloc>152</yloc>
+      <xloc>1090</xloc>
+      <yloc>151</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2320,8 +2447,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>712</xloc>
-      <yloc>262</yloc>
+      <xloc>1029</xloc>
+      <yloc>261</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2372,8 +2499,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>527</xloc>
-      <yloc>387</yloc>
+      <xloc>844</xloc>
+      <yloc>386</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2432,13 +2559,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>691</xloc>
-      <yloc>387</yloc>
+      <xloc>1008</xloc>
+      <yloc>386</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>old1</name>
+    <name>maggiore di 72</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -2482,8 +2609,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>404</xloc>
-      <yloc>90</yloc>
+      <xloc>721</xloc>
+      <yloc>89</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2507,8 +2634,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>650</xloc>
-      <yloc>90</yloc>
+      <xloc>967</xloc>
+      <yloc>89</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2533,11 +2660,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 --, TIME_PRONTO
 --, TIME_DIMISSIONE
 , attesa_visita_hh     -- i bianchi sono esclusi nella vista vsrc_crwd_PS_RIL_storico
+<<<<<<< Updated upstream
 --, attesa_ricovero
+=======
+>>>>>>> Stashed changes
 , tempo_stazionamento_hh  -- usato per la ver.2 di max_att_ric che diventa Max Tempo di Stazionamento (ma il nome del campo resta invariato)
 , ore_trascorse
 , flag_accessi
 , flag_autopresentati
+, tempo_stazionamento
+, tempo_att_ricovero
 , data_agg
 FROM 
 ${vsrc_ril}
@@ -2771,6 +2903,142 @@ order by
     <GUI>
       <xloc>35</xloc>
       <yloc>21</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 3</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>48h</send_true_to>
+    <send_false_to>old1</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>ORE_TRASCORSE</leftvalue>
+        <function>&lt;=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>BigNumber</type>
+          <text>48.0</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask>######0.0###################;-######0.0###################</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>436</xloc>
+      <yloc>19</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>72h</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>283</xloc>
+      <yloc>19</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>old1</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>437</xloc>
+      <yloc>102</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Media Att Ricovero</name>
+    <type>MemoryGroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>COD_UO</name>
+      </field>
+      <field>
+        <name>DATA_RIL</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>med_att_ric</aggregate>
+        <subject>TEMPO_ATT_RICOVERO</subject>
+        <type>AVERAGE</type>
+        <valuefield/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>283</xloc>
+      <yloc>213</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
