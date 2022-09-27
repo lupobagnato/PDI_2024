@@ -1,19 +1,29 @@
 <transformation>
   <info>
-    <name>STS21_load</name>
+    <name>STS11_import</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/NSIS</directory>
+    <directory>/NSIS/Fast</directory>
     <parameters>
+      <parameter>
+        <name>YYYY</name>
+        <default_value>2022</default_value>
+        <description/>
+      </parameter>
+      <parameter>
+        <name>path_nsis</name>
+        <default_value>${_Base_Path}/Input/NSIS</default_value>
+        <description>dove si legge XLS e scrive TXT</description>
+      </parameter>
     </parameters>
     <log>
       <trans-log-table>
         <connection>${_LogDb}</connection>
         <schema>${_LogSchema}</schema>
-        <table>${_LogTrans}</table>
+        <table>${_LogTmpTrans}</table>
         <size_limit_lines/>
         <interval/>
         <timeout_days/>
@@ -41,31 +51,31 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject>Ins_New</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject>Audit Deleted</subject>
+          <subject>Errori</subject>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject>Upd_Changed</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>modSTS21_buffer</subject>
+          <subject>sts11 - 20xx</subject>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>Ins_New</subject>
+          <subject>modsts11_buffer</subject>
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -125,7 +135,7 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection>HSP_db_sopra</connection>
+        <connection/>
         <schema/>
         <table/>
         <interval/>
@@ -417,7 +427,7 @@
     <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
-    <step_performance_capturing_size_limit/>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
     <dependencies>
     </dependencies>
     <partitionschemas>
@@ -917,200 +927,14 @@
         </slaveservers>
       </clusterschema>
     </clusterschemas>
-    <created_user>admin</created_user>
-    <created_date>2012/04/27 14:39:58.000</created_date>
+    <created_user/>
+    <created_date>2019/09/16 11:46:20.196</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/09/26 14:40:48.058</modified_date>
+    <modified_date>2022/09/26 14:10:28.775</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>changed</note>
-      <xloc>188</xloc>
-      <yloc>388</yloc>
-      <width>53</width>
-      <heigth>23</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>deleted</note>
-      <xloc>190</xloc>
-      <yloc>487</yloc>
-      <width>46</width>
-      <heigth>23</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>0</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>se lo Stato Corrente
-è S deve diventare 1 (mod)
-
-stessa cosa se fosse un 9 (del)
-che non è ancora stato cancellato
-e ora risulta cambiato
-</note>
-      <xloc>967</xloc>
-      <yloc>298</yloc>
-      <width>175</width>
-      <heigth>103</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>test campo Stato
-in modSTS21</note>
-      <xloc>674</xloc>
-      <yloc>340</yloc>
-      <width>92</width>
-      <heigth>36</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>64</fontcolorgreen>
-      <fontcolorblue>128</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>test campo Stato
-in modSTS21</note>
-      <xloc>673</xloc>
-      <yloc>437</yloc>
-      <width>92</width>
-      <heigth>36</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>64</fontcolorgreen>
-      <fontcolorblue>128</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>se lo Stato Corrente
-è S deve diventare 9 (del)
-
-stessa cosa se fosse una modifica 
-in sospeso (stato 1) non ancora inviata
---> non serve fare la modifica, si invia
-una cancellazione
-</note>
-      <xloc>969</xloc>
-      <yloc>502</yloc>
-      <width>200</width>
-      <heigth>116</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>0</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>se non è mai stato inviato
-si cancella nel DB 
-(e non si invia nulla)</note>
-      <xloc>366</xloc>
-      <yloc>575</yloc>
-      <width>133</width>
-      <heigth>49</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>0</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>x avere lo Stato Corrente
-(quello in modSTS21)</note>
-      <xloc>159</xloc>
-      <yloc>316</yloc>
-      <width>132</width>
-      <heigth>36</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>128</fontcolorred>
-      <fontcolorgreen>128</fontcolorgreen>
-      <fontcolorblue>128</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>areas_formazione</name>
@@ -1571,57 +1395,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <connection>
-    <name>HSP_db_sopra (NLS America)</name>
-    <server>ora_sopra.usl1.imperiese</server>
-    <type>ORACLE</type>
-    <access>Native</access>
-    <database>DbSopra</database>
-    <port>1526</port>
-    <username>hsp</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be9abcca</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>EXTRA_OPTION_ORACLE.NLS_TERRITORY</code>
-        <attribute>america</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>1526</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SQL_CONNECT</code>
-        <attribute>alter session set nls_territory=america ;</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
-  <connection>
     <name>Patidok</name>
     <server>svc_sio</server>
     <type>ORACLE</type>
@@ -1690,119 +1463,29 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>modSTS21_buffer</from>
-      <to>Merge Rows</to>
+      <from>Data Validator</from>
+      <to>modsts11_buffer</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>modSTS21</from>
-      <to>Merge Rows</to>
+      <from>Data Validator</from>
+      <to>Errori</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Catch Changed</from>
-      <to>Audit Changed</to>
+      <from>Errori</from>
+      <to>sts11_scartati.xls</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Audit Deleted</from>
-      <to>Upd_Deleted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Audit Changed</from>
-      <to>Upd_Changed</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Audit New</from>
-      <to>Ins_New</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge Rows</from>
-      <to>Costanti_Stato</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Costanti_Stato</from>
-      <to>Catch Identical</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Mai Inviati</from>
-      <to>Cancella</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Inviati o Da_Aggiornare</from>
-      <to>Stato-->Da_Eliminare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Upd_Changed</from>
-      <to>Inviati o Da_Eliminare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Inviati o Da_Eliminare</from>
-      <to>Stato-->Da_Aggiornare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch Identical</from>
-      <to>Catch New</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch New</from>
-      <to>Audit New</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch Identical</from>
-      <to>Indentical</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Inviati o Da_Eliminare</from>
-      <to>Dummy</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Inviati o Da_Aggiornare</from>
-      <to>Dummy</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch Changed</from>
-      <to>Mai Inviati</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Mai Inviati</from>
-      <to>Audit Deleted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Upd_Deleted</from>
-      <to>Inviati o Da_Aggiornare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch New</from>
-      <to>Lookup su modSTS21</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Lookup su modSTS21</from>
-      <to>Catch Changed</to>
+      <from>sts11 - 20xx</from>
+      <to>Data Validator</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Audit Changed</name>
-    <type>SystemInfo</type>
+    <name>Data Validator</name>
+    <type>Validator</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1811,20 +1494,65 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <name>data_sys</name>
-        <type>system date (fixed)</type>
-      </field>
-      <field>
-        <name>JOB_ID</name>
-        <type>job batch ID</type>
-      </field>
-      <field>
-        <name>TRANSFORMATION_ID</name>
-        <type>batch ID</type>
-      </field>
-    </fields>
+    <validate_all>N</validate_all>
+    <concat_errors>N</concat_errors>
+    <concat_separator>|</concat_separator>
+    <validator_field>
+      <name>Anno</name>
+      <validation_name>Anno_Null</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>N</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression/>
+      <regular_expression_not_allowed/>
+      <error_code>Anno_null</error_code>
+      <error_description>record saltato</error_description>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>Anno</name>
+      <validation_name>Anno_Valore</validation_name>
+      <max_length>4</max_length>
+      <min_length>4</min_length>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>String</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value>2022</min_value>
+      <start_string>20</start_string>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>20[0-9]{2}</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code>Anno_err</error_code>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1834,364 +1562,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>436</xloc>
-      <yloc>378</yloc>
+      <xloc>114</xloc>
+      <yloc>137</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Audit Deleted</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>data_sys</name>
-        <type>system date (fixed)</type>
-      </field>
-      <field>
-        <name>JOB_ID</name>
-        <type>job batch ID</type>
-      </field>
-      <field>
-        <name>TRANSFORMATION_ID</name>
-        <type>batch ID</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>436</xloc>
-      <yloc>478</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Audit New</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>data_sys</name>
-        <type>system date (fixed)</type>
-      </field>
-      <field>
-        <name>JOB_ID</name>
-        <type>job batch ID</type>
-      </field>
-      <field>
-        <name>TRANSFORMATION_ID</name>
-        <type>batch ID</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>316</xloc>
-      <yloc>246</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Cancella</name>
-    <type>Delete</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <commit>1000</commit>
-    <lookup>
-      <schema/>
-      <table>MODSTS21</table>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STS11</name>
-        <field>STS11</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>BRANCA</name>
-        <field>BRANCA</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>316</xloc>
-      <yloc>576</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Catch Changed</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Audit Changed</send_true_to>
-    <send_false_to>Mai Inviati</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>flagfield</leftvalue>
-            <function>=</function>
-            <rightvalue/>
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>changed</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>122</xloc>
-      <yloc>423</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Catch Identical</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Indentical</send_true_to>
-    <send_false_to>Catch New</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>flagfield</leftvalue>
-            <function>=</function>
-            <rightvalue/>
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>identical</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>121</xloc>
-      <yloc>172</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Catch New</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Audit New</send_true_to>
-    <send_false_to>Lookup su modSTS21</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>flagfield</leftvalue>
-            <function>=</function>
-            <rightvalue/>
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>new</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>122</xloc>
-      <yloc>246</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Costanti_Stato</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Da_Inserire</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Da_Aggiornare</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Da_Eliminare</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>9</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Inviato</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>S</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>120</xloc>
-      <yloc>114</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Dummy</name>
+    <name>Errori</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -2210,14 +1587,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>875</xloc>
-      <yloc>433</yloc>
+      <xloc>301</xloc>
+      <yloc>137</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Indentical</name>
-    <type>Dummy</type>
+    <name>modsts11_buffer</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2226,6 +1603,25 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <connection>db_sopra_hsp</connection>
+    <schema/>
+    <table>modsts11_buffer</table>
+    <commit>10000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2235,14 +1631,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>315</xloc>
-      <yloc>172</yloc>
+      <xloc>114</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Ins_New</name>
-    <type>InsertUpdate</type>
+    <name>sts11 - 20xx</name>
+    <type>ExcelInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2251,389 +1647,570 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <commit>1000</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>MODSTS21</table>
-      <key>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>N</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield/>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
+    <limit>0</limit>
+    <encoding/>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+    <file>
+      <name>${path_nsis}</name>
+      <filemask>sts11 - 20[0-9]{2}\.xls</filemask>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
         <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STS11</name>
-        <field>STS11</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>BRANCA</name>
-        <field>BRANCA</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>ANNO</name>
-        <rename>ANNO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>STS11</name>
-        <rename>STS11</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>BRANCA</name>
-        <rename>BRANCA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>REGIONE</name>
-        <rename>REGIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ASL</name>
-        <rename>ASL</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PREST_EST</name>
-        <rename>PREST_EST</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PREST_EQU</name>
-        <rename>PREST_EQU</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PREST_INT</name>
-        <rename>PREST_INT</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Stato</name>
-        <rename>Da_Inserire</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>flagfield</name>
-        <rename>flagfield</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Data_ins</name>
-        <rename>data_sys</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Data_mod</name>
-        <rename>data_sys</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>JOB_ID</name>
-        <rename>JOB_ID</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TRANSFORMATION_ID</name>
-        <rename>TRANSFORMATION_ID</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>436</xloc>
-      <yloc>246</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Inviati o Da_Aggiornare</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Stato-->Da_Eliminare</send_true_to>
-    <send_false_to>Dummy</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>STATO_Corrente</leftvalue>
-            <function>=</function>
-            <rightvalue>Inviato</rightvalue>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>STATO_Corrente</leftvalue>
-            <function>=</function>
-            <rightvalue>Da_Aggiornare</rightvalue>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>731</xloc>
-      <yloc>478</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Inviati o Da_Eliminare</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Stato-->Da_Aggiornare</send_true_to>
-    <send_false_to>Dummy</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>STATO_Corrente</leftvalue>
-            <function>=</function>
-            <rightvalue>Inviato</rightvalue>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>STATO_Corrente</leftvalue>
-            <function>=</function>
-            <rightvalue>Da_Eliminare</rightvalue>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>731</xloc>
-      <yloc>378</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Lookup su modSTS21</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>modSTS21</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STS11</name>
-        <field>STS11</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>BRANCA</name>
-        <field>BRANCA</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>STATO</name>
-        <rename>STATO_Corrente</rename>
-        <default/>
         <type>String</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>122</xloc>
-      <yloc>324</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Mai Inviati</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Cancella</send_true_to>
-    <send_false_to>Audit Deleted</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>STATO_Corrente</leftvalue>
-        <function>=</function>
-        <rightvalue>Da_Inserire</rightvalue>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>316</xloc>
-      <yloc>478</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge Rows</name>
-    <type>MergeRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <keys>
-      <key>ANNO</key>
-      <key>STS11</key>
-      <key>BRANCA</key>
-    </keys>
-    <values>
-      <value>REGIONE</value>
-      <value>ASL</value>
-      <value>PREST_EST</value>
-      <value>PREST_EQU</value>
-      <value>PREST_INT</value>
-    </values>
-    <flag_field>flagfield</flag_field>
-    <reference>modSTS21</reference>
-    <compare>modSTS21_buffer</compare>
-    <compare>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>122</xloc>
-      <yloc>41</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stato-->Da_Aggiornare</name>
-    <type>Update</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
-    <use_batch>N</use_batch>
+        <length>4</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>CODICE_REGIONE</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>CODICE_AZIENDA</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>STRUTTURA_COD</name>
+        <type>String</type>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>STRUTTURA_DES</name>
+        <type>String</type>
+        <length>70</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TIPO_STRUTTURA_COD</name>
+        <type>String</type>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TIPO_STRUTTURA_DES</name>
+        <type>String</type>
+        <length>50</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ANNO_APERTURA</name>
+        <type>String</type>
+        <length>4</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>MESE_APERTURA</name>
+        <type>String</type>
+        <length>2</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>GIORNO_APERTURA</name>
+        <type>String</type>
+        <length>2</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ANNO_CHIUSURA</name>
+        <type>String</type>
+        <length>4</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>MESE_CHIUSURA</name>
+        <type>String</type>
+        <length>2</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>GIORNO_CHIUSURA</name>
+        <type>String</type>
+        <length>2</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TIPO_RAPPORTO</name>
+        <type>String</type>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>FLAG_APPARECCHIATURE</name>
+        <type>String</type>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>PARTITA_IVA</name>
+        <type>String</type>
+        <length>16</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>INDIRIZZO</name>
+        <type>String</type>
+        <length>100</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>CODICE_COMUNE</name>
+        <type>String</type>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>CAP</name>
+        <type>String</type>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>EMAIL</name>
+        <type>String</type>
+        <length>50</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>SITO_WEB</name>
+        <type>String</type>
+        <length>50</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>PREFISSO</name>
+        <type>String</type>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TELEFONO</name>
+        <type>String</type>
+        <length>10</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>PREFISSO_FAX</name>
+        <type>String</type>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>NUMERO_FAX</name>
+        <type>String</type>
+        <length>10</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>OSP_TIPO</name>
+        <type>String</type>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>OSP_COD</name>
+        <type>String</type>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>MESI_FUNZIONAMENTO</name>
+        <type>String</type>
+        <length>2</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TITOLARE</name>
+        <type>String</type>
+        <length>50</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TIPI_ASSISTENZA_DES</name>
+        <type>String</type>
+        <length>200</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TIPO_ASS_1</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TIPO_ASS_2</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TIPO_ASS_3</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TIPO_ASS_4</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>GIORNI_1</name>
+        <type>String</type>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>GIORNI_2</name>
+        <type>String</type>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>GIORNI_3</name>
+        <type>String</type>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>GIORNI_4</name>
+        <type>String</type>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ORE_1</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ORE_2</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ORE_3</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ORE_4</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+    </fields>
+    <sheets>
+      <sheet>
+        <name>Foglio1</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+      <sheet>
+        <name>Report1</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+      <sheet>
+        <name>Sheet 1</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
     <error_ignored>N</error_ignored>
-    <ignore_flag_field/>
-    <lookup>
-      <schema/>
-      <table>MODSTS21</table>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STS11</name>
-        <field>STS11</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>BRANCA</name>
-        <field>BRANCA</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>STATO</name>
-        <rename>Da_Aggiornare</rename>
-      </value>
-    </lookup>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <spreadsheet_type>JXL</spreadsheet_type>
+    <password>Encrypted </password>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2643,14 +2220,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>875</xloc>
-      <yloc>332</yloc>
+      <xloc>114</xloc>
+      <yloc>52</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Stato-->Da_Eliminare</name>
-    <type>Update</type>
+    <name>sts11_scartati.xls</name>
+    <type>TypeExitExcelWriterStep</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2659,38 +2236,598 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>1000</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field/>
-    <lookup>
-      <schema/>
-      <table>MODSTS21</table>
-      <key>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${path_nsis}\sts11_scartati</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>Y</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>new</if_file_exists>
+      <if_sheet_exists>new</if_sheet_exists>
+    </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>template.xls</filename>
+      <sheetname/>
+      <hidden>N</hidden>
+    </template>
+    <fields>
+      <field>
         <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STS11</name>
-        <field>STS11</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>BRANCA</name>
-        <field>BRANCA</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>STATO</name>
-        <rename>Da_Eliminare</rename>
-      </value>
-    </lookup>
+        <type>String</type>
+        <format/>
+        <title>ANNO</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>STRUTTURA_COD</name>
+        <type>String</type>
+        <format/>
+        <title>STRUTTURA_COD</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>STRUTTURA_DES</name>
+        <type>String</type>
+        <format/>
+        <title>STRUTTURA_DES</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>TIPO_STRUTTURA_COD</name>
+        <type>String</type>
+        <format/>
+        <title>TIPO_STRUTTURA_COD</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>TIPO_STRUTTURA_DES</name>
+        <type>String</type>
+        <format/>
+        <title>TIPO_STRUTTURA_DES</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ANNO_APERTURA</name>
+        <type>String</type>
+        <format/>
+        <title>ANNO_APERTURA</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>MESE_APERTURA</name>
+        <type>String</type>
+        <format/>
+        <title>MESE_APERTURA</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>GIORNO_APERTURA</name>
+        <type>String</type>
+        <format/>
+        <title>GIORNO_APERTURA</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ANNO_CHIUSURA</name>
+        <type>String</type>
+        <format/>
+        <title>ANNO_CHIUSURA</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>MESE_CHIUSURA</name>
+        <type>String</type>
+        <format/>
+        <title>MESE_CHIUSURA</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>GIORNO_CHIUSURA</name>
+        <type>String</type>
+        <format/>
+        <title>GIORNO_CHIUSURA</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>TIPO_RAPPORTO</name>
+        <type>String</type>
+        <format/>
+        <title>TIPO_RAPPORTO</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>FLAG_APPARECCHIATURE</name>
+        <type>String</type>
+        <format/>
+        <title>FLAG_APPARECCHIATURE</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>PARTITA_IVA</name>
+        <type>String</type>
+        <format/>
+        <title>PARTITA_IVA</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>INDIRIZZO</name>
+        <type>String</type>
+        <format/>
+        <title>INDIRIZZO</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CODICE_COMUNE</name>
+        <type>String</type>
+        <format/>
+        <title>CODICE_COMUNE</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CAP</name>
+        <type>String</type>
+        <format/>
+        <title>CAP</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>EMAIL</name>
+        <type>String</type>
+        <format/>
+        <title>EMAIL</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>SITO_WEB</name>
+        <type>String</type>
+        <format/>
+        <title>SITO_WEB</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>PREFISSO</name>
+        <type>String</type>
+        <format/>
+        <title>PREFISSO</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>TELEFONO</name>
+        <type>String</type>
+        <format/>
+        <title>TELEFONO</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>PREFISSO_FAX</name>
+        <type>String</type>
+        <format/>
+        <title>PREFISSO_FAX</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>NUMERO_FAX</name>
+        <type>String</type>
+        <format/>
+        <title>NUMERO_FAX</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>OSP_TIPO</name>
+        <type>String</type>
+        <format/>
+        <title>OSP_TIPO</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>OSP_COD</name>
+        <type>String</type>
+        <format/>
+        <title>OSP_COD</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>MESI_FUNZIONAMENTO</name>
+        <type>String</type>
+        <format/>
+        <title>MESI_FUNZIONAMENTO</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>TITOLARE</name>
+        <type>String</type>
+        <format/>
+        <title>TITOLARE</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CODICE_REGIONE</name>
+        <type>String</type>
+        <format/>
+        <title>CODICE_REGIONE</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CODICE_AZIENDA</name>
+        <type>String</type>
+        <format/>
+        <title>CODICE_AZIENDA</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>TIPI_ASSISTENZA_DES</name>
+        <type>String</type>
+        <format/>
+        <title>TIPI_ASSISTENZA_DES</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>TIPO_ASS_1</name>
+        <type>String</type>
+        <format/>
+        <title>TIPO_ASS_1</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>TIPO_ASS_2</name>
+        <type>String</type>
+        <format/>
+        <title>TIPO_ASS_2</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>TIPO_ASS_3</name>
+        <type>String</type>
+        <format/>
+        <title>TIPO_ASS_3</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>TIPO_ASS_4</name>
+        <type>String</type>
+        <format/>
+        <title>TIPO_ASS_4</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>GIORNI_1</name>
+        <type>String</type>
+        <format/>
+        <title>GIORNI_1</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>GIORNI_2</name>
+        <type>String</type>
+        <format/>
+        <title>GIORNI_2</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>GIORNI_3</name>
+        <type>String</type>
+        <format/>
+        <title>GIORNI_3</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>GIORNI_4</name>
+        <type>String</type>
+        <format/>
+        <title>GIORNI_4</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ORE_1</name>
+        <type>String</type>
+        <format/>
+        <title>ORE_1</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ORE_2</name>
+        <type>String</type>
+        <format/>
+        <title>ORE_2</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ORE_3</name>
+        <type>String</type>
+        <format/>
+        <title>ORE_3</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ORE_4</name>
+        <type>String</type>
+        <format/>
+        <title>ORE_4</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ErrorCount</name>
+        <type>Integer</type>
+        <format/>
+        <title>ErrorCount</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ErrorDescr</name>
+        <type>String</type>
+        <format/>
+        <title>ErrorDescr</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ErrorField</name>
+        <type>String</type>
+        <format/>
+        <title>ErrorField</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ErrorCode</name>
+        <type>String</type>
+        <format/>
+        <title>ErrorCode</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2700,279 +2837,24 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>875</xloc>
-      <yloc>558</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Upd_Changed</name>
-    <type>Update</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>1000</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field/>
-    <lookup>
-      <schema/>
-      <table>MODSTS21</table>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STS11</name>
-        <field>STS11</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>BRANCA</name>
-        <field>BRANCA</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>ANNO</name>
-        <rename>ANNO</rename>
-      </value>
-      <value>
-        <name>STS11</name>
-        <rename>STS11</rename>
-      </value>
-      <value>
-        <name>BRANCA</name>
-        <rename>BRANCA</rename>
-      </value>
-      <value>
-        <name>REGIONE</name>
-        <rename>REGIONE</rename>
-      </value>
-      <value>
-        <name>ASL</name>
-        <rename>ASL</rename>
-      </value>
-      <value>
-        <name>PREST_EST</name>
-        <rename>PREST_EST</rename>
-      </value>
-      <value>
-        <name>PREST_EQU</name>
-        <rename>PREST_EQU</rename>
-      </value>
-      <value>
-        <name>PREST_INT</name>
-        <rename>PREST_INT</rename>
-      </value>
-      <value>
-        <name>flagfield</name>
-        <rename>flagfield</rename>
-      </value>
-      <value>
-        <name>Data_mod</name>
-        <rename>data_sys</rename>
-      </value>
-      <value>
-        <name>JOB_ID</name>
-        <rename>JOB_ID</rename>
-      </value>
-      <value>
-        <name>TRANSFORMATION_ID</name>
-        <rename>TRANSFORMATION_ID</rename>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>556</xloc>
-      <yloc>378</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Upd_Deleted</name>
-    <type>Update</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>1000</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field/>
-    <lookup>
-      <schema/>
-      <table>MODSTS21</table>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STS11</name>
-        <field>STS11</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>BRANCA</name>
-        <field>BRANCA</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>flagfield</name>
-        <rename>flagfield</rename>
-      </value>
-      <value>
-        <name>Data_mod</name>
-        <rename>data_sys</rename>
-      </value>
-      <value>
-        <name>JOB_ID</name>
-        <rename>JOB_ID</rename>
-      </value>
-      <value>
-        <name>TRANSFORMATION_ID</name>
-        <rename>TRANSFORMATION_ID</rename>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>556</xloc>
-      <yloc>478</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>modSTS21</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <sql>SELECT
-  ANNO
-, STS11
-, BRANCA
-, REGIONE
-, ASL
-, PREST_EST
-, PREST_EQU
-, PREST_INT
-FROM MODSTS21
-where
-anno = '${YYYY}' 
---anno = '2008' 
-Order by
-1, 2, 3</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta/>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>208</xloc>
-      <yloc>6</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>modSTS21_buffer</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <sql>SELECT
-  ANNO
-, STS11
-, BRANCA
-, REGIONE
-, ASL
-, PREST_EST
-, PREST_EQU
-, PREST_INT
-FROM MODSTS21_BUFFER
-where
-anno = '${YYYY}'
---anno = '2008' 
-Order by
-1, 2, 3
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta/>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>44</xloc>
-      <yloc>5</yloc>
+      <xloc>408</xloc>
+      <yloc>137</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
+    <error>
+      <source_step>Data Validator</source_step>
+      <target_step>Errori</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename>ErrorCount</nr_valuename>
+      <descriptions_valuename>ErrorDescr</descriptions_valuename>
+      <fields_valuename>ErrorField</fields_valuename>
+      <codes_valuename>ErrorCode</codes_valuename>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
