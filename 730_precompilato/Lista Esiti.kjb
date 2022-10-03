@@ -1,5 +1,5 @@
 <job>
-  <name>Invio 730</name>
+  <name>Lista Esiti</name>
   <description/>
   <extended_description/>
   <job_version/>
@@ -8,11 +8,31 @@
   <created_user>admin</created_user>
   <created_date>2007/09/05 10:01:28.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2022/10/03 12:09:46.724</modified_date>
+  <modified_date>2022/10/03 12:10:44.079</modified_date>
   <parameters>
     <parameter>
+      <name>BackDays</name>
+      <default_value>1</default_value>
+      <description>Invii di oggi + BackDays giorni</description>
+    </parameter>
+    <parameter>
+      <name>PROXY_HOST</name>
+      <default_value>10.98.1.236</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>PROXY_PORT</name>
+      <default_value>80</default_value>
+      <description/>
+    </parameter>
+    <parameter>
       <name>PWD</name>
-      <default_value>Logan022</default_value>
+      <default_value>Logan021</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>URL</name>
+      <default_value>https://invioSS730p.sanita.finanze.it/EsitoStatoInviiWEB/EsitoInvioDatiSpesa730Service</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -31,23 +51,8 @@
       <description>ovverride Transf Log table</description>
     </parameter>
     <parameter>
-      <name>cfProprietario</name>
-      <default_value>SPPSRG61L30I138M</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>codiceAsl</name>
-      <default_value>101</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>codiceRegione</name>
-      <default_value>070</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>codiceSSA</name>
-      <default_value>999101</default_value>
+      <name>dir_730</name>
+      <default_value>${_Base _Path}/730</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -78,21 +83,6 @@
     <parameter>
       <name>var_To</name>
       <default_value>s.suppo@asl1.liguria.it</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>xml_file</name>
-      <default_value>spe730</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>xml_path</name>
-      <default_value>${_Base_Path}/730/xml_inviati</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>xml_template</name>
-      <default_value>${_Base_Path}/730/template</default_value>
       <description/>
     </parameter>
   </parameters>
@@ -1338,8 +1328,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>735</xloc>
-      <yloc>274</yloc>
+      <xloc>674</xloc>
+      <yloc>120</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1352,9 +1342,7 @@ Job.Name=${Internal.Job.Name}
 
 USR=${USR} 
 PWD=${PWD}
-
-xml_file=${xml_file} 
-xml_path=${xml_path} 
+ 
 -----
 java.runtime.name = ${java.runtime.name}
 java.runtime.version = ${java.runtime.version}
@@ -1365,8 +1353,8 @@ https.protocols = ${https.protocols}
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>265</xloc>
-      <yloc>84</yloc>
+      <xloc>278</xloc>
+      <yloc>77</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1377,377 +1365,8 @@ https.protocols = ${https.protocols}
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1031</xloc>
-      <yloc>373</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Zip file</name>
-      <description/>
-      <type>ZIP_FILE</type>
-      <attributes/>
-      <zipfilename>${xml_path}\spe730.zip</zipfilename>
-      <compressionrate>1</compressionrate>
-      <ifzipfileexists>0</ifzipfileexists>
-      <wildcard/>
-      <wildcardexclude/>
-      <sourcedirectory>${xml_path}\${xml_file}.xml</sourcedirectory>
-      <movetodirectory/>
-      <afterzip>0</afterzip>
-      <addfiletoresult>N</addfiletoresult>
-      <isfromprevious>N</isfromprevious>
-      <createparentfolder>N</createparentfolder>
-      <adddate>N</adddate>
-      <addtime>N</addtime>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <createMoveToDirectory>N</createMoveToDirectory>
-      <include_subfolders>N</include_subfolders>
-      <stored_source_path_depth/>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>265</xloc>
-      <yloc>375</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>DUMMY 2</name>
-      <description/>
-      <type>SPECIAL</type>
-      <attributes/>
-      <start>N</start>
-      <dummy>Y</dummy>
-      <repeat>N</repeat>
-      <schedulerType>0</schedulerType>
-      <intervalSeconds>0</intervalSeconds>
-      <intervalMinutes>60</intervalMinutes>
-      <hour>12</hour>
-      <minutes>0</minutes>
-      <weekDay>1</weekDay>
-      <DayOfMonth>1</DayOfMonth>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>359</xloc>
-      <yloc>375</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>load_protocollo</name>
-      <description/>
-      <type>TRANS</type>
-      <attributes/>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>load_protocollo</transname>
-      <directory>/730_precompilato</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <suppress_result_data>N</suppress_result_data>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>ric_path</name>
-          <stream_name/>
-          <value>${ric_path}</value>
-        </parameter>
-        <parameter>
-          <name>xml_file</name>
-          <stream_name/>
-          <value>${xml_file}</value>
-        </parameter>
-        <parameter>
-          <name>xml_path</name>
-          <stream_name/>
-          <value>${xml_path}</value>
-        </parameter>
-        <parameter>
-          <name>_LogTrans</name>
-          <stream_name/>
-          <value>${_LogTrans}</value>
-        </parameter>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>732</xloc>
-      <yloc>373</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>spe730_&lt;protocollo>.xml in Archiviati</name>
-      <description/>
-      <type>COPY_FILES</type>
-      <attributes/>
-      <copy_empty_folders>Y</copy_empty_folders>
-      <arg_from_previous>N</arg_from_previous>
-      <overwrite_files>N</overwrite_files>
-      <include_subfolders>N</include_subfolders>
-      <remove_source_files>N</remove_source_files>
-      <add_result_filesname>N</add_result_filesname>
-      <destination_is_a_file>Y</destination_is_a_file>
-      <create_destination_folder>N</create_destination_folder>
-      <fields>
-        <field>
-          <source_filefolder>${xml_path}\${xml_file}.xml</source_filefolder>
-          <source_configuration_name/>
-          <destination_filefolder>${xml_path}\archiviati\${xml_file}_${protocollo}.xml</destination_filefolder>
-          <destination_configuration_name/>
-          <wildcard/>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>944</xloc>
-      <yloc>274</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Log protocollo</name>
-      <description/>
-      <type>WRITE_TO_LOG</type>
-      <attributes/>
-      <logmessage>-------------------------
-protocollo=${protocollo}
--------------------------</logmessage>
-      <loglevel>Basic</loglevel>
-      <logsubject/>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>845</xloc>
-      <yloc>373</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>DUMMY 3</name>
-      <description/>
-      <type>SPECIAL</type>
-      <attributes/>
-      <start>N</start>
-      <dummy>Y</dummy>
-      <repeat>N</repeat>
-      <schedulerType>0</schedulerType>
-      <intervalSeconds>0</intervalSeconds>
-      <intervalMinutes>60</intervalMinutes>
-      <hour>12</hour>
-      <minutes>0</minutes>
-      <weekDay>1</weekDay>
-      <DayOfMonth>1</DayOfMonth>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>594</xloc>
-      <yloc>374</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Delete ZIP file</name>
-      <description/>
-      <type>DELETE_FILE</type>
-      <attributes/>
-      <filename>${xml_path}\spe730.zip</filename>
-      <fail_if_file_not_exists>N</fail_if_file_not_exists>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>265</xloc>
-      <yloc>274</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>MIME_make_message</name>
-      <description/>
-      <type>TRANS</type>
-      <attributes/>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>MIME_make_message</transname>
-      <directory>/730_precompilato/web_services</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <suppress_result_data>N</suppress_result_data>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>PWD</name>
-          <stream_name/>
-          <value>${PWD}</value>
-        </parameter>
-        <parameter>
-          <name>USR</name>
-          <stream_name/>
-          <value>${USR}</value>
-        </parameter>
-        <parameter>
-          <name>pincode</name>
-          <stream_name/>
-          <value>${pincode}</value>
-        </parameter>
-        <parameter>
-          <name>xml_file</name>
-          <stream_name/>
-          <value>${xml_file}</value>
-        </parameter>
-        <parameter>
-          <name>xml_path</name>
-          <stream_name/>
-          <value>${xml_path}</value>
-        </parameter>
-        <parameter>
-          <name>xml_template</name>
-          <stream_name/>
-          <value>${xml_template}</value>
-        </parameter>
-        <parameter>
-          <name>_LogTrans</name>
-          <stream_name/>
-          <value>${_LogTrans}</value>
-        </parameter>
-        <parameter>
-          <name>cfProprietario</name>
-          <stream_name/>
-          <value>${cfProprietario}</value>
-        </parameter>
-        <parameter>
-          <name>codiceAsl</name>
-          <stream_name/>
-          <value>${codiceAsl}</value>
-        </parameter>
-        <parameter>
-          <name>codiceRegione</name>
-          <stream_name/>
-          <value>${codiceRegione}</value>
-        </parameter>
-        <parameter>
-          <name>codiceSSA</name>
-          <stream_name/>
-          <value>${codiceSSA}</value>
-        </parameter>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>396</xloc>
-      <yloc>274</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>MIME_post_message</name>
-      <description/>
-      <type>TRANS</type>
-      <attributes/>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>MIME_post_message</transname>
-      <directory>/730_precompilato/web_services</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <suppress_result_data>N</suppress_result_data>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>PWD</name>
-          <stream_name/>
-          <value>${PWD}</value>
-        </parameter>
-        <parameter>
-          <name>USR</name>
-          <stream_name/>
-          <value>${USR}</value>
-        </parameter>
-        <parameter>
-          <name>pincode</name>
-          <stream_name/>
-          <value>${pincode}</value>
-        </parameter>
-        <parameter>
-          <name>ric_path</name>
-          <stream_name/>
-          <value>${ric_path}</value>
-        </parameter>
-        <parameter>
-          <name>xml_file</name>
-          <stream_name/>
-          <value>${xml_file}</value>
-        </parameter>
-        <parameter>
-          <name>xml_path</name>
-          <stream_name/>
-          <value>${xml_path}</value>
-        </parameter>
-        <parameter>
-          <name>xml_template</name>
-          <stream_name/>
-          <value>${xml_template}</value>
-        </parameter>
-        <parameter>
-          <name>_LogTrans</name>
-          <stream_name/>
-          <value>${_LogTrans}</value>
-        </parameter>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>557</xloc>
-      <yloc>274</yloc>
+      <xloc>674</xloc>
+      <yloc>266</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1768,8 +1387,8 @@ protocollo=${protocollo}
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>43</xloc>
-      <yloc>84</yloc>
+      <xloc>31</xloc>
+      <yloc>77</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1805,8 +1424,106 @@ protocollo=${protocollo}
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>265</xloc>
-      <yloc>158</yloc>
+      <xloc>468</xloc>
+      <yloc>77</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Lista Esiti x Data</name>
+      <description/>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>Lista Esiti x Data</transname>
+      <directory>/730_precompilato/web_services</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>BackDays</name>
+          <stream_name/>
+          <value>${BackDays}</value>
+        </parameter>
+        <parameter>
+          <name>PROXY_HOST</name>
+          <stream_name/>
+          <value>${PROXY_HOST}</value>
+        </parameter>
+        <parameter>
+          <name>PROXY_PORT</name>
+          <stream_name/>
+          <value>${PROXY_PORT}</value>
+        </parameter>
+        <parameter>
+          <name>PWD</name>
+          <stream_name/>
+          <value>${PWD}</value>
+        </parameter>
+        <parameter>
+          <name>URL</name>
+          <stream_name/>
+          <value>${URL}</value>
+        </parameter>
+        <parameter>
+          <name>USR</name>
+          <stream_name/>
+          <value>${USR}</value>
+        </parameter>
+        <parameter>
+          <name>dir_730</name>
+          <stream_name/>
+          <value>${dir_730}</value>
+        </parameter>
+        <parameter>
+          <name>pincode</name>
+          <stream_name/>
+          <value>${pincode}</value>
+        </parameter>
+        <parameter>
+          <name>ric_path</name>
+          <stream_name/>
+          <value>${ric_path}</value>
+        </parameter>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>466</xloc>
+      <yloc>186</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Interrompi job</name>
+      <description/>
+      <type>ABORT</type>
+      <attributes/>
+      <message/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>791</xloc>
+      <yloc>120</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1842,111 +1559,12 @@ protocollo=${protocollo}
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>136</xloc>
-      <yloc>84</yloc>
+      <xloc>162</xloc>
+      <yloc>77</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
-    <hop>
-      <from>Zip file</from>
-      <to>DUMMY 2</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>load_protocollo</from>
-      <to>Mail Err</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>load_protocollo</from>
-      <to>Log protocollo</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Log protocollo</from>
-      <to>spe730_&lt;protocollo>.xml in Archiviati</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>spe730_&lt;protocollo>.xml in Archiviati</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>DUMMY 3</from>
-      <to>load_protocollo</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Delete ZIP file</from>
-      <to>Zip file</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Log_Parameters</from>
-      <to>Delete ZIP file</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>DUMMY 2</from>
-      <to>MIME_make_message</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>MIME_post_message</from>
-      <to>DUMMY 3</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>MIME_make_message</from>
-      <to>MIME_post_message</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
     <hop>
       <from>Log</from>
       <to>Log_Parameters</to>
@@ -1955,6 +1573,42 @@ protocollo=${protocollo}
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Log_Parameters</from>
+      <to>Lista Esiti x Data</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Lista Esiti x Data</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Lista Esiti x Data</from>
+      <to>Mail Err</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Mail Err</from>
+      <to>Interrompi job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Start</from>
@@ -1976,120 +1630,6 @@ protocollo=${protocollo}
     </hop>
   </hops>
   <notepads>
-    <notepad>
-      <note>_______________ NEW invio messaggio MIME _______________
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                       iniziato nel 2018 per dati 2017
-_________________________________________________________</note>
-      <xloc>217</xloc>
-      <yloc>229</yloc>
-      <width>410</width>
-      <heigth>327</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>64</fontcolorgreen>
-      <fontcolorblue>128</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>"ZIP file" dà 
-sempre errore
-ma crea lo zip
-</note>
-      <xloc>237</xloc>
-      <yloc>431</yloc>
-      <width>93</width>
-      <heigth>67</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>Y</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>64</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Procedura prima dell'inserimento
-nel job dell'invio messaggio MIME:
-
-1. eseguire Export_XML
-2. zippare spe730.xml in spe730.zip
-3. inviare con SoapUI
-4. Salvare la risposta in protocollo_invio.xml (in ric_path)
-5. eseguire questo job (per l'insert nella SPE730_INVII)</note>
-      <xloc>742</xloc>
-      <yloc>9</yloc>
-      <width>291</width>
-      <heigth>115</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Parametri di default
-per ambiente di PRODUZIONE</note>
-      <xloc>22</xloc>
-      <yloc>8</yloc>
-      <width>190</width>
-      <heigth>40</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>64</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <attributes>
     <group>
@@ -2101,10 +1641,6 @@ per ambiente di PRODUZIONE</note>
     </group>
     <group>
       <name>{"_":"Embedded MetaStore Elements","namespace":"pentaho","type":"Default Run Configuration"}</name>
-      <attribute>
-        <key>Pentaho local</key>
-        <value>{"children":[{"children":[],"id":"server","value":null},{"children":[],"id":"clustered","value":"N"},{"children":[],"id":"name","value":"Pentaho local"},{"children":[],"id":"description","value":null},{"children":[],"id":"readOnly","value":"Y"},{"children":[],"id":"sendResources","value":"N"},{"children":[],"id":"logRemoteExecutionLocally","value":"N"},{"children":[],"id":"remote","value":"N"},{"children":[],"id":"local","value":"Y"},{"children":[],"id":"showTransformations","value":"N"}],"id":"Pentaho local","value":null,"name":"Pentaho local","owner":null,"ownerPermissionsList":[]}</value>
-      </attribute>
     </group>
   </attributes>
 </job>

@@ -8,7 +8,7 @@
   <created_user/>
   <created_date>2020/01/24 12:52:41.389</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2022/09/26 17:20:50.504</modified_date>
+  <modified_date>2022/10/03 12:10:34.002</modified_date>
   <parameters>
     <parameter>
       <name>PROXY_HOST</name>
@@ -1272,8 +1272,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>864</xloc>
-      <yloc>160</yloc>
+      <xloc>997</xloc>
+      <yloc>157</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1359,8 +1359,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>736</xloc>
-      <yloc>160</yloc>
+      <xloc>869</xloc>
+      <yloc>157</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1381,8 +1381,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>112</xloc>
-      <yloc>160</yloc>
+      <xloc>245</xloc>
+      <yloc>157</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1424,8 +1424,8 @@ else false;</script>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>800</xloc>
-      <yloc>272</yloc>
+      <xloc>933</xloc>
+      <yloc>269</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1437,8 +1437,8 @@ else false;</script>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>800</xloc>
-      <yloc>352</yloc>
+      <xloc>933</xloc>
+      <yloc>349</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1446,7 +1446,11 @@ else false;</script>
       <description/>
       <type>WRITE_TO_LOG</type>
       <attributes/>
-      <logmessage>----- [${Internal.Job.Name}] -----
+      <logmessage>-----
+Job.Name=${Internal.Job.Name}
+
+USR=${USR} 
+PWD=${PWD}
 
 protocollo=${protocollo}
 url_di_test=${url_di_test}
@@ -1467,7 +1471,7 @@ https.protocols = ${https.protocols}
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>112</xloc>
+      <xloc>245</xloc>
       <yloc>48</yloc>
       <attributes_kjc/>
     </entry>
@@ -1512,8 +1516,8 @@ https.protocols = ${https.protocols}
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>80</yloc>
+      <xloc>533</xloc>
+      <yloc>77</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1528,8 +1532,8 @@ else false;</script>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>160</yloc>
+      <xloc>389</xloc>
+      <yloc>157</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1543,8 +1547,8 @@ else false;</script>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
-      <yloc>160</yloc>
+      <xloc>693</xloc>
+      <yloc>157</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1565,8 +1569,45 @@ else false;</script>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>672</xloc>
-      <yloc>272</yloc>
+      <xloc>805</xloc>
+      <yloc>269</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>set_user_pwd</name>
+      <description/>
+      <type>JOB</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <job_object_id/>
+      <filename/>
+      <jobname>set_user_pwd</jobname>
+      <directory>/730_precompilato</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>116</xloc>
+      <yloc>48</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -1672,6 +1713,15 @@ else false;</script>
     </hop>
     <hop>
       <from>START</from>
+      <to>set_user_pwd</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>set_user_pwd</from>
       <to>Log protocollo 1</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1683,8 +1733,8 @@ else false;</script>
   <notepads>
     <notepad>
       <note>x 3 </note>
-      <xloc>832</xloc>
-      <yloc>272</yloc>
+      <xloc>965</xloc>
+      <yloc>269</yloc>
       <width>33</width>
       <heigth>25</heigth>
       <fontname>Arial</fontname>
@@ -1697,27 +1747,6 @@ else false;</script>
       <backgroundcolorred>0</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
       <backgroundcolorblue>0</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2020-02-24</note>
-      <xloc>0</xloc>
-      <yloc>0</yloc>
-      <width>75</width>
-      <heigth>25</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>173</backgroundcolorred>
-      <backgroundcolorgreen>216</backgroundcolorgreen>
-      <backgroundcolorblue>230</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
