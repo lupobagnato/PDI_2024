@@ -21,9 +21,9 @@
     </parameters>
     <log>
       <trans-log-table>
-        <connection>${_LogDb}</connection>
-        <schema>${_LogSchema}</schema>
-        <table>${_LogTmpTrans}</table>
+        <connection>db_sopra_hsp</connection>
+        <schema/>
+        <table>KETTLE_HSP_LOG</table>
         <size_limit_lines/>
         <interval/>
         <timeout_days/>
@@ -930,7 +930,7 @@
     <created_user>admin</created_user>
     <created_date>2012/04/27 14:39:56.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/09/26 16:40:31.775</modified_date>
+    <modified_date>2022/10/04 12:47:05.742</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1395,69 +1395,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <connection>
-    <name>HSP_db_sopra</name>
-    <server>ora_sopra.usl1.imperiese</server>
-    <type>ORACLE</type>
-    <access>Native</access>
-    <database>DbSopra</database>
-    <port>1526</port>
-    <username>hsp</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be9abcca</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>EXTRA_OPTION_ORACLE.NLS_TERRITORY</code>
-        <attribute>america</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>1526</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SQL_CONNECT</code>
-        <attribute>ALTER SESSION SET NLS_LANGUAGE=ITALIAN ;
-ALTER SESSION SET NLS_TERRITORY=ITALY;
-
---ALTER SESSION SET NLS_SORT=WEST_EUROPEAN:
-</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
-  <connection>
     <name>Patidok</name>
     <server>svc_sio</server>
     <type>ORACLE</type>
@@ -1542,7 +1479,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>HSP_db_sopra</connection>
+    <connection>db_sopra_hsp</connection>
     <sql>SELECT
   ANNO
 , CODICE_REGIONE
@@ -1693,7 +1630,7 @@ anno = '${YYYY}'
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>STRUTTURA_DES</name>
-        <length>70</length>
+        <length>30</length>
         <precision>-1</precision>
         <origin>modSTS11</origin>
         <comments>STRUTTURA_DES</comments>
@@ -1739,7 +1676,7 @@ anno = '${YYYY}'
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>INDIRIZZO</name>
-        <length>100</length>
+        <length>30</length>
         <precision>-1</precision>
         <origin>modSTS11</origin>
         <comments>INDIRIZZO</comments>
@@ -1785,7 +1722,7 @@ anno = '${YYYY}'
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>PREFISSO</name>
-        <length>6</length>
+        <length>4</length>
         <precision>-1</precision>
         <origin>modSTS11</origin>
         <comments>PREFISSO</comments>
@@ -1808,7 +1745,7 @@ anno = '${YYYY}'
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>TELEFONO</name>
-        <length>10</length>
+        <length>8</length>
         <precision>-1</precision>
         <origin>modSTS11</origin>
         <comments>TELEFONO</comments>
@@ -2084,7 +2021,7 @@ anno = '${YYYY}'
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>TITOLARE</name>
-        <length>50</length>
+        <length>1</length>
         <precision>-1</precision>
         <origin>modSTS11</origin>
         <comments>TITOLARE</comments>
@@ -2383,7 +2320,7 @@ anno = '${YYYY}'
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>PARTITA_IVA</name>
-        <length>16</length>
+        <length>11</length>
         <precision>-1</precision>
         <origin>modSTS11</origin>
         <comments>PARTITA_IVA</comments>
@@ -2406,7 +2343,7 @@ anno = '${YYYY}'
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>PREFISSO_FAX</name>
-        <length>6</length>
+        <length>4</length>
         <precision>-1</precision>
         <origin>modSTS11</origin>
         <comments>PREFISSO_FAX</comments>
@@ -2429,7 +2366,7 @@ anno = '${YYYY}'
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>NUMERO_FAX</name>
-        <length>10</length>
+        <length>8</length>
         <precision>-1</precision>
         <origin>modSTS11</origin>
         <comments>NUMERO_FAX</comments>
@@ -2452,7 +2389,7 @@ anno = '${YYYY}'
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>SITO_WEB</name>
-        <length>50</length>
+        <length>100</length>
         <precision>-1</precision>
         <origin>modSTS11</origin>
         <comments>SITO_WEB</comments>

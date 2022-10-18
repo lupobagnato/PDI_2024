@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>STS11_load</name>
+    <name>STS11_sent</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -12,11 +12,6 @@
         <name>YYYY</name>
         <default_value>2022</default_value>
         <description/>
-      </parameter>
-      <parameter>
-        <name>path_nsis</name>
-        <default_value>${_Base_Path}/Input/NSIS</default_value>
-        <description>dove si legge XLS e scrive TXT</description>
       </parameter>
     </parameters>
     <log>
@@ -34,7 +29,7 @@
         </field>
         <field>
           <id>CHANNEL_ID</id>
-          <enabled>Y</enabled>
+          <enabled>N</enabled>
           <name>CHANNEL_ID</name>
         </field>
         <field>
@@ -51,35 +46,35 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject>Ins_New</subject>
+          <subject>Stato SENT</subject>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject>Audit Deleted</subject>
+          <subject>Audit Eliminati</subject>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject>Upd_Changed</subject>
+          <subject>set Inviato</subject>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>modSTS11_buffer</subject>
+          <subject>modSTS11</subject>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>Ins_New</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
-          <enabled>Y</enabled>
+          <enabled>N</enabled>
           <name>LINES_REJECTED</name>
           <subject/>
         </field>
@@ -120,17 +115,17 @@
         </field>
         <field>
           <id>EXECUTING_SERVER</id>
-          <enabled>Y</enabled>
+          <enabled>N</enabled>
           <name>EXECUTING_SERVER</name>
         </field>
         <field>
           <id>EXECUTING_USER</id>
-          <enabled>Y</enabled>
+          <enabled>N</enabled>
           <name>EXECUTING_USER</name>
         </field>
         <field>
           <id>CLIENT</id>
-          <enabled>Y</enabled>
+          <enabled>N</enabled>
           <name>CLIENT</name>
         </field>
       </trans-log-table>
@@ -928,199 +923,13 @@
       </clusterschema>
     </clusterschemas>
     <created_user>admin</created_user>
-    <created_date>2012/04/27 14:39:58.000</created_date>
+    <created_date>2012/04/27 14:39:59.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/10/11 12:03:31.244</modified_date>
+    <modified_date>2022/10/11 12:31:18.126</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>changed</note>
-      <xloc>206</xloc>
-      <yloc>415</yloc>
-      <width>53</width>
-      <heigth>23</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>deleted</note>
-      <xloc>208</xloc>
-      <yloc>514</yloc>
-      <width>46</width>
-      <heigth>23</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>0</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>se lo Stato Corrente
-è S deve diventare 1 (mod)
-
-stessa cosa se fosse un 9 (del)
-che non è ancora stato cancellato
-e ora risulta cambiato
-</note>
-      <xloc>985</xloc>
-      <yloc>325</yloc>
-      <width>175</width>
-      <heigth>103</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>test campo Stato
-in modSTS11</note>
-      <xloc>692</xloc>
-      <yloc>367</yloc>
-      <width>92</width>
-      <heigth>36</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>64</fontcolorgreen>
-      <fontcolorblue>128</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>test campo Stato
-in modSTS11</note>
-      <xloc>691</xloc>
-      <yloc>464</yloc>
-      <width>92</width>
-      <heigth>36</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>64</fontcolorgreen>
-      <fontcolorblue>128</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>se lo Stato Corrente
-è S deve diventare 9 (del)
-
-stessa cosa se fosse una modifica 
-in sospeso (stato 1) non ancora inviata
---> non serve fare la modifica, si invia
-una cancellazione
-</note>
-      <xloc>987</xloc>
-      <yloc>529</yloc>
-      <width>200</width>
-      <heigth>116</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>0</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>se non è mai stato inviato
-si cancella nel DB 
-(e non si invia nulla)</note>
-      <xloc>384</xloc>
-      <yloc>602</yloc>
-      <width>133</width>
-      <heigth>49</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>0</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>x avere lo Stato Corrente
-</note>
-      <xloc>177</xloc>
-      <yloc>343</yloc>
-      <width>132</width>
-      <heigth>37</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>128</fontcolorred>
-      <fontcolorgreen>128</fontcolorgreen>
-      <fontcolorblue>128</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>areas_formazione</name>
@@ -1700,118 +1509,58 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>modSTS11_buffer</from>
-      <to>Merge Rows</to>
+      <from>Costanti_Stato</from>
+      <to>Da INVIARE o AGGIORNARE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Da INVIARE o AGGIORNARE</from>
+      <to>Da ELIMINARE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Da ELIMINARE</from>
+      <to>Stato SENT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Da INVIARE o AGGIORNARE</from>
+      <to>Audit Inviati</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Audit Inviati</from>
+      <to>set Inviato</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Da ELIMINARE</from>
+      <to>Audit Eliminati</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Audit Eliminati</from>
+      <to>modSTS11_DEL</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>modSTS11_DEL</from>
+      <to>Delete</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>modSTS11</from>
-      <to>Merge Rows</to>
+      <to>Write to log</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Catch Changed</from>
-      <to>Audit Changed</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Audit Deleted</from>
-      <to>Upd_Deleted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Audit Changed</from>
-      <to>Upd_Changed</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Audit New</from>
-      <to>Ins_New</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge Rows</from>
+      <from>Write to log</from>
       <to>Costanti_Stato</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Costanti_Stato</from>
-      <to>Catch Identical</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Mai Inviati</from>
-      <to>Cancella</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Inviati o Da_Aggiornare</from>
-      <to>Stato-->Da_Eliminare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Upd_Changed</from>
-      <to>Inviati o Da_Eliminare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Inviati o Da_Eliminare</from>
-      <to>Stato-->Da_Aggiornare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch Identical</from>
-      <to>Catch New</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch New</from>
-      <to>Audit New</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch Identical</from>
-      <to>Indentical</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Inviati o Da_Eliminare</from>
-      <to>Dummy</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Inviati o Da_Aggiornare</from>
-      <to>Dummy</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch Changed</from>
-      <to>Mai Inviati</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Mai Inviati</from>
-      <to>Audit Deleted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Upd_Deleted</from>
-      <to>Inviati o Da_Aggiornare</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Catch New</from>
-      <to>Lookup su modSTS11</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Lookup su modSTS11</from>
-      <to>Catch Changed</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Audit Changed</name>
+    <name>Audit Eliminati</name>
     <type>SystemInfo</type>
     <description/>
     <distribute>Y</distribute>
@@ -1823,16 +1572,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </partitioning>
     <fields>
       <field>
-        <name>data_sys</name>
+        <name>data_CANC</name>
         <type>system date (fixed)</type>
-      </field>
-      <field>
-        <name>JOB_ID</name>
-        <type>job batch ID</type>
-      </field>
-      <field>
-        <name>TRANSFORMATION_ID</name>
-        <type>batch ID</type>
       </field>
     </fields>
     <attributes/>
@@ -1844,13 +1585,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>454</xloc>
-      <yloc>405</yloc>
+      <xloc>339</xloc>
+      <yloc>365</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Audit Deleted</name>
+    <name>Audit Inviati</name>
     <type>SystemInfo</type>
     <description/>
     <distribute>Y</distribute>
@@ -1862,16 +1603,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </partitioning>
     <fields>
       <field>
-        <name>data_sys</name>
+        <name>data_SYS</name>
         <type>system date (fixed)</type>
-      </field>
-      <field>
-        <name>JOB_ID</name>
-        <type>job batch ID</type>
-      </field>
-      <field>
-        <name>TRANSFORMATION_ID</name>
-        <type>batch ID</type>
       </field>
     </fields>
     <attributes/>
@@ -1883,239 +1616,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>454</xloc>
-      <yloc>505</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Audit New</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>data_sys</name>
-        <type>system date (fixed)</type>
-      </field>
-      <field>
-        <name>JOB_ID</name>
-        <type>job batch ID</type>
-      </field>
-      <field>
-        <name>TRANSFORMATION_ID</name>
-        <type>batch ID</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>334</xloc>
-      <yloc>273</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Cancella</name>
-    <type>Delete</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <commit>1000</commit>
-    <lookup>
-      <schema/>
-      <table>MODSTS11</table>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STRUTTURA_COD</name>
-        <field>STRUTTURA_COD</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>334</xloc>
-      <yloc>603</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Catch Changed</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Audit Changed</send_true_to>
-    <send_false_to>Mai Inviati</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>flagfield</leftvalue>
-            <function>=</function>
-            <rightvalue/>
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>changed</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>140</xloc>
-      <yloc>450</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Catch Identical</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Indentical</send_true_to>
-    <send_false_to>Catch New</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>flagfield</leftvalue>
-            <function>=</function>
-            <rightvalue/>
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>identical</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>139</xloc>
-      <yloc>199</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Catch New</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Audit New</send_true_to>
-    <send_false_to>Lookup su modSTS11</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>flagfield</leftvalue>
-            <function>=</function>
-            <rightvalue/>
-            <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>new</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>140</xloc>
-      <yloc>273</yloc>
+      <xloc>336</xloc>
+      <yloc>253</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2132,13 +1634,25 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </partitioning>
     <fields>
       <field>
-        <name>Da_Inserire</name>
+        <name>Da_Inviare</name>
         <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Inviato</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>S</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -2167,18 +1681,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
-      <field>
-        <name>Inviato</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>S</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2189,347 +1691,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>138</xloc>
-      <yloc>141</yloc>
+      <xloc>189</xloc>
+      <yloc>152</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Dummy</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>893</xloc>
-      <yloc>460</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Indentical</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>333</xloc>
-      <yloc>199</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ins_New</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <commit>1000</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>MODSTS11</table>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STRUTTURA_COD</name>
-        <field>STRUTTURA_COD</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>ANNO</name>
-        <rename>ANNO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>CODICE_REGIONE</name>
-        <rename>CODICE_REGIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>CODICE_AZIENDA</name>
-        <rename>CODICE_AZIENDA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>STRUTTURA_COD</name>
-        <rename>STRUTTURA_COD</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>STRUTTURA_DES</name>
-        <rename>STRUTTURA_DES</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPO_STRUTTURA_COD</name>
-        <rename>TIPO_STRUTTURA_COD</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPO_STRUTTURA_DES</name>
-        <rename>TIPO_STRUTTURA_DES</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ANNO_APERTURA</name>
-        <rename>ANNO_APERTURA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>MESE_APERTURA</name>
-        <rename>MESE_APERTURA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>GIORNO_APERTURA</name>
-        <rename>GIORNO_APERTURA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ANNO_CHIUSURA</name>
-        <rename>ANNO_CHIUSURA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>MESE_CHIUSURA</name>
-        <rename>MESE_CHIUSURA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>GIORNO_CHIUSURA</name>
-        <rename>GIORNO_CHIUSURA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPO_RAPPORTO</name>
-        <rename>TIPO_RAPPORTO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>FLAG_APPARECCHIATURE</name>
-        <rename>FLAG_APPARECCHIATURE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PARTITA_IVA</name>
-        <rename>PARTITA_IVA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>INDIRIZZO</name>
-        <rename>INDIRIZZO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>CODICE_COMUNE</name>
-        <rename>CODICE_COMUNE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>CAP</name>
-        <rename>CAP</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>EMAIL</name>
-        <rename>EMAIL</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>SITO_WEB</name>
-        <rename>SITO_WEB</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PREFISSO</name>
-        <rename>PREFISSO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TELEFONO</name>
-        <rename>TELEFONO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PREFISSO_FAX</name>
-        <rename>PREFISSO_FAX</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NUMERO_FAX</name>
-        <rename>NUMERO_FAX</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>OSP_TIPO</name>
-        <rename>OSP_TIPO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>OSP_COD</name>
-        <rename>OSP_COD</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>MESI_FUNZIONAMENTO</name>
-        <rename>MESI_FUNZIONAMENTO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TITOLARE</name>
-        <rename>TITOLARE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPI_ASSISTENZA_DES</name>
-        <rename>TIPI_ASSISTENZA_DES</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPO_ASS_1</name>
-        <rename>TIPO_ASS_1</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPO_ASS_2</name>
-        <rename>TIPO_ASS_2</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPO_ASS_3</name>
-        <rename>TIPO_ASS_3</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPO_ASS_4</name>
-        <rename>TIPO_ASS_4</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>GIORNI_1</name>
-        <rename>GIORNI_1</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>GIORNI_2</name>
-        <rename>GIORNI_2</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>GIORNI_3</name>
-        <rename>GIORNI_3</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>GIORNI_4</name>
-        <rename>GIORNI_4</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORE_1</name>
-        <rename>ORE_1</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORE_2</name>
-        <rename>ORE_2</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORE_3</name>
-        <rename>ORE_3</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORE_4</name>
-        <rename>ORE_4</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Stato</name>
-        <rename>Da_Inserire</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>flagfield</name>
-        <rename>flagfield</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Data_ins</name>
-        <rename>data_sys</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Data_mod</name>
-        <rename>data_sys</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>JOB_ID</name>
-        <rename>JOB_ID</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TRANSFORMATION_ID</name>
-        <rename>TRANSFORMATION_ID</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>454</xloc>
-      <yloc>273</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Inviati o Da_Aggiornare</name>
+    <name>Da ELIMINARE</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -2539,69 +1707,15 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Stato-->Da_Eliminare</send_true_to>
-    <send_false_to>Dummy</send_false_to>
+    <send_true_to>Audit Eliminati</send_true_to>
+    <send_false_to>Stato SENT</send_false_to>
     <compare>
       <condition>
         <negated>N</negated>
         <conditions>
           <condition>
             <negated>N</negated>
-            <leftvalue>STATO_Corrente</leftvalue>
-            <function>=</function>
-            <rightvalue>Inviato</rightvalue>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>STATO_Corrente</leftvalue>
-            <function>=</function>
-            <rightvalue>Da_Aggiornare</rightvalue>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>749</xloc>
-      <yloc>505</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Inviati o Da_Eliminare</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Stato-->Da_Aggiornare</send_true_to>
-    <send_false_to>Dummy</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>STATO_Corrente</leftvalue>
-            <function>=</function>
-            <rightvalue>Inviato</rightvalue>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>STATO_Corrente</leftvalue>
+            <leftvalue>STATO</leftvalue>
             <function>=</function>
             <rightvalue>Da_Eliminare</rightvalue>
           </condition>
@@ -2617,67 +1731,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>749</xloc>
-      <yloc>405</yloc>
+      <xloc>189</xloc>
+      <yloc>365</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Lookup su modSTS11</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>modSTS11</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STRUTTURA_COD</name>
-        <field>STRUTTURA_COD</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>STATO</name>
-        <rename>STATO_Corrente</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>140</xloc>
-      <yloc>351</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Mai Inviati</name>
+    <name>Da INVIARE o AGGIORNARE</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -2687,14 +1747,26 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Cancella</send_true_to>
-    <send_false_to>Audit Deleted</send_false_to>
+    <send_true_to>Audit Inviati</send_true_to>
+    <send_false_to>Da ELIMINARE</send_false_to>
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>STATO_Corrente</leftvalue>
-        <function>=</function>
-        <rightvalue>Da_Inserire</rightvalue>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>STATO</leftvalue>
+            <function>=</function>
+            <rightvalue>Da_Inviare</rightvalue>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>OR</operator>
+            <leftvalue>STATO</leftvalue>
+            <function>=</function>
+            <rightvalue>Da_Aggiornare</rightvalue>
+          </condition>
+        </conditions>
       </condition>
     </compare>
     <attributes/>
@@ -2706,14 +1778,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>334</xloc>
-      <yloc>505</yloc>
+      <xloc>189</xloc>
+      <yloc>253</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Merge Rows</name>
-    <type>MergeRows</type>
+    <name>Delete</name>
+    <type>Delete</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2722,90 +1794,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <keys>
-      <key>ANNO</key>
-      <key>STRUTTURA_COD</key>
-    </keys>
-    <values>
-      <value>ANNO</value>
-      <value>CODICE_REGIONE</value>
-      <value>CODICE_AZIENDA</value>
-      <value>STRUTTURA_COD</value>
-      <value>STRUTTURA_DES</value>
-      <value>TIPO_STRUTTURA_COD</value>
-      <value>TIPO_STRUTTURA_DES</value>
-      <value>ANNO_APERTURA</value>
-      <value>MESE_APERTURA</value>
-      <value>GIORNO_APERTURA</value>
-      <value>ANNO_CHIUSURA</value>
-      <value>MESE_CHIUSURA</value>
-      <value>GIORNO_CHIUSURA</value>
-      <value>TIPO_RAPPORTO</value>
-      <value>FLAG_APPARECCHIATURE</value>
-      <value>PARTITA_IVA</value>
-      <value>INDIRIZZO</value>
-      <value>CODICE_COMUNE</value>
-      <value>CAP</value>
-      <value>EMAIL</value>
-      <value>SITO_WEB</value>
-      <value>PREFISSO</value>
-      <value>TELEFONO</value>
-      <value>PREFISSO_FAX</value>
-      <value>NUMERO_FAX</value>
-      <value>OSP_TIPO</value>
-      <value>OSP_COD</value>
-      <value>MESI_FUNZIONAMENTO</value>
-      <value>TITOLARE</value>
-      <value>TIPI_ASSISTENZA_DES</value>
-      <value>TIPO_ASS_1</value>
-      <value>TIPO_ASS_2</value>
-      <value>TIPO_ASS_3</value>
-      <value>TIPO_ASS_4</value>
-      <value>GIORNI_1</value>
-      <value>GIORNI_2</value>
-      <value>GIORNI_3</value>
-      <value>GIORNI_4</value>
-      <value>ORE_1</value>
-      <value>ORE_2</value>
-      <value>ORE_3</value>
-      <value>ORE_4</value>
-    </values>
-    <flag_field>flagfield</flag_field>
-    <reference>modSTS11</reference>
-    <compare>modSTS11_buffer</compare>
-    <compare>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>140</xloc>
-      <yloc>68</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stato-->Da_Aggiornare</name>
-    <type>Update</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <skip_lookup>N</skip_lookup>
+    <connection>db_sopra_hsp</connection>
     <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field/>
     <lookup>
       <schema/>
       <table>MODSTS11</table>
@@ -2821,10 +1811,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <condition>=</condition>
         <name2/>
       </key>
-      <value>
-        <name>STATO</name>
-        <rename>Da_Aggiornare</rename>
-      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -2835,14 +1821,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>893</xloc>
-      <yloc>359</yloc>
+      <xloc>578</xloc>
+      <yloc>365</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Stato-->Da_Eliminare</name>
-    <type>Update</type>
+    <name>Stato SENT</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2851,32 +1837,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>1000</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field/>
-    <lookup>
-      <schema/>
-      <table>MODSTS11</table>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STRUTTURA_COD</name>
-        <field>STRUTTURA_COD</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>STATO</name>
-        <rename>Da_Eliminare</rename>
-      </value>
-    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2886,14 +1846,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>893</xloc>
-      <yloc>585</yloc>
+      <xloc>189</xloc>
+      <yloc>506</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Upd_Changed</name>
-    <type>Update</type>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2902,212 +1862,28 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>1000</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field/>
-    <lookup>
-      <schema/>
-      <table>MODSTS11</table>
-      <key>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>5</limitRowsNumber>
+    <logmessage>YYYY=${YYYY}</logmessage>
+    <fields>
+      <field>
         <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
+      </field>
+      <field>
         <name>STRUTTURA_COD</name>
-        <field>STRUTTURA_COD</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>ANNO</name>
-        <rename>ANNO</rename>
-      </value>
-      <value>
-        <name>CODICE_REGIONE</name>
-        <rename>CODICE_REGIONE</rename>
-      </value>
-      <value>
-        <name>CODICE_AZIENDA</name>
-        <rename>CODICE_AZIENDA</rename>
-      </value>
-      <value>
-        <name>STRUTTURA_COD</name>
-        <rename>STRUTTURA_COD</rename>
-      </value>
-      <value>
+      </field>
+      <field>
         <name>STRUTTURA_DES</name>
-        <rename>STRUTTURA_DES</rename>
-      </value>
-      <value>
-        <name>TIPO_STRUTTURA_COD</name>
-        <rename>TIPO_STRUTTURA_COD</rename>
-      </value>
-      <value>
-        <name>TIPO_STRUTTURA_DES</name>
-        <rename>TIPO_STRUTTURA_DES</rename>
-      </value>
-      <value>
-        <name>ANNO_APERTURA</name>
-        <rename>ANNO_APERTURA</rename>
-      </value>
-      <value>
-        <name>MESE_APERTURA</name>
-        <rename>MESE_APERTURA</rename>
-      </value>
-      <value>
-        <name>GIORNO_APERTURA</name>
-        <rename>GIORNO_APERTURA</rename>
-      </value>
-      <value>
-        <name>ANNO_CHIUSURA</name>
-        <rename>ANNO_CHIUSURA</rename>
-      </value>
-      <value>
-        <name>MESE_CHIUSURA</name>
-        <rename>MESE_CHIUSURA</rename>
-      </value>
-      <value>
-        <name>GIORNO_CHIUSURA</name>
-        <rename>GIORNO_CHIUSURA</rename>
-      </value>
-      <value>
-        <name>TIPO_RAPPORTO</name>
-        <rename>TIPO_RAPPORTO</rename>
-      </value>
-      <value>
-        <name>FLAG_APPARECCHIATURE</name>
-        <rename>FLAG_APPARECCHIATURE</rename>
-      </value>
-      <value>
-        <name>PARTITA_IVA</name>
-        <rename>PARTITA_IVA</rename>
-      </value>
-      <value>
-        <name>INDIRIZZO</name>
-        <rename>INDIRIZZO</rename>
-      </value>
-      <value>
-        <name>CODICE_COMUNE</name>
-        <rename>CODICE_COMUNE</rename>
-      </value>
-      <value>
-        <name>CAP</name>
-        <rename>CAP</rename>
-      </value>
-      <value>
-        <name>EMAIL</name>
-        <rename>EMAIL</rename>
-      </value>
-      <value>
-        <name>SITO_WEB</name>
-        <rename>SITO_WEB</rename>
-      </value>
-      <value>
-        <name>PREFISSO</name>
-        <rename>PREFISSO</rename>
-      </value>
-      <value>
-        <name>TELEFONO</name>
-        <rename>TELEFONO</rename>
-      </value>
-      <value>
-        <name>PREFISSO_FAX</name>
-        <rename>PREFISSO_FAX</rename>
-      </value>
-      <value>
-        <name>NUMERO_FAX</name>
-        <rename>NUMERO_FAX</rename>
-      </value>
-      <value>
-        <name>OSP_TIPO</name>
-        <rename>OSP_TIPO</rename>
-      </value>
-      <value>
-        <name>OSP_COD</name>
-        <rename>OSP_COD</rename>
-      </value>
-      <value>
-        <name>MESI_FUNZIONAMENTO</name>
-        <rename>MESI_FUNZIONAMENTO</rename>
-      </value>
-      <value>
-        <name>TITOLARE</name>
-        <rename>TITOLARE</rename>
-      </value>
-      <value>
-        <name>TIPI_ASSISTENZA_DES</name>
-        <rename>TIPI_ASSISTENZA_DES</rename>
-      </value>
-      <value>
-        <name>TIPO_ASS_1</name>
-        <rename>TIPO_ASS_1</rename>
-      </value>
-      <value>
-        <name>TIPO_ASS_2</name>
-        <rename>TIPO_ASS_2</rename>
-      </value>
-      <value>
-        <name>TIPO_ASS_3</name>
-        <rename>TIPO_ASS_3</rename>
-      </value>
-      <value>
-        <name>TIPO_ASS_4</name>
-        <rename>TIPO_ASS_4</rename>
-      </value>
-      <value>
-        <name>GIORNI_1</name>
-        <rename>GIORNI_1</rename>
-      </value>
-      <value>
-        <name>GIORNI_2</name>
-        <rename>GIORNI_2</rename>
-      </value>
-      <value>
-        <name>GIORNI_3</name>
-        <rename>GIORNI_3</rename>
-      </value>
-      <value>
-        <name>GIORNI_4</name>
-        <rename>GIORNI_4</rename>
-      </value>
-      <value>
-        <name>ORE_1</name>
-        <rename>ORE_1</rename>
-      </value>
-      <value>
-        <name>ORE_2</name>
-        <rename>ORE_2</rename>
-      </value>
-      <value>
-        <name>ORE_3</name>
-        <rename>ORE_3</rename>
-      </value>
-      <value>
-        <name>ORE_4</name>
-        <rename>ORE_4</rename>
-      </value>
-      <value>
-        <name>flagfield</name>
-        <rename>flagfield</rename>
-      </value>
-      <value>
-        <name>Data_mod</name>
-        <rename>data_sys</rename>
-      </value>
-      <value>
-        <name>JOB_ID</name>
-        <rename>JOB_ID</rename>
-      </value>
-      <value>
-        <name>TRANSFORMATION_ID</name>
-        <rename>TRANSFORMATION_ID</rename>
-      </value>
-    </lookup>
+      </field>
+      <field>
+        <name>FLAGFIELD</name>
+      </field>
+      <field>
+        <name>STATO</name>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -3117,71 +1893,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>574</xloc>
-      <yloc>405</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Upd_Deleted</name>
-    <type>Update</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>1000</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field/>
-    <lookup>
-      <schema/>
-      <table>MODSTS11</table>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STRUTTURA_COD</name>
-        <field>STRUTTURA_COD</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>flagfield</name>
-        <rename>flagfield</rename>
-      </value>
-      <value>
-        <name>Data_mod</name>
-        <rename>data_sys</rename>
-      </value>
-      <value>
-        <name>JOB_ID</name>
-        <rename>JOB_ID</rename>
-      </value>
-      <value>
-        <name>TRANSFORMATION_ID</name>
-        <rename>TRANSFORMATION_ID</rename>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>574</xloc>
-      <yloc>505</yloc>
+      <xloc>189</xloc>
+      <yloc>33</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3189,14 +1902,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <name>modSTS11</name>
     <type>TableInput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
+    <connection>db_sopra_hsp</connection>
     <sql>SELECT
   ANNO
 , CODICE_REGIONE
@@ -3240,278 +1953,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 , ORE_2
 , ORE_3
 , ORE_4
+, FLAGFIELD
+, STATO
+, DATA_INS
+, DATA_MOD
+, DATA_INVIO
+, JOB_ID
+, TRANSFORMATION_ID
+, TIPO_OP_INVIATO
 FROM HSP.MODSTS11
 where
-anno = '${YYYY}'
---anno = '2008' 
-Order by
-anno, struttura_cod</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ANNO</name>
-        <length>4</length>
-        <precision>-1</precision>
-        <origin>modSTS21</origin>
-        <comments>ANNO</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>STS11</name>
-        <length>6</length>
-        <precision>-1</precision>
-        <origin>modSTS21</origin>
-        <comments>STS11</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>BRANCA</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>modSTS21</origin>
-        <comments>BRANCA</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>REGIONE</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>modSTS21</origin>
-        <comments>REGIONE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ASL</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>modSTS21</origin>
-        <comments>ASL</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>PREST_EST</name>
-        <length>8</length>
-        <precision>-1</precision>
-        <origin>modSTS21</origin>
-        <comments>PREST_EST</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>PREST_EQU</name>
-        <length>8</length>
-        <precision>-1</precision>
-        <origin>modSTS21</origin>
-        <comments>PREST_EQU</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>PREST_INT</name>
-        <length>8</length>
-        <precision>-1</precision>
-        <origin>modSTS21</origin>
-        <comments>PREST_INT</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>235</xloc>
-      <yloc>24</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>modSTS11_buffer</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>HSP_db_sopra (NLS America)</connection>
-    <sql>SELECT
-  ANNO
-, CODICE_REGIONE
-, CODICE_AZIENDA
-, STRUTTURA_COD
-, substr(STRUTTURA_DES,1,30) STRUTTURA_DES
-, TIPO_STRUTTURA_COD
-, TIPO_STRUTTURA_DES
-, ANNO_APERTURA
-, MESE_APERTURA
-, GIORNO_APERTURA
-, ANNO_CHIUSURA
-, MESE_CHIUSURA
-, GIORNO_CHIUSURA
-, TIPO_RAPPORTO
-, FLAG_APPARECCHIATURE
-, PARTITA_IVA
-, INDIRIZZO
-, CODICE_COMUNE
-, CAP
-, EMAIL
-, SITO_WEB
-, PREFISSO
-, TELEFONO
-, PREFISSO_FAX
-, NUMERO_FAX
-, OSP_TIPO
-, OSP_COD
-, MESI_FUNZIONAMENTO
-, TITOLARE
-, TIPI_ASSISTENZA_DES
-, TIPO_ASS_1
-, TIPO_ASS_2
-, TIPO_ASS_3
-, TIPO_ASS_4
-, GIORNI_1
-, GIORNI_2
-, GIORNI_3
-, GIORNI_4
-, ORE_1
-, ORE_2
-, ORE_3
-, ORE_4
-FROM HSP.MODSTS11_BUFFER
-where
-anno = '${YYYY}'
-Order by
-anno, struttura_cod
+anno = '${YYYY}' 
+and STATO &lt;&gt; 'S'
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -3526,7 +1979,7 @@ anno, struttura_cod
         <name>ANNO</name>
         <length>4</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>ANNO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3549,7 +2002,7 @@ anno, struttura_cod
         <name>CODICE_REGIONE</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>CODICE_REGIONE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3572,7 +2025,7 @@ anno, struttura_cod
         <name>CODICE_AZIENDA</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>CODICE_AZIENDA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3595,7 +2048,7 @@ anno, struttura_cod
         <name>STRUTTURA_COD</name>
         <length>6</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>STRUTTURA_COD</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3618,7 +2071,7 @@ anno, struttura_cod
         <name>STRUTTURA_DES</name>
         <length>30</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>STRUTTURA_DES</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3641,7 +2094,7 @@ anno, struttura_cod
         <name>TIPO_STRUTTURA_COD</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>TIPO_STRUTTURA_COD</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3664,7 +2117,7 @@ anno, struttura_cod
         <name>TIPO_STRUTTURA_DES</name>
         <length>50</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>TIPO_STRUTTURA_DES</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3687,7 +2140,7 @@ anno, struttura_cod
         <name>ANNO_APERTURA</name>
         <length>4</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>ANNO_APERTURA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3710,7 +2163,7 @@ anno, struttura_cod
         <name>MESE_APERTURA</name>
         <length>2</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>MESE_APERTURA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3733,7 +2186,7 @@ anno, struttura_cod
         <name>GIORNO_APERTURA</name>
         <length>2</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>GIORNO_APERTURA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3756,7 +2209,7 @@ anno, struttura_cod
         <name>ANNO_CHIUSURA</name>
         <length>4</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>ANNO_CHIUSURA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3779,7 +2232,7 @@ anno, struttura_cod
         <name>MESE_CHIUSURA</name>
         <length>2</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>MESE_CHIUSURA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3802,7 +2255,7 @@ anno, struttura_cod
         <name>GIORNO_CHIUSURA</name>
         <length>2</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>GIORNO_CHIUSURA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3825,7 +2278,7 @@ anno, struttura_cod
         <name>TIPO_RAPPORTO</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>TIPO_RAPPORTO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3848,7 +2301,7 @@ anno, struttura_cod
         <name>FLAG_APPARECCHIATURE</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>FLAG_APPARECCHIATURE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3869,9 +2322,9 @@ anno, struttura_cod
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>PARTITA_IVA</name>
-        <length>16</length>
+        <length>11</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>PARTITA_IVA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3892,9 +2345,9 @@ anno, struttura_cod
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>INDIRIZZO</name>
-        <length>100</length>
+        <length>30</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>INDIRIZZO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3917,7 +2370,7 @@ anno, struttura_cod
         <name>CODICE_COMUNE</name>
         <length>6</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>CODICE_COMUNE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3940,7 +2393,7 @@ anno, struttura_cod
         <name>CAP</name>
         <length>6</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>CAP</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3963,7 +2416,7 @@ anno, struttura_cod
         <name>EMAIL</name>
         <length>50</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>EMAIL</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -3984,9 +2437,9 @@ anno, struttura_cod
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>SITO_WEB</name>
-        <length>50</length>
+        <length>100</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>SITO_WEB</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4007,9 +2460,9 @@ anno, struttura_cod
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>PREFISSO</name>
-        <length>6</length>
+        <length>4</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>PREFISSO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4030,9 +2483,9 @@ anno, struttura_cod
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>TELEFONO</name>
-        <length>10</length>
+        <length>8</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>TELEFONO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4053,9 +2506,9 @@ anno, struttura_cod
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>PREFISSO_FAX</name>
-        <length>6</length>
+        <length>4</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>PREFISSO_FAX</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4076,9 +2529,9 @@ anno, struttura_cod
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>NUMERO_FAX</name>
-        <length>10</length>
+        <length>8</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>NUMERO_FAX</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4101,7 +2554,7 @@ anno, struttura_cod
         <name>OSP_TIPO</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>OSP_TIPO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4124,7 +2577,7 @@ anno, struttura_cod
         <name>OSP_COD</name>
         <length>6</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>OSP_COD</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4147,7 +2600,7 @@ anno, struttura_cod
         <name>MESI_FUNZIONAMENTO</name>
         <length>2</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>MESI_FUNZIONAMENTO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4168,9 +2621,9 @@ anno, struttura_cod
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>TITOLARE</name>
-        <length>50</length>
+        <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>TITOLARE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4193,7 +2646,7 @@ anno, struttura_cod
         <name>TIPI_ASSISTENZA_DES</name>
         <length>200</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>TIPI_ASSISTENZA_DES</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4216,7 +2669,7 @@ anno, struttura_cod
         <name>TIPO_ASS_1</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>TIPO_ASS_1</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4239,7 +2692,7 @@ anno, struttura_cod
         <name>TIPO_ASS_2</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>TIPO_ASS_2</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4262,7 +2715,7 @@ anno, struttura_cod
         <name>TIPO_ASS_3</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>TIPO_ASS_3</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4285,7 +2738,7 @@ anno, struttura_cod
         <name>TIPO_ASS_4</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>TIPO_ASS_4</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4308,7 +2761,7 @@ anno, struttura_cod
         <name>GIORNI_1</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>GIORNI_1</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4331,7 +2784,7 @@ anno, struttura_cod
         <name>GIORNI_2</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>GIORNI_2</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4354,7 +2807,7 @@ anno, struttura_cod
         <name>GIORNI_3</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>GIORNI_3</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4377,7 +2830,7 @@ anno, struttura_cod
         <name>GIORNI_4</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>GIORNI_4</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4400,7 +2853,7 @@ anno, struttura_cod
         <name>ORE_1</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>ORE_1</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4423,7 +2876,7 @@ anno, struttura_cod
         <name>ORE_2</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>ORE_2</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4446,7 +2899,7 @@ anno, struttura_cod
         <name>ORE_3</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>ORE_3</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -4469,8 +2922,192 @@ anno, struttura_cod
         <name>ORE_4</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11_buffer</origin>
+        <origin>modSTS11</origin>
         <comments>ORE_4</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>FLAGFIELD</name>
+        <length>15</length>
+        <precision>-1</precision>
+        <origin>modSTS11</origin>
+        <comments>FLAGFIELD</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>STATO</name>
+        <length>1</length>
+        <precision>-1</precision>
+        <origin>modSTS11</origin>
+        <comments>STATO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_INS</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>modSTS11</origin>
+        <comments>DATA_INS</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_MOD</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>modSTS11</origin>
+        <comments>DATA_MOD</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_INVIO</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>modSTS11</origin>
+        <comments>DATA_INVIO</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>JOB_ID</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>modSTS11</origin>
+        <comments>JOB_ID</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>TRANSFORMATION_ID</name>
+        <length>38</length>
+        <precision>0</precision>
+        <origin>modSTS11</origin>
+        <comments>TRANSFORMATION_ID</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_OP_INVIATO</name>
+        <length>1</length>
+        <precision>-1</precision>
+        <origin>modSTS11</origin>
+        <comments>TIPO_OP_INVIATO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -4496,8 +3133,366 @@ anno, struttura_cod
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>24</yloc>
+      <xloc>62</xloc>
+      <yloc>34</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>modSTS11_DEL</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>db_sopra_hsp</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>modSTS11_del</table>
+      <key>
+        <name>ANNO</name>
+        <field>ANNO</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>STRUTTURA_COD</name>
+        <field>STRUTTURA_COD</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>ANNO</name>
+        <rename>ANNO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CODICE_REGIONE</name>
+        <rename>CODICE_REGIONE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CODICE_AZIENDA</name>
+        <rename>CODICE_AZIENDA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>STRUTTURA_COD</name>
+        <rename>STRUTTURA_COD</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>STRUTTURA_DES</name>
+        <rename>STRUTTURA_DES</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TIPO_STRUTTURA_COD</name>
+        <rename>TIPO_STRUTTURA_COD</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TIPO_STRUTTURA_DES</name>
+        <rename>TIPO_STRUTTURA_DES</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ANNO_APERTURA</name>
+        <rename>ANNO_APERTURA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MESE_APERTURA</name>
+        <rename>MESE_APERTURA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GIORNO_APERTURA</name>
+        <rename>GIORNO_APERTURA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ANNO_CHIUSURA</name>
+        <rename>ANNO_CHIUSURA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MESE_CHIUSURA</name>
+        <rename>MESE_CHIUSURA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GIORNO_CHIUSURA</name>
+        <rename>GIORNO_CHIUSURA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TIPO_RAPPORTO</name>
+        <rename>TIPO_RAPPORTO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FLAG_APPARECCHIATURE</name>
+        <rename>FLAG_APPARECCHIATURE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PARTITA_IVA</name>
+        <rename>PARTITA_IVA</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>INDIRIZZO</name>
+        <rename>INDIRIZZO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CODICE_COMUNE</name>
+        <rename>CODICE_COMUNE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CAP</name>
+        <rename>CAP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>EMAIL</name>
+        <rename>EMAIL</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SITO_WEB</name>
+        <rename>SITO_WEB</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PREFISSO</name>
+        <rename>PREFISSO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TELEFONO</name>
+        <rename>TELEFONO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PREFISSO_FAX</name>
+        <rename>PREFISSO_FAX</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NUMERO_FAX</name>
+        <rename>NUMERO_FAX</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>OSP_TIPO</name>
+        <rename>OSP_TIPO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>OSP_COD</name>
+        <rename>OSP_COD</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>MESI_FUNZIONAMENTO</name>
+        <rename>MESI_FUNZIONAMENTO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TITOLARE</name>
+        <rename>TITOLARE</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TIPI_ASSISTENZA_DES</name>
+        <rename>TIPI_ASSISTENZA_DES</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TIPO_ASS_1</name>
+        <rename>TIPO_ASS_1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TIPO_ASS_2</name>
+        <rename>TIPO_ASS_2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TIPO_ASS_3</name>
+        <rename>TIPO_ASS_3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TIPO_ASS_4</name>
+        <rename>TIPO_ASS_4</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GIORNI_1</name>
+        <rename>GIORNI_1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GIORNI_2</name>
+        <rename>GIORNI_2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GIORNI_3</name>
+        <rename>GIORNI_3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GIORNI_4</name>
+        <rename>GIORNI_4</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ORE_1</name>
+        <rename>ORE_1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ORE_2</name>
+        <rename>ORE_2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ORE_3</name>
+        <rename>ORE_3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ORE_4</name>
+        <rename>ORE_4</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FLAGFIELD</name>
+        <rename>FLAGFIELD</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>STATO</name>
+        <rename>STATO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INS</name>
+        <rename>DATA_INS</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_MOD</name>
+        <rename>DATA_MOD</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DATA_INVIO</name>
+        <rename>DATA_INVIO</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>JOB_ID</name>
+        <rename>JOB_ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TRANSFORMATION_ID</name>
+        <rename>TRANSFORMATION_ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>data_CANC</name>
+        <rename>data_CANC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TIPO_OP_INVIATO</name>
+        <rename>TIPO_OP_INVIATO</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>459</xloc>
+      <yloc>365</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>set Inviato</name>
+    <type>Update</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>db_sopra_hsp</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>1000</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema/>
+      <table>MODSTS11</table>
+      <key>
+        <name>ANNO</name>
+        <field>ANNO</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>STRUTTURA_COD</name>
+        <field>STRUTTURA_COD</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>STATO</name>
+        <rename>Inviato</rename>
+      </value>
+      <value>
+        <name>data_invio</name>
+        <rename>data_SYS</rename>
+      </value>
+      <value>
+        <name>TIPO_OP_INVIATO</name>
+        <rename>STATO</rename>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>578</xloc>
+      <yloc>253</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
