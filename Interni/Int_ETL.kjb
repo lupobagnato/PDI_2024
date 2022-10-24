@@ -1,51 +1,122 @@
 <job>
   <name>Int_ETL</name>
-  <description />
-  <extended_description />
-  <job_version />
+  <description/>
+  <extended_description/>
+  <job_version/>
   <job_status>0</job_status>
   <directory>/Interni</directory>
-  <created_user />
+  <created_user/>
   <created_date>2019/09/16 11:46:31.047</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2021/08/25 13:02:31.055</modified_date>
+  <modified_date>2022/10/24 16:02:56.290</modified_date>
   <parameters>
     <parameter>
       <name>MM</name>
       <default_value>07</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>YYYY</name>
       <default_value>2021</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_From</name>
       <default_value>${_email_From}</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_FromName</name>
       <default_value>${_email_FromName}</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_Port</name>
       <default_value>${_email_Port}</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_Smtp</name>
       <default_value>${_email_Smtp}</default_value>
-      <description />
+      <description/>
     </parameter>
     <parameter>
       <name>var_To</name>
       <default_value>${_email_To}</default_value>
-      <description />
+      <description/>
     </parameter>
   </parameters>
+  <connection>
+    <name>areas_formazione</name>
+    <server>svi1db.regione.liguria.it</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>AMCF</database>
+    <port>1524</port>
+    <username>dwh</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10be96b8d2</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1524</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SQL_CONNECT</code>
+        <attribute>ALTER SESSION SET 
+NLS_SORT=WEST_EUROPEAN
+NLS_NUMERIC_CHARACTERS=',.' 
+NLS_LANGUAGE='ITALIAN'
+NLS_TERRITORY='ITALY'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_DATE_FORMAT='DD-MON-RR'
+NLS_DATE_LANGUAGE='ITALIAN'
+NLS_TIME_FORMAT='HH24:MI:SSXFF'
+NLS_TIMESTAMP_FORMAT='DD-MON-RR HH24:MI:SSXFF'
+NLS_TIME_TZ_FORMAT='HH24:MI:SSXFF TZR'
+NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
+</attribute>
+      </attribute>
+      <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <connection>
     <name>cardiopacs</name>
     <server>10.106.111.14</server>
@@ -55,9 +126,9 @@
     <port>1433</port>
     <username>sia</username>
     <password>Encrypted 293c5fd9014c6d9d7ff34a55187bc9f8d</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -114,9 +185,9 @@
     <port>1526</port>
     <username>dwh</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10be96b8d2</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -181,9 +252,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <port>1526</port>
     <username>cupreport</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79bc75ce9dbdce</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -249,9 +320,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <port>1526</port>
     <username>hsp</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10be9abcca</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>EXTRA_OPTION_ORACLE.NLS_TERRITORY</code>
@@ -320,9 +391,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <port>1526</port>
     <username>pdi_logger</username>
     <password>Encrypted 2be98afc86aa7f2e4cb49ff218cc1fa82</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -379,6 +450,61 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <connection>
+    <name>db_sopra_SPEC</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>spec</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cd82aad9</password>
+    <servername/>
+    <data_tablespace>SPEC</data_tablespace>
+    <index_tablespace>IDX_SPEC</index_tablespace>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>5</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>Patidok</name>
     <server>svc_sio</server>
     <type>ORACLE</type>
@@ -387,7 +513,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <port>1521</port>
     <username>patidok</username>
     <password>Encrypted 2be98afc86aa7f2e4cb09af648f96ffd1</password>
-    <servername />
+    <servername/>
     <data_tablespace>PATI_MV</data_tablespace>
     <index_tablespace>PATI_MV</index_tablespace>
     <attributes>
@@ -451,9 +577,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <connection>${_LogDb}</connection>
     <schema>${_LogSchema}</schema>
     <table>${_LogJob}</table>
-    <size_limit_lines />
-    <interval />
-    <timeout_days />
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
     <field>
       <id>ID_JOB</id>
       <enabled>Y</enabled>
@@ -561,10 +687,10 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
   </job-log-table>
   <jobentry-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -652,10 +778,10 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
   </jobentry-log-table>
   <channel-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -718,32 +844,34 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
   </channel-log-table>
   <pass_batchid>N</pass_batchid>
-  <shared_objects_file />
+  <shared_objects_file/>
   <entries>
     <entry>
       <name>Log_Parameters</name>
-      <description />
+      <description/>
       <type>JOB</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
+      <job_object_id/>
+      <filename/>
       <jobname>Log_Parameters</jobname>
       <directory>/__system__</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
-      <slave_server_name />
+      <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <run_configuration/>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -751,13 +879,15 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>160</xloc>
-      <yloc>37</yloc>
+      <xloc>185</xloc>
+      <yloc>69</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>START</name>
-      <description />
+      <description/>
       <type>SPECIAL</type>
+      <attributes/>
       <start>Y</start>
       <dummy>N</dummy>
       <repeat>N</repeat>
@@ -771,32 +901,34 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>29</xloc>
-      <yloc>37</yloc>
+      <xloc>54</xloc>
+      <yloc>69</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Mail Ok</name>
-      <description />
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
+      <destinationCc/>
+      <destinationBCc/>
       <replyto>${var_From}</replyto>
       <replytoname>${var_FromName}</replytoname>
-      <subject>${Internal.Job.Name}: Ok</subject>
+      <subject>${Internal.Job.Name}:  Ok  ${YYYY}-${MM}</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
+      <contact_person/>
+      <contact_phone/>
       <comment>yyyy = ${YYYY}
 mm = ${MM}</comment>
       <include_files>N</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -806,7 +938,7 @@ mm = ${MM}</comment>
       <importance>normal</importance>
       <sensitivity>normal</sensitivity>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>
         <filetype>GENERAL</filetype>
       </filetypes>
@@ -815,32 +947,34 @@ mm = ${MM}</comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1150</xloc>
-      <yloc>37</yloc>
+      <xloc>1174</xloc>
+      <yloc>175</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
-      <name>Mail Err</name>
-      <description />
+      <name>Mail Err 1</name>
+      <description/>
       <type>MAIL</type>
+      <attributes/>
       <server>${var_Smtp}</server>
       <port>${var_Port}</port>
       <destination>${var_To}</destination>
-      <destinationCc />
-      <destinationBCc />
+      <destinationCc/>
+      <destinationBCc/>
       <replyto>${var_From}</replyto>
       <replytoname>${var_FromName}</replytoname>
-      <subject>${Internal.Job.Name}: ERR</subject>
+      <subject>${Internal.Job.Name}: ERR  ${YYYY}-${MM} (Int_Extract)</subject>
       <include_date>Y</include_date>
-      <contact_person />
-      <contact_phone />
+      <contact_person/>
+      <contact_phone/>
       <comment>
 </comment>
       <include_files>Y</include_files>
       <zip_files>N</zip_files>
-      <zip_name />
+      <zip_name/>
       <use_auth>N</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user />
+      <auth_user/>
       <auth_password>Encrypted </auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
@@ -850,80 +984,83 @@ mm = ${MM}</comment>
       <importance>normal</importance>
       <sensitivity>normal</sensitivity>
       <secureconnectiontype>SSL</secureconnectiontype>
-      <replyToAddresses />
+      <replyToAddresses/>
       <filetypes>      </filetypes>
       <embeddedimages>
       </embeddedimages>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>624</xloc>
-      <yloc>37</yloc>
+      <xloc>382</xloc>
+      <yloc>96</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Int_Extract</name>
-      <description />
+      <description/>
       <type>JOB</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
+      <job_object_id/>
+      <filename/>
       <jobname>Int_Extract</jobname>
       <directory>${Internal.Entry.Current.Directory}</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
-      <slave_server_name />
+      <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <run_configuration/>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
           <name>MM</name>
-          <stream_name />
+          <stream_name/>
           <value>${MM}</value>
         </parameter>
         <parameter>
           <name>YYYY</name>
-          <stream_name />
+          <stream_name/>
           <value>${YYYY}</value>
         </parameter>
         <parameter>
           <name>var_CCN</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_CCN}</value>
         </parameter>
         <parameter>
           <name>var_From</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_From}</value>
         </parameter>
         <parameter>
           <name>var_FromName</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_FromName}</value>
         </parameter>
         <parameter>
           <name>var_Port</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_Port}</value>
         </parameter>
         <parameter>
           <name>var_Smtp</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_Smtp}</value>
         </parameter>
         <parameter>
           <name>var_To</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_To}</value>
         </parameter>
       </parameters>
@@ -931,16 +1068,18 @@ mm = ${MM}</comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>358</xloc>
-      <yloc>146</yloc>
+      <xloc>383</xloc>
+      <yloc>178</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Set YYYY e MM</name>
-      <description />
+      <description/>
       <type>TRANS</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>Set YYYY e MM</transname>
       <directory>${Internal.Entry.Current.Directory}</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -949,102 +1088,106 @@ mm = ${MM}</comment>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
       <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
           <name>anno</name>
-          <stream_name />
+          <stream_name/>
           <value>${YYYY}</value>
         </parameter>
         <parameter>
           <name>mese</name>
-          <stream_name />
+          <stream_name/>
           <value>${MM}</value>
         </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>160</xloc>
-      <yloc>146</yloc>
+      <xloc>185</xloc>
+      <yloc>178</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Int_Xform</name>
-      <description />
+      <description/>
       <type>JOB</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
+      <job_object_id/>
+      <filename/>
       <jobname>Int_Xform</jobname>
       <directory>${Internal.Entry.Current.Directory}</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
-      <slave_server_name />
+      <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <run_configuration/>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
           <name>MM</name>
-          <stream_name />
+          <stream_name/>
           <value>${MM}</value>
         </parameter>
         <parameter>
           <name>YYYY</name>
-          <stream_name />
+          <stream_name/>
           <value>${YYYY}</value>
         </parameter>
         <parameter>
           <name>var_CCN</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_CCN}</value>
         </parameter>
         <parameter>
           <name>var_From</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_From}</value>
         </parameter>
         <parameter>
           <name>var_FromName</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_FromName}</value>
         </parameter>
         <parameter>
           <name>var_Port</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_Port}</value>
         </parameter>
         <parameter>
           <name>var_Smtp</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_Smtp}</value>
         </parameter>
         <parameter>
           <name>var_To</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_To}</value>
         </parameter>
       </parameters>
@@ -1052,73 +1195,76 @@ mm = ${MM}</comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>624</xloc>
-      <yloc>146</yloc>
+      <xloc>649</xloc>
+      <yloc>178</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>Int_Load</name>
-      <description />
+      <description/>
       <type>JOB</type>
+      <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
+      <job_object_id/>
+      <filename/>
       <jobname>Int_Load</jobname>
       <directory>${Internal.Entry.Current.Directory}</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
-      <slave_server_name />
+      <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
+      <run_configuration/>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
           <name>MM</name>
-          <stream_name />
+          <stream_name/>
           <value>${MM}</value>
         </parameter>
         <parameter>
           <name>YYYY</name>
-          <stream_name />
+          <stream_name/>
           <value>${YYYY}</value>
         </parameter>
         <parameter>
           <name>var_CCN</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_CCN}</value>
         </parameter>
         <parameter>
           <name>var_From</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_From}</value>
         </parameter>
         <parameter>
           <name>var_FromName</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_FromName}</value>
         </parameter>
         <parameter>
           <name>var_Port</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_Port}</value>
         </parameter>
         <parameter>
           <name>var_Smtp</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_Smtp}</value>
         </parameter>
         <parameter>
           <name>var_To</name>
-          <stream_name />
+          <stream_name/>
           <value>${var_To}</value>
         </parameter>
       </parameters>
@@ -1126,13 +1272,15 @@ mm = ${MM}</comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>952</xloc>
-      <yloc>146</yloc>
+      <xloc>1018</xloc>
+      <yloc>176</yloc>
+      <attributes_kjc/>
     </entry>
     <entry>
       <name>DUMMY</name>
-      <description />
+      <description/>
       <type>SPECIAL</type>
+      <attributes/>
       <start>N</start>
       <dummy>Y</dummy>
       <repeat>N</repeat>
@@ -1146,8 +1294,134 @@ mm = ${MM}</comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>635</xloc>
-      <yloc>419</yloc>
+      <xloc>660</xloc>
+      <yloc>451</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Interrompi job</name>
+      <description/>
+      <type>ABORT</type>
+      <attributes/>
+      <message>${Internal.Job.Name}: errore  in ${YYYY}-${MM}</message>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>649</xloc>
+      <yloc>8</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Successo</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1284</xloc>
+      <yloc>127</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Mail Err 2</name>
+      <description/>
+      <type>MAIL</type>
+      <attributes/>
+      <server>${var_Smtp}</server>
+      <port>${var_Port}</port>
+      <destination>${var_To}</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>${var_From}</replyto>
+      <replytoname>${var_FromName}</replytoname>
+      <subject>${Internal.Job.Name}: ERR  ${YYYY}-${MM} (Int_Xform)</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment>
+</comment>
+      <include_files>Y</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>N</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user/>
+      <auth_password>Encrypted </auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>649</xloc>
+      <yloc>96</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Mail Err 3</name>
+      <description/>
+      <type>MAIL</type>
+      <attributes/>
+      <server>${var_Smtp}</server>
+      <port>${var_Port}</port>
+      <destination>${var_To}</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>${var_From}</replyto>
+      <replytoname>${var_FromName}</replytoname>
+      <subject>${Internal.Job.Name}: ERR  ${YYYY}-${MM} (Int_Load)</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment>
+</comment>
+      <include_files>Y</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>N</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user/>
+      <auth_password>Encrypted </auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1018</xloc>
+      <yloc>96</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Successo ma problemi con Mail</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1281</xloc>
+      <yloc>232</yloc>
+      <attributes_kjc/>
     </entry>
   </entries>
   <hops>
@@ -1171,7 +1445,7 @@ mm = ${MM}</comment>
     </hop>
     <hop>
       <from>Int_Extract</from>
-      <to>Mail Err</to>
+      <to>Mail Err 1</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1215,24 +1489,6 @@ mm = ${MM}</comment>
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Int_Xform</from>
-      <to>Mail Err</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Int_Load</from>
-      <to>Mail Err</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Set YYYY e MM</from>
       <to>DUMMY</to>
       <from_nr>0</from_nr>
@@ -1250,6 +1506,69 @@ mm = ${MM}</comment>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
+    <hop>
+      <from>Mail Ok</from>
+      <to>Successo</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Int_Xform</from>
+      <to>Mail Err 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Int_Load</from>
+      <to>Mail Err 3</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Mail Err 1</from>
+      <to>Interrompi job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Mail Err 2</from>
+      <to>Interrompi job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Mail Err 3</from>
+      <to>Interrompi job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Mail Ok</from>
+      <to>Successo ma problemi con Mail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
     <notepad>
@@ -1259,8 +1578,8 @@ leggendo dalle V_INT_
 2. Delete / Insert a "blocchi" 
 di ORIGINE, ANNO, MESE 
 nella Stage</note>
-      <xloc>288</xloc>
-      <yloc>204</yloc>
+      <xloc>313</xloc>
+      <yloc>236</yloc>
       <width>176</width>
       <heigth>101</heigth>
       <fontname>Arial</fontname>
@@ -1283,8 +1602,8 @@ nella Stage</note>
 1. transcodifiche (dai campi "_ORIG" a quelli normali)
 2. rilevazione errori (set di Error_Cod)
 3. calcolo importo (tariffa x qta)</note>
-      <xloc>512</xloc>
-      <yloc>205</yloc>
+      <xloc>537</xloc>
+      <yloc>237</yloc>
       <width>318</width>
       <heigth>70</heigth>
       <fontname>Arial</fontname>
@@ -1304,14 +1623,16 @@ nella Stage</note>
     </notepad>
     <notepad>
       <note>Ins / Upd / Del della INT_PRODUZIONE
-aggregando la Stage sulla PK della INT_PRODUZIONE
-(al momento: Anno, Mese, Erogatore, Richiedente, Cod_Prest, Origine)</note>
-      <xloc>913</xloc>
-      <yloc>213</yloc>
-      <width>422</width>
-      <heigth>55</heigth>
-      <fontname />
-      <fontsize>-1</fontsize>
+aggregando la Stage sulla PK della 
+INT_PRODUZIONE
+(al momento: Anno, Mese, Erogatore, 
+Richiedente, Cod_Prest, Origine)</note>
+      <xloc>927</xloc>
+      <yloc>244</yloc>
+      <width>238</width>
+      <heigth>85</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
@@ -1333,8 +1654,8 @@ aggregando la Stage sulla PK della INT_PRODUZIONE
 
 - ora le viste INPUT_LAIM e INPUT_RXIM prendono solo il tipo "I"
 (interessa solo LAIM perché c'erano anche codici reparto validi nelle prestazioni "S")</note>
-      <xloc>20</xloc>
-      <yloc>376</yloc>
+      <xloc>53</xloc>
+      <yloc>397</yloc>
       <width>417</width>
       <heigth>103</heigth>
       <fontname>Arial</fontname>
@@ -1358,8 +1679,8 @@ si lasciano i default
 "20YY" e "MM"
 i valori non sono buoni
 ==> imposta il Mese precedente</note>
-      <xloc>92</xloc>
-      <yloc>202</yloc>
+      <xloc>117</xloc>
+      <yloc>234</yloc>
       <width>163</width>
       <heigth>75</heigth>
       <fontname>Arial</fontname>
@@ -1381,11 +1702,11 @@ i valori non sono buoni
       <note>Se si cambiano solo i valori nelle XCOD
 si possono rieseguire solo 
 Xform e Load</note>
-      <xloc>513</xloc>
-      <yloc>293</yloc>
+      <xloc>538</xloc>
+      <yloc>325</yloc>
       <width>239</width>
       <heigth>55</heigth>
-      <fontname />
+      <fontname/>
       <fontsize>-1</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
