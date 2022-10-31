@@ -925,7 +925,7 @@
     <created_user>admin</created_user>
     <created_date>2012/12/20 12:28:45.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/03/09 14:21:40.824</modified_date>
+    <modified_date>2022/10/31 16:17:51.469</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -934,8 +934,8 @@
       <note>Esclude i Day SURGERY
 (normali e OneDay)
 </note>
-      <xloc>331</xloc>
-      <yloc>88</yloc>
+      <xloc>453</xloc>
+      <yloc>108</yloc>
       <width>140</width>
       <heigth>49</heigth>
       <fontname>Microsoft Sans Serif</fontname>
@@ -956,8 +956,8 @@
     <notepad>
       <note>Esclude gli accessi con Date
 anteriori all'ingresso </note>
-      <xloc>311</xloc>
-      <yloc>204</yloc>
+      <xloc>433</xloc>
+      <yloc>224</yloc>
       <width>156</width>
       <heigth>36</heigth>
       <fontname>Microsoft Sans Serif</fontname>
@@ -978,8 +978,8 @@ anteriori all'ingresso </note>
     <notepad>
       <note>Esclude gli accessi con Date
 successive alla dimissione</note>
-      <xloc>315</xloc>
-      <yloc>335</yloc>
+      <xloc>437</xloc>
+      <yloc>355</yloc>
       <width>156</width>
       <heigth>36</heigth>
       <fontname>Microsoft Sans Serif</fontname>
@@ -992,6 +992,35 @@ successive alla dimissione</note>
       <backgroundcolorred>255</backgroundcolorred>
       <backgroundcolorgreen>165</backgroundcolorgreen>
       <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>ATTENZIONE
+la condizione usata sulla
+v_Export_Days deve
+corrispondere a quella
+usata nella
+"Purge_Accessi_Day"
+
+(altrimenti si rischia di eliminare
+dei record buoni)</note>
+      <xloc>45</xloc>
+      <yloc>115</yloc>
+      <width>159</width>
+      <heigth>128</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -1402,6 +1431,61 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <connection>
+    <name>db_sopra_SPEC</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>spec</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cd82aad9</password>
+    <servername/>
+    <data_tablespace>SPEC</data_tablespace>
+    <index_tablespace>IDX_SPEC</index_tablespace>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>5</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>Patidok</name>
     <server>svc_sio</server>
     <type>ORACLE</type>
@@ -1574,8 +1658,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>131</xloc>
-      <yloc>408</yloc>
+      <xloc>253</xloc>
+      <yloc>428</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1738,8 +1822,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>244</yloc>
+      <xloc>746</xloc>
+      <yloc>264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1777,8 +1861,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>377</xloc>
-      <yloc>244</yloc>
+      <xloc>499</xloc>
+      <yloc>264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1816,8 +1900,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>377</xloc>
-      <yloc>126</yloc>
+      <xloc>499</xloc>
+      <yloc>146</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1881,8 +1965,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>131</xloc>
-      <yloc>169</yloc>
+      <xloc>253</xloc>
+      <yloc>189</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1921,8 +2005,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>131</xloc>
-      <yloc>244</yloc>
+      <xloc>253</xloc>
+      <yloc>264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1969,8 +2053,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>131</xloc>
-      <yloc>320</yloc>
+      <xloc>253</xloc>
+      <yloc>340</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2000,8 +2084,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>32</xloc>
-      <yloc>12</yloc>
+      <xloc>154</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2031,8 +2115,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>161</xloc>
-      <yloc>12</yloc>
+      <xloc>283</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2070,8 +2154,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>377</xloc>
-      <yloc>377</yloc>
+      <xloc>499</xloc>
+      <yloc>397</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2109,8 +2193,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>12</yloc>
+      <xloc>426</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2152,9 +2236,9 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 , mot_ricov_dh_des
 FROM V_EXPORT_DAYS@patidok
 where
--- dimessi N giorni prima ultima esecuzione a Oggi + Tutti i non dimessi
+-- Tutti i non dimessi
+-- + dimessi N giorni prima ultima esecuzione a Oggi
 nvl(DATA_DIM, trunc(sysdate)) Between (Trunc(?) - ${Overlap_Days}) And Trunc(sysdate)
---and num_caso = 2013159627
 and data_acc >= sysdate - (2*365)		-- 09.03.2022 sembra che con questa condizione il piano inizi dalla Ka_Fall anziché dalla FF_Val (freescreen)
 order by
 num_caso, nr</sql>
@@ -2704,8 +2788,8 @@ num_caso, nr</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>131</xloc>
-      <yloc>99</yloc>
+      <xloc>253</xloc>
+      <yloc>119</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

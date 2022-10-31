@@ -1,19 +1,19 @@
 <transformation>
   <info>
-    <name>Purge_Accessi_Day</name>
+    <name>_viewer HSP.txt</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/Ricoveri Patidok</directory>
+    <directory>/NSIS</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection>${_LogDb}</connection>
-        <schema>${_LogSchema}</schema>
-        <table>${_LogTrans}</table>
+        <connection/>
+        <schema/>
+        <table/>
         <size_limit_lines/>
         <interval/>
         <timeout_days/>
@@ -47,7 +47,7 @@
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject>Deleted</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
@@ -59,17 +59,17 @@
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>Accessi_Day_buffer</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>Accessi_Day_History_del</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
           <subject/>
         </field>
@@ -417,12 +417,15 @@
     <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
-    <step_performance_capturing_size_limit/>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
     <dependencies>
     </dependencies>
     <partitionschemas>
       <partitionschema>
         <name>MySQL EC2 Schema</name>
+        <partition>
+          <id>P3</id>
+        </partition>
         <partition>
           <id>P4</id>
         </partition>
@@ -432,14 +435,14 @@
         <partition>
           <id>P2</id>
         </partition>
-        <partition>
-          <id>P3</id>
-        </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave/>
       </partitionschema>
       <partitionschema>
         <name>Partitioning schema</name>
+        <partition>
+          <id>PartDB2</id>
+        </partition>
         <partition>
           <id>PartDB5</id>
         </partition>
@@ -447,19 +450,29 @@
           <id>PartDB3</id>
         </partition>
         <partition>
-          <id>PartDB1</id>
-        </partition>
-        <partition>
-          <id>PartDB2</id>
-        </partition>
-        <partition>
           <id>PartDB4</id>
+        </partition>
+        <partition>
+          <id>PartDB1</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave/>
       </partitionschema>
     </partitionschemas>
     <slaveservers>
+      <slaveserver>
+        <name>carte</name>
+        <hostname>localhost</hostname>
+        <port>8181</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
       <slaveserver>
         <name>Carte_server</name>
         <hostname>minollo</hostname>
@@ -474,8 +487,8 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8080:Master</name>
-        <hostname>localhost</hostname>
+        <name>EC_MASTER_1</name>
+        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
         <port>8080</port>
         <webAppName/>
         <username>cluster</username>
@@ -487,9 +500,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8082</name>
-        <hostname>localhost</hostname>
-        <port>8082</port>
+        <name>EC_SLAVE_1</name>
+        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+        <port>8080</port>
         <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -500,7 +513,72 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8081</name>
+        <name>EC_SLAVE_2</name>
+        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_3</name>
+        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_4</name>
+        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_5</name>
+        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Jos 10.0.0.169</name>
+        <hostname>10.0.0.169</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Localhost 8081</name>
         <hostname>localhost</hostname>
         <port>8081</port>
         <webAppName/>
@@ -526,9 +604,48 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8084</name>
+        <name>localhost:8080 master</name>
         <hostname>localhost</hostname>
-        <port>8084</port>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8080:Master</name>
+        <hostname>localhost</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8081</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8082</name>
+        <hostname>localhost</hostname>
+        <port>8082</port>
         <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -552,16 +669,29 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8080 master</name>
+        <name>localhost:8084</name>
         <hostname>localhost</hostname>
-        <port>8080</port>
+        <port>8084</port>
         <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
         <proxy_hostname/>
         <proxy_port/>
         <non_proxy_hosts/>
-        <master>Y</master>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Mike ETL Server</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
@@ -571,45 +701,6 @@
         <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>ruwvs07</name>
-        <hostname>ruwvs07</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>zebulon slave</name>
-        <hostname>192.168.1.277</hostname>
-        <port>8081</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Jos 10.0.0.169</name>
-        <hostname>10.0.0.169</hostname>
-        <port>8081</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
         <proxy_hostname/>
         <proxy_port/>
         <non_proxy_hosts/>
@@ -643,138 +734,8 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>carte</name>
-        <hostname>localhost</hostname>
-        <port>8181</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server8080</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server8090</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8090</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server9000</name>
-        <hostname>127.0.0.1</hostname>
-        <port>9000</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_2</name>
-        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_4</name>
-        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_3</name>
-        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_MASTER_1</name>
-        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_5</name>
-        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Localhost 8081</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_1</name>
-        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+        <name>ruwvs07</name>
+        <hostname>ruwvs07</hostname>
         <port>8080</port>
         <webAppName/>
         <username>cluster</username>
@@ -825,9 +786,22 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>Warmath</name>
-        <hostname>liveinalpharetta.com</hostname>
-        <port>8083</port>
+        <name>server8080</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server8090</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8090</port>
         <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -838,9 +812,22 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>Mike ETL Server</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
+        <name>server9000</name>
+        <hostname>127.0.0.1</hostname>
+        <port>9000</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Warmath</name>
+        <hostname>liveinalpharetta.com</hostname>
+        <port>8083</port>
         <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -863,6 +850,19 @@
         <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
+      <slaveserver>
+        <name>zebulon slave</name>
+        <hostname>192.168.1.277</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
     </slaveservers>
     <clusterschemas>
       <clusterschema>
@@ -873,11 +873,11 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
-          <name>EC_SLAVE_3</name>
           <name>EC_SLAVE_4</name>
           <name>EC_SLAVE_2</name>
-          <name>EC_SLAVE_5</name>
+          <name>EC_SLAVE_3</name>
           <name>EC_MASTER_1</name>
+          <name>EC_SLAVE_5</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -888,9 +888,9 @@
         <sockets_compressed>N</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>localhost:8080:Master</name>
           <name>localhost:8081</name>
           <name>localhost:8082</name>
-          <name>localhost:8080:Master</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -901,9 +901,9 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>sam 8082 slave</name>
           <name>sam 8080</name>
           <name>sam 8081 slave</name>
-          <name>sam 8082 slave</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -917,64 +917,14 @@
         </slaveservers>
       </clusterschema>
     </clusterschemas>
-    <created_user>admin</created_user>
-    <created_date>2012/12/20 12:28:46.000</created_date>
+    <created_user/>
+    <created_date>2019/09/16 11:46:17.551</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/10/31 16:17:48.599</modified_date>
+    <modified_date>2022/10/31 10:55:08.584</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Nella History le cancellazioni
-sono inserite come le modifiche
-si distinguono dal "flagfield"</note>
-      <xloc>412</xloc>
-      <yloc>545</yloc>
-      <width>158</width>
-      <heigth>49</heigth>
-      <fontname>Microsoft Sans Serif</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2022.10.31
-per valorizzare nella History
-alcuni campi del record che viene
-cancellato
-(prima c'erano solo NrCaso e NR)
-
-</note>
-      <xloc>183</xloc>
-      <yloc>479</yloc>
-      <width>172</width>
-      <heigth>103</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>255</fontcolorred>
-      <fontcolorgreen>255</fontcolorgreen>
-      <fontcolorblue>255</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>areas_formazione</name>
@@ -1503,342 +1453,53 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>Catch Deleted</from>
-      <to>Deleted</to>
+      <from>hsp24F</from>
+      <to>Sort rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Catch Deleted</from>
-      <to>Esistenti</to>
+      <from>Sort rows</from>
+      <to>Dummy (do nothing)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>prima Dim nel Buffer</from>
-      <to>Accessi_Day</to>
+      <from>hsp24F old</from>
+      <to>Sort rows 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge Rows (diff)</from>
-      <to>Catch Deleted</to>
+      <from>Sort rows 2</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Accessi_Day_buffer</from>
-      <to>Buffer</to>
+      <from>Dummy (do nothing)</from>
+      <to>Stream lookup</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Buffer</from>
-      <to>Merge Rows (diff)</to>
+      <from>Select values</from>
+      <to>Stream lookup</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Accessi_Day</from>
-      <to>Correnti</to>
+      <from>Stream lookup</from>
+      <to>Reparti_hsp lookup</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Correnti</from>
-      <to>Merge Rows (diff)</to>
+      <from>Reparti_hsp lookup</from>
+      <to>Microsoft Excel writer</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Delete Accessi_Day</from>
-      <to>Get System Info</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get System Info</from>
-      <to>Accessi_Day_History_del</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Deleted</from>
-      <to>lookup Accessi_Day</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>lookup Accessi_Day</from>
-      <to>Delete Accessi_Day</to>
-      <enabled>Y</enabled>
+      <from>Reparti_hsp lookup</from>
+      <to>Microsoft Excel output</to>
+      <enabled>N</enabled>
     </hop>
   </order>
   <step>
-    <name>Accessi_Day</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>SELECT
-  NUM_CASO
-, NR
-FROM ACCESSI_DAY
-where
-(data_dim is null or data_dim >= ?)
-and data_acc >= sysdate - (2*365)
---and num_caso = 2020316678
-order by
-num_caso, nr</sql>
-    <limit>0</limit>
-    <lookup>prima Dim nel Buffer</lookup>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>NUM_CASO</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Accessi_Day</origin>
-        <comments>NUM_CASO</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>NR</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Accessi_Day</origin>
-        <comments>NR</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>210</xloc>
-      <yloc>60</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Accessi_Day_History_del</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <commit>100</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>Accessi_Day_History</table>
-      <key>
-        <name>NUM_CASO</name>
-        <field>NUM_CASO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>NR</name>
-        <field>NR</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>transformation_id</name>
-        <field>transformation_id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>NUM_CASO</name>
-        <rename>NUM_CASO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NR</name>
-        <rename>NR</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>transformation_id</name>
-        <rename>transformation_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Flagfield</name>
-        <rename>Flagfield</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>data_mod</name>
-        <rename>data_sys</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>job_mod</name>
-        <rename>job_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>transformation_mod</name>
-        <rename>transformation_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_ACCESSO</name>
-        <rename>DATA_ACCESSO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPO_ACCESSO</name>
-        <rename>TIPO_ACCESSO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_ACC</name>
-        <rename>DATA_ACC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_DIM</name>
-        <rename>DATA_DIM</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COGNOME</name>
-        <rename>COGNOME</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NOME</name>
-        <rename>NOME</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_REP_ACC</name>
-        <rename>COD_REP_ACC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DES_REP_ACC</name>
-        <rename>DES_REP_ACC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_FISC</name>
-        <rename>COD_FISC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>MOT_RICOV_DH_COD</name>
-        <rename>MOT_RICOV_DH_COD</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>MOT_RICOV_DH_DES</name>
-        <rename>MOT_RICOV_DH_DES</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_CARICAMENTO</name>
-        <rename>DATA_CARICAMENTO</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>413</xloc>
-      <yloc>607</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Accessi_Day_buffer</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>SELECT
-  NUM_CASO
-, NR
-FROM ACCESSI_DAY_BUFFER
-order by
-num_caso, nr</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta/>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>58</xloc>
-      <yloc>60</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Buffer</name>
+    <name>Dummy (do nothing)</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -1857,14 +1518,14 @@ num_caso, nr</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>59</xloc>
-      <yloc>145</yloc>
+      <xloc>89</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Catch Deleted</name>
-    <type>FilterRows</type>
+    <name>hsp24F</name>
+    <type>FixedInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1873,241 +1534,100 @@ num_caso, nr</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Deleted</send_true_to>
-    <send_false_to>Esistenti</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>flagfield</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>deleted</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>136</xloc>
-      <yloc>321</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Correnti</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>210</xloc>
-      <yloc>147</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>prima Dim nel Buffer</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <sql>SELECT
-min(data_dim) prima
-FROM ACCESSI_DAY_BUFFER
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>PRIMA</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>prima Dim nel Buffer</origin>
-        <comments>PRIMA</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>414</xloc>
-      <yloc>31</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Delete Accessi_Day</name>
-    <type>Delete</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema/>
-      <table>Accessi_Day</table>
-      <key>
-        <name>NUM_CASO</name>
-        <field>NUM_CASO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>NR</name>
-        <field>NR</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>139</xloc>
-      <yloc>607</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Deleted</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>139</xloc>
-      <yloc>430</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Esistenti</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>260</xloc>
-      <yloc>321</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get System Info</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
+    <filename>C:\__ Dati __\Progetti\Flussi NSIS\inviati\modHSP24f_2022 da 01 a 09.txt</filename>
+    <line_width>30</line_width>
+    <header>N</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <line_feed>Y</line_feed>
+    <parallel>N</parallel>
+    <file_type>NONE</file_type>
+    <encoding/>
+    <add_to_result_filenames>N</add_to_result_filenames>
     <fields>
       <field>
-        <name>data_sys</name>
-        <type>system date (fixed)</type>
+        <name>anno</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>4</width>
+        <length>-1</length>
+        <precision>-1</precision>
       </field>
       <field>
-        <name>job_id</name>
-        <type>job batch ID</type>
+        <name>cod_vari</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>12</width>
+        <length>-1</length>
+        <precision>-1</precision>
       </field>
       <field>
-        <name>transformation_id</name>
-        <type>batch ID</type>
+        <name>cod_rep</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>4</width>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mese</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>2</width>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>posti_letto</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>3</width>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>giornate</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>4</width>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>operazione</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>1</width>
+        <length>-1</length>
+        <precision>-1</precision>
       </field>
     </fields>
     <attributes/>
@@ -2119,14 +1639,14 @@ FROM ACCESSI_DAY_BUFFER
       </output>
     </remotesteps>
     <GUI>
-      <xloc>260</xloc>
-      <yloc>607</yloc>
+      <xloc>89</xloc>
+      <yloc>43</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Merge Rows (diff)</name>
-    <type>MergeRows</type>
+    <name>Sort rows</name>
+    <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2135,19 +1655,39 @@ FROM ACCESSI_DAY_BUFFER
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <keys>
-      <key>NUM_CASO</key>
-      <key>NR</key>
-    </keys>
-    <values>
-      <value>NUM_CASO</value>
-      <value>NR</value>
-    </values>
-    <flag_field>flagfield</flag_field>
-    <reference>Correnti</reference>
-    <compare>Buffer</compare>
-    <compare>
-    </compare>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>anno</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>mese</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>cod_rep</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2157,13 +1697,304 @@ FROM ACCESSI_DAY_BUFFER
       </output>
     </remotesteps>
     <GUI>
-      <xloc>136</xloc>
-      <yloc>224</yloc>
+      <xloc>89</xloc>
+      <yloc>137</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>lookup Accessi_Day</name>
+    <name>hsp24F old</name>
+    <type>FixedInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <filename>C:\__ Dati __\Progetti\Flussi NSIS\inviati\2022-07-27 (2° trim 2022)\modHSP24f_2022 da 01 a 06.txt</filename>
+    <line_width>30</line_width>
+    <header>N</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <line_feed>Y</line_feed>
+    <parallel>N</parallel>
+    <file_type>NONE</file_type>
+    <encoding/>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <fields>
+      <field>
+        <name>anno</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>4</width>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>cod_vari</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>12</width>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>cod_rep</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>4</width>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mese</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>2</width>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>posti_letto</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>3</width>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>giornate</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>4</width>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>operazione</name>
+        <type>String</type>
+        <format>null</format>
+        <trim_type>none</trim_type>
+        <currency>null</currency>
+        <decimal>null</decimal>
+        <group>null</group>
+        <width>1</width>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>43</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>anno</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>mese</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>cod_rep</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>anno</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cod_vari</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cod_rep</name>
+        <rename/>
+      </field>
+      <field>
+        <name>mese</name>
+        <rename/>
+      </field>
+      <field>
+        <name>posti_letto</name>
+        <rename>old_pl</rename>
+      </field>
+      <field>
+        <name>giornate</name>
+        <rename>old_giornate</rename>
+      </field>
+      <field>
+        <name>operazione</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>306</xloc>
+      <yloc>238</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Select values</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>anno</name>
+        <field>anno</field>
+      </key>
+      <key>
+        <name>cod_rep</name>
+        <field>cod_rep</field>
+      </key>
+      <key>
+        <name>mese</name>
+        <field>mese</field>
+      </key>
+      <value>
+        <name>old_pl</name>
+        <rename>old_pl</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>old_giornate</name>
+        <rename>old_giornate</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>89</xloc>
+      <yloc>365</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Reparti_hsp lookup</name>
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -2173,97 +2004,37 @@ FROM ACCESSI_DAY_BUFFER
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db_sopra</connection>
+    <connection>db_sopra_hsp</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema/>
-      <table>Accessi_Day</table>
+      <schema>HSP</schema>
+      <table>REPARTI_HSP</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>NUM_CASO</name>
-        <field>NUM_CASO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>NR</name>
-        <field>NR</field>
+        <name>cod_rep</name>
+        <field>cod_rep</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-        <name>DATA_ACCESSO</name>
-        <rename>DATA_ACCESSO</rename>
+        <name>DESCR</name>
+        <rename>DESCR</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>DATA_APERTURA</name>
+        <rename>DATA_APERTURA</rename>
         <default/>
         <type>Timestamp</type>
       </value>
       <value>
-        <name>TIPO_ACCESSO</name>
-        <rename>TIPO_ACCESSO</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>DATA_ACC</name>
-        <rename>DATA_ACC</rename>
-        <default/>
-        <type>Timestamp</type>
-      </value>
-      <value>
-        <name>DATA_DIM</name>
-        <rename>DATA_DIM</rename>
-        <default/>
-        <type>Timestamp</type>
-      </value>
-      <value>
-        <name>COGNOME</name>
-        <rename>COGNOME</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>NOME</name>
-        <rename>NOME</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>COD_REP_ACC</name>
-        <rename>COD_REP_ACC</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>DES_REP_ACC</name>
-        <rename>DES_REP_ACC</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>COD_FISC</name>
-        <rename>COD_FISC</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>MOT_RICOV_DH_COD</name>
-        <rename>MOT_RICOV_DH_COD</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>MOT_RICOV_DH_DES</name>
-        <rename>MOT_RICOV_DH_DES</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>DATA_CARICAMENTO</name>
-        <rename>DATA_CARICAMENTO</rename>
+        <name>DATA_CHIUSURA</name>
+        <rename>DATA_CHIUSURA</rename>
         <default/>
         <type>Timestamp</type>
       </value>
@@ -2277,8 +2048,333 @@ FROM ACCESSI_DAY_BUFFER
       </output>
     </remotesteps>
     <GUI>
-      <xloc>139</xloc>
-      <yloc>512</yloc>
+      <xloc>87</xloc>
+      <yloc>460</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Microsoft Excel writer</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>C:\_NextDel\HSP24F confronto</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>new</if_file_exists>
+      <if_sheet_exists>new</if_sheet_exists>
+    </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename/>
+      <sheetname/>
+      <hidden>N</hidden>
+    </template>
+    <fields>
+      <field>
+        <name>anno</name>
+        <type>String</type>
+        <format/>
+        <title>anno</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>cod_rep</name>
+        <type>String</type>
+        <format/>
+        <title>cod_rep</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>mese</name>
+        <type>String</type>
+        <format/>
+        <title>mese</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>posti_letto</name>
+        <type>String</type>
+        <format/>
+        <title>posti_letto</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>giornate</name>
+        <type>String</type>
+        <format/>
+        <title>giornate</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>operazione</name>
+        <type>String</type>
+        <format/>
+        <title>operazione</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>old_pl</name>
+        <type>String</type>
+        <format/>
+        <title>old_pl</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>old_giornate</name>
+        <type>String</type>
+        <format/>
+        <title>old_giornate</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>DESCR</name>
+        <type>String</type>
+        <format/>
+        <title>DESCR</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>DATA_APERTURA</name>
+        <type>String</type>
+        <format>dd/mm/yyyy</format>
+        <title>DATA_APERTURA</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>DATA_CHIUSURA</name>
+        <type>Date</type>
+        <format/>
+        <title>DATA_CHIUSURA</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>287</xloc>
+      <yloc>461</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Microsoft Excel output</name>
+    <type>ExcelOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <encoding/>
+    <append>N</append>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>C:\_NextDel\HSP24F confronto</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <create_parent_folder>N</create_parent_folder>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <nullisblank>N</nullisblank>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <splitevery>0</splitevery>
+      <usetempfiles>N</usetempfiles>
+      <tempdirectory/>
+    </file>
+    <template>
+      <enabled>Y</enabled>
+      <append>N</append>
+      <filename>C:\__ Dati __\Progetti\Flussi NSIS\template HSP24F confronto.xls</filename>
+    </template>
+    <fields>
+      <field>
+        <name>anno</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>cod_rep</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>mese</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>posti_letto</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>giornate</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>operazione</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>old_pl</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>old_giornate</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>DESCR</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>DATA_APERTURA</name>
+        <type>Date</type>
+        <format/>
+      </field>
+      <field>
+        <name>DATA_CHIUSURA</name>
+        <type>Date</type>
+        <format/>
+      </field>
+    </fields>
+    <custom>
+      <header_font_name>arial</header_font_name>
+      <header_font_size>10</header_font_size>
+      <header_font_bold>N</header_font_bold>
+      <header_font_italic>N</header_font_italic>
+      <header_font_underline>no</header_font_underline>
+      <header_font_orientation>horizontal</header_font_orientation>
+      <header_font_color>black</header_font_color>
+      <header_background_color>none</header_background_color>
+      <header_row_height>255</header_row_height>
+      <header_alignment>left</header_alignment>
+      <header_image/>
+      <row_font_name>arial</row_font_name>
+      <row_font_size>10</row_font_size>
+      <row_font_color>black</row_font_color>
+      <row_background_color>none</row_background_color>
+    </custom>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>285</xloc>
+      <yloc>537</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
