@@ -920,7 +920,7 @@
     <created_user>admin</created_user>
     <created_date>2015/03/02 10:16:38.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/01/25 09:25:15.788</modified_date>
+    <modified_date>2022/11/02 09:14:31.444</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1578,7 +1578,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>Catch Err_PREST</from>
       <to>Catch Err_IMP</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Add CODICEAZIENDA</from>
@@ -1623,7 +1623,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>Catch Err_IMP</from>
       <to>Dnlab_Buffer</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Auditing_Info</from>
@@ -1653,6 +1653,11 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>Dnlab_Buffer</from>
       <to>buffer.txt</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Catch Err_PREST</from>
+      <to>Dnlab_Buffer</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1790,8 +1795,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>428</xloc>
-      <yloc>426</yloc>
+      <xloc>553</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1799,7 +1804,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <name>Catch Err_PREST</name>
     <type>FilterRows</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1807,7 +1812,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <schema_name/>
     </partitioning>
     <send_true_to>c_err_PREST</send_true_to>
-    <send_false_to>Catch Err_IMP</send_false_to>
+    <send_false_to>Dnlab_Buffer</send_false_to>
     <compare>
       <condition>
         <negated>N</negated>
@@ -2037,7 +2042,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>C:\minollo\Input\dnlab_01-15 dic NEW.txt</name>
+      <name>${ROOTPATH}${INPUTDIR}</name>
+      <filemask>dnlab.*\.txt</filemask>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name>C:\minollo\Input\dnlab_2209 1-10 set NEW.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -3685,8 +3695,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>775</xloc>
-      <yloc>425</yloc>
+      <xloc>900</xloc>
+      <yloc>431</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -6792,8 +6802,8 @@ BAKDIR: ${BAKDIR}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>588</xloc>
-      <yloc>426</yloc>
+      <xloc>713</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
