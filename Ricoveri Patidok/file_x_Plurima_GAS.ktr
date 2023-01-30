@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>Purge_Ricoveri_Trasformati</name>
+    <name>file_x_Plurima_GAS</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -13,7 +13,7 @@
       <trans-log-table>
         <connection>${_LogDb}</connection>
         <schema>${_LogSchema}</schema>
-        <table>${_LogTrans}</table>
+        <table>${_LogTmpTrans}</table>
         <size_limit_lines/>
         <interval/>
         <timeout_days/>
@@ -47,7 +47,7 @@
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject>Text file output</subject>
         </field>
         <field>
           <id>LINES_UPDATED</id>
@@ -59,13 +59,13 @@
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>Scomparsi dalla v_Export</subject>
+          <subject>v_file_Plurima_GAS</subject>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>Ricoveri_Annullati</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -461,6 +461,19 @@
     </partitionschemas>
     <slaveservers>
       <slaveserver>
+        <name>carte</name>
+        <hostname>localhost</hostname>
+        <port>8181</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
         <name>Carte_server</name>
         <hostname>minollo</hostname>
         <port/>
@@ -474,8 +487,8 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8080:Master</name>
-        <hostname>localhost</hostname>
+        <name>EC_MASTER_1</name>
+        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
         <port>8080</port>
         <webAppName/>
         <username>cluster</username>
@@ -487,9 +500,9 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8082</name>
-        <hostname>localhost</hostname>
-        <port>8082</port>
+        <name>EC_SLAVE_1</name>
+        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+        <port>8080</port>
         <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -500,7 +513,72 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8081</name>
+        <name>EC_SLAVE_2</name>
+        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_3</name>
+        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_4</name>
+        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>EC_SLAVE_5</name>
+        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Jos 10.0.0.169</name>
+        <hostname>10.0.0.169</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Localhost 8081</name>
         <hostname>localhost</hostname>
         <port>8081</port>
         <webAppName/>
@@ -526,9 +604,48 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8084</name>
+        <name>localhost:8080 master</name>
         <hostname>localhost</hostname>
-        <port>8084</port>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8080:Master</name>
+        <hostname>localhost</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8081</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>localhost:8082</name>
+        <hostname>localhost</hostname>
+        <port>8082</port>
         <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -552,16 +669,29 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>localhost:8080 master</name>
+        <name>localhost:8084</name>
         <hostname>localhost</hostname>
-        <port>8080</port>
+        <port>8084</port>
         <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
         <proxy_hostname/>
         <proxy_port/>
         <non_proxy_hosts/>
-        <master>Y</master>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Mike ETL Server</name>
+        <hostname>localhost</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
@@ -571,45 +701,6 @@
         <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>ruwvs07</name>
-        <hostname>ruwvs07</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>zebulon slave</name>
-        <hostname>192.168.1.277</hostname>
-        <port>8081</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Jos 10.0.0.169</name>
-        <hostname>10.0.0.169</hostname>
-        <port>8081</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
         <proxy_hostname/>
         <proxy_port/>
         <non_proxy_hosts/>
@@ -643,138 +734,8 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>carte</name>
-        <hostname>localhost</hostname>
-        <port>8181</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server8080</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server8090</name>
-        <hostname>127.0.0.1</hostname>
-        <port>8090</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>server9000</name>
-        <hostname>127.0.0.1</hostname>
-        <port>9000</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_2</name>
-        <hostname>domU-12-31-33-00-01-F1.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_4</name>
-        <hostname>domU-12-31-33-00-02-55.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_3</name>
-        <hostname>domU-12-31-33-00-03-FB.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_MASTER_1</name>
-        <hostname>domU-12-31-33-00-03-9C.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>Y</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_5</name>
-        <hostname>domU-12-31-33-00-03-EA.usma1.compute.amazonaws.com</hostname>
-        <port>8080</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>Localhost 8081</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
-        <webAppName/>
-        <username>cluster</username>
-        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
-        <proxy_hostname/>
-        <proxy_port/>
-        <non_proxy_hosts/>
-        <master>N</master>
-        <sslMode>N</sslMode>
-      </slaveserver>
-      <slaveserver>
-        <name>EC_SLAVE_1</name>
-        <hostname>dfjqsjfmkdsjfm.qsdfqsdf.Qdsfdsqdf.dsqf.com</hostname>
+        <name>ruwvs07</name>
+        <hostname>ruwvs07</hostname>
         <port>8080</port>
         <webAppName/>
         <username>cluster</username>
@@ -825,9 +786,22 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>Warmath</name>
-        <hostname>liveinalpharetta.com</hostname>
-        <port>8083</port>
+        <name>server8080</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8080</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>server8090</name>
+        <hostname>127.0.0.1</hostname>
+        <port>8090</port>
         <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -838,9 +812,22 @@
         <sslMode>N</sslMode>
       </slaveserver>
       <slaveserver>
-        <name>Mike ETL Server</name>
-        <hostname>localhost</hostname>
-        <port>8081</port>
+        <name>server9000</name>
+        <hostname>127.0.0.1</hostname>
+        <port>9000</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>Warmath</name>
+        <hostname>liveinalpharetta.com</hostname>
+        <port>8083</port>
         <webAppName/>
         <username>cluster</username>
         <password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password>
@@ -861,6 +848,19 @@
         <proxy_port/>
         <non_proxy_hosts/>
         <master>N</master>
+        <sslMode>N</sslMode>
+      </slaveserver>
+      <slaveserver>
+        <name>zebulon slave</name>
+        <hostname>192.168.1.277</hostname>
+        <port>8081</port>
+        <webAppName/>
+        <username>cluster</username>
+        <password>Encrypted 456e63727970746564203262653938616663383661613766326536ddfa9ea90b95c4d1a81df626df93ac82</password>
+        <proxy_hostname/>
+        <proxy_port/>
+        <non_proxy_hosts/>
+        <master>Y</master>
         <sslMode>N</sslMode>
       </slaveserver>
     </slaveservers>
@@ -918,69 +918,37 @@
       </clusterschema>
     </clusterschemas>
     <created_user>admin</created_user>
-    <created_date>2012/12/20 12:28:48.000</created_date>
+    <created_date>2012/12/20 12:28:44.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2023/01/17 10:26:05.071</modified_date>
+    <modified_date>2023/01/17 09:59:42.691</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Elimina i Casi presenti nella Ricoveri_Patidok
-che non si trovano più in Patidok (v_export_ricoveri).
+      <note> \\archivio\Plurima\sdo\SDO_x_Plurima_Gaslini
+==> /mnt/plurima/SDO_x_Plurima_Gaslini.txt
 
-Al momento ci sono queste possibilità:
-- casi trasformati da Ospedalieri a Ambulatoriali
-- casi ri trasformati in Pre ospedalieri
-- casi "scomparsi" dalla vista
-
-
-</note>
-      <xloc>229</xloc>
-      <yloc>26</yloc>
-      <width>320</width>
-      <heigth>164</heigth>
+Il path vale sul server Kettle (tramite mount)
+e in locale (tramite soft link)</note>
+      <xloc>237</xloc>
+      <yloc>216</yloc>
+      <width>282</width>
+      <heigth>86</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
+      <fontcolorblue>160</fontcolorblue>
       <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
-      <drawshadow>N</drawshadow>
-    </notepad>
-    <notepad>
-      <note>[17.11.2011]
-
-Semplificato il logging:
-
-Input		==> Ricoveri Scomparsi dalla tabella Casi di Patidok (Ka_Fall)
-Output		==> Cancellati in questa esecuzione (cioè inseriti nella tabella "Ricoveri_Annullati")
-</note>
-      <xloc>30</xloc>
-      <yloc>533</yloc>
-      <width>586</width>
-      <heigth>118</heigth>
-      <fontname/>
-      <fontsize>-1</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>165</backgroundcolorgreen>
-      <backgroundcolorblue>0</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>N</drawshadow>
+      <drawshadow>Y</drawshadow>
     </notepad>
   </notepads>
   <connection>
@@ -1510,24 +1478,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>Get System Info</from>
-      <to>Ricoveri_Annullati</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Ricoveri_Annullati</from>
-      <to>Delete Ricoveri_Patidok</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Scomparsi dalla v_Export</from>
-      <to>Get System Info</to>
+      <from>v_file_Plurima_GAS</from>
+      <to>Text file output</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Delete Ricoveri_Patidok</name>
-    <type>Delete</type>
+    <name>Text file output</name>
+    <type>TextFileOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1536,55 +1494,168 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db_sopra</connection>
-    <commit>100</commit>
-    <lookup>
-      <schema/>
-      <table>Ricoveri_Patidok</table>
-      <key>
-        <name>NUM_CASO</name>
-        <field>NUM_CASO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>107</xloc>
-      <yloc>394</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get System Info</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
+    <separator/>
+    <enclosure/>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>Y</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>/mnt/plurima/SDO_x_Plurima_Gaslini</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
     <fields>
       <field>
-        <name>jobid_ann</name>
-        <type>job batch ID</type>
+        <name>COD_REP_DIM</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>4</length>
+        <precision>-1</precision>
       </field>
       <field>
-        <name>transfid_ann</name>
-        <type>batch ID</type>
+        <name>PIN_AZIENDA</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>20</length>
+        <precision>-1</precision>
       </field>
       <field>
-        <name>data_ann</name>
-        <type>system date (fixed)</type>
+        <name>COD_FISC</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>16</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>COGNOME</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>80</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>NOME</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>80</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>SESSO</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>DATA_NASCITA</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>COD_COMUNE_NAS</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>6</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>NUM_CASO</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>20</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>DATA_ACC</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>DATA_DIM</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
       </field>
     </fields>
     <attributes/>
@@ -1596,256 +1667,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>107</xloc>
-      <yloc>162</yloc>
+      <xloc>167</xloc>
+      <yloc>219</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Ricoveri_Annullati</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>Ricoveri_Annullati</table>
-      <key>
-        <name>NUM_CASO</name>
-        <field>NUM_CASO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>NUM_CASO</name>
-        <rename>NUM_CASO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>IDPAZ_PATIDOK</name>
-        <rename>IDPAZ_PATIDOK</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_ACC</name>
-        <rename>DATA_ACC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_ACC</name>
-        <rename>ORA_ACC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_DIM</name>
-        <rename>DATA_DIM</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_DIM</name>
-        <rename>ORA_DIM</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPO_RICOV</name>
-        <rename>TIPO_RICOV</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_NASCITA</name>
-        <rename>DATA_NASCITA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COGNOME</name>
-        <rename>COGNOME</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NOME</name>
-        <rename>NOME</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_STATO_NAS</name>
-        <rename>COD_STATO_NAS</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_COMUNE_NAS</name>
-        <rename>COD_COMUNE_NAS</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DES_COMUNE_NAS</name>
-        <rename>DES_COMUNE_NAS</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_COMUNE_RES</name>
-        <rename>COD_COMUNE_RES</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_COMUNE_DOM</name>
-        <rename>COD_COMUNE_DOM</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ASL</name>
-        <rename>ASL</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>SESSO</name>
-        <rename>SESSO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_FISC</name>
-        <rename>COD_FISC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_REP_ACC</name>
-        <rename>COD_REP_ACC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DES_REP_ACC</name>
-        <rename>DES_REP_ACC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_REP_DIM</name>
-        <rename>COD_REP_DIM</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DES_REP_DIM</name>
-        <rename>DES_REP_DIM</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_CARICAMENTO</name>
-        <rename>DATA_CARICAMENTO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_MODIFICA</name>
-        <rename>DATA_MODIFICA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>FLAGFIELD</name>
-        <rename>FLAGFIELD</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>JOB_ID</name>
-        <rename>JOB_ID</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TRANSFORMATION_ID</name>
-        <rename>TRANSFORMATION_ID</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ANNOMESE_DIM</name>
-        <rename>ANNOMESE_DIM</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>KF_AKTIV</name>
-        <rename>KF_AKTIV</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPO_ANNULLAMENTO</name>
-        <rename>TIPO_ANNULLAMENTO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>jobid_ann</name>
-        <rename>jobid_ann</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>transfid_ann</name>
-        <rename>transfid_ann</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>data_ann</name>
-        <rename>data_ann</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>MOT_RICOV_DH</name>
-        <rename>MOT_RICOV_DH</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_WS_IN</name>
-        <rename>DATA_WS_IN</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_WS_IN</name>
-        <rename>ORA_WS_IN</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_WS_OUT</name>
-        <rename>DATA_WS_OUT</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_WS_OUT</name>
-        <rename>ORA_WS_OUT</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORE_WS</name>
-        <rename>ORE_WS</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>GG_WS</name>
-        <rename>GG_WS</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_DRG</name>
-        <rename>COD_DRG</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>107</xloc>
-      <yloc>278</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Scomparsi dalla v_Export</name>
+    <name>v_file_Plurima_GAS</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1857,56 +1685,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
-  r.NUM_CASO
-, r.IDPAZ_PATIDOK
-, r.DATA_ACC
-, r.ORA_ACC
-, r.DATA_DIM
-, r.ORA_DIM
-, r.TIPO_RICOV
-, r.mot_ricov_dh
-, r.DATA_NASCITA
-, r.COGNOME
-, r.NOME
-, r.COD_STATO_NAS
-, r.COD_COMUNE_NAS
-, r.DES_COMUNE_NAS
-, r.COD_COMUNE_RES
-, r.COD_COMUNE_DOM
-, r.ASL
-, r.SESSO
-, r.COD_FISC
-, r.COD_REP_ACC
-, r.DES_REP_ACC
-, r.COD_REP_DIM
-, r.DES_REP_DIM
-, r.DATA_CARICAMENTO
-, r.DATA_MODIFICA
-, r.FLAGFIELD
-, r.JOB_ID
-, r.TRANSFORMATION_ID
-, r.ANNOMESE_DIM
---- Appoggi in Week Surgery ---
-, r.data_ws_in, r.ora_ws_in
-, r.data_ws_out, r.ora_ws_out
-, r.ore_ws, r.gg_ws
-, r.cod_drg
-, k.kf_aktiv
-, case
-	when k.kf_status=6101 then 'AMB in Ka_Fall'
-	when ff.ff_status = 7000 then 'Pre-osp'
-	else 'Altro non in v_export_ricoveri'
-  end Tipo_Annullamento
-from 
-ricoveri_patidok r
-left join v_export_ricoveri@patidok e on e.num_caso = r.num_caso   -- per identificare i casi da cancellare
-left join pathpt.ka_fall@patidok k on r.num_caso = k.fall_zahl 	   -- per rilevare quelli diventati ambulatoriali
-left join pathpt.fach_fall@patidok ff on (r.num_caso = ff.fall_zahl and ff.ff_status = 7000) -- per rilevare quelli ritrasformati in Pre osp
-where
-Nvl(r.DATA_DIM, r.DATA_ACC) >= (sysdate - 365*3)  -- dimessi o accettati  negli ultimi 3 anni
-and e.num_caso is null
-
--- r.DATA_ACC Between To_Date('01012009','ddmmyyyy') And To_Date('31122010','ddmmyyyy')
+  COD_REP_DIM
+, PIN_AZIENDA
+, COD_FISC
+, COGNOME
+, NOME
+, SESSO
+, DATA_NASCITA
+, COD_COMUNE_NAS
+, NUM_CASO
+, DATA_ACC
+, DATA_DIM
+FROM V_FILE_PLURIMA_GAS
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -1924,8 +1714,8 @@ and e.num_caso is null
       </output>
     </remotesteps>
     <GUI>
-      <xloc>107</xloc>
-      <yloc>46</yloc>
+      <xloc>167</xloc>
+      <yloc>75</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
