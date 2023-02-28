@@ -8,11 +8,11 @@
   <created_user>admin</created_user>
   <created_date>2008/11/25 16:18:10.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2022/11/08 14:10:58.586</modified_date>
+  <modified_date>2023/02/14 17:01:23.828</modified_date>
   <parameters>
     <parameter>
       <name>YYYY</name>
-      <default_value>2022</default_value>
+      <default_value>2023</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -1422,6 +1422,37 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>Per inizializzare il 2023
+1. copiato il file xls 2022 su 2023
+    (aggiornando l'anno e cancellando le strutture chiuse nel corso del 2022)
+2. eseguito questo job 
+    (inserisce tutti i record con Stato '0')
+3. update modsts11
+    set stato = '1'
+    where anno = '2023'
+4. eseguita la transf STS11_export
+    (per produrre il txt con le operazioni di modifica anziché inserimento)
+</note>
+      <xloc>24</xloc>
+      <yloc>202</yloc>
+      <width>444</width>
+      <heigth>176</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <attributes>
     <group>
