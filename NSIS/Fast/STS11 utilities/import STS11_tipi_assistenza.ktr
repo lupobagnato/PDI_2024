@@ -6,7 +6,7 @@
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/NSIS/Fast</directory>
+    <directory>/NSIS/Fast/STS11 utilities</directory>
     <parameters>
       <parameter>
         <name>input_dir</name>
@@ -46,13 +46,13 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject>Memory Group by</subject>
+          <subject>Memory group by</subject>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject>Memory Group by</subject>
+          <subject>Memory group by</subject>
         </field>
         <field>
           <id>LINES_UPDATED</id>
@@ -925,7 +925,7 @@
     <created_user>admin</created_user>
     <created_date>2012/04/27 14:40:00.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/09/26 14:03:03.646</modified_date>
+    <modified_date>2023/02/14 09:03:17.066</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1566,6 +1566,31 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
   </order>
   <step>
+    <name>ASL1</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>333</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Azienda 101</name>
     <type>FilterRows</type>
     <description/>
@@ -1605,31 +1630,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </remotesteps>
     <GUI>
       <xloc>240</xloc>
-      <yloc>247</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Non ASL1</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>99</xloc>
       <yloc>247</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1950,156 +1950,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Anno</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Codice Regione</name>
-        <rename>Codice_Regione</rename>
-      </field>
-      <field>
-        <name>Codice Azienda</name>
-        <rename>Codice_Azienda</rename>
-      </field>
-      <field>
-        <name>Codice struttura</name>
-        <rename>struttura_cod</rename>
-      </field>
-      <field>
-        <name>Tipo assistenza erogata</name>
-        <rename>tipo_ass</rename>
-      </field>
-      <field>
-        <name>Giorni settimanali di apertura</name>
-        <rename>giorni</rename>
-      </field>
-      <field>
-        <name>Ore settimanali di apertura</name>
-        <rename>ore</rename>
-      </field>
-      <field>
-        <name>Data aggiornamento</name>
-        <rename>data_agg_nsis</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>239</xloc>
-      <yloc>162</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Split Tipo_Ass</name>
-    <type>FieldSplitter</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <splitfield>tipo_ass</splitfield>
-    <delimiter>,</delimiter>
-    <enclosure/>
-    <fields>
-      <field>
-        <name>tipo_ass_1</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>String</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>3</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>both</trimtype>
-      </field>
-      <field>
-        <name>tipo_ass_2</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>String</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>3</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>both</trimtype>
-      </field>
-      <field>
-        <name>tipo_ass_3</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>String</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>3</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>both</trimtype>
-      </field>
-      <field>
-        <name>tipo_ass_4</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>String</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>3</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>both</trimtype>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>709</xloc>
-      <yloc>331</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Memory group by</name>
     <type>MemoryGroupBy</type>
     <description/>
@@ -2163,7 +2013,119 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
-    <name>Select values TIPO</name>
+    <name>Multiway merge join</name>
+    <type>MultiwayMergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step0>Split Tipo_Ass</step0>
+    <step1>Split Giorni</step1>
+    <step2>Split Ore</step2>
+    <number_input>3</number_input>
+    <keys>
+      <key>Anno,Codice_Regione,Codice_Azienda,struttura_cod</key>
+      <key>Anno,Codice_Regione,Codice_Azienda,struttura_cod</key>
+      <key>Anno,Codice_Regione,Codice_Azienda,struttura_cod</key>
+    </keys>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>944</xloc>
+      <yloc>429</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Non ASL1</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>99</xloc>
+      <yloc>247</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remove</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>Anno_1</name>
+      </remove>
+      <remove>
+        <name>Codice_Regione_1</name>
+      </remove>
+      <remove>
+        <name>Codice_Azienda_1</name>
+      </remove>
+      <remove>
+        <name>struttura_cod_1</name>
+      </remove>
+      <remove>
+        <name>Anno_2</name>
+      </remove>
+      <remove>
+        <name>Codice_Regione_2</name>
+      </remove>
+      <remove>
+        <name>Codice_Azienda_2</name>
+      </remove>
+      <remove>
+        <name>struttura_cod_2</name>
+      </remove>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1072</xloc>
+      <yloc>429</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -2176,27 +2138,34 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <fields>
       <field>
         <name>Anno</name>
-        <rename/>
       </field>
       <field>
-        <name>Codice_Regione</name>
-        <rename/>
+        <name>Codice Regione</name>
+        <rename>Codice_Regione</rename>
       </field>
       <field>
-        <name>Codice_Azienda</name>
-        <rename/>
+        <name>Codice Azienda</name>
+        <rename>Codice_Azienda</rename>
       </field>
       <field>
-        <name>struttura_cod</name>
-        <rename/>
+        <name>Codice struttura</name>
+        <rename>struttura_cod</rename>
       </field>
       <field>
-        <name>data_agg_nsis</name>
-        <rename/>
+        <name>Tipo assistenza erogata</name>
+        <rename>tipo_ass</rename>
       </field>
       <field>
-        <name>tipo_ass</name>
-        <rename/>
+        <name>Giorni settimanali di apertura</name>
+        <rename>giorni</rename>
+      </field>
+      <field>
+        <name>Ore settimanali di apertura</name>
+        <rename>ore</rename>
+      </field>
+      <field>
+        <name>Data aggiornamento</name>
+        <rename>data_agg_nsis</rename>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2209,8 +2178,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>555</xloc>
-      <yloc>332</yloc>
+      <xloc>239</xloc>
+      <yloc>162</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2228,23 +2197,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <fields>
       <field>
         <name>Anno</name>
-        <rename/>
       </field>
       <field>
         <name>Codice_Regione</name>
-        <rename/>
       </field>
       <field>
         <name>Codice_Azienda</name>
-        <rename/>
       </field>
       <field>
         <name>struttura_cod</name>
-        <rename/>
       </field>
       <field>
         <name>giorni</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2276,23 +2240,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <fields>
       <field>
         <name>Anno</name>
-        <rename/>
       </field>
       <field>
         <name>Codice_Regione</name>
-        <rename/>
       </field>
       <field>
         <name>Codice_Azienda</name>
-        <rename/>
       </field>
       <field>
         <name>struttura_cod</name>
-        <rename/>
       </field>
       <field>
         <name>ore</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2307,6 +2266,126 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <GUI>
       <xloc>555</xloc>
       <yloc>520</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values TIPO</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Anno</name>
+      </field>
+      <field>
+        <name>Codice_Regione</name>
+      </field>
+      <field>
+        <name>Codice_Azienda</name>
+      </field>
+      <field>
+        <name>struttura_cod</name>
+      </field>
+      <field>
+        <name>data_agg_nsis</name>
+      </field>
+      <field>
+        <name>tipo_ass</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>555</xloc>
+      <yloc>332</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Anno</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Codice_Regione</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Codice_Azienda</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>struttura_cod</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>data_agg_nsis</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>361</xloc>
+      <yloc>429</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2491,8 +2570,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
-    <name>Multiway merge join</name>
-    <type>MultiwayMergeJoin</type>
+    <name>Split Tipo_Ass</name>
+    <type>FieldSplitter</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2501,88 +2580,69 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>INNER</join_type>
-    <step0>Split Tipo_Ass</step0>
-    <step1>Split Giorni</step1>
-    <step2>Split Ore</step2>
-    <number_input>3</number_input>
-    <keys>
-      <key>Anno,Codice_Regione,Codice_Azienda,struttura_cod</key>
-      <key>Anno,Codice_Regione,Codice_Azienda,struttura_cod</key>
-      <key>Anno,Codice_Regione,Codice_Azienda,struttura_cod</key>
-    </keys>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>944</xloc>
-      <yloc>429</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
+    <splitfield>tipo_ass</splitfield>
+    <delimiter>,</delimiter>
+    <enclosure/>
     <fields>
       <field>
-        <name>Anno</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <name>tipo_ass_1</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>3</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>both</trimtype>
       </field>
       <field>
-        <name>Codice_Regione</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <name>tipo_ass_2</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>3</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>both</trimtype>
       </field>
       <field>
-        <name>Codice_Azienda</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <name>tipo_ass_3</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>3</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>both</trimtype>
       </field>
       <field>
-        <name>struttura_cod</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>data_agg_nsis</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <name>tipo_ass_4</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>3</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>both</trimtype>
       </field>
     </fields>
     <attributes/>
@@ -2594,85 +2654,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>361</xloc>
-      <yloc>429</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ASL1</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>333</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Remove</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>Anno_1</name>
-      </remove>
-      <remove>
-        <name>Codice_Regione_1</name>
-      </remove>
-      <remove>
-        <name>Codice_Azienda_1</name>
-      </remove>
-      <remove>
-        <name>struttura_cod_1</name>
-      </remove>
-      <remove>
-        <name>Anno_2</name>
-      </remove>
-      <remove>
-        <name>Codice_Regione_2</name>
-      </remove>
-      <remove>
-        <name>Codice_Azienda_2</name>
-      </remove>
-      <remove>
-        <name>struttura_cod_2</name>
-      </remove>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1072</xloc>
-      <yloc>429</yloc>
+      <xloc>709</xloc>
+      <yloc>331</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
