@@ -920,7 +920,7 @@
     <created_user/>
     <created_date>2019/09/16 11:46:16.479</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2023/01/31 17:14:10.690</modified_date>
+    <modified_date>2023/03/14 15:45:57.430</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -966,6 +966,52 @@ ci DEVE essere perché fa parte della PK</note>
       <backgroundcolorred>144</backgroundcolorred>
       <backgroundcolorgreen>238</backgroundcolorgreen>
       <backgroundcolorblue>144</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Taglia al 16° carattere
+perché possono esserci CF
+con caratteri speciali invisibili
+dopo il 16° che il Trim Both
+non elimina</note>
+      <xloc>678</xloc>
+      <yloc>134</yloc>
+      <width>150</width>
+      <heigth>75</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>La CF_lenght è calcolata prima</note>
+      <xloc>843</xloc>
+      <yloc>136</yloc>
+      <width>158</width>
+      <heigth>23</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -1524,11 +1570,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Calculator</from>
-      <to>Filter rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Filter rows 2</from>
       <to>Senza CF</to>
       <enabled>Y</enabled>
@@ -1601,6 +1642,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>Tipo_Elenco</from>
       <to>Calculator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculator</from>
+      <to>Strings cut</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Strings cut</from>
+      <to>Filter rows 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1685,8 +1736,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>435</xloc>
-      <yloc>118</yloc>
+      <xloc>457</xloc>
+      <yloc>99</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1895,6 +1946,11 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <rename>cod_ese1_prec</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>cod_ese1</name>
+        <rename>cod_ese1</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1940,7 +1996,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>435</xloc>
+      <xloc>456</xloc>
       <yloc>193</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2081,7 +2137,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>/minollo/_TXT_e_XLS/Elenco 2023-01-18.xlsx</name>
+      <name>/minollo/_TXT_e_XLS/Nominativi 2023-03-14.xlsx</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name/>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -2156,6 +2217,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <trim_type>both</trim_type>
         <repeat>N</repeat>
         <format>dd/MM/yyyy</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>esenzione1</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -2345,60 +2418,83 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <fields>
       <field>
         <name>Tipo_Elenco</name>
+        <rename/>
       </field>
       <field>
         <name>cod_fisc</name>
+        <rename/>
       </field>
       <field>
         <name>data_inizio</name>
+        <rename/>
       </field>
       <field>
         <name>data_fine</name>
+        <rename/>
       </field>
       <field>
         <name>File_Input</name>
+        <rename/>
       </field>
       <field>
         <name>CF_Length</name>
+        <rename/>
       </field>
       <field>
         <name>riga</name>
+        <rename/>
       </field>
       <field>
         <name>parse_result</name>
+        <rename/>
       </field>
       <field>
         <name>cognome</name>
+        <rename/>
       </field>
       <field>
         <name>nome</name>
+        <rename/>
       </field>
       <field>
         <name>COGNOME_anag</name>
+        <rename/>
       </field>
       <field>
         <name>NOME_anag</name>
+        <rename/>
       </field>
       <field>
         <name>COD_REGIONE</name>
+        <rename/>
       </field>
       <field>
         <name>COD_ASL</name>
+        <rename/>
       </field>
       <field>
         <name>checksum</name>
+        <rename/>
       </field>
       <field>
         <name>SheetName</name>
+        <rename/>
       </field>
       <field>
         <name>cod_ese</name>
+        <rename/>
       </field>
       <field>
         <name>ANAG_ORIGINE</name>
+        <rename/>
       </field>
       <field>
         <name>DATA_DECESSO</name>
+        <rename/>
+      </field>
+      <field>
+        <name>esenzione1</name>
+        <rename>cod_ese1</rename>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2494,8 +2590,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>329</xloc>
-      <yloc>194</yloc>
+      <xloc>346</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2943,6 +3039,39 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <GUI>
       <xloc>488</xloc>
       <yloc>387</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Strings cut</name>
+    <type>StringCut</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>cod_fisc</in_stream_name>
+        <out_stream_name/>
+        <cut_from>0</cut_from>
+        <cut_to>16</cut_to>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>136</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
