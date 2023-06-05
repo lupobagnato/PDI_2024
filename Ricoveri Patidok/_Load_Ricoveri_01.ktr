@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>Load_Ricoveri_01</name>
+    <name>_Load_Ricoveri_01</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>BACK_DAYS</name>
-        <default_value>30</default_value>
+        <default_value>730</default_value>
         <description>Back Days</description>
       </parameter>
     </parameters>
@@ -70,7 +70,7 @@
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>Ricoveri_buffer</subject>
+          <subject>Ricoveri_buffer_tmp</subject>
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -925,7 +925,7 @@
     <created_user>admin</created_user>
     <created_date>2012/12/20 12:28:45.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2023/05/10 12:23:20.536</modified_date>
+    <modified_date>2023/05/15 11:14:44.608</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1528,7 +1528,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>Filter rows</from>
-      <to>Ricoveri_buffer</to>
+      <to>Ricoveri_buffer_tmp</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -1548,7 +1548,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Ricoveri_buffer</send_true_to>
+    <send_true_to>Ricoveri_buffer_tmp</send_true_to>
     <send_false_to>Ricoveri_GAS_buffer</send_false_to>
     <compare>
       <condition>
@@ -1677,17 +1677,17 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 , COD_FISC
 , COD_REP_ACC
 , DES_REP_ACC
-, nvl(stanza_acc,'n/d') stanza_acc  -- 2023.05.09
+, nvl(stanza_acc,'n/d') stanza_acc
 , COD_REP_DIM
 , DES_REP_DIM
-, nvl(stanza_dim,'n/d') stanza_dim  -- 2023.05.09
+, nvl(stanza_dim,'n/d') stanza_dim
 --- Appoggi in Week Surgery ---
 , data_ws_in, ora_ws_in
 , data_ws_out, ora_ws_out
 , ore_ws, gg_ws
 , cod_drg
 , cod_Rep_Cor, des_Rep_Cor
-, nvl(stanza_cor,'n/d') stanza_cor  -- 2023.05.09
+, nvl(stanza_cor,'n/d') stanza_cor
 --- Modalita Dimissione ---
 , mod_dim_cod			-- 2020.06.15
 , mod_dim_des
@@ -2225,6 +2225,29 @@ num_caso
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
+        <name>STANZA_XXX</name>
+        <length>10</length>
+        <precision>-1</precision>
+        <origin>Ricoveri da Patidok</origin>
+        <comments>STANZA_XXX</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
         <name>COD_REP_DIM</name>
         <length>4</length>
         <precision>-1</precision>
@@ -2627,7 +2650,7 @@ num_caso
     </GUI>
   </step>
   <step>
-    <name>Ricoveri_buffer</name>
+    <name>Ricoveri_buffer_tmp</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -2639,7 +2662,7 @@ num_caso
     </partitioning>
     <connection>db_sopra</connection>
     <schema/>
-    <table>Ricoveri_buffer</table>
+    <table>Ricoveri_buffer_tmp</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>

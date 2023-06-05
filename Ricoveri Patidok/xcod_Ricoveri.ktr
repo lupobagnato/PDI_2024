@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>Load_Ricoveri_01</name>
+    <name>xcod_Ricoveri</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -8,11 +8,6 @@
     <trans_status>0</trans_status>
     <directory>/Ricoveri Patidok</directory>
     <parameters>
-      <parameter>
-        <name>BACK_DAYS</name>
-        <default_value>30</default_value>
-        <description>Back Days</description>
-      </parameter>
     </parameters>
     <log>
       <trans-log-table>
@@ -58,19 +53,19 @@
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject>upd_ricoveri_buffer</subject>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>Ricoveri da Patidok</subject>
+          <subject>ricoveri_buffer</subject>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>Ricoveri_buffer</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -422,7 +417,7 @@
     <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
-    <step_performance_capturing_size_limit/>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
     <dependencies>
     </dependencies>
     <partitionschemas>
@@ -922,63 +917,14 @@
         </slaveservers>
       </clusterschema>
     </clusterschemas>
-    <created_user>admin</created_user>
-    <created_date>2012/12/20 12:28:45.000</created_date>
+    <created_user/>
+    <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2023/05/10 12:23:20.536</modified_date>
+    <modified_date>2023/05/09 16:06:39.225</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Carica gli ACCETTATI
-negli ultimi BACK_DAYS rispetto
-all'ultima esecuzione (non sysdate)
-e indipendentemente dalla dimissione o meno</note>
-      <xloc>190</xloc>
-      <yloc>149</yloc>
-      <width>275</width>
-      <heigth>70</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>La profondità storica delle
-pratiche Gaslini è limitata 
-a BACK_DAYS
-perché non vengono consolidate
-in una tabella analoga alla Ricoveri_Patidok</note>
-      <xloc>333</xloc>
-      <yloc>352</yloc>
-      <width>260</width>
-      <heigth>85</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>areas_formazione</name>
@@ -1507,144 +1453,28 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>Get System Info 2</from>
-      <to>Set per il LOG</to>
+      <from>ricoveri_buffer</from>
+      <to>reparto Corrente 2 HSP</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Get System Info</from>
-      <to>Get System Info 2</to>
+      <from>reparto Corrente 2 HSP</from>
+      <to>reparto Acc 2 HSP</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Get System Info</from>
-      <to>Ricoveri da Patidok</to>
+      <from>reparto Acc 2 HSP</from>
+      <to>reparto Dim 2 HSP</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Ricoveri da Patidok</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Ricoveri_buffer</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Ricoveri_GAS_buffer</to>
+      <from>reparto Dim 2 HSP</from>
+      <to>upd_ricoveri_buffer</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Ricoveri_buffer</send_true_to>
-    <send_false_to>Ricoveri_GAS_buffer</send_false_to>
-    <compare>
-      <condition>
-        <negated>Y</negated>
-        <leftvalue>DES_REP_ACC</leftvalue>
-        <function>LIKE</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>%GASLINI%</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>104</xloc>
-      <yloc>236</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get System Info</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>lastexec</name>
-        <type>start date range</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>104</xloc>
-      <yloc>27</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get System Info 2</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>sysdate</name>
-        <type>system date (fixed)</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>234</xloc>
-      <yloc>27</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ricoveri da Patidok</name>
+    <name>ricoveri_buffer</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1656,491 +1486,38 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
-  NUM_CASO
-, IDPAZ_PATIDOK
-, DATA_ACC
-, ORA_ACC
-, DATA_DIM
-, ORA_DIM
-, TIPO_RICOV
-, mot_ricov_dh
-, DATA_NASCITA
-, COGNOME
-, NOME
-, COD_STATO_NAS
-, decode(COD_COMUNE_NAS, '000000','999'||COD_STATO_NAS, COD_COMUNE_NAS) cod_comune_nas
-, DES_COMUNE_NAS
-, COD_COMUNE_RES
-, COD_COMUNE_DOM
-, ASL
-, SESSO
-, COD_FISC
-, COD_REP_ACC
-, DES_REP_ACC
-, nvl(stanza_acc,'n/d') stanza_acc  -- 2023.05.09
-, COD_REP_DIM
-, DES_REP_DIM
-, nvl(stanza_dim,'n/d') stanza_dim  -- 2023.05.09
---- Appoggi in Week Surgery ---
-, data_ws_in, ora_ws_in
-, data_ws_out, ora_ws_out
-, ore_ws, gg_ws
-, cod_drg
-, cod_Rep_Cor, des_Rep_Cor
-, nvl(stanza_cor,'n/d') stanza_cor  -- 2023.05.09
---- Modalita Dimissione ---
-, mod_dim_cod			-- 2020.06.15
-, mod_dim_des
-FROM V_EXPORT_RICOVERI@patidok
-Where
--- 03.08.2016 
--- condizione load basata sulla data di accettazione
--- cambiato il PARAMETER1 nel JOB chiamante
--- 365 ==> 730 giorni
-DATA_ACC Between (Trunc(?) - ${BACK_DAYS}) And Trunc(sysdate)
-
--- Vecchia condizione, basata sulla data dimissione
--- da 365 giorni prima ultima esecuzione a Oggi
--- + tutti i non dimessi
--- nvl(DATA_DIM, trunc(sysdate)) Between (Trunc(?) - ${BACK_DAYS}) And Trunc(sysdate)
-
-order by
 num_caso
+, cod_rep_acc
+, stanza_acc
+, cod_rep_cor
+, stanza_cor
+, cod_rep_dim
+, stanza_dim
+, data_acc
+, data_dim
+FROM
+ricoveri_buffer
 
 
 </sql>
     <limit>0</limit>
-    <lookup>Get System Info</lookup>
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
       <value-meta>
-        <type>Number</type>
+        <type>BigNumber</type>
         <storagetype>normal</storagetype>
         <name>NUM_CASO</name>
-        <length>12</length>
-        <precision>2</precision>
-        <origin>Ricoveri da Patidok</origin>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>ricoveri_buffer</origin>
         <comments>NUM_CASO</comments>
-        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>IDPAZ_PATIDOK</name>
-        <length>80</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>IDPAZ_PATIDOK</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_ACC</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>DATA_ACC</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ORA_ACC</name>
-        <length>4</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>ORA_ACC</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_DIM</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>DATA_DIM</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ORA_DIM</name>
-        <length>4</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>ORA_DIM</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>TIPO_RICOV</name>
-        <length>46</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>TIPO_RICOV</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>MOT_RICOV_DH</name>
-        <length>86</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>MOT_RICOV_DH</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_NASCITA</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>DATA_NASCITA</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COGNOME</name>
-        <length>80</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>COGNOME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>NOME</name>
-        <length>80</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>NOME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COD_STATO_NAS</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>COD_STATO_NAS</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COD_COMUNE_NAS</name>
-        <length>35</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>COD_COMUNE_NAS</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>DES_COMUNE_NAS</name>
-        <length>50</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>DES_COMUNE_NAS</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COD_COMUNE_RES</name>
-        <length>6</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>COD_COMUNE_RES</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COD_COMUNE_DOM</name>
-        <length>6</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>COD_COMUNE_DOM</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ASL</name>
-        <length>6</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>ASL</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>SESSO</name>
-        <length>1</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>SESSO</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COD_FISC</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>COD_FISC</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -2159,7 +1536,7 @@ num_caso
         <name>COD_REP_ACC</name>
         <length>4</length>
         <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
+        <origin>ricoveri_buffer</origin>
         <comments>COD_REP_ACC</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2179,264 +1556,11 @@ num_caso
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>DES_REP_ACC</name>
-        <length>150</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>DES_REP_ACC</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
         <name>STANZA_ACC</name>
-        <length>32</length>
+        <length>10</length>
         <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
+        <origin>ricoveri_buffer</origin>
         <comments>STANZA_ACC</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COD_REP_DIM</name>
-        <length>4</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>COD_REP_DIM</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>DES_REP_DIM</name>
-        <length>150</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>DES_REP_DIM</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>STANZA_DIM</name>
-        <length>32</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>STANZA_DIM</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_WS_IN</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>DATA_WS_IN</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ORA_WS_IN</name>
-        <length>4</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>ORA_WS_IN</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_WS_OUT</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>DATA_WS_OUT</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ORA_WS_OUT</name>
-        <length>4</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>ORA_WS_OUT</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>ORE_WS</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>ORE_WS</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>GG_WS</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>GG_WS</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COD_DRG</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>COD_DRG</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2458,7 +1582,7 @@ num_caso
         <name>COD_REP_COR</name>
         <length>5</length>
         <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
+        <origin>ricoveri_buffer</origin>
         <comments>COD_REP_COR</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2478,33 +1602,10 @@ num_caso
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>DES_REP_COR</name>
-        <length>150</length>
-        <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>DES_REP_COR</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
         <name>STANZA_COR</name>
-        <length>32</length>
+        <length>10</length>
         <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
+        <origin>ricoveri_buffer</origin>
         <comments>STANZA_COR</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2524,11 +1625,11 @@ num_caso
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>MOD_DIM_COD</name>
-        <length>80</length>
+        <name>COD_REP_DIM</name>
+        <length>4</length>
         <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>MOD_DIM_COD</comments>
+        <origin>ricoveri_buffer</origin>
+        <comments>COD_REP_DIM</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2547,11 +1648,57 @@ num_caso
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>MOD_DIM_DES</name>
-        <length>97</length>
+        <name>STANZA_DIM</name>
+        <length>10</length>
         <precision>-1</precision>
-        <origin>Ricoveri da Patidok</origin>
-        <comments>MOD_DIM_DES</comments>
+        <origin>ricoveri_buffer</origin>
+        <comments>STANZA_DIM</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_ACC</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>ricoveri_buffer</origin>
+        <comments>DATA_ACC</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_DIM</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>ricoveri_buffer</origin>
+        <comments>DATA_DIM</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2577,14 +1724,14 @@ num_caso
       </output>
     </remotesteps>
     <GUI>
-      <xloc>104</xloc>
-      <yloc>149</yloc>
+      <xloc>115</xloc>
+      <yloc>50</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Ricoveri_GAS_buffer</name>
-    <type>TableOutput</type>
+    <name>reparto Acc 2 HSP</name>
+    <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2594,24 +1741,46 @@ num_caso
       <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
-    <schema/>
-    <table>Ricoveri_GAS_buffer</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-    </fields>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>Rep_Patidok_2_HSP</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>cod_rep_acc</name>
+        <field>COD_REP_PATIDOK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>stanza_acc</name>
+        <field>COD_STZ_PATIDOK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>data_acc</name>
+        <field>DATA_INIZIO</field>
+        <condition>&lt;=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>data_acc</name>
+        <field>DATA_FINE</field>
+        <condition>&gt;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>COD_REP_HSP</name>
+        <rename>HSP_ACC</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2621,14 +1790,14 @@ num_caso
       </output>
     </remotesteps>
     <GUI>
-      <xloc>245</xloc>
-      <yloc>355</yloc>
+      <xloc>316</xloc>
+      <yloc>168</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Ricoveri_buffer</name>
-    <type>TableOutput</type>
+    <name>reparto Corrente 2 HSP</name>
+    <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2638,24 +1807,46 @@ num_caso
       <schema_name/>
     </partitioning>
     <connection>db_sopra</connection>
-    <schema/>
-    <table>Ricoveri_buffer</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-    </fields>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>Rep_Patidok_2_HSP</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>cod_rep_cor</name>
+        <field>COD_REP_PATIDOK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>stanza_cor</name>
+        <field>COD_STZ_PATIDOK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>data_acc</name>
+        <field>DATA_INIZIO</field>
+        <condition>&lt;=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>data_acc</name>
+        <field>DATA_FINE</field>
+        <condition>&gt;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>COD_REP_HSP</name>
+        <rename>HSP_COR</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2665,14 +1856,14 @@ num_caso
       </output>
     </remotesteps>
     <GUI>
-      <xloc>104</xloc>
-      <yloc>351</yloc>
+      <xloc>115</xloc>
+      <yloc>168</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Set per il LOG</name>
-    <type>SetVariable</type>
+    <name>reparto Dim 2 HSP</name>
+    <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2681,21 +1872,47 @@ num_caso
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <field_name>lastexec</field_name>
-        <variable_name>LASTEXEC</variable_name>
-        <variable_type>ROOT_JOB</variable_type>
-        <default_value/>
-      </field>
-      <field>
-        <field_name>sysdate</field_name>
-        <variable_name>SYSDATE</variable_name>
-        <variable_type>ROOT_JOB</variable_type>
-        <default_value/>
-      </field>
-    </fields>
-    <use_formatting>N</use_formatting>
+    <connection>db_sopra</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>Rep_Patidok_2_HSP</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>cod_rep_dim</name>
+        <field>COD_REP_PATIDOK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>stanza_dim</name>
+        <field>COD_STZ_PATIDOK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>data_dim</name>
+        <field>DATA_INIZIO</field>
+        <condition>&lt;=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>data_dim</name>
+        <field>DATA_FINE</field>
+        <condition>&gt;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>COD_REP_HSP</name>
+        <rename>HSP_DIM</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2705,8 +1922,61 @@ num_caso
       </output>
     </remotesteps>
     <GUI>
-      <xloc>361</xloc>
-      <yloc>27</yloc>
+      <xloc>506</xloc>
+      <yloc>168</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>upd_ricoveri_buffer</name>
+    <type>Update</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>db_sopra</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema/>
+      <table>ricoveri_buffer</table>
+      <key>
+        <name>num_caso</name>
+        <field>num_caso</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>HSP_COR</name>
+        <rename>HSP_COR</rename>
+      </value>
+      <value>
+        <name>HSP_ACC</name>
+        <rename>HSP_ACC</rename>
+      </value>
+      <value>
+        <name>HSP_DIM</name>
+        <rename>HSP_DIM</rename>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>506</xloc>
+      <yloc>289</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
