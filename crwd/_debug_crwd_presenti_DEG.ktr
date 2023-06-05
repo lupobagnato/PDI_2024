@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>crwd_presenti_DEG</name>
+    <name>_debug_crwd_presenti_DEG</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -930,7 +930,7 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2023/05/29 12:40:52.032</modified_date>
+    <modified_date>2023/05/29 12:18:20.943</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -945,8 +945,8 @@ un reparto 0 PL ORD
 ==> nella PK di crwd_deg_ril
 
 (15.05.2023 un appoggio in 5801)</note>
-      <xloc>243</xloc>
-      <yloc>24</yloc>
+      <xloc>413</xloc>
+      <yloc>23</yloc>
       <width>247</width>
       <heigth>129</heigth>
       <fontname>Arial</fontname>
@@ -1504,21 +1504,26 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>calcolo PL liberi</from>
       <to>InsUpd tab_ril</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>calcolo PL liberi</from>
+      <to>Chk Reparto Corrente</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>crwd_Reparti_hsp</from>
-      <to>Degenti in Rep Non ORD</to>
+      <to>Dummy (do nothing)</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Chk Reparto Corrente</from>
+      <to>rep Esiste</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Degenti in Rep Non ORD</from>
-      <to>Get system info</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get system info</from>
-      <to>InsUpd CRWD_ERRORS</to>
+      <from>Chk Reparto Corrente</from>
+      <to>rep NON Esiste</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1643,8 +1648,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>81</xloc>
-      <yloc>361</yloc>
+      <xloc>58</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1704,8 +1709,8 @@ else
       </output>
     </remotesteps>
     <GUI>
-      <xloc>81</xloc>
-      <yloc>284</yloc>
+      <xloc>58</xloc>
+      <yloc>178</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1770,8 +1775,8 @@ else
       </output>
     </remotesteps>
     <GUI>
-      <xloc>81</xloc>
-      <yloc>92</yloc>
+      <xloc>58</xloc>
+      <yloc>90</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2000,13 +2005,48 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>81</xloc>
-      <yloc>17</yloc>
+      <xloc>58</xloc>
+      <yloc>15</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Degenti in Rep Non ORD</name>
+    <name>Chk Reparto Corrente</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>rep Esiste</send_true_to>
+    <send_false_to>rep NON Esiste</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>COD_OSP</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>282</xloc>
+      <yloc>293</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Dummy (do nothing)</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -2025,14 +2065,14 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>297</xloc>
-      <yloc>226</yloc>
+      <xloc>291</xloc>
+      <yloc>181</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Get system info</name>
-    <type>SystemInfo</type>
+    <name>rep Esiste</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2041,12 +2081,6 @@ ${vsrc_ril}
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <name>time_errore</name>
-        <type>system date (variable)</type>
-      </field>
-    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2056,14 +2090,14 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>298</xloc>
-      <yloc>298</yloc>
+      <xloc>219</xloc>
+      <yloc>393</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>InsUpd CRWD_ERRORS</name>
-    <type>InsertUpdate</type>
+    <name>rep NON Esiste</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2072,75 +2106,6 @@ ${vsrc_ril}
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db_sopra</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>CRWD_ERRORS</table>
-      <key>
-        <name>descrizione_errore</name>
-        <field>descrizione_errore</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>time_errore</name>
-        <field>time_errore</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>COD_REP_HSP</name>
-        <rename>COD_REP_HSP</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_RIL</name>
-        <rename>DATA_RIL</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NUM_PL_OCC</name>
-        <rename>NUM_PL_OCC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NUM_DIM_PRE</name>
-        <rename>NUM_DIM_PRE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DEG_MEDIA</name>
-        <rename>DEG_MEDIA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ETA_MEDIA</name>
-        <rename>ETA_MEDIA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORE_DEG</name>
-        <rename>ORE_DEG</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_AGG</name>
-        <rename>DATA_AGG</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>descrizione_errore</name>
-        <rename>descrizione_errore</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>time_errore</name>
-        <rename>time_errore</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2150,18 +2115,18 @@ ${vsrc_ril}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>298</xloc>
-      <yloc>377</yloc>
+      <xloc>367</xloc>
+      <yloc>395</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
     <error>
       <source_step>crwd_Reparti_hsp</source_step>
-      <target_step>Degenti in Rep Non ORD</target_step>
-      <is_enabled>Y</is_enabled>
+      <target_step>Dummy (do nothing)</target_step>
+      <is_enabled>N</is_enabled>
       <nr_valuename/>
-      <descriptions_valuename>descrizione_errore</descriptions_valuename>
+      <descriptions_valuename/>
       <fields_valuename/>
       <codes_valuename/>
       <max_errors/>
