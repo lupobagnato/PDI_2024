@@ -8,7 +8,7 @@
   <created_user/>
   <created_date>2020/08/25 10:34:06.469</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2023/04/11 10:37:34.625</modified_date>
+  <modified_date>2023/04/11 14:44:06.616</modified_date>
   <parameters>
     <parameter>
       <name>ora_max</name>
@@ -1477,8 +1477,8 @@ ora_max = ${ora_max}</logmessage>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>620</xloc>
-      <yloc>590</yloc>
+      <xloc>609</xloc>
+      <yloc>797</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1786,8 +1786,8 @@ della Cube_Degenti</comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>201</xloc>
-      <yloc>478</yloc>
+      <xloc>186</xloc>
+      <yloc>698</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1997,8 +1997,8 @@ della Cube_Stat_863</comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>202</xloc>
-      <yloc>593</yloc>
+      <xloc>186</xloc>
+      <yloc>797</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -2037,8 +2037,8 @@ della Cube_Stat_863</comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>403</xloc>
-      <yloc>478</yloc>
+      <xloc>392</xloc>
+      <yloc>700</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -2077,8 +2077,8 @@ della Cube_Stat_863</comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>620</xloc>
-      <yloc>478</yloc>
+      <xloc>609</xloc>
+      <yloc>700</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -2145,8 +2145,8 @@ else false;
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>403</xloc>
-      <yloc>591</yloc>
+      <xloc>392</xloc>
+      <yloc>797</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -2230,8 +2230,8 @@ ora_max = ${ora_max}</logmessage>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>754</xloc>
-      <yloc>478</yloc>
+      <xloc>871</xloc>
+      <yloc>615</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -2256,7 +2256,7 @@ ora_max = ${ora_max}</logmessage>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1059</xloc>
+      <xloc>1145</xloc>
       <yloc>659</yloc>
       <attributes_kjc/>
     </entry>
@@ -2294,7 +2294,7 @@ ora_max = ${ora_max}</logmessage>
       <to>lookup_degenti_x_tamponi</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
@@ -2542,15 +2542,6 @@ ora_max = ${ora_max}</logmessage>
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Err lookup_degenti_x_tamponi</from>
-      <to>Interrompi job 2</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>Err lookup_anagrafi_x_tamponi</from>
       <to>Interrompi job 2</to>
       <from_nr>0</from_nr>
@@ -2576,6 +2567,24 @@ ora_max = ${ora_max}</logmessage>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Err lookup_degenti_x_tamponi</from>
+      <to>Interrompi job 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>lookup_863_ATT</from>
+      <to>JS CovidAlisa</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>
@@ -2648,8 +2657,8 @@ Ultimo Esito</note>
       <note>LookUp x 
 Reparto/PS 
 di degenza</note>
-      <xloc>181</xloc>
-      <yloc>420</yloc>
+      <xloc>26</xloc>
+      <yloc>598</yloc>
       <width>88</width>
       <heigth>55</heigth>
       <fontname>Arial</fontname>
@@ -2694,8 +2703,8 @@ fatto il tampone
 quando erano ricoverati
 oppure in PS
 </note>
-      <xloc>28</xloc>
-      <yloc>533</yloc>
+      <xloc>26</xloc>
+      <yloc>668</yloc>
       <width>154</width>
       <heigth>86</heigth>
       <fontname>Arial</fontname>
@@ -2717,8 +2726,8 @@ oppure in PS
       <note>Telefoni da Anagrafe
 Ises, Patidok e Lab
 + Residenza e MMG</note>
-      <xloc>368</xloc>
-      <yloc>422</yloc>
+      <xloc>357</xloc>
+      <yloc>644</yloc>
       <width>138</width>
       <heigth>55</heigth>
       <fontname>Arial</fontname>
@@ -2739,8 +2748,8 @@ Ises, Patidok e Lab
     <notepad>
       <note>popola
 cube_Paz_Tamponi</note>
-      <xloc>569</xloc>
-      <yloc>419</yloc>
+      <xloc>565</xloc>
+      <yloc>639</yloc>
       <width>126</width>
       <heigth>40</heigth>
       <fontname>Arial</fontname>
@@ -2798,6 +2807,30 @@ in base all'ora
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>255</backgroundcolorred>
       <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2023.04.11
+DISABILITATI
+---> Transf di arricchimento dati
+---> invio report via email</note>
+      <xloc>851</xloc>
+      <yloc>274</yloc>
+      <width>190</width>
+      <heigth>70</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
       <backgroundcolorblue>0</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>

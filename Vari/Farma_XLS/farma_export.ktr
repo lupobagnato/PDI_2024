@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>anno</name>
-        <default_value>2022</default_value>
+        <default_value>2023</default_value>
         <description/>
       </parameter>
       <parameter>
@@ -20,7 +20,7 @@
       </parameter>
       <parameter>
         <name>mese</name>
-        <default_value>04</default_value>
+        <default_value>05</default_value>
         <description/>
       </parameter>
     </parameters>
@@ -444,7 +444,7 @@
     <created_user>-</created_user>
     <created_date>2019/11/12 11:09:10.130</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2022/08/02 15:46:26.996</modified_date>
+    <modified_date>2023/06/05 11:32:59.613</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1838,31 +1838,25 @@ x.dataentrata
     </partitioning>
     <connection>db_sopra</connection>
     <sql>SELECT
-  NUM_CASO
-, TIPO_RICOV
-, DATA_ACC
-, ORA_ACC
-, PRESIDIO_ACC
-, COD_REP_ACC
-, DES_REP_ACC
-, DATA_DIM
-, ORA_DIM
-, PRESIDIO_DIM
-, COD_REP_DIM
-, DES_REP_DIM
-, STANZA
-, ESITO_COD
-, ESITO_DES
-, COD_FISC
-, COGNOME
-, NOME
-, SESSO
-, DATA_NASCITA
+num_caso, 
+tipo_ricov,
+data_acc, ora_acc,
+substr(des_rep_acc, 1,instr(des_rep_acc,' ')) presidio_acc, -- 2023-06-05
+cod_rep_acc, des_rep_acc,
+data_dim, ora_dim,
+substr(des_rep_dim, 1,instr(des_rep_dim,' ')) presidio_dim, -- 2023-06-05
+cod_rep_dim, des_rep_dim,
+stanza_dim,
+mod_dim_cod, mod_dim_des,
+cod_fisc, 
+cognome, nome, sesso, 
+data_nascita
 FROM
-dwh.qlik_dimessi
+v_export_ricoveri@patidok d				-- 2023-06-05 usava la qlik_dimessi (droppata), usa direttamente v_export_ricoveri da Patidok
 where
 data_dim between to_date('${anno}'||'${mese}'||'01','yyyymmdd') and last_day( to_date('${anno}'||'${mese}'||'01','yyyymmdd') ) 
 and cod_rep_dim in (2401,2403,4902,6801)
+and des_rep_acc not like 'GASLINI%'     -- 2023-06-05
 order by
 data_dim, ora_dim
 </sql>
@@ -1900,7 +1894,7 @@ data_dim, ora_dim
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>TIPO_RICOV</name>
-        <length>11</length>
+        <length>46</length>
         <precision>-1</precision>
         <origin>Dimessi</origin>
         <comments>TIPO_RICOV</comments>
@@ -2152,11 +2146,11 @@ data_dim, ora_dim
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>STANZA</name>
+        <name>STANZA_DIM</name>
         <length>10</length>
         <precision>-1</precision>
         <origin>Dimessi</origin>
-        <comments>STANZA</comments>
+        <comments>STANZA_DIM</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2175,11 +2169,11 @@ data_dim, ora_dim
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>ESITO_COD</name>
+        <name>MOD_DIM_COD</name>
         <length>80</length>
         <precision>-1</precision>
         <origin>Dimessi</origin>
-        <comments>ESITO_COD</comments>
+        <comments>MOD_DIM_COD</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2198,11 +2192,11 @@ data_dim, ora_dim
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>ESITO_DES</name>
+        <name>MOD_DIM_DES</name>
         <length>97</length>
         <precision>-1</precision>
         <origin>Dimessi</origin>
-        <comments>ESITO_DES</comments>
+        <comments>MOD_DIM_DES</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2450,17 +2444,17 @@ data_dim, ora_dim
         <format/>
       </field>
       <field>
-        <name>STANZA</name>
+        <name>STANZA_DIM</name>
         <type>String</type>
         <format/>
       </field>
       <field>
-        <name>ESITO_COD</name>
+        <name>MOD_DIM_COD</name>
         <type>String</type>
         <format/>
       </field>
       <field>
-        <name>ESITO_DES</name>
+        <name>MOD_DIM_DES</name>
         <type>String</type>
         <format/>
       </field>
