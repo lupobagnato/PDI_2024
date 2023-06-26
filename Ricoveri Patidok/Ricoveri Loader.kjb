@@ -8,7 +8,7 @@
   <created_user>admin</created_user>
   <created_date>2009/01/28 08:17:54.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2023/05/15 11:30:07.969</modified_date>
+  <modified_date>2023/06/26 09:50:09.825</modified_date>
   <parameters>
     <parameter>
       <name>BACK_DAYS</name>
@@ -1432,8 +1432,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>219</xloc>
-      <yloc>51</yloc>
+      <xloc>46</xloc>
+      <yloc>95</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1497,8 +1497,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>103</xloc>
-      <yloc>51</yloc>
+      <xloc>46</xloc>
+      <yloc>5</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -2001,6 +2001,94 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <yloc>401</yloc>
       <attributes_kjc/>
     </entry>
+    <entry>
+      <name>Load_Ricoveri_GAS</name>
+      <description>Transformation</description>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>Load_Ricoveri_GAS</transname>
+      <directory>/Ricoveri Patidok</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>BACK_DAYS</name>
+          <stream_name/>
+          <value>${BACK_DAYS}</value>
+        </parameter>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>194</xloc>
+      <yloc>111</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Mail Err GAS</name>
+      <description/>
+      <type>MAIL</type>
+      <attributes/>
+      <server>${var_Smtp}</server>
+      <port>${var_Port}</port>
+      <destination>${var_To}</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>${var_From}</replyto>
+      <replytoname>${var_From}</replytoname>
+      <subject>${Internal.Job.Name}: Errore da Load_Ricoveri_GAS</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
+      <include_files>N</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>N</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user/>
+      <auth_password>Encrypted </auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>194</xloc>
+      <yloc>37</yloc>
+      <attributes_kjc/>
+    </entry>
   </entries>
   <hops>
     <hop>
@@ -2139,15 +2227,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Load_Ricoveri_01</from>
-      <to>xcod_Ricoveri</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>xcod_Ricoveri</from>
       <to>Load_Ricoveri_02</to>
       <from_nr>0</from_nr>
@@ -2159,6 +2238,33 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>xcod_Ricoveri</from>
       <to>Mail Err 1</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Load_Ricoveri_01</from>
+      <to>Load_Ricoveri_GAS</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Load_Ricoveri_GAS</from>
+      <to>xcod_Ricoveri</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Load_Ricoveri_GAS</from>
+      <to>Mail Err GAS</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

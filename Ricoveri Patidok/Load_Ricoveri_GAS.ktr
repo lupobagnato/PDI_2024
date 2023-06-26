@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>Load_Ricoveri_01</name>
+    <name>Load_Ricoveri_GAS</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -8,11 +8,6 @@
     <trans_status>0</trans_status>
     <directory>/Ricoveri Patidok</directory>
     <parameters>
-      <parameter>
-        <name>BACK_DAYS</name>
-        <default_value>730</default_value>
-        <description>Back Days</description>
-      </parameter>
     </parameters>
     <log>
       <trans-log-table>
@@ -925,47 +920,21 @@
     <created_user>admin</created_user>
     <created_date>2012/12/20 12:28:45.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2023/06/26 10:07:29.200</modified_date>
+    <modified_date>2023/06/26 10:08:43.071</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Carica gli ACCETTATI
-negli ultimi BACK_DAYS rispetto
-all'ultima esecuzione (non sysdate)
-e indipendentemente dalla dimissione o meno</note>
-      <xloc>179</xloc>
-      <yloc>128</yloc>
-      <width>267</width>
-      <heigth>66</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
       <note>2023.06.26
-inserita la condizione NOT Like %GASLINI%
-perché è stata creata la trans
-Load_Ricoveri_GAS
-(che non ha limiti di BACK_DAYS)</note>
-      <xloc>180</xloc>
-      <yloc>209</yloc>
-      <width>220</width>
-      <heigth>75</heigth>
+usa la condizione Like %GASLINI%
+senza ha limiti di BACK_DAYS</note>
+      <xloc>177</xloc>
+      <yloc>31</yloc>
+      <width>217</width>
+      <heigth>55</heigth>
       <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
+      <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>255</fontcolorred>
@@ -1507,88 +1476,11 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>Get System Info 2</from>
-      <to>Set per il LOG</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get System Info</from>
-      <to>Get System Info 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get System Info</from>
-      <to>Ricoveri da Patidok</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Ricoveri da Patidok</from>
-      <to>Ricoveri_buffer</to>
+      <to>Ricoveri_GAS_buffer</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>Get System Info</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>lastexec</name>
-        <type>start date range</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>102</xloc>
-      <yloc>27</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get System Info 2</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>sysdate</name>
-        <type>system date (fixed)</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>234</xloc>
-      <yloc>27</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Ricoveri da Patidok</name>
     <type>TableInput</type>
@@ -1639,20 +1531,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 , mod_dim_des
 FROM V_EXPORT_RICOVERI@patidok
 Where
--- 03.08.2016 
--- condizione load basata sulla data di accettazione
--- cambiato il PARAMETER1 nel JOB chiamante
--- 365 ==> 730 giorni
-DATA_ACC Between (Trunc(?) - ${BACK_DAYS}) And Trunc(sysdate)
-and des_rep_acc not like '%GASLINI%'
-
+des_rep_acc like '%GASLINI%'
 order by
 num_caso
 
 
 </sql>
     <limit>0</limit>
-    <lookup>Get System Info</lookup>
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
@@ -2519,13 +2405,13 @@ num_caso
       </output>
     </remotesteps>
     <GUI>
-      <xloc>102</xloc>
-      <yloc>149</yloc>
+      <xloc>94</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Ricoveri_buffer</name>
+    <name>Ricoveri_GAS_buffer</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -2537,7 +2423,7 @@ num_caso
     </partitioning>
     <connection>db_sopra</connection>
     <schema/>
-    <table>Ricoveri_buffer</table>
+    <table>Ricoveri_GAS_buffer</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
@@ -2563,48 +2449,8 @@ num_caso
       </output>
     </remotesteps>
     <GUI>
-      <xloc>102</xloc>
-      <yloc>289</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set per il LOG</name>
-    <type>SetVariable</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <field_name>lastexec</field_name>
-        <variable_name>LASTEXEC</variable_name>
-        <variable_type>ROOT_JOB</variable_type>
-        <default_value/>
-      </field>
-      <field>
-        <field_name>sysdate</field_name>
-        <variable_name>SYSDATE</variable_name>
-        <variable_type>ROOT_JOB</variable_type>
-        <default_value/>
-      </field>
-    </fields>
-    <use_formatting>N</use_formatting>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>361</xloc>
-      <yloc>27</yloc>
+      <xloc>94</xloc>
+      <yloc>182</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
