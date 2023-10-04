@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>crwd_storico_DEG</name>
+    <name>_debug_crwd_storico_DEG</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -930,66 +930,11 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.006</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2023/08/21 11:29:59.135</modified_date>
+    <modified_date>2023/08/21 10:15:35.858</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>21.08.2023
-
-Abilitata l'opzione   "Non passare la riga se il lookup fallisce"
-
-Serve per i reparti che HANNO il codice HSP valorizzato
-ma non sono nella crwd_Reparti_hsp perché non hanno pl Ordinari
-
-Nella crwd_presenti_DEG il lookup ha la gestione errori abilitata per cui scarta
-questi reparti e li inserisce nella CRWD_Errors.
-Qui basta scartarli per evitare che la insert dia errore
-(cod_osp, cod_rep e prog_rep sono Null)</note>
-      <xloc>197</xloc>
-      <yloc>56</yloc>
-      <width>438</width>
-      <heigth>167</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Nota
-Potrebbe servire a importare nel buffer le "discipline non-monitorate" 
-(togliendo il filtro nella VSRC_CRWD_DEG_BUF), continuando ad non icluderle 
-nella rilevazione CRWD</note>
-      <xloc>197</xloc>
-      <yloc>243</yloc>
-      <width>387</width>
-      <heigth>62</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>areas_formazione</name>
@@ -1525,7 +1470,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>crwd_Reparti_hsp</from>
       <to>InsUpd tab_ril</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
   </order>
   <step>
@@ -1649,7 +1594,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <table>vsrc_crwd_Reparti_hsp</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
+      <eat_row_on_failure>N</eat_row_on_failure>
       <key>
         <name>COD_REP_HSP</name>
         <field>COD_REP_HSP</field>
