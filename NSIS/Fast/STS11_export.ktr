@@ -69,7 +69,7 @@
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>modSTS11</subject>
+          <subject>VTXT_modSTS11</subject>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
@@ -930,7 +930,7 @@
     <created_user>admin</created_user>
     <created_date>2012/04/27 14:39:56.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2023/02/14 16:49:38.314</modified_date>
+    <modified_date>2023/10/17 15:22:40.783</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1463,13 +1463,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>modSTS11</from>
+      <from>VTXT_modSTS11</from>
       <to>modSTS11.TXT</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>modSTS11</name>
+    <name>VTXT_modSTS11</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1522,7 +1522,28 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 , EMAIL
 , GIORNO_APERTURA
 , GIORNO_CHIUSURA
-FROM HSP.MODSTS11
+, distretto_cod
+, osp_subcod
+, casacom_cod
+, casacom_pl
+, tipo_ass_5
+, tipo_ass_6
+, tipo_ass_7
+, tipo_ass_8
+, tipo_ass_9
+, tipo_ass_10
+, tipo_ass_11
+, tipo_ass_12
+, tipo_ass_13
+, tipo_ass_14
+, tipo_ass_15
+, tipo_ass_16
+, tipo_ass_17
+, tipo_ass_18
+, tipo_ass_19
+, giorni_5
+, ore_5
+FROM HSP.vtxt_MODSTS11
 where
 STATO &lt;&gt; 'S' and
 anno = '${YYYY}' 
@@ -1542,7 +1563,7 @@ struttura_cod
         <name>ANNO</name>
         <length>4</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>ANNO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1565,7 +1586,7 @@ struttura_cod
         <name>CODICE_REGIONE</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>CODICE_REGIONE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1588,7 +1609,7 @@ struttura_cod
         <name>CODICE_AZIENDA</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>CODICE_AZIENDA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1611,7 +1632,7 @@ struttura_cod
         <name>STRUTTURA_COD</name>
         <length>6</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>STRUTTURA_COD</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1634,7 +1655,7 @@ struttura_cod
         <name>STRUTTURA_DES</name>
         <length>30</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>STRUTTURA_DES</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1657,7 +1678,7 @@ struttura_cod
         <name>CODICE_COMUNE</name>
         <length>6</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>CODICE_COMUNE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1680,7 +1701,7 @@ struttura_cod
         <name>INDIRIZZO</name>
         <length>30</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>INDIRIZZO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1703,7 +1724,7 @@ struttura_cod
         <name>CAP</name>
         <length>6</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>CAP</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1726,7 +1747,7 @@ struttura_cod
         <name>PREFISSO</name>
         <length>4</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>PREFISSO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1749,7 +1770,7 @@ struttura_cod
         <name>TELEFONO</name>
         <length>8</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>TELEFONO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1772,7 +1793,7 @@ struttura_cod
         <name>TIPO_STRUTTURA_COD</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>TIPO_STRUTTURA_COD</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1795,7 +1816,7 @@ struttura_cod
         <name>MESI_FUNZIONAMENTO</name>
         <length>2</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>MESI_FUNZIONAMENTO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1818,7 +1839,7 @@ struttura_cod
         <name>TIPO_ASS_1</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>TIPO_ASS_1</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1841,7 +1862,7 @@ struttura_cod
         <name>TIPO_ASS_2</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>TIPO_ASS_2</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1864,7 +1885,7 @@ struttura_cod
         <name>TIPO_ASS_3</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>TIPO_ASS_3</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1887,7 +1908,7 @@ struttura_cod
         <name>TIPO_ASS_4</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>TIPO_ASS_4</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1910,7 +1931,7 @@ struttura_cod
         <name>GIORNI_1</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>GIORNI_1</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1933,7 +1954,7 @@ struttura_cod
         <name>ORE_1</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>ORE_1</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1956,7 +1977,7 @@ struttura_cod
         <name>TIPO_RAPPORTO</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>TIPO_RAPPORTO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1979,7 +2000,7 @@ struttura_cod
         <name>OSP_TIPO</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>OSP_TIPO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2002,7 +2023,7 @@ struttura_cod
         <name>OSP_COD</name>
         <length>6</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>OSP_COD</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2025,7 +2046,7 @@ struttura_cod
         <name>TITOLARE</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>TITOLARE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2048,7 +2069,7 @@ struttura_cod
         <name>ANNO_APERTURA</name>
         <length>4</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>ANNO_APERTURA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2071,7 +2092,7 @@ struttura_cod
         <name>MESE_APERTURA</name>
         <length>2</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>MESE_APERTURA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2094,7 +2115,7 @@ struttura_cod
         <name>ANNO_CHIUSURA</name>
         <length>4</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>ANNO_CHIUSURA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2117,7 +2138,7 @@ struttura_cod
         <name>MESE_CHIUSURA</name>
         <length>2</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>MESE_CHIUSURA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2140,7 +2161,7 @@ struttura_cod
         <name>GIORNI_2</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>GIORNI_2</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2163,7 +2184,7 @@ struttura_cod
         <name>ORE_2</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>ORE_2</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2186,7 +2207,7 @@ struttura_cod
         <name>GIORNI_3</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>GIORNI_3</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2209,7 +2230,7 @@ struttura_cod
         <name>ORE_3</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>ORE_3</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2232,7 +2253,7 @@ struttura_cod
         <name>GIORNI_4</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>GIORNI_4</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2255,7 +2276,7 @@ struttura_cod
         <name>ORE_4</name>
         <length>3</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>ORE_4</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2278,7 +2299,7 @@ struttura_cod
         <name>FLAG_APPARECCHIATURE</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>FLAG_APPARECCHIATURE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2301,7 +2322,7 @@ struttura_cod
         <name>STATO</name>
         <length>1</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>STATO</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2324,7 +2345,7 @@ struttura_cod
         <name>PARTITA_IVA</name>
         <length>11</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>PARTITA_IVA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2347,7 +2368,7 @@ struttura_cod
         <name>PREFISSO_FAX</name>
         <length>4</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>PREFISSO_FAX</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2370,7 +2391,7 @@ struttura_cod
         <name>NUMERO_FAX</name>
         <length>8</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>NUMERO_FAX</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2393,7 +2414,7 @@ struttura_cod
         <name>SITO_WEB</name>
         <length>100</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>SITO_WEB</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2416,7 +2437,7 @@ struttura_cod
         <name>EMAIL</name>
         <length>50</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>EMAIL</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2439,7 +2460,7 @@ struttura_cod
         <name>GIORNO_APERTURA</name>
         <length>2</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>GIORNO_APERTURA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -2462,8 +2483,491 @@ struttura_cod
         <name>GIORNO_CHIUSURA</name>
         <length>2</length>
         <precision>-1</precision>
-        <origin>modSTS11</origin>
+        <origin>VTXT_modSTS11</origin>
         <comments>GIORNO_CHIUSURA</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>DISTRETTO_COD</name>
+        <length>6</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>DISTRETTO_COD</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>OSP_SUBCOD</name>
+        <length>2</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>OSP_SUBCOD</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>CASACOM_COD</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>CASACOM_COD</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>CASACOM_PL</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>CASACOM_PL</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_5</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_5</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_6</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_6</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_7</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_7</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_8</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_8</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_9</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_9</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_10</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_10</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_11</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_11</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_12</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_12</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_13</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_13</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_14</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_14</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_15</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_15</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_16</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_16</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_17</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_17</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_18</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_18</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>TIPO_ASS_19</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>TIPO_ASS_19</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>GIORNI_5</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>GIORNI_5</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>it_IT</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ORE_5</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>VTXT_modSTS11</origin>
+        <comments>ORE_5</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -3026,6 +3530,258 @@ struttura_cod
         <nullif/>
         <trim_type>none</trim_type>
         <length>2</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>DISTRETTO_COD</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>6</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>OSP_SUBCOD</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>2</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>CASACOM_COD</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>12</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>CASACOM_PL</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>4</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_5</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_6</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_7</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_8</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_9</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_10</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_11</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_12</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_13</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_14</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_15</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_16</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_17</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_18</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIPO_ASS_19</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>GIORNI_5</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>ORE_5</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
         <precision>-1</precision>
       </field>
     </fields>
