@@ -1,18 +1,18 @@
 <job>
-  <name>SeT Loader</name>
-  <description/>
+  <name>Esegui_VERIF</name>
+  <description>Esegui_ Set_MMG + Esegui_Verif_PC (procedure Oracle)</description>
   <extended_description/>
   <job_version/>
   <job_status>0</job_status>
   <directory>/record_SeT</directory>
-  <created_user>admin</created_user>
-  <created_date>2007/09/05 10:01:28.000</created_date>
+  <created_user/>
+  <created_date>2019/09/16 11:46:30.909</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2023/11/14 09:00:06.182</modified_date>
+  <modified_date>2023/11/14 09:51:32.784</modified_date>
   <parameters>
     <parameter>
       <name>PARAMETER1</name>
-      <default_value>\\minollo\kettle\record_SeT</default_value>
+      <default_value/>
       <description/>
     </parameter>
     <parameter>
@@ -53,16 +53,6 @@
     <parameter>
       <name>PARAMETER9</name>
       <default_value/>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>imap_file_folder</name>
-      <default_value>Documenti/PDI_email/allegati</default_value>
-      <description>dir dove vengono salvati gli allegati (sotto la user.home)</description>
-    </parameter>
-    <parameter>
-      <name>imap_file_wildcard</name>
-      <default_value>.*((rgn)|(RGN))+</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -1093,7 +1083,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
     <field>
       <id>CHANNEL_ID</id>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <name>CHANNEL_ID</name>
     </field>
     <field>
@@ -1133,7 +1123,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
     <field>
       <id>LINES_REJECTED</id>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <name>LINES_REJECTED</name>
     </field>
     <field>
@@ -1173,22 +1163,22 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </field>
     <field>
       <id>EXECUTING_SERVER</id>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <name>EXECUTING_SERVER</name>
     </field>
     <field>
       <id>EXECUTING_USER</id>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <name>EXECUTING_USER</name>
     </field>
     <field>
       <id>START_JOB_ENTRY</id>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <name>START_JOB_ENTRY</name>
     </field>
     <field>
       <id>CLIENT</id>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <name>CLIENT</name>
     </field>
   </job-log-table>
@@ -1349,79 +1339,115 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <name>ROOT_CHANNEL_ID</name>
     </field>
   </channel-log-table>
-  <pass_batchid>Y</pass_batchid>
+  <pass_batchid>N</pass_batchid>
   <shared_objects_file/>
   <entries>
     <entry>
-      <name>Ci sono File ?</name>
-      <description>JavaScript</description>
-      <type>EVAL</type>
-      <attributes/>
-      <script>//var nrRows = rows[0].getInteger("File_Count", -1)
-// questo genera un errore se la transf precedente non produce righe
-
-var nrRows = parent_job.getVariable("FILE_COUNT");
-
-nrRows > 0</script>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>118</xloc>
-      <yloc>398</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>NO_FILE to Log</name>
-      <description>Write To Log</description>
-      <type>WRITE_TO_LOG</type>
-      <attributes/>
-      <logmessage>.....Non ci sono file da caricare</logmessage>
-      <loglevel>Error</loglevel>
-      <logsubject>&gt;&gt;&gt;     NO_FILE - ${YYYYMMDD}</logsubject>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>350</xloc>
-      <yloc>398</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Set Input_Path</name>
+      <name>START</name>
       <description/>
-      <type>SET_VARIABLES</type>
+      <type>SPECIAL</type>
       <attributes/>
-      <replacevars>Y</replacevars>
-      <filename/>
-      <file_variable_type>JVM</file_variable_type>
-      <fields>
-        <field>
-          <variable_name>INPUT_PATH</variable_name>
-          <variable_value>${PARAMETER1}</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-      </fields>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>342</xloc>
-      <yloc>102</yloc>
+      <xloc>24</xloc>
+      <yloc>17</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Log altre Variabili</name>
+      <name>Mail Ok</name>
       <description/>
-      <type>WRITE_TO_LOG</type>
+      <type>MAIL</type>
       <attributes/>
-      <logmessage>INPUT_PATH=${INPUT_PATH}
-${var_To}
-</logmessage>
-      <loglevel>Basic</loglevel>
-      <logsubject>- - - Var - - - </logsubject>
+      <server>${var_Smtp}</server>
+      <port>${var_Port}</port>
+      <destination>${var_To}</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>${var_From}</replyto>
+      <replytoname>${var_From}</replytoname>
+      <subject>2Regione - ${Internal.Job.Name}: Ok</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
+      <include_files>N</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>N</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user/>
+      <auth_password>Encrypted </auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>608</xloc>
-      <yloc>102</yloc>
+      <xloc>859</xloc>
+      <yloc>288</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Mail Err Set_MMG</name>
+      <description/>
+      <type>MAIL</type>
+      <attributes/>
+      <server>${var_Smtp}</server>
+      <port>${var_Port}</port>
+      <destination>${var_To}</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>${var_From}</replyto>
+      <replytoname>${var_From}</replytoname>
+      <subject>2Regione - ${Internal.Job.Name}: Errore da Set_MMG</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
+      <include_files>N</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>N</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user/>
+      <auth_password>Encrypted </auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>580</xloc>
+      <yloc>190</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1457,120 +1483,98 @@ ${var_To}
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>110</xloc>
-      <yloc>102</yloc>
+      <xloc>146</xloc>
+      <yloc>16</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Load_single_SeT</name>
+      <name>Esegui_Set_MMG</name>
       <description/>
-      <type>JOB</type>
+      <type>SQL</type>
       <attributes/>
-      <specification_method>rep_name</specification_method>
-      <job_object_id>273</job_object_id>
-      <filename/>
-      <jobname>Load_single_SeT</jobname>
-      <directory>/record_SeT</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>Y</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <run_configuration/>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
+      <sql>call dwh.esegui_set_mmg();</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>db_sopra</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>118</xloc>
-      <yloc>497</yloc>
+      <xloc>580</xloc>
+      <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Start</name>
+      <name>Mail Err Verif_PC</name>
       <description/>
-      <type>SPECIAL</type>
+      <type>MAIL</type>
       <attributes/>
-      <start>Y</start>
-      <dummy>N</dummy>
-      <repeat>N</repeat>
-      <schedulerType>0</schedulerType>
-      <intervalSeconds>0</intervalSeconds>
-      <intervalMinutes>0</intervalMinutes>
-      <hour>12</hour>
-      <minutes>0</minutes>
-      <weekDay>1</weekDay>
-      <DayOfMonth>1</DayOfMonth>
+      <server>${var_Smtp}</server>
+      <port>${var_Port}</port>
+      <destination>${var_To}</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>${var_From}</replyto>
+      <replytoname>${var_From}</replytoname>
+      <subject>2Regione - ${Internal.Job.Name}: Errore da Verif_PC</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
+      <include_files>N</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>N</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user/>
+      <auth_password>Encrypted </auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>33</xloc>
-      <yloc>22</yloc>
+      <xloc>719</xloc>
+      <yloc>190</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Get eMail</name>
+      <name>Esegui_Verif_PC</name>
       <description/>
-      <type>JOB</type>
+      <type>SQL</type>
       <attributes/>
-      <specification_method>rep_name</specification_method>
-      <job_object_id/>
-      <filename/>
-      <jobname>Get eMail</jobname>
-      <directory>/Vari/Email</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <run_configuration/>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>INPUT_PATH</name>
-          <stream_name/>
-          <value>${INPUT_PATH}</value>
-        </parameter>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
+      <sql>call dwh.esegui_Verif_PC();</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>db_sopra</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>608</xloc>
-      <yloc>198</yloc>
+      <xloc>719</xloc>
+      <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Get_Files_SeT</name>
-      <description>Transformation</description>
+      <name>Lista Mesi x Check</name>
+      <description/>
       <type>TRANS</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id>1238</trans_object_id>
+      <trans_object_id/>
       <filename/>
-      <transname>Get_Files_SeT</transname>
+      <transname>Lista Mesi x Check</transname>
       <directory>/record_SeT</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -1582,7 +1586,7 @@ ${var_To}
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
+      <loglevel>Basic</loglevel>
       <cluster>N</cluster>
       <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
@@ -1590,7 +1594,7 @@ ${var_To}
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <run_configuration/>
+      <run_configuration>Pentaho local</run_configuration>
       <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
@@ -1598,80 +1602,137 @@ ${var_To}
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>118</xloc>
-      <yloc>287</yloc>
+      <xloc>145</xloc>
+      <yloc>104</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Copia Allegati</name>
+      <name>Check_V_NOMEN_X_PKG_SPEC</name>
       <description/>
-      <type>COPY_FILES</type>
-      <attributes/>
-      <copy_empty_folders>Y</copy_empty_folders>
-      <arg_from_previous>N</arg_from_previous>
-      <overwrite_files>Y</overwrite_files>
-      <include_subfolders>N</include_subfolders>
-      <remove_source_files>Y</remove_source_files>
-      <add_result_filesname>Y</add_result_filesname>
-      <destination_is_a_file>N</destination_is_a_file>
-      <create_destination_folder>Y</create_destination_folder>
-      <fields>
-        <field>
-          <source_filefolder>${user.home}/${imap_file_folder}</source_filefolder>
-          <source_configuration_name/>
-          <destination_filefolder>${INPUT_PATH}</destination_filefolder>
-          <destination_configuration_name/>
-          <wildcard>${imap_file_wildcard}</wildcard>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>608</xloc>
-      <yloc>287</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Esegui_VERIF</name>
-      <description/>
-      <type>JOB</type>
+      <type>TRANS</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id/>
+      <trans_object_id/>
       <filename/>
-      <jobname>Esegui_VERIF</jobname>
+      <transname>Check_V_NOMEN_X_PKG_SPEC</transname>
       <directory>/record_SeT</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
+      <exec_per_row>Y</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
       <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
+      <logging_remote_work>N</logging_remote_work>
       <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>YYMM</name>
+          <stream_name>YYMM</stream_name>
+          <value/>
+        </parameter>
       </parameters>
-      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>337</xloc>
-      <yloc>496</yloc>
+      <xloc>144</xloc>
+      <yloc>196</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Rows in Err_Nomen_x_PKG_SPEC</name>
+      <description/>
+      <type>EVAL_TABLE_CONTENT</type>
+      <attributes/>
+      <connection>db_sopra</connection>
+      <schemaname/>
+      <tablename>Err_Nomen_x_PKG_SPEC</tablename>
+      <success_condition>rows_count_equal</success_condition>
+      <limit>0</limit>
+      <is_custom_sql>N</is_custom_sql>
+      <is_usevars>N</is_usevars>
+      <custom_sql/>
+      <add_rows_result>N</add_rows_result>
+      <clear_result_rows>Y</clear_result_rows>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>144</xloc>
+      <yloc>288</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Mail Err Check Nomenclatore</name>
+      <description/>
+      <type>MAIL</type>
+      <attributes/>
+      <server>${var_Smtp}</server>
+      <port>${var_Port}</port>
+      <destination>${var_To}</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>${var_From}</replyto>
+      <replytoname>${var_From}</replytoname>
+      <subject>${Internal.Job.Name}: Errore V_NOMEN_X_PKG_SPEC</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment>Almeno un mese con prestazioni non Univoche nella V_NOMEN_X_PKG_SPEC
+(record errati nella ERR_NOMEN_X_PKG_SPEC)</comment>
+      <include_files>N</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>N</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user/>
+      <auth_password>Encrypted </auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity/>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>141</xloc>
+      <yloc>380</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Successo</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>962</xloc>
+      <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>Start</from>
+      <from>START</from>
       <to>Log_Parameters</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1680,71 +1741,8 @@ ${var_To}
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Log_Parameters</from>
-      <to>Set Input_Path</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Set Input_Path</from>
-      <to>Log altre Variabili</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Ci sono File ?</from>
-      <to>Load_single_SeT</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Get_Files_SeT</from>
-      <to>Ci sono File ?</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Log altre Variabili</from>
-      <to>Get eMail</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Get eMail</from>
-      <to>Copia Allegati</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Copia Allegati</from>
-      <to>Get_Files_SeT</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Ci sono File ?</from>
-      <to>NO_FILE to Log</to>
+      <from>Esegui_Set_MMG</from>
+      <to>Mail Err Set_MMG</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1752,41 +1750,106 @@ ${var_To}
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Load_single_SeT</from>
-      <to>Esegui_VERIF</to>
+      <from>Esegui_Set_MMG</from>
+      <to>Esegui_Verif_PC</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
+    <hop>
+      <from>Esegui_Verif_PC</from>
+      <to>Mail Ok</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Esegui_Verif_PC</from>
+      <to>Mail Err Verif_PC</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Log_Parameters</from>
+      <to>Lista Mesi x Check</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Lista Mesi x Check</from>
+      <to>Check_V_NOMEN_X_PKG_SPEC</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Check_V_NOMEN_X_PKG_SPEC</from>
+      <to>Rows in Err_Nomen_x_PKG_SPEC</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Rows in Err_Nomen_x_PKG_SPEC</from>
+      <to>Esegui_Set_MMG</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Rows in Err_Nomen_x_PKG_SPEC</from>
+      <to>Mail Err Check Nomenclatore</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Mail Ok</from>
+      <to>Successo</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
   </hops>
   <notepads>
     <notepad>
-      <note>Directory dove sono depositati
-i files S e T , il valore viene preso da ${PARAMETER1}
-
-
-
-
-
-Se lanciato da PDI usa il default impostato nel job
-se lanciato da Pentaho il valore è passato dalla Xaction
-</note>
-      <xloc>195</xloc>
-      <yloc>62</yloc>
-      <width>336</width>
-      <heigth>166</heigth>
+      <note>Lista che contiene
+Mese corrente + 12 precedenti
+formato YYMM</note>
+      <xloc>536</xloc>
+      <yloc>58</yloc>
+      <width>137</width>
+      <heigth>43</heigth>
       <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
+      <fontsize>7</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>165</backgroundcolorgreen>
-      <backgroundcolorblue>0</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -1796,42 +1859,39 @@ se lanciato da Pentaho il valore è passato dalla Xaction
       <note>
 
 
-aggiunto 05.01.2017</note>
-      <xloc>297</xloc>
-      <yloc>512</yloc>
-      <width>110</width>
-      <heigth>65</heigth>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+controllo univocità vista Nomenclatore 
+con mesi Inizio e Fine validità</note>
+      <xloc>28</xloc>
+      <yloc>90</yloc>
+      <width>299</width>
+      <heigth>404</heigth>
       <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
-      <fontbold>N</fontbold>
+      <fontsize>11</fontsize>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>165</backgroundcolorgreen>
-      <backgroundcolorblue>0</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>su Minollo (cartella record_SeT)</note>
-      <xloc>666</xloc>
-      <yloc>319</yloc>
-      <width>194</width>
-      <heigth>25</heigth>
-      <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>192</backgroundcolorred>
+      <backgroundcolorgreen>192</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
