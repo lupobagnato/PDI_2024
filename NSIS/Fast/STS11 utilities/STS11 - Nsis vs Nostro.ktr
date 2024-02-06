@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>YYYY</name>
-        <default_value>2023</default_value>
+        <default_value>2024</default_value>
         <description/>
       </parameter>
       <parameter>
@@ -930,7 +930,7 @@
     <created_user>admin</created_user>
     <created_date>2012/04/27 14:40:00.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2023/02/14 17:24:38.135</modified_date>
+    <modified_date>2024/01/23 13:48:46.112</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1509,6 +1509,69 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <connection>
+    <name>mysql Terminus</name>
+    <server>10.98.1.195</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>BUTTO</database>
+    <port>3306</port>
+    <username>Apps</username>
+    <password>Encrypted 2be98af891af79eada838ba59d1bce48b</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>Patidok</name>
     <server>svc_sio</server>
     <type>ORACLE</type>
@@ -1966,7 +2029,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>C:\_NextDel\</name>
+      <name>C:\__ Dati __\Progetti\Flussi NSIS\___ modelli ___\</name>
       <filemask>.*STS.11.*\.xlsx</filemask>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -2006,6 +2069,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <name>Codice Azienda</name>
         <type>String</type>
         <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>distretto_cod</name>
+        <type>String</type>
+        <length>6</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
         <repeat>N</repeat>
@@ -2183,6 +2258,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <group/>
       </field>
       <field>
+        <name>tipo_struttura_cod</name>
+        <type>String</type>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
         <name>Tipo struttura</name>
         <type>String</type>
         <length>50</length>
@@ -2210,6 +2297,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <name>Codice struttura di ricovero</name>
         <type>String</type>
         <length>6</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>osp_subcod</name>
+        <type>String</type>
+        <length>2</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
         <repeat>N</repeat>
@@ -2250,6 +2349,42 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <trim_type>both</trim_type>
         <repeat>N</repeat>
         <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>interna_esterna</name>
+        <type>String</type>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>casacom_cod</name>
+        <type>String</type>
+        <length>12</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ospcom_pl</name>
+        <type>String</type>
+        <length>4</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format>####</format>
         <currency/>
         <decimal/>
         <group/>
@@ -2303,6 +2438,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <group/>
       </field>
       <field>
+        <name>giorno_apertura</name>
+        <type>String</type>
+        <length>2</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
         <name>Anno chiusura</name>
         <type>String</type>
         <length>4</length>
@@ -2316,6 +2463,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </field>
       <field>
         <name>Mese chiusura</name>
+        <type>String</type>
+        <length>2</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>giorno_chiusura</name>
         <type>String</type>
         <length>2</length>
         <precision>-1</precision>
@@ -3377,6 +3536,18 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <group/>
       </field>
       <field>
+        <name>distretto_cod</name>
+        <type>String</type>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
         <name>STRUTTURA_COD</name>
         <type>String</type>
         <length>6</length>
@@ -3665,6 +3836,42 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <group/>
       </field>
       <field>
+        <name>osp_subcod</name>
+        <type>String</type>
+        <length>2</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>casacom_cod</name>
+        <type>String</type>
+        <length>12</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ospcom_pl</name>
+        <type>String</type>
+        <length>4</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
         <name>MESI_FUNZIONAMENTO</name>
         <type>String</type>
         <length>2</length>
@@ -3842,6 +4049,210 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <format>000</format>
         <currency/>
         <decimal>0</decimal>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_5</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_6</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_7</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_8</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_9</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_10</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_11</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_12</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_13</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_14</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_15</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_16</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_17</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_18</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>tipo_ass_19</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>giorni_5</name>
+        <type>String</type>
+        <length>1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ore_5</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
         <group/>
       </field>
     </fields>

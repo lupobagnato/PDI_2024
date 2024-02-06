@@ -8,11 +8,11 @@
   <created_user>admin</created_user>
   <created_date>2008/11/25 16:18:10.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2023/02/14 17:01:23.828</modified_date>
+  <modified_date>2024/01/16 14:31:57.219</modified_date>
   <parameters>
     <parameter>
       <name>YYYY</name>
-      <default_value>2023</default_value>
+      <default_value>2024</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -471,6 +471,69 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </attribute>
       <attribute>
         <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>mysql Terminus</name>
+    <server>10.98.1.195</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>BUTTO</database>
+    <port>3306</port>
+    <username>Apps</username>
+    <password>Encrypted 2be98af891af79eada838ba59d1bce48b</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
         <attribute>Y</attribute>
       </attribute>
       <attribute>
@@ -1432,14 +1495,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     set stato = '1'
     where anno = '2023'
 4. eseguita la transf STS11_export
-    (per produrre il txt con le operazioni di modifica anziché inserimento)
+    ==> tutti i 187 rec inviati come operazioni di modifica
+    (molte erano modifiche reali di nomi, indirizzi, ecc. , le altre sono state
+     acquisite senza problemi, anche se non contenevano cambiamenti reali)
 </note>
-      <xloc>24</xloc>
-      <yloc>202</yloc>
-      <width>444</width>
-      <heigth>176</heigth>
+      <xloc>1114</xloc>
+      <yloc>9</yloc>
+      <width>373</width>
+      <heigth>180</heigth>
       <fontname>Arial</fontname>
-      <fontsize>10</fontsize>
+      <fontsize>8</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
@@ -1448,6 +1513,37 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <backgroundcolorred>255</backgroundcolorred>
       <backgroundcolorgreen>205</backgroundcolorgreen>
       <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Per inizializzare il 2024
+1. copiato il file xls dell'anno precedente
+    (aggiornando l'anno e cancellando le strutture chiuse nel corso dell'anno)
+    Scaricato sts11 da Nsis: il conteggio delle righe (201) corrisponde al numero di
+    Assistenze erogate --> sommati i conteggi delle colonne TIPO_ASS
+    del nostro file 177+20+4 = 201
+2. eseguito questo job con Anno=2024
+    (inserisce tutti i record con Stato '0' e crea un txt con 177 record, da cancellare)
+3. eseguito STS11_conferna con Anno = 2024
+    ==> file e db sono allineati e corrispondono alla situazione su NSIS
+</note>
+      <xloc>1114</xloc>
+      <yloc>208</yloc>
+      <width>487</width>
+      <heigth>176</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
