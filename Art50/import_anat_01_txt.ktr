@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>import_anat_01</name>
+    <name>import_anat_01_txt</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -920,7 +920,7 @@
     <created_user>admin</created_user>
     <created_date>2015/03/02 10:16:36.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2023/05/08 10:35:42.248</modified_date>
+    <modified_date>2024/02/06 13:55:36.698</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1020,11 +1020,11 @@ i record duplicati
       <drawshadow>N</drawshadow>
     </notepad>
     <notepad>
-      <note>Esclusione record per
-INTERNI con Reparto NULL</note>
-      <xloc>707</xloc>
-      <yloc>217</yloc>
-      <width>148</width>
+      <note>Esclusione record per INTERNI con Reparto NULL
+x Anat è inutile perché tutti gli Interni  vengono scartati nello step prec.</note>
+      <xloc>640</xloc>
+      <yloc>226</yloc>
+      <width>347</width>
       <heigth>36</heigth>
       <fontname>Arial</fontname>
       <fontsize>8</fontsize>
@@ -1034,12 +1034,39 @@ INTERNI con Reparto NULL</note>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>165</backgroundcolorgreen>
-      <backgroundcolorblue>0</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>N</drawshadow>
+    </notepad>
+    <notepad>
+      <note>
+
+
+
+
+
+DON'T TRUNCATE</note>
+      <xloc>464</xloc>
+      <yloc>619</yloc>
+      <width>118</width>
+      <heigth>121</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
     </notepad>
   </notepads>
   <connection>
@@ -1501,6 +1528,69 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <connection>
+    <name>mysql Terminus</name>
+    <server>10.98.1.195</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>BUTTO</database>
+    <port>3306</port>
+    <username>Apps</username>
+    <password>Encrypted 2be98af891af79eada838ba59d1bce48b</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>Patidok</name>
     <server>svc_sio</server>
     <type>ORACLE</type>
@@ -1686,7 +1776,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>Esclude_Richiedente_Null</from>
       <to>dim_STS11</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Data Validator</from>
@@ -1696,7 +1786,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>Esclude_Interni</from>
       <to>Esclude_Richiedente_Null</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Esclude_Interni</from>
@@ -1711,6 +1801,11 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>Anat_Buffer</from>
       <to>buffer.txt</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Esclude_Interni</from>
+      <to>dim_STS11</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -3343,7 +3438,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <schema/>
     <table>Anat_Buffer</table>
     <commit>7000</commit>
-    <truncate>Y</truncate>
+    <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
     <specify_fields>N</specify_fields>
@@ -3499,8 +3594,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>959</xloc>
-      <yloc>254</yloc>
+      <xloc>958</xloc>
+      <yloc>279</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3757,7 +3852,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>636</xloc>
+      <xloc>640</xloc>
       <yloc>444</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4954,7 +5049,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <schema_name/>
     </partitioning>
     <send_true_to>Interni</send_true_to>
-    <send_false_to>Esclude_Richiedente_Null</send_false_to>
+    <send_false_to>dim_STS11</send_false_to>
     <compare>
       <condition>
         <negated>N</negated>
@@ -5043,8 +5138,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>510</xloc>
-      <yloc>253</yloc>
+      <xloc>639</xloc>
+      <yloc>279</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -7117,8 +7212,8 @@ BAKDIR: ${BAKDIR}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
-      <yloc>656</yloc>
+      <xloc>624</xloc>
+      <yloc>670</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -7195,8 +7290,8 @@ BAKDIR: ${BAKDIR}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>253</yloc>
+      <xloc>767</xloc>
+      <yloc>279</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
