@@ -8,11 +8,16 @@
   <created_user>admin</created_user>
   <created_date>2008/02/20 15:26:10.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2022/07/13 16:24:52.239</modified_date>
+  <modified_date>2024/02/13 11:15:23.269</modified_date>
   <parameters>
     <parameter>
       <name>EXPORT_DIR</name>
       <default_value>${_Base_Path}\record_SeT_OUT</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>LOG_DIR</name>
+      <default_value>${_Base_Path}\Log</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -501,6 +506,69 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </attribute>
       <attribute>
         <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>mysql Terminus</name>
+    <server>10.98.1.195</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>BUTTO</database>
+    <port>3306</port>
+    <username>Apps</username>
+    <password>Encrypted 2be98af891af79eada838ba59d1bce48b</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
         <attribute>Y</attribute>
       </attribute>
       <attribute>
@@ -1294,7 +1362,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>35</xloc>
-      <yloc>408</yloc>
+      <yloc>407</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1334,12 +1402,32 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
           <stream_name/>
           <value>${EXPORT_DIR}</value>
         </parameter>
+        <parameter>
+          <name>LOG_DIR</name>
+          <stream_name/>
+          <value>${LOG_DIR}</value>
+        </parameter>
+        <parameter>
+          <name>FILE_S</name>
+          <stream_name/>
+          <value>${FILE_S}</value>
+        </parameter>
+        <parameter>
+          <name>MM</name>
+          <stream_name/>
+          <value>${MM}</value>
+        </parameter>
+        <parameter>
+          <name>YY</name>
+          <stream_name/>
+          <value>${YY}</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>35</xloc>
-      <yloc>259</yloc>
+      <yloc>261</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1379,12 +1467,32 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
           <stream_name/>
           <value>${EXPORT_DIR}</value>
         </parameter>
+        <parameter>
+          <name>LOG_DIR</name>
+          <stream_name/>
+          <value>${LOG_DIR}</value>
+        </parameter>
+        <parameter>
+          <name>FILE_T</name>
+          <stream_name/>
+          <value>${FILE_T}</value>
+        </parameter>
+        <parameter>
+          <name>MM</name>
+          <stream_name/>
+          <value>${MM}</value>
+        </parameter>
+        <parameter>
+          <name>YY</name>
+          <stream_name/>
+          <value>${YY}</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>270</xloc>
-      <yloc>259</yloc>
+      <xloc>398</xloc>
+      <yloc>261</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1426,8 +1534,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>270</xloc>
-      <yloc>408</yloc>
+      <xloc>398</xloc>
+      <yloc>407</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1471,6 +1579,11 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
           <name>mese</name>
           <stream_name/>
           <value>${mese}</value>
+        </parameter>
+        <parameter>
+          <name>LOG_DIR</name>
+          <stream_name/>
+          <value>${LOG_DIR}</value>
         </parameter>
       </parameters>
       <parallel>N</parallel>
@@ -1517,12 +1630,32 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
           <stream_name/>
           <value>${EXPORT_DIR}</value>
         </parameter>
+        <parameter>
+          <name>LOG_DIR</name>
+          <stream_name/>
+          <value>${LOG_DIR}</value>
+        </parameter>
+        <parameter>
+          <name>FILE_S</name>
+          <stream_name/>
+          <value>${FILE_S}</value>
+        </parameter>
+        <parameter>
+          <name>MM</name>
+          <stream_name/>
+          <value>${MM}</value>
+        </parameter>
+        <parameter>
+          <name>YY</name>
+          <stream_name/>
+          <value>${YY}</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>131</xloc>
-      <yloc>259</yloc>
+      <yloc>261</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1567,8 +1700,8 @@ mese=${mese}</comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>525</xloc>
-      <yloc>259</yloc>
+      <xloc>802</xloc>
+      <yloc>261</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1611,7 +1744,7 @@ mese=${mese}</comment>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>131</xloc>
-      <yloc>408</yloc>
+      <yloc>407</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1651,12 +1784,32 @@ mese=${mese}</comment>
           <stream_name/>
           <value>${EXPORT_DIR}</value>
         </parameter>
+        <parameter>
+          <name>LOG_DIR</name>
+          <stream_name/>
+          <value>${LOG_DIR}</value>
+        </parameter>
+        <parameter>
+          <name>FILE_T</name>
+          <stream_name/>
+          <value>${FILE_T}</value>
+        </parameter>
+        <parameter>
+          <name>MM</name>
+          <stream_name/>
+          <value>${MM}</value>
+        </parameter>
+        <parameter>
+          <name>YY</name>
+          <stream_name/>
+          <value>${YY}</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>373</xloc>
-      <yloc>259</yloc>
+      <xloc>501</xloc>
+      <yloc>261</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1698,8 +1851,8 @@ mese=${mese}</comment>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>373</xloc>
-      <yloc>408</yloc>
+      <xloc>501</xloc>
+      <yloc>407</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1766,20 +1919,227 @@ mese=${mese}</comment>
       <yloc>117</yloc>
       <attributes_kjc/>
     </entry>
+    <entry>
+      <name>export_S_GVM</name>
+      <description/>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>export_S_GVM</transname>
+      <directory>/record_SeT/export</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>EXPORT_DIR</name>
+          <stream_name/>
+          <value>${EXPORT_DIR}</value>
+        </parameter>
+        <parameter>
+          <name>LOG_DIR</name>
+          <stream_name/>
+          <value>${LOG_DIR}</value>
+        </parameter>
+        <parameter>
+          <name>FILE_S</name>
+          <stream_name/>
+          <value>${FILE_S}</value>
+        </parameter>
+        <parameter>
+          <name>MM</name>
+          <stream_name/>
+          <value>${MM}</value>
+        </parameter>
+        <parameter>
+          <name>YY</name>
+          <stream_name/>
+          <value>${YY}</value>
+        </parameter>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>239</xloc>
+      <yloc>261</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Mail Err 3 3</name>
+      <description/>
+      <type>MAIL</type>
+      <attributes/>
+      <server>${var_Smtp}</server>
+      <port>${var_Port}</port>
+      <destination>${var_To}</destination>
+      <destinationCc/>
+      <destinationBCc>${var_To_CCN}</destinationBCc>
+      <replyto>${var_From}</replyto>
+      <replytoname>${var_From}</replytoname>
+      <subject>${Internal.Job.Name}: Errore export_S_GVM</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
+      <include_files>N</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>N</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user/>
+      <auth_password>Encrypted </auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>239</xloc>
+      <yloc>407</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>export_T_GVM</name>
+      <description/>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>export_T_GVM</transname>
+      <directory>/record_SeT/export</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>EXPORT_DIR</name>
+          <stream_name/>
+          <value>${EXPORT_DIR}</value>
+        </parameter>
+        <parameter>
+          <name>LOG_DIR</name>
+          <stream_name/>
+          <value>${LOG_DIR}</value>
+        </parameter>
+        <parameter>
+          <name>FILE_T</name>
+          <stream_name/>
+          <value>${FILE_T}</value>
+        </parameter>
+        <parameter>
+          <name>MM</name>
+          <stream_name/>
+          <value>${MM}</value>
+        </parameter>
+        <parameter>
+          <name>YY</name>
+          <stream_name/>
+          <value>${YY}</value>
+        </parameter>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>606</xloc>
+      <yloc>261</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Mail Err 4 2</name>
+      <description/>
+      <type>MAIL</type>
+      <attributes/>
+      <server>${var_Smtp}</server>
+      <port>${var_Port}</port>
+      <destination>${var_To}</destination>
+      <destinationCc/>
+      <destinationBCc>${var_To_CCN}</destinationBCc>
+      <replyto>${var_From}</replyto>
+      <replytoname>${var_From}</replytoname>
+      <subject>${Internal.Job.Name}: Errore export_T_GVM</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment/>
+      <include_files>N</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>N</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user/>
+      <auth_password>Encrypted </auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>606</xloc>
+      <yloc>407</yloc>
+      <attributes_kjc/>
+    </entry>
   </entries>
   <hops>
     <hop>
       <from>export_S</from>
       <to>export_S_LP</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>export_S_LP</from>
-      <to>export_T</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1850,7 +2210,43 @@ mese=${mese}</comment>
       <unconditional>N</unconditional>
     </hop>
     <hop>
+      <from>Log_Parameters</from>
+      <to>export_SeT_variabili</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>export_S_LP</from>
+      <to>export_S_GVM</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>export_S_GVM</from>
+      <to>export_T</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
       <from>export_T_LP</from>
+      <to>export_T_GVM</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>export_T_GVM</from>
       <to>Mail Ok</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1859,12 +2255,21 @@ mese=${mese}</comment>
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Log_Parameters</from>
-      <to>export_SeT_variabili</to>
+      <from>export_S_GVM</from>
+      <to>Mail Err 3 3</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>export_T_GVM</from>
+      <to>Mail Err 4 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>
@@ -1930,10 +2335,6 @@ file_T
     </group>
     <group>
       <name>{"_":"Embedded MetaStore Elements","namespace":"pentaho","type":"Default Run Configuration"}</name>
-      <attribute>
-        <key>Pentaho local</key>
-        <value>{"children":[{"children":[],"id":"server","value":null},{"children":[],"id":"clustered","value":"N"},{"children":[],"id":"name","value":"Pentaho local"},{"children":[],"id":"description","value":null},{"children":[],"id":"readOnly","value":"Y"},{"children":[],"id":"sendResources","value":"N"},{"children":[],"id":"logRemoteExecutionLocally","value":"N"},{"children":[],"id":"remote","value":"N"},{"children":[],"id":"local","value":"Y"},{"children":[],"id":"showTransformations","value":"N"}],"id":"Pentaho local","value":null,"name":"Pentaho local","owner":null,"ownerPermissionsList":[]}</value>
-      </attribute>
     </group>
   </attributes>
 </job>
