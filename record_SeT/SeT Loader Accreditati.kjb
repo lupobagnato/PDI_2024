@@ -8,7 +8,7 @@
   <created_user>admin</created_user>
   <created_date>2007/09/05 10:01:28.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2023/11/14 12:15:09.593</modified_date>
+  <modified_date>2024/02/20 15:31:38.875</modified_date>
   <parameters>
     <parameter>
       <name>INPUT_PATH</name>
@@ -52,13 +52,13 @@
     </parameter>
     <parameter>
       <name>imap_file_wildcard</name>
-      <default_value>.*((GPG)|(gpg))+</default_value>
-      <description>file .gpg</description>
+      <default_value>.*((GPG)|(gpg)|(rgn))</default_value>
+      <description>file .gpg  2024-02-13 prima era:      .*((GPG)|(gpg))+</description>
     </parameter>
     <parameter>
       <name>imap_msg_folder</name>
       <default_value>${_Base_Path}/email_accreditati</default_value>
-      <description>dir dove vengono salvati i messaggi letti (sotto la user.home)</description>
+      <description>dir dove vengono salvati i messaggi letti</description>
     </parameter>
     <parameter>
       <name>var_From</name>
@@ -2040,6 +2040,15 @@ email_Dati_Accreditati=${email_Dati_Accreditati}
     <hop>
       <from>Start</from>
       <to>Log Variabili</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Start</from>
+      <to>Get_Files_SeT</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
