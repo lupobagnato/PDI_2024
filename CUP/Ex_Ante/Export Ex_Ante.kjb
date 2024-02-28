@@ -8,7 +8,7 @@
   <created_user>admin</created_user>
   <created_date>2007/09/05 10:01:28.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2022/02/09 15:43:32.206</modified_date>
+  <modified_date>2024/02/21 14:23:41.953</modified_date>
   <parameters>
     <parameter>
       <name>P</name>
@@ -17,12 +17,12 @@
     </parameter>
     <parameter>
       <name>YYYYMMDD_from</name>
-      <default_value>2022-01-24</default_value>
+      <default_value>2024-02-05</default_value>
       <description>inizio settimana indice</description>
     </parameter>
     <parameter>
       <name>YYYYMMDD_to</name>
-      <default_value>2022-01-28</default_value>
+      <default_value>2024-02-09</default_value>
       <description>fine settimana indice</description>
     </parameter>
     <parameter>
@@ -468,6 +468,124 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>db_sopra_SPEC</name>
+    <server>ora_sopra.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DbSopra</database>
+    <port>1526</port>
+    <username>spec</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cd82aad9</password>
+    <servername/>
+    <data_tablespace>SPEC</data_tablespace>
+    <index_tablespace>IDX_SPEC</index_tablespace>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>5</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1526</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>mysql Terminus</name>
+    <server>10.98.1.195</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>BUTTO</database>
+    <port>3306</port>
+    <username>Apps</username>
+    <password>Encrypted 2be98af891af79eada838ba59d1bce48b</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
@@ -1294,7 +1412,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <destinationCc/>
       <destinationBCc/>
       <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
+      <replytoname>${var_FromName}</replytoname>
       <subject>${Internal.Job.Name} : Err</subject>
       <include_date>Y</include_date>
       <contact_person/>
@@ -1322,8 +1440,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>885</xloc>
-      <yloc>239</yloc>
+      <xloc>754</xloc>
+      <yloc>227</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1334,8 +1452,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1077</xloc>
-      <yloc>127</yloc>
+      <xloc>946</xloc>
+      <yloc>110</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1399,8 +1517,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>885</xloc>
-      <yloc>127</yloc>
+      <xloc>754</xloc>
+      <yloc>110</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1414,7 +1532,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <destinationCc/>
       <destinationBCc/>
       <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
+      <replytoname>${var_FromName}</replytoname>
       <subject>${Internal.Job.Name} : OK</subject>
       <include_date>Y</include_date>
       <contact_person/>
@@ -1442,8 +1560,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1205</xloc>
-      <yloc>127</yloc>
+      <xloc>1157</xloc>
+      <yloc>110</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1507,8 +1625,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>981</xloc>
-      <yloc>127</yloc>
+      <xloc>850</xloc>
+      <yloc>110</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1522,7 +1640,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <destinationCc/>
       <destinationBCc/>
       <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
+      <replytoname>${var_FromName}</replytoname>
       <subject>${Internal.Job.Name} : Err</subject>
       <include_date>Y</include_date>
       <contact_person/>
@@ -1550,8 +1668,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>981</xloc>
-      <yloc>239</yloc>
+      <xloc>850</xloc>
+      <yloc>227</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1670,7 +1788,7 @@ order by
       <destinationCc/>
       <destinationBCc/>
       <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
+      <replytoname>${var_FromName}</replytoname>
       <subject>${Internal.Job.Name} : Err</subject>
       <include_date>Y</include_date>
       <contact_person/>
@@ -1714,7 +1832,7 @@ vsrc_ex_ante</comment>
       <destinationCc/>
       <destinationBCc/>
       <replyto>${var_From}</replyto>
-      <replytoname>${var_From}</replytoname>
+      <replytoname>${var_FromName}</replytoname>
       <subject>${Internal.Job.Name} : Err</subject>
       <include_date>Y</include_date>
       <contact_person/>
@@ -1747,6 +1865,81 @@ vsrc_ex_ante_TOT</comment>
       <yloc>303</yloc>
       <attributes_kjc/>
     </entry>
+    <entry>
+      <name>Il file esiste</name>
+      <description/>
+      <type>FILE_EXISTS</type>
+      <attributes/>
+      <filename>${_Base_Path}/Ex_Ante/ex001${P}${YY}_SENZA_STS11.xls</filename>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1048</xloc>
+      <yloc>108</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Mail OK con STS11 mancanti</name>
+      <description/>
+      <type>MAIL</type>
+      <attributes/>
+      <server>${var_Smtp}</server>
+      <port>${var_Port}</port>
+      <destination>${var_To}</destination>
+      <destinationCc/>
+      <destinationBCc/>
+      <replyto>${var_From}</replyto>
+      <replytoname>${var_FromName}</replytoname>
+      <subject>${Internal.Job.Name} : OK ma con STS11 mancanti</subject>
+      <include_date>Y</include_date>
+      <contact_person/>
+      <contact_phone/>
+      <comment>il file ex001124_SENZA_STS11.xls contiene i record scartati per sts11 Null
+
+Nel log in formato xls ci sono tutti record e i campi aggiuntivi 
+per identificare le agende senza STS11</comment>
+      <include_files>Y</include_files>
+      <zip_files>N</zip_files>
+      <zip_name/>
+      <use_auth>N</use_auth>
+      <use_secure_auth>N</use_secure_auth>
+      <auth_user/>
+      <auth_password>Encrypted </auth_password>
+      <only_comment>N</only_comment>
+      <use_HTML>N</use_HTML>
+      <use_Priority>N</use_Priority>
+      <encoding>UTF-8</encoding>
+      <priority>normal</priority>
+      <importance>normal</importance>
+      <sensitivity>normal</sensitivity>
+      <secureconnectiontype>SSL</secureconnectiontype>
+      <replyToAddresses/>
+      <filetypes>
+        <filetype>GENERAL</filetype>
+      </filetypes>
+      <embeddedimages>
+      </embeddedimages>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1048</xloc>
+      <yloc>227</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Cancella file</name>
+      <description/>
+      <type>DELETE_FILE</type>
+      <attributes/>
+      <filename>${_Base_Path}/Ex_Ante/ex001${P}${YY}_SENZA_STS11.xls</filename>
+      <fail_if_file_not_exists>N</fail_if_file_not_exists>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1048</xloc>
+      <yloc>334</yloc>
+      <attributes_kjc/>
+    </entry>
   </entries>
   <hops>
     <hop>
@@ -1766,15 +1959,6 @@ vsrc_ex_ante_TOT</comment>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Success</from>
-      <to>Mail OK</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>ex_ante_XML</from>
@@ -1855,6 +2039,42 @@ vsrc_ex_ante_TOT</comment>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Success</from>
+      <to>Il file esiste</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Il file esiste</from>
+      <to>Mail OK</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Il file esiste</from>
+      <to>Mail OK con STS11 mancanti</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Mail OK con STS11 mancanti</from>
+      <to>Cancella file</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>
