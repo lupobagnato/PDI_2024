@@ -920,7 +920,7 @@
     <created_user/>
     <created_date>2020/08/25 10:34:06.123</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2024/03/05 14:15:51.335</modified_date>
+    <modified_date>2024/02/28 11:19:54.658</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1574,6 +1574,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>String operations</from>
+      <to>Split fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Split fields</from>
+      <to>DbLookup_nome</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Split fields</from>
       <to>DbLookup_CF</to>
       <enabled>Y</enabled>
@@ -1589,7 +1599,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>DbLookup_quick_name</from>
+      <from>DbLookup_nome</from>
       <to>Add constant metodo 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -1605,37 +1615,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>Unique rows</from>
-      <to>Select and ChangeType</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select and ChangeType</from>
       <to>Microsoft Excel output</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>String operations</from>
-      <to>Strings cut</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Strings cut</from>
-      <to>Add percento</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add percento</from>
-      <to>Concat fields</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>String operations</from>
-      <to>Split fields</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Split fields</from>
-      <to>DbLookup_quick_name</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1718,131 +1698,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
-    <name>Add percento</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>percento</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>%</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>103</xloc>
-      <yloc>511</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Concat fields</name>
-    <type>ConcatFields</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator/>
-    <enclosure/>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name/>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>iniziali_cognome</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>percento</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <ConcatFields>
-      <targetFieldName>val_x_like</targetFieldName>
-      <targetFieldLength>0</targetFieldLength>
-      <removeSelectedFields>N</removeSelectedFields>
-    </ConcatFields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>104</xloc>
-      <yloc>601</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>DbLookup_CF</name>
     <type>DBLookup</type>
     <description/>
@@ -1879,7 +1734,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <name>DATA_NASCITA</name>
         <rename>patidok_data_nascita</rename>
         <default/>
-        <type>Timestamp</type>
+        <type>Date</type>
       </value>
       <value>
         <name>COGNOME</name>
@@ -1957,7 +1812,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
-    <name>DbLookup_quick_name</name>
+    <name>DbLookup_nome</name>
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -1993,7 +1848,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <name>DATA_NASCITA</name>
         <rename>patidok_data_nascita</rename>
         <default/>
-        <type>Timestamp</type>
+        <type>Date</type>
       </value>
       <value>
         <name>COGNOME</name>
@@ -2114,7 +1969,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <field>
         <name>id</name>
         <type>String</type>
-        <format>########</format>
+        <format/>
       </field>
       <field>
         <name>cognome_nome</name>
@@ -2132,14 +1987,24 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <format/>
       </field>
       <field>
+        <name>searchable_name</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>presso</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
         <name>patidok_id</name>
         <type>String</type>
         <format/>
       </field>
       <field>
         <name>patidok_data_nascita</name>
-        <type>String</type>
-        <format>dd-MM-yyyy</format>
+        <type>Timestamp</type>
+        <format/>
       </field>
       <field>
         <name>patidok_cognome</name>
@@ -2196,11 +2061,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <type>String</type>
         <format/>
       </field>
-      <field>
-        <name>searchable_name</name>
-        <type>String</type>
-        <format/>
-      </field>
     </fields>
     <custom>
       <header_font_name>arial</header_font_name>
@@ -2228,8 +2088,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1271</xloc>
-      <yloc>204</yloc>
+      <xloc>975</xloc>
+      <yloc>205</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2268,124 +2128,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </remotesteps>
     <GUI>
       <xloc>103</xloc>
-      <yloc>206</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select and ChangeType</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>id</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cognome_nome</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cod_fisc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>indirizzo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>searchable_name</name>
-        <rename/>
-      </field>
-      <field>
-        <name>patidok_id</name>
-        <rename/>
-      </field>
-      <field>
-        <name>patidok_data_nascita</name>
-        <rename/>
-      </field>
-      <field>
-        <name>patidok_cognome</name>
-        <rename/>
-      </field>
-      <field>
-        <name>patidok_nome</name>
-        <rename/>
-      </field>
-      <field>
-        <name>patidok_sesso</name>
-        <rename/>
-      </field>
-      <field>
-        <name>patidok_cf</name>
-        <rename/>
-      </field>
-      <field>
-        <name>patidok_matricola</name>
-        <rename/>
-      </field>
-      <field>
-        <name>patidok_com_nasc_cod</name>
-        <rename/>
-      </field>
-      <field>
-        <name>patidok_com_nasc_des</name>
-        <rename/>
-      </field>
-      <field>
-        <name>patidok_com_res_cod</name>
-        <rename/>
-      </field>
-      <field>
-        <name>patidok_indirizzo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>patidok_regione</name>
-        <rename/>
-      </field>
-      <field>
-        <name>metodo</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>patidok_data_nascita</name>
-        <rename>patidok_data_nascita</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>dd-MM-yyyy</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1009</xloc>
-      <yloc>204</yloc>
+      <yloc>205</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2479,7 +2222,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </remotesteps>
     <GUI>
       <xloc>739</xloc>
-      <yloc>204</yloc>
+      <yloc>205</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2539,7 +2282,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </remotesteps>
     <GUI>
       <xloc>331</xloc>
-      <yloc>206</yloc>
+      <yloc>205</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2578,41 +2321,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>213</xloc>
-      <yloc>206</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Strings cut</name>
-    <type>StringCut</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>cognome_nome</in_stream_name>
-        <out_stream_name>iniziali_cognome</out_stream_name>
-        <cut_from>0</cut_from>
-        <cut_to>4</cut_to>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>102</xloc>
-      <yloc>427</yloc>
+      <xloc>228</xloc>
+      <yloc>205</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2647,7 +2357,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </remotesteps>
     <GUI>
       <xloc>837</xloc>
-      <yloc>204</yloc>
+      <yloc>205</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2714,7 +2424,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <precision>-1</precision>
         <trim_type>both</trim_type>
         <repeat>N</repeat>
-        <format>########</format>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
