@@ -8,7 +8,7 @@
   <created_user>admin</created_user>
   <created_date>2007/09/05 10:01:28.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2024/02/06 15:40:16.367</modified_date>
+  <modified_date>2024/04/10 09:40:15.557</modified_date>
   <parameters>
     <parameter>
       <name>E_DATARIF</name>
@@ -1348,8 +1348,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>865</xloc>
-      <yloc>320</yloc>
+      <xloc>870</xloc>
+      <yloc>306</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1389,7 +1389,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>242</xloc>
-      <yloc>353</yloc>
+      <yloc>360</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1465,7 +1465,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>461</xloc>
-      <yloc>222</yloc>
+      <yloc>224</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1507,8 +1507,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1050</xloc>
-      <yloc>319</yloc>
+      <xloc>1015</xloc>
+      <yloc>419</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1548,7 +1548,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>588</xloc>
-      <yloc>222</yloc>
+      <yloc>223</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1587,8 +1587,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>945</xloc>
-      <yloc>434</yloc>
+      <xloc>870</xloc>
+      <yloc>419</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1669,7 +1669,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>865</xloc>
+      <xloc>870</xloc>
       <yloc>223</yloc>
       <attributes_kjc/>
     </entry>
@@ -1712,7 +1712,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>865</xloc>
+      <xloc>870</xloc>
       <yloc>113</yloc>
       <attributes_kjc/>
     </entry>
@@ -1860,8 +1860,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>349</xloc>
-      <yloc>145</yloc>
+      <xloc>322</xloc>
+      <yloc>224</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1903,8 +1903,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>348</xloc>
-      <yloc>48</yloc>
+      <xloc>321</xloc>
+      <yloc>108</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1949,7 +1949,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>711</xloc>
-      <yloc>222</yloc>
+      <yloc>223</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -2031,8 +2031,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>268</xloc>
-      <yloc>221</yloc>
+      <xloc>190</xloc>
+      <yloc>224</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -2247,7 +2247,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <to>Display Errore</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
@@ -2270,16 +2270,25 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>import_anat_01_view</from>
-      <to>import_anat_01_txt</to>
+      <from>import_anat_01_txt</from>
+      <to>chk_all_file_input</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>import_anat_01_txt</from>
+      <from>import_anat_01_view</from>
+      <to>import_anat_01_txt</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>import_anat_01_view</from>
       <to>chk_all_file_input</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -2290,42 +2299,43 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </hops>
   <notepads>
     <notepad>
-      <note>12.10.2017
-controllo numero record
-e range di date
-presenti nel buffer
-
-09.01.2024
+      <note>09.01.2024
 MANTENUTI I CONTROLLI SUL BUFFER
 anche se la sorgente non è più un file
-- il controllo sulle date fuori range con la vista è inutile
+
+- il controllo sulle date fuori range
+  con la vista è inutile
 - quello sul numero di record confrontato col
-  valore "strorico2 può servire</note>
-      <xloc>417</xloc>
-      <yloc>1</yloc>
-      <width>237</width>
-      <heigth>132</heigth>
+  valore "strorico" può servire</note>
+      <xloc>385</xloc>
+      <yloc>96</yloc>
+      <width>194</width>
+      <heigth>99</heigth>
       <fontname>Arial</fontname>
       <fontsize>7</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>DON'T TRUNCATE</note>
-      <xloc>186</xloc>
-      <yloc>202</yloc>
-      <width>98</width>
-      <heigth>23</heigth>
+      <note>DOESN'T TRUNCATE
+
+
+
+</note>
+      <xloc>146</xloc>
+      <yloc>198</yloc>
+      <width>111</width>
+      <heigth>79</heigth>
       <fontname>Arial</fontname>
       <fontsize>8</fontsize>
       <fontbold>N</fontbold>
@@ -2336,6 +2346,30 @@ anche se la sorgente non è più un file
       <backgroundcolorred>255</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
       <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>12.10.2017
+controllo numero record
+e range di date
+presenti nel buffer</note>
+      <xloc>214</xloc>
+      <yloc>58</yloc>
+      <width>109</width>
+      <heigth>54</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>7</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>

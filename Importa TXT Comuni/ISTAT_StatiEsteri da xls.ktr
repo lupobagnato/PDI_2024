@@ -1,49 +1,19 @@
 <transformation>
   <info>
-    <name>export_T_GVM</name>
+    <name>ISTAT_StatiEsteri da xls</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/record_SeT/export</directory>
+    <directory>/Importa TXT Comuni</directory>
     <parameters>
-      <parameter>
-        <name>EXPORT_DIR</name>
-        <default_value>${_Base_Path}\record_SeT_OUT</default_value>
-        <description/>
-      </parameter>
-      <parameter>
-        <name>FILE_T</name>
-        <default_value>T001124A.000</default_value>
-        <description/>
-      </parameter>
-      <parameter>
-        <name>GVM_DIR</name>
-        <default_value>${_Base_Path}\record_SeT_gvm</default_value>
-        <description/>
-      </parameter>
-      <parameter>
-        <name>LOG_DIR</name>
-        <default_value>${_Base_Path}\Log</default_value>
-        <description/>
-      </parameter>
-      <parameter>
-        <name>MM</name>
-        <default_value>01</default_value>
-        <description/>
-      </parameter>
-      <parameter>
-        <name>YY</name>
-        <default_value>24</default_value>
-        <description/>
-      </parameter>
     </parameters>
     <log>
       <trans-log-table>
-        <connection>${_LogDb}</connection>
-        <schema>${_LogSchema}</schema>
-        <table>${_LogTmpTrans}</table>
+        <connection/>
+        <schema/>
+        <table/>
         <size_limit_lines/>
         <interval/>
         <timeout_days/>
@@ -77,7 +47,7 @@
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject>Accoda_GVM_File_T</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
@@ -89,13 +59,13 @@
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>0GVM_YYMM_T.rgn</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>Accoda_GVM_File_T</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -454,6 +424,9 @@
       <partitionschema>
         <name>MySQL EC2 Schema</name>
         <partition>
+          <id>P3</id>
+        </partition>
+        <partition>
           <id>P4</id>
         </partition>
         <partition>
@@ -462,14 +435,14 @@
         <partition>
           <id>P2</id>
         </partition>
-        <partition>
-          <id>P3</id>
-        </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave/>
       </partitionschema>
       <partitionschema>
         <name>Partitioning schema</name>
+        <partition>
+          <id>PartDB2</id>
+        </partition>
         <partition>
           <id>PartDB5</id>
         </partition>
@@ -477,13 +450,10 @@
           <id>PartDB3</id>
         </partition>
         <partition>
-          <id>PartDB1</id>
-        </partition>
-        <partition>
-          <id>PartDB2</id>
-        </partition>
-        <partition>
           <id>PartDB4</id>
+        </partition>
+        <partition>
+          <id>PartDB1</id>
         </partition>
         <dynamic>N</dynamic>
         <partitions_per_slave/>
@@ -903,11 +873,11 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
-          <name>EC_SLAVE_3</name>
           <name>EC_SLAVE_4</name>
           <name>EC_SLAVE_2</name>
-          <name>EC_SLAVE_5</name>
+          <name>EC_SLAVE_3</name>
           <name>EC_MASTER_1</name>
+          <name>EC_SLAVE_5</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -918,9 +888,9 @@
         <sockets_compressed>N</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>localhost:8080:Master</name>
           <name>localhost:8081</name>
           <name>localhost:8082</name>
-          <name>localhost:8080:Master</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -931,9 +901,9 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
+          <name>sam 8082 slave</name>
           <name>sam 8080</name>
           <name>sam 8081 slave</name>
-          <name>sam 8082 slave</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -948,9 +918,9 @@
       </clusterschema>
     </clusterschemas>
     <created_user/>
-    <created_date>2020/09/01 12:16:59.584</created_date>
+    <created_date>2019/09/16 11:46:17.035</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2024/04/03 08:52:39.936</modified_date>
+    <modified_date>2024/04/02 14:25:18.705</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1546,19 +1516,19 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>0GVM_YYMM_T.rgn</from>
-      <to>Set GETTONE to Spazio</to>
+      <from>Microsoft Excel Input</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set GETTONE to Spazio</from>
-      <to>Accoda_GVM_File_T</to>
+      <from>Select values</from>
+      <to>istat_stati</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>0GVM_YYMM_T.rgn</name>
-    <type>TextFileInput</type>
+    <name>Microsoft Excel Input</name>
+    <type>ExcelInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1567,116 +1537,236 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field>File_S</accept_field>
-    <accept_stepname/>
-    <separator/>
-    <enclosure>"</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar/>
-    <header>N</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <header>Y</header>
     <noempty>Y</noempty>
-    <include>N</include>
-    <include_field/>
-    <rownum>Y</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field>line_num</rownum_field>
-    <format>mixed</format>
+    <stoponempty>N</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield>riga</sheetrownumfield>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
+    <limit>0</limit>
     <encoding/>
-    <length>Characters</length>
-    <add_to_result_filenames>N</add_to_result_filenames>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
     <file>
-      <name>${GVM_DIR}\0GVM${YY}${MM}T.rgn</name>
+      <name>c:\minollo\_TXT_e_XLS\ISTAT_Stati 2023-12-31.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
-      <type>Fixed</type>
-      <compression>None</compression>
     </file>
-    <filters>
-    </filters>
     <fields>
       <field>
-        <name>prima</name>
+        <name>Stato(S)/Territorio(T)</name>
         <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
         <format/>
         <currency/>
         <decimal/>
         <group/>
-        <nullif/>
-        <ifnull/>
-        <position>0</position>
-        <length>46</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
       </field>
       <field>
-        <name>gettone</name>
-        <type>String</type>
+        <name>Codice Continente</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
         <format/>
         <currency/>
         <decimal/>
         <group/>
-        <nullif/>
-        <ifnull/>
-        <position>46</position>
-        <length>1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
       </field>
       <field>
-        <name>dopo</name>
+        <name>Denominazione Continente (IT)</name>
         <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
         <format/>
         <currency/>
         <decimal/>
         <group/>
-        <nullif/>
-        <ifnull/>
-        <position>47</position>
-        <length>56</length>
+      </field>
+      <field>
+        <name>Codice Area</name>
+        <type>Number</type>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Denominazione Area (IT)</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Codice ISTAT</name>
+        <type>String</type>
+        <length>3</length>
+        <precision>3</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format>###</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Denominazione IT</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Denominazione EN</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Codice MIN</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Codice AT</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Codice UNSD_M49</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Codice ISO 3166 alpha2</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Codice ISO 3166 alpha3</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Codice ISTAT_Stato Padre</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Codice ISO alpha3_Stato Padre</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
     </fields>
-    <limit>0</limit>
+    <sheets>
+      <sheet>
+        <name>Elenco 31122023</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
     <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field/>
-    <file_error_message_field/>
     <error_line_skipped>N</error_line_skipped>
-    <error_count_field/>
-    <error_fields_field/>
-    <error_text_field/>
     <bad_line_files_destination_directory/>
     <bad_line_files_extension>warning</bad_line_files_extension>
     <error_line_files_destination_directory/>
     <error_line_files_extension>error</error_line_files_extension>
     <line_number_files_destination_directory/>
     <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>it_IT</date_format_locale>
-    <shortFileFieldName>file_name</shortFileFieldName>
+    <shortFileFieldName/>
     <pathFieldName/>
     <hiddenFieldName/>
-    <lastModificationTimeFieldName>file_date</lastModificationTimeFieldName>
+    <lastModificationTimeFieldName/>
     <uriNameFieldName/>
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
+    <spreadsheet_type>POI</spreadsheet_type>
+    <password>Encrypted </password>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1686,14 +1776,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>136</xloc>
-      <yloc>25</yloc>
+      <xloc>132</xloc>
+      <yloc>75</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Accoda_GVM_File_T</name>
-    <type>TextFileOutput</type>
+    <name>istat_stati</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1702,73 +1792,24 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <separator/>
-    <enclosure/>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>Y</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding>ISO-8859-1</encoding>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>N</create_parent_folder>
-    <file>
-      <name>${EXPORT_DIR}/${FILE_T}</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention/>
-      <append>Y</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>Y</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
+    <connection>db_sopra</connection>
+    <schema/>
+    <table>istat_stati</table>
+    <commit>10000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
-      <field>
-        <name>prima</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>46</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>gettone</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>dopo</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>56</length>
-        <precision>-1</precision>
-      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1779,14 +1820,14 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>136</xloc>
-      <yloc>278</yloc>
+      <xloc>132</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Set GETTONE to Spazio</name>
-    <type>SetValueConstant</type>
+    <name>Select values</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1795,14 +1836,52 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <usevar>N</usevar>
     <fields>
       <field>
-        <name>gettone</name>
-        <value> </value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
+        <name>Denominazione Continente (IT)</name>
+        <rename>Continente</rename>
       </field>
+      <field>
+        <name>Denominazione Area (IT)</name>
+        <rename>Area</rename>
+      </field>
+      <field>
+        <name>Codice ISTAT</name>
+        <rename>cod_istat</rename>
+      </field>
+      <field>
+        <name>Denominazione IT</name>
+        <rename>des</rename>
+      </field>
+      <field>
+        <name>Denominazione EN</name>
+        <rename>des_eng</rename>
+      </field>
+      <field>
+        <name>Codice MIN</name>
+        <rename>cod_min</rename>
+      </field>
+      <field>
+        <name>Codice AT</name>
+        <rename>cod_CF</rename>
+      </field>
+      <field>
+        <name>Codice UNSD_M49</name>
+        <rename>cod_UNSD_M49</rename>
+      </field>
+      <field>
+        <name>Codice ISO 3166 alpha2</name>
+        <rename>cod_ISO_alpha2</rename>
+      </field>
+      <field>
+        <name>Codice ISO 3166 alpha3</name>
+        <rename>cod_ISO_alpha3</rename>
+      </field>
+      <field>
+        <name>riga</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1813,8 +1892,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>137</xloc>
-      <yloc>137</yloc>
+      <xloc>132</xloc>
+      <yloc>182</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

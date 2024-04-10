@@ -1,49 +1,19 @@
 <transformation>
   <info>
-    <name>export_T_GVM</name>
+    <name>lookup_anagrafe_x_GEF</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/record_SeT/export</directory>
+    <directory>/Elenco_CF e GdF</directory>
     <parameters>
-      <parameter>
-        <name>EXPORT_DIR</name>
-        <default_value>${_Base_Path}\record_SeT_OUT</default_value>
-        <description/>
-      </parameter>
-      <parameter>
-        <name>FILE_T</name>
-        <default_value>T001124A.000</default_value>
-        <description/>
-      </parameter>
-      <parameter>
-        <name>GVM_DIR</name>
-        <default_value>${_Base_Path}\record_SeT_gvm</default_value>
-        <description/>
-      </parameter>
-      <parameter>
-        <name>LOG_DIR</name>
-        <default_value>${_Base_Path}\Log</default_value>
-        <description/>
-      </parameter>
-      <parameter>
-        <name>MM</name>
-        <default_value>01</default_value>
-        <description/>
-      </parameter>
-      <parameter>
-        <name>YY</name>
-        <default_value>24</default_value>
-        <description/>
-      </parameter>
     </parameters>
     <log>
       <trans-log-table>
         <connection>${_LogDb}</connection>
         <schema>${_LogSchema}</schema>
-        <table>${_LogTmpTrans}</table>
+        <table>${_LogTrans}</table>
         <size_limit_lines/>
         <interval/>
         <timeout_days/>
@@ -77,7 +47,7 @@
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject>Accoda_GVM_File_T</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
@@ -89,13 +59,13 @@
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>0GVM_YYMM_T.rgn</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>Accoda_GVM_File_T</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -140,17 +110,17 @@
         </field>
         <field>
           <id>EXECUTING_SERVER</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>EXECUTING_SERVER</name>
         </field>
         <field>
           <id>EXECUTING_USER</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>EXECUTING_USER</name>
         </field>
         <field>
           <id>CLIENT</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>CLIENT</name>
         </field>
       </trans-log-table>
@@ -948,9 +918,9 @@
       </clusterschema>
     </clusterschemas>
     <created_user/>
-    <created_date>2020/09/01 12:16:59.584</created_date>
+    <created_date>2020/08/25 10:34:06.123</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2024/04/03 08:52:39.936</modified_date>
+    <modified_date>2024/04/09 17:59:10.888</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1140,12 +1110,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 </attribute>
       </attribute>
       <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
+        <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -1415,6 +1389,49 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <connection>
+    <name>Labo_Unico</name>
+    <server>ora_lis.usl1.imperiese</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>DNLAB</database>
+    <port>1521</port>
+    <username>accesso</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb0ba164db86bbd5</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>mysql Terminus</name>
     <server>10.98.1.195</server>
     <type>MYSQL</type>
@@ -1546,19 +1563,89 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>0GVM_YYMM_T.rgn</from>
-      <to>Set GETTONE to Spazio</to>
+      <from>_TXT_e_XLS\fatture_gef.xlsx</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set GETTONE to Spazio</from>
-      <to>Accoda_GVM_File_T</to>
+      <from>Select values</from>
+      <to>Replace in string 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace in string 2</from>
+      <to>String operations</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Split fields</from>
+      <to>DbLookup_CF</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>DbLookup_CF</from>
+      <to>Add constant metodo 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constant metodo 1</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>DbLookup_quick_name</from>
+      <to>Add constant metodo 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constant metodo 2</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Unique rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows</from>
+      <to>Select and ChangeType</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select and ChangeType</from>
+      <to>Microsoft Excel output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>String operations</from>
+      <to>Strings cut</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Strings cut</from>
+      <to>Add percento</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add percento</from>
+      <to>Concat fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>String operations</from>
+      <to>Split fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Split fields</from>
+      <to>DbLookup_quick_name</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>0GVM_YYMM_T.rgn</name>
-    <type>TextFileInput</type>
+    <name>Add constant metodo 1</name>
+    <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1567,240 +1654,17 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field>File_S</accept_field>
-    <accept_stepname/>
-    <separator/>
-    <enclosure>"</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar/>
-    <header>N</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field/>
-    <rownum>Y</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field>line_num</rownum_field>
-    <format>mixed</format>
-    <encoding/>
-    <length>Characters</length>
-    <add_to_result_filenames>N</add_to_result_filenames>
-    <file>
-      <name>${GVM_DIR}\0GVM${YY}${MM}T.rgn</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>Fixed</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-    </filters>
     <fields>
       <field>
-        <name>prima</name>
+        <name>metodo</name>
         <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
-        <nullif/>
-        <ifnull/>
-        <position>0</position>
-        <length>46</length>
+        <nullif>1. CF</nullif>
+        <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>gettone</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>46</position>
-        <length>1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>dopo</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>47</position>
-        <length>56</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field/>
-    <file_error_message_field/>
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field/>
-    <error_fields_field/>
-    <error_text_field/>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>it_IT</date_format_locale>
-    <shortFileFieldName>file_name</shortFileFieldName>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName>file_date</lastModificationTimeFieldName>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>136</xloc>
-      <yloc>25</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Accoda_GVM_File_T</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator/>
-    <enclosure/>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>Y</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding>ISO-8859-1</encoding>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>N</create_parent_folder>
-    <file>
-      <name>${EXPORT_DIR}/${FILE_T}</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention/>
-      <append>Y</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>Y</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>prima</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>46</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>gettone</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>dopo</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>56</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>136</xloc>
-      <yloc>278</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set GETTONE to Spazio</name>
-    <type>SetValueConstant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <usevar>N</usevar>
-    <fields>
-      <field>
-        <name>gettone</name>
-        <value> </value>
-        <mask/>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
@@ -1813,8 +1677,1114 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>137</xloc>
-      <yloc>137</yloc>
+      <xloc>635</xloc>
+      <yloc>94</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add constant metodo 2</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>metodo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>2. Nome</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>635</xloc>
+      <yloc>316</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add percento</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>percento</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>%</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>103</xloc>
+      <yloc>511</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat fields</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator/>
+    <enclosure/>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name/>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>iniziali_cognome</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>percento</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>val_x_like</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>104</xloc>
+      <yloc>601</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DbLookup_CF</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Patidok</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>patidok</schema>
+      <table>V_EXPORT_ANAG_PATIDOK</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>Y</eat_row_on_failure>
+      <key>
+        <name>cod_fisc</name>
+        <field>cod_fisc</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>ID_PAZIENTE</name>
+        <rename>patidok_id</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>DATA_NASCITA</name>
+        <rename>patidok_data_nascita</rename>
+        <default/>
+        <type>Timestamp</type>
+      </value>
+      <value>
+        <name>COGNOME</name>
+        <rename>patidok_cognome</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>NOME</name>
+        <rename>patidok_nome</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>SESSO</name>
+        <rename>patidok_sesso</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>COD_FISC</name>
+        <rename>patidok_cf</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>MATRICOLA</name>
+        <rename>patidok_matricola</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>LUOGO_NASCITA_COD</name>
+        <rename>patidok_luogo_nasc_cod</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>LUOGO_NASCITA_DES</name>
+        <rename>patidok_luogo_nasc_des</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>COMUNE_RES_COD</name>
+        <rename>patidok_com_res_cod</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>INDIRIZZO</name>
+        <rename>patidok_indirizzo</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>REGIONE</name>
+        <rename>patidok_regione</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>450</xloc>
+      <yloc>92</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DbLookup_quick_name</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Patidok</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>patidok</schema>
+      <table>V_EXPORT_ANAG_PATIDOK</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>Y</eat_row_on_failure>
+      <key>
+        <name>searchable_name</name>
+        <field>quick_name</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>ID_PAZIENTE</name>
+        <rename>patidok_id</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>DATA_NASCITA</name>
+        <rename>patidok_data_nascita</rename>
+        <default/>
+        <type>Timestamp</type>
+      </value>
+      <value>
+        <name>COGNOME</name>
+        <rename>patidok_cognome</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>NOME</name>
+        <rename>patidok_nome</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>SESSO</name>
+        <rename>patidok_sesso</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>COD_FISC</name>
+        <rename>patidok_cf</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>MATRICOLA</name>
+        <rename>patidok_matricola</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>LUOGO_NASCITA_COD</name>
+        <rename>patidok_luogo_nasc_cod</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>LUOGO_NASCITA_DES</name>
+        <rename>patidok_luogo_nasc_des</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>COMUNE_RES_COD</name>
+        <rename>patidok_com_res_cod</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>INDIRIZZO</name>
+        <rename>patidok_indirizzo</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>REGIONE</name>
+        <rename>patidok_regione</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>450</xloc>
+      <yloc>316</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Microsoft Excel output</name>
+    <type>ExcelOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <encoding/>
+    <append>N</append>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <file>
+      <name>${_Base_Path}\_TXT_e_XLS\fatture_gef_out</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <create_parent_folder>N</create_parent_folder>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <nullisblank>N</nullisblank>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <splitevery>0</splitevery>
+      <usetempfiles>N</usetempfiles>
+      <tempdirectory/>
+    </file>
+    <template>
+      <enabled>N</enabled>
+      <append>N</append>
+      <filename>template.xls</filename>
+    </template>
+    <fields>
+      <field>
+        <name>id</name>
+        <type>String</type>
+        <format>########</format>
+      </field>
+      <field>
+        <name>cognome_nome</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>cod_fisc</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>indirizzo</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>patidok_id</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>patidok_data_nascita</name>
+        <type>String</type>
+        <format>dd-MM-yyyy</format>
+      </field>
+      <field>
+        <name>patidok_cognome</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>patidok_nome</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>patidok_sesso</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>patidok_cf</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>patidok_matricola</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>patidok_luogo_nasc_cod</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>patidok_luogo_nasc_des</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>patidok_com_res_cod</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>patidok_indirizzo</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>patidok_regione</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>metodo</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>searchable_name</name>
+        <type>String</type>
+        <format/>
+      </field>
+    </fields>
+    <custom>
+      <header_font_name>arial</header_font_name>
+      <header_font_size>10</header_font_size>
+      <header_font_bold>N</header_font_bold>
+      <header_font_italic>N</header_font_italic>
+      <header_font_underline>no</header_font_underline>
+      <header_font_orientation>horizontal</header_font_orientation>
+      <header_font_color>black</header_font_color>
+      <header_background_color>none</header_background_color>
+      <header_row_height>255</header_row_height>
+      <header_alignment>left</header_alignment>
+      <header_image/>
+      <row_font_name>arial</row_font_name>
+      <row_font_size>10</row_font_size>
+      <row_font_color>black</row_font_color>
+      <row_background_color>none</row_background_color>
+    </custom>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1271</xloc>
+      <yloc>204</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Replace in string 2</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>cognome_nome</in_stream_name>
+        <out_stream_name>searchable_name</out_stream_name>
+        <use_regex>no</use_regex>
+        <replace_string> </replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>103</xloc>
+      <yloc>206</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select and ChangeType</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>id</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cognome_nome</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cod_fisc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>indirizzo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>searchable_name</name>
+        <rename/>
+      </field>
+      <field>
+        <name>patidok_id</name>
+        <rename/>
+      </field>
+      <field>
+        <name>patidok_data_nascita</name>
+        <rename/>
+      </field>
+      <field>
+        <name>patidok_cognome</name>
+        <rename/>
+      </field>
+      <field>
+        <name>patidok_nome</name>
+        <rename/>
+      </field>
+      <field>
+        <name>patidok_sesso</name>
+        <rename/>
+      </field>
+      <field>
+        <name>patidok_cf</name>
+        <rename/>
+      </field>
+      <field>
+        <name>patidok_matricola</name>
+        <rename/>
+      </field>
+      <field>
+        <name>patidok_luogo_nasc_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>patidok_luogo_nasc_des</name>
+        <rename/>
+      </field>
+      <field>
+        <name>patidok_com_res_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>patidok_indirizzo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>patidok_regione</name>
+        <rename/>
+      </field>
+      <field>
+        <name>metodo</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>patidok_data_nascita</name>
+        <rename>patidok_data_nascita</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd-MM-yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1009</xloc>
+      <yloc>204</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>N. PN</name>
+        <rename>id</rename>
+      </field>
+      <field>
+        <name>Descrizione Forn/Clie</name>
+        <rename>cognome_nome</rename>
+      </field>
+      <field>
+        <name>CodFis</name>
+        <rename>cod_fisc</rename>
+      </field>
+      <field>
+        <name>Indirizzo</name>
+        <rename>indirizzo</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>102</xloc>
+      <yloc>129</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>metodo</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>739</xloc>
+      <yloc>204</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Split fields</name>
+    <type>FieldSplitter</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <splitfield>searchable_name</splitfield>
+    <delimiter>c/o</delimiter>
+    <enclosure/>
+    <fields>
+      <field>
+        <name>searchable_name</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+      <field>
+        <name>presso</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>331</xloc>
+      <yloc>206</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>String operations</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>searchable_name</in_stream_name>
+        <out_stream_name/>
+        <trim_type/>
+        <lower_upper>minuscolo</lower_upper>
+        <padding_type/>
+        <pad_char/>
+        <pad_len/>
+        <init_cap/>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>213</xloc>
+      <yloc>206</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Strings cut</name>
+    <type>StringCut</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>cognome_nome</in_stream_name>
+        <out_stream_name>iniziali_cognome</out_stream_name>
+        <cut_from>0</cut_from>
+        <cut_to>4</cut_to>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>102</xloc>
+      <yloc>427</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique rows</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>id</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>837</xloc>
+      <yloc>204</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>_TXT_e_XLS\fatture_gef.xlsx</name>
+    <type>ExcelInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>N</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield/>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
+    <limit>0</limit>
+    <encoding/>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+    <file>
+      <name>${_Base_Path}\_TXT_e_XLS\fatture_gef.xlsx</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>N. PN</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format>########</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Descrizione Forn/Clie</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>CodFis</name>
+        <type>String</type>
+        <length>16</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Indirizzo</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+    </fields>
+    <sheets>
+      <sheet>
+        <name>Foglio1</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>N</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <spreadsheet_type>POI</spreadsheet_type>
+    <password>Encrypted </password>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>100</xloc>
+      <yloc>27</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
