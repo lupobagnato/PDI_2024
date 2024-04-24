@@ -1,5 +1,5 @@
 <job>
-  <name>Esegui_HSP24_tutti</name>
+  <name>HSP24_Fps_file</name>
   <description/>
   <extended_description/>
   <job_version/>
@@ -8,7 +8,7 @@
   <created_user>admin</created_user>
   <created_date>2008/11/25 16:18:10.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2024/04/16 13:52:27.653</modified_date>
+  <modified_date>2024/04/16 12:07:57.696</modified_date>
   <parameters>
     <parameter>
       <name>YYYY</name>
@@ -1298,53 +1298,35 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   <shared_objects_file/>
   <entries>
     <entry>
-      <name>START</name>
-      <description>Special entries</description>
-      <type>SPECIAL</type>
-      <attributes/>
-      <start>Y</start>
-      <dummy>N</dummy>
-      <repeat>N</repeat>
-      <schedulerType>0</schedulerType>
-      <intervalSeconds>0</intervalSeconds>
-      <intervalMinutes>60</intervalMinutes>
-      <hour>12</hour>
-      <minutes>0</minutes>
-      <weekDay>1</weekDay>
-      <DayOfMonth>1</DayOfMonth>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>28</xloc>
-      <yloc>123</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>HSP24_Fps_file</name>
-      <description>Job</description>
-      <type>JOB</type>
+      <name>HSP24_Fps_export</name>
+      <description>Transformation</description>
+      <type>TRANS</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id/>
+      <trans_object_id/>
       <filename/>
-      <jobname>HSP24_Fps_file</jobname>
+      <transname>HSP24_Fps_export</transname>
       <directory>/NSIS</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
+      <cluster>N</cluster>
       <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
+      <logging_remote_work>N</logging_remote_work>
       <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
@@ -1368,40 +1350,43 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
           <value>${s_MM}</value>
         </parameter>
       </parameters>
-      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>326</xloc>
-      <yloc>123</yloc>
+      <xloc>485</xloc>
+      <yloc>145</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>HSP24_Gso_file</name>
-      <description>Job</description>
-      <type>JOB</type>
+      <name>HSP24_Fps_load</name>
+      <description>Transformation</description>
+      <type>TRANS</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
-      <job_object_id/>
+      <trans_object_id/>
       <filename/>
-      <jobname>HSP24_Gso_file</jobname>
+      <transname>HSP24_Fps_load</transname>
       <directory>/NSIS</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
+      <cluster>N</cluster>
       <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
+      <logging_remote_work>N</logging_remote_work>
       <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
@@ -1415,22 +1400,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
           <value>${e_MM}</value>
         </parameter>
         <parameter>
-          <name>nsis_out</name>
-          <stream_name/>
-          <value>${nsis_out}</value>
-        </parameter>
-        <parameter>
           <name>s_MM</name>
           <stream_name/>
           <value>${s_MM}</value>
         </parameter>
       </parameters>
-      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>436</xloc>
-      <yloc>123</yloc>
+      <xloc>355</xloc>
+      <yloc>145</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1466,15 +1445,37 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>153</xloc>
-      <yloc>123</yloc>
+      <xloc>114</xloc>
+      <yloc>145</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>START</name>
+      <description>Special entries</description>
+      <type>SPECIAL</type>
+      <attributes/>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>25</xloc>
+      <yloc>40</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>HSP24_Fps_file</from>
-      <to>HSP24_Gso_file</to>
+      <from>HSP24_Fps_load</from>
+      <to>HSP24_Fps_export</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1492,7 +1493,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>Log_Parameters</from>
-      <to>HSP24_Fps_file</to>
+      <to>HSP24_Fps_load</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1502,5 +1503,20 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </hops>
   <notepads>
   </notepads>
-  <attributes/>
+  <attributes>
+    <group>
+      <name>METASTORE.pentaho</name>
+      <attribute>
+        <key>Default Run Configuration</key>
+        <value>{"namespace":"pentaho","id":"Default Run Configuration","name":"Default Run Configuration","description":"Defines a default run configuration","metaStoreName":null}</value>
+      </attribute>
+    </group>
+    <group>
+      <name>{"_":"Embedded MetaStore Elements","namespace":"pentaho","type":"Default Run Configuration"}</name>
+      <attribute>
+        <key>Pentaho local</key>
+        <value>{"children":[{"children":[],"id":"server","value":null},{"children":[],"id":"clustered","value":"N"},{"children":[],"id":"name","value":"Pentaho local"},{"children":[],"id":"description","value":null},{"children":[],"id":"readOnly","value":"Y"},{"children":[],"id":"sendResources","value":"N"},{"children":[],"id":"logRemoteExecutionLocally","value":"N"},{"children":[],"id":"remote","value":"N"},{"children":[],"id":"local","value":"Y"},{"children":[],"id":"showTransformations","value":"N"}],"id":"Pentaho local","value":null,"name":"Pentaho local","owner":null,"ownerPermissionsList":[]}</value>
+      </attribute>
+    </group>
+  </attributes>
 </job>

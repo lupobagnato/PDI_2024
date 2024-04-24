@@ -1,5 +1,5 @@
 <job>
-  <name>Esegui_HSP24_tutti</name>
+  <name>Conferma_HSP24_tutti_2023</name>
   <description/>
   <extended_description/>
   <job_version/>
@@ -8,26 +8,21 @@
   <created_user>admin</created_user>
   <created_date>2008/11/25 16:18:10.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2024/04/16 13:52:27.653</modified_date>
+  <modified_date>2024/04/16 13:46:35.248</modified_date>
   <parameters>
     <parameter>
       <name>YYYY</name>
-      <default_value>2024</default_value>
+      <default_value>2019</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>e_MM</name>
-      <default_value>03</default_value>
+      <default_value>09</default_value>
       <description/>
     </parameter>
     <parameter>
-      <name>nsis_out</name>
-      <default_value>${_Base_Path}/NSIS_out</default_value>
-      <description>dove si scrive TXT</description>
-    </parameter>
-    <parameter>
       <name>s_MM</name>
-      <default_value>01</default_value>
+      <default_value>07</default_value>
       <description/>
     </parameter>
   </parameters>
@@ -1298,6 +1293,58 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   <shared_objects_file/>
   <entries>
     <entry>
+      <name>HSP24F_conferma</name>
+      <description>Job</description>
+      <type>JOB</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <job_object_id/>
+      <filename/>
+      <jobname>HSP24F_conferma</jobname>
+      <directory>/NSIS</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration/>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>YYYY</name>
+          <stream_name/>
+          <value>${YYYY}</value>
+        </parameter>
+        <parameter>
+          <name>e_MM</name>
+          <stream_name/>
+          <value>${e_MM}</value>
+        </parameter>
+        <parameter>
+          <name>s_MM</name>
+          <stream_name/>
+          <value>${s_MM}</value>
+        </parameter>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>260</xloc>
+      <yloc>149</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
       <name>START</name>
       <description>Special entries</description>
       <type>SPECIAL</type>
@@ -1315,19 +1362,19 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>28</xloc>
-      <yloc>123</yloc>
+      <xloc>23</xloc>
+      <yloc>35</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>HSP24_Fps_file</name>
+      <name>HSP24G_conferma</name>
       <description>Job</description>
       <type>JOB</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
       <job_object_id/>
       <filename/>
-      <jobname>HSP24_Fps_file</jobname>
+      <jobname>HSP24G_conferma</jobname>
       <directory>/NSIS</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -1344,7 +1391,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
-      <run_configuration>Pentaho local</run_configuration>
+      <run_configuration/>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
@@ -1358,11 +1405,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
           <value>${e_MM}</value>
         </parameter>
         <parameter>
-          <name>nsis_out</name>
-          <stream_name/>
-          <value>${nsis_out}</value>
-        </parameter>
-        <parameter>
           <name>s_MM</name>
           <stream_name/>
           <value>${s_MM}</value>
@@ -1372,19 +1414,19 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>326</xloc>
-      <yloc>123</yloc>
+      <xloc>424</xloc>
+      <yloc>149</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>HSP24_Gso_file</name>
+      <name>HSP24H_conferma</name>
       <description>Job</description>
       <type>JOB</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
       <job_object_id/>
       <filename/>
-      <jobname>HSP24_Gso_file</jobname>
+      <jobname>HSP24H_conferma</jobname>
       <directory>/NSIS</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -1401,7 +1443,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
       <pass_export>N</pass_export>
-      <run_configuration>Pentaho local</run_configuration>
+      <run_configuration/>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
@@ -1415,9 +1457,56 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
           <value>${e_MM}</value>
         </parameter>
         <parameter>
-          <name>nsis_out</name>
+          <name>s_MM</name>
           <stream_name/>
-          <value>${nsis_out}</value>
+          <value>${s_MM}</value>
+        </parameter>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>588</xloc>
+      <yloc>149</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>HSP24I_conferma</name>
+      <description>Job</description>
+      <type>JOB</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <job_object_id/>
+      <filename/>
+      <jobname>HSP24I_conferma</jobname>
+      <directory>/NSIS</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration/>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>YYYY</name>
+          <stream_name/>
+          <value>${YYYY}</value>
+        </parameter>
+        <parameter>
+          <name>e_MM</name>
+          <stream_name/>
+          <value>${e_MM}</value>
         </parameter>
         <parameter>
           <name>s_MM</name>
@@ -1429,8 +1518,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>436</xloc>
-      <yloc>123</yloc>
+      <xloc>752</xloc>
+      <yloc>149</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1466,15 +1555,33 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>153</xloc>
-      <yloc>123</yloc>
+      <xloc>144</xloc>
+      <yloc>34</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>HSP24_Fps_file</from>
-      <to>HSP24_Gso_file</to>
+      <from>HSP24F_conferma</from>
+      <to>HSP24G_conferma</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>HSP24G_conferma</from>
+      <to>HSP24H_conferma</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>HSP24H_conferma</from>
+      <to>HSP24I_conferma</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1492,12 +1599,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>Log_Parameters</from>
-      <to>HSP24_Fps_file</to>
+      <to>HSP24F_conferma</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>
