@@ -8,7 +8,7 @@
   <created_user>admin</created_user>
   <created_date>2008/11/25 16:18:10.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2024/04/29 14:33:45.769</modified_date>
+  <modified_date>2024/04/29 17:11:20.668</modified_date>
   <parameters>
     <parameter>
       <name>YYYY</name>
@@ -1329,13 +1329,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <arg_from_previous>N</arg_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>Y</set_logfile>
-      <logfile>${nsis_out}/shel_log</logfile>
+      <logfile>${nsis_out}/shell_log</logfile>
       <set_append_logfile>Y</set_append_logfile>
       <logext>txt</logext>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <insertScript>Y</insertScript>
-      <script>copy "gvmHSP24Fps_${YYYY} da ${s_MM} a ${e_MM}".txt  + "modHSP24Fps_${YYYY} da ${s_MM} a ${e_MM}".txt  HSP24fPS.TXT /b</script>
+      <script>copy "gvmHSP24Fps_${YYYY} da ${s_MM} a ${e_MM}".txt  + "modHSP24Fps_${YYYY} da ${s_MM} a ${e_MM}".txt  modHSP24Fps.TXT /b</script>
       <loglevel>Basic</loglevel>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -1467,13 +1467,13 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <arg_from_previous>N</arg_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>Y</set_logfile>
-      <logfile>${nsis_out}/shel_log</logfile>
+      <logfile>${nsis_out}/shell_log</logfile>
       <set_append_logfile>Y</set_append_logfile>
       <logext>txt</logext>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <insertScript>Y</insertScript>
-      <script>cat "gvmHSP24Fps_${YYYY} da ${s_MM} a ${e_MM}".txt  "modHSP24Fps_${YYYY} da ${s_MM} a ${e_MM}".txt  > HSP24fPS.TXT 
+      <script>cat "gvmHSP24Fps_${YYYY} da ${s_MM} a ${e_MM}".txt  "modHSP24Fps_${YYYY} da ${s_MM} a ${e_MM}".txt  > modHSP24Fps.TXT 
 </script>
       <loglevel>Basic</loglevel>
       <parallel>N</parallel>
