@@ -15,8 +15,8 @@
       </parameter>
       <parameter>
         <name>path_nsis</name>
-        <default_value>\\minollo\kettle\Input\NSIS</default_value>
-        <description>dove si trovano gli xls in input e dove si scrivono txt e xls scartati </description>
+        <default_value>${_Base_Path}/Input/NSIS</default_value>
+        <description>dove si legge XLS e scrive TXT</description>
       </parameter>
     </parameters>
     <log>
@@ -57,7 +57,7 @@
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject>Microsoft Excel Input</subject>
+          <subject>Microsoft Excel Writer</subject>
         </field>
         <field>
           <id>LINES_UPDATED</id>
@@ -69,7 +69,7 @@
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
+          <subject>Microsoft Excel Input</subject>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
@@ -120,17 +120,17 @@
         </field>
         <field>
           <id>EXECUTING_SERVER</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>EXECUTING_SERVER</name>
         </field>
         <field>
           <id>EXECUTING_USER</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>EXECUTING_USER</name>
         </field>
         <field>
           <id>CLIENT</id>
-          <enabled>N</enabled>
+          <enabled>Y</enabled>
           <name>CLIENT</name>
         </field>
       </trans-log-table>
@@ -930,7 +930,7 @@
     <created_user>-</created_user>
     <created_date>2011/10/26 12:51:28.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2024/04/29 16:12:56.845</modified_date>
+    <modified_date>2024/05/13 17:18:08.366</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -2614,7 +2614,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
+        <format>#</format>
         <currency/>
         <decimal/>
         <group/>
@@ -2870,6 +2870,46 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
+    <name>Sub_Cod null is 00</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>SUB_COD</name>
+        <value>00</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>116</xloc>
+      <yloc>278</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>modHSP14</name>
     <type>InsertUpdate</type>
     <description/>
@@ -2974,46 +3014,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <GUI>
       <xloc>116</xloc>
       <yloc>394</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sub_Cod null is 00</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <replaceAllByValue/>
-    <replaceAllMask/>
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>SUB_COD</name>
-        <value>00</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>116</xloc>
-      <yloc>278</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

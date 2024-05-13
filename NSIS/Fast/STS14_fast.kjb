@@ -8,8 +8,13 @@
   <created_user>admin</created_user>
   <created_date>2008/11/25 16:18:10.000</created_date>
   <modified_user>admin</modified_user>
-  <modified_date>2022/04/27 10:27:40.264</modified_date>
+  <modified_date>2024/04/30 15:10:49.498</modified_date>
   <parameters>
+    <parameter>
+      <name>YYYY</name>
+      <default_value>2024</default_value>
+      <description/>
+    </parameter>
     <parameter>
       <name>path_nsis</name>
       <default_value>${_Base_Path}/Input/NSIS</default_value>
@@ -932,6 +937,69 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </attribute>
       <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>mysql Terminus</name>
+    <server>10.98.1.195</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>BUTTO</database>
+    <port>3306</port>
+    <username>Apps</username>
+    <password>Encrypted 2be98af891af79eada838ba59d1bce48b</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
         <attribute>Y</attribute>
       </attribute>
       <attribute>
@@ -2108,33 +2176,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <nr>0</nr>
       <xloc>25</xloc>
       <yloc>24</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Param_2_Var</name>
-      <description/>
-      <type>SET_VARIABLES</type>
-      <attributes/>
-      <replacevars>Y</replacevars>
-      <filename/>
-      <file_variable_type>JVM</file_variable_type>
-      <fields>
-        <field>
-          <variable_name>YYYY</variable_name>
-          <variable_value>${PARAMETER1}</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>path_nsis</variable_name>
-          <variable_value>${PARAMETER2}</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>167</xloc>
-      <yloc>128</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
