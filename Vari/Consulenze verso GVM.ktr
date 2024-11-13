@@ -1,19 +1,29 @@
 <transformation>
   <info>
-    <name>import_UVMO_02</name>
+    <name>Consulenze verso GVM</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/</directory>
+    <directory>/Vari</directory>
     <parameters>
+      <parameter>
+        <name>from_DDMMYYYY</name>
+        <default_value>16092024</default_value>
+        <description/>
+      </parameter>
+      <parameter>
+        <name>to_DDMMYYYY</name>
+        <default_value>31102024</default_value>
+        <description/>
+      </parameter>
     </parameters>
     <log>
       <trans-log-table>
-        <connection>${_LogDb}</connection>
-        <schema>${_LogSchema}</schema>
-        <table>${_LogTrans}</table>
+        <connection/>
+        <schema/>
+        <table/>
         <size_limit_lines/>
         <interval/>
         <timeout_days/>
@@ -53,19 +63,19 @@
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject>ins_upd UVMO</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject>UVMO_buffer</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject>ins_upd UVMO</subject>
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -110,17 +120,17 @@
         </field>
         <field>
           <id>EXECUTING_SERVER</id>
-          <enabled>Y</enabled>
+          <enabled>N</enabled>
           <name>EXECUTING_SERVER</name>
         </field>
         <field>
           <id>EXECUTING_USER</id>
-          <enabled>Y</enabled>
+          <enabled>N</enabled>
           <name>EXECUTING_USER</name>
         </field>
         <field>
           <id>CLIENT</id>
-          <enabled>Y</enabled>
+          <enabled>N</enabled>
           <name>CLIENT</name>
         </field>
       </trans-log-table>
@@ -889,8 +899,8 @@
         <dynamic>N</dynamic>
         <slaveservers>
           <name>localhost:8080:Master</name>
-          <name>localhost:8082</name>
           <name>localhost:8081</name>
+          <name>localhost:8082</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -901,9 +911,9 @@
         <sockets_compressed>Y</sockets_compressed>
         <dynamic>N</dynamic>
         <slaveservers>
-          <name>sam 8081 slave</name>
           <name>sam 8082 slave</name>
           <name>sam 8080</name>
+          <name>sam 8081 slave</name>
         </slaveservers>
       </clusterschema>
       <clusterschema>
@@ -918,29 +928,32 @@
       </clusterschema>
     </clusterschemas>
     <created_user/>
-    <created_date>2019/09/16 11:46:27.596</created_date>
+    <created_date>2019/09/16 11:46:17.035</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2022/07/13 11:28:23.582</modified_date>
+    <modified_date>2024/11/13 12:20:11.869</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>19.02.2019
-${_LogTmpTrans} --> ${_LogTrans}</note>
-      <xloc>349</xloc>
-      <yloc>6</yloc>
-      <width>184</width>
-      <heigth>36</heigth>
+      <note>- ignore errors
+ignora l'errore, ma mantiene la riga che lo contiene
+(Null nei campi che contengono errori)
+- skip errors
+esclude dall'output le righe che contengono un errore</note>
+      <xloc>408</xloc>
+      <yloc>19</yloc>
+      <width>315</width>
+      <heigth>85</heigth>
       <fontname>Arial</fontname>
-      <fontsize>8</fontsize>
+      <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
       <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
@@ -1132,12 +1145,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 </attribute>
       </attribute>
       <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
+        <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -1200,12 +1217,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 </attribute>
       </attribute>
       <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
+        <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -1271,12 +1292,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 </attribute>
       </attribute>
       <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
+        <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -1407,6 +1432,69 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </attributes>
   </connection>
   <connection>
+    <name>mysql Terminus</name>
+    <server>10.98.1.195</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>BUTTO</database>
+    <port>3306</port>
+    <username>Apps</username>
+    <password>Encrypted 2be98af891af79eada838ba59d1bce48b</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>Patidok</name>
     <server>svc_sio</server>
     <type>ORACLE</type>
@@ -1460,6 +1548,10 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 </attribute>
       </attribute>
       <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
       </attribute>
@@ -1475,13 +1567,583 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
   </connection>
   <order>
     <hop>
-      <from>UVMO_buffer</from>
-      <to>ins_upd UVMO</to>
+      <from>v_consulenze_gvm_PRST</from>
+      <to>Stream lookup</to>
       <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Microsoft Excel output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Microsoft Excel Input</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>v_consulenze_gvm_PRST</from>
+      <to>Select values</to>
+      <enabled>N</enabled>
     </hop>
   </order>
   <step>
-    <name>UVMO_buffer</name>
+    <name>Microsoft Excel Input</name>
+    <type>ExcelInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <noempty>N</noempty>
+    <stoponempty>N</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield>riga_cartaceo</sheetrownumfield>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
+    <limit>0</limit>
+    <encoding/>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+    <file>
+      <name>C:\_NextDel\__ out __\consulenze GVM da Patidok.xls</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>COGNOME</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>NOME</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>DT_NASCITA</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>COD_FISCALE</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>NR_CASO</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>CDC_EROGANTE</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>DESC_CDC_EROGANTE</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>DT_GENERAZIONERICHIESTA</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>DT_ORDINE</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>PROGR_ORDINE</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>PRST</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>DESCR_PRST</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>STATO_ORDINE</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>STATO_PREST</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>INFO_PRST</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+    </fields>
+    <sheets>
+      <sheet>
+        <name>Sheet1</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>Y</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <spreadsheet_type>JXL</spreadsheet_type>
+    <password>Encrypted </password>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>311</xloc>
+      <yloc>26</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Microsoft Excel output</name>
+    <type>ExcelOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <encoding/>
+    <append>N</append>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>C:\_NextDel\__ out __\Consulenze verso GVM ${from_DDMMYYYY}-${to_DDMMYYYY}</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <create_parent_folder>N</create_parent_folder>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>Y</autosizecolums>
+      <nullisblank>N</nullisblank>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <splitevery>0</splitevery>
+      <usetempfiles>N</usetempfiles>
+      <tempdirectory/>
+    </file>
+    <template>
+      <enabled>N</enabled>
+      <append>N</append>
+      <filename>template.xls</filename>
+    </template>
+    <fields>
+      <field>
+        <name>COGNOME</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>NOME</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>DT_NASCITA</name>
+        <type>Timestamp</type>
+        <format/>
+      </field>
+      <field>
+        <name>COD_FISCALE</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>NR_CASO</name>
+        <type>Number</type>
+        <format>0000000000</format>
+      </field>
+      <field>
+        <name>CDC_EROGANTE</name>
+        <type>BigNumber</type>
+        <format>0000</format>
+      </field>
+      <field>
+        <name>DESC_CDC_EROGANTE</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>DT_GENERAZIONERICHIESTA</name>
+        <type>Timestamp</type>
+        <format/>
+      </field>
+      <field>
+        <name>DT_ORDINE</name>
+        <type>Timestamp</type>
+        <format/>
+      </field>
+      <field>
+        <name>PROGR_ORDINE</name>
+        <type>BigNumber</type>
+        <format>###</format>
+      </field>
+      <field>
+        <name>PRST</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>DESCR_PRST</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>STATO_ORDINE</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>STATO_PREST</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>INFO_PRST</name>
+        <type>String</type>
+        <format/>
+      </field>
+      <field>
+        <name>riga_cartaceo</name>
+        <type>Integer</type>
+        <format>####0</format>
+      </field>
+    </fields>
+    <custom>
+      <header_font_name>arial</header_font_name>
+      <header_font_size>10</header_font_size>
+      <header_font_bold>Y</header_font_bold>
+      <header_font_italic>N</header_font_italic>
+      <header_font_underline>no</header_font_underline>
+      <header_font_orientation>horizontal</header_font_orientation>
+      <header_font_color>white</header_font_color>
+      <header_background_color>blue</header_background_color>
+      <header_row_height>255</header_row_height>
+      <header_alignment>left</header_alignment>
+      <header_image/>
+      <row_font_name>arial</row_font_name>
+      <row_font_size>10</row_font_size>
+      <row_font_color>black</row_font_color>
+      <row_background_color>none</row_background_color>
+    </custom>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>779</xloc>
+      <yloc>214</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>DT_NASCITA</name>
+        <rename>DT_NASCITA</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd/MM/yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>DT_GENERAZIONERICHIESTA</name>
+        <rename>DT_GENERAZIONERICHIESTA</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd/MM/yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>DT_ORDINE</name>
+        <rename>DT_ORDINE</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd/MM/yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>DATA_EROGAZIONE</name>
+        <rename>DATA_EROGAZIONE</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd/MM/yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>568</xloc>
+      <yloc>213</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Microsoft Excel Input</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>NR_CASO</name>
+        <field>NR_CASO</field>
+      </key>
+      <key>
+        <name>PRST</name>
+        <field>PRST</field>
+      </key>
+      <value>
+        <name>riga_cartaceo</name>
+        <rename>riga_cartaceo</rename>
+        <default/>
+        <type>None</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>312</xloc>
+      <yloc>124</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>v_consulenze_gvm_PRST</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1491,133 +2153,33 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db_sopra</connection>
-    <sql>SELECT
-  ID_CASO
-, EROGATORE_COD
-, EROGATORE_DES
-, COGNOME
-, NOME
-, DATA_NASCITA
-, ESITO
-, DATA_CHIUSURA
-, BRASS
-, SESSO
-, COD_FISC
-, TIPO_CASO
-, RICHIEDENTE_COD
-, RICHIEDENTE_DES
-, DATA_ORDINE
-, RESIDENZA_COD
-, RESIDENZA_DES
-, DOMICILIO_COD
-, DOMICILIO_DES
-, DISTRETTO
-, DATA_INGRESSO
-, DATA_DIMISSIONE
-, DATA_PREST
-, AGED_DTVALUTAZIONE
-, AGED_MOTIVO_VAL
-, AGED_PUNTEGGIO
-, AGED_PUNTI_NUMERICO
-, AGED_DATA_COMPILAZIONE
-, AGED_MED_AGED_COGNOME
-, AGED_MED_AGED_NOME
-, RIGA
-, NOME_FILE
-, DATA_VAL_SOC
-, PUNTI_SOC_NUMERICO
-, PUNTI_SOC_TESTO
-, ASSISTENTE_SOC
-, DATA_CARICO_SOC
-, DATA_PROBL_SOC
-, DATA_INVIO_COMUNE
-, data_segn_protesica
-FROM UVMO_BUFFER
+    <connection>Patidok</connection>
+    <sql>SELECT 
+x.* , trunc(dt_ordine) data_erogazione
+FROM v_consulenze_gvm_prst x
+where
+trunc(dt_ordine) between to_date(${from_DDMMYYYY},'DDMMYYYY') and to_date(${to_DDMMYYYY}, 'DDMMYYYY')
+order by
+cod_fiscale
+, dt_ordine
+, prst
+, cdc_erogante
+
 </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>ID_CASO</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>ID_CASO</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>EROGATORE_COD</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>EROGATORE_COD</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>EROGATORE_DES</name>
-        <length>150</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>EROGATORE_DES</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>COGNOME</name>
         <length>80</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
+        <origin>v_consulenze_gvm_PRST</origin>
         <comments>COGNOME</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1630,7 +2192,7 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -1640,7 +2202,7 @@ FROM UVMO_BUFFER
         <name>NOME</name>
         <length>80</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
+        <origin>v_consulenze_gvm_PRST</origin>
         <comments>NOME</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -1653,18 +2215,18 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>Timestamp</type>
         <storagetype>normal</storagetype>
-        <name>DATA_NASCITA</name>
+        <name>DT_NASCITA</name>
         <length>0</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DATA_NASCITA</comments>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>DT_NASCITA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1676,110 +2238,18 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>ESITO</name>
-        <length>38</length>
-        <precision>0</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>ESITO</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_CHIUSURA</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DATA_CHIUSURA</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>BRASS</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>BRASS</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>SESSO</name>
-        <length>1</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>SESSO</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COD_FISC</name>
+        <name>COD_FISCALE</name>
         <length>20</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>COD_FISC</comments>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>COD_FISCALE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1791,21 +2261,44 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>String</type>
+        <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>TIPO_CASO</name>
-        <length>46</length>
+        <name>NR_CASO</name>
+        <length>12</length>
+        <precision>2</precision>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>NR_CASO</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>CDC_EROGANTE</name>
+        <length>-1</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>TIPO_CASO</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>CDC_EROGANTE</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -1814,41 +2307,18 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>RICHIEDENTE_COD</name>
-        <length>5</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>RICHIEDENTE_COD</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>RICHIEDENTE_DES</name>
+        <name>DESC_CDC_EROGANTE</name>
         <length>150</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>RICHIEDENTE_DES</comments>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>DESC_CDC_EROGANTE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1860,18 +2330,18 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>Timestamp</type>
         <storagetype>normal</storagetype>
-        <name>DATA_ORDINE</name>
+        <name>DT_GENERAZIONERICHIESTA</name>
         <length>0</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DATA_ORDINE</comments>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>DT_GENERAZIONERICHIESTA</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1883,133 +2353,18 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>RESIDENZA_COD</name>
-        <length>6</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>RESIDENZA_COD</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>RESIDENZA_DES</name>
-        <length>500</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>RESIDENZA_DES</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>DOMICILIO_COD</name>
-        <length>6</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DOMICILIO_COD</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>DOMICILIO_DES</name>
-        <length>500</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DOMICILIO_DES</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>DISTRETTO</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DISTRETTO</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>Timestamp</type>
         <storagetype>normal</storagetype>
-        <name>DATA_INGRESSO</name>
+        <name>DT_ORDINE</name>
         <length>0</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DATA_INGRESSO</comments>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>DT_ORDINE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2021,133 +2376,18 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_DIMISSIONE</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DATA_DIMISSIONE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_PREST</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DATA_PREST</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>AGED_DTVALUTAZIONE</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>AGED_DTVALUTAZIONE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>AGED_MOTIVO_VAL</name>
-        <length>245</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>AGED_MOTIVO_VAL</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>AGED_PUNTEGGIO</name>
-        <length>10</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>AGED_PUNTEGGIO</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>AGED_PUNTI_NUMERICO</name>
+        <name>PROGR_ORDINE</name>
         <length>-1</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>AGED_PUNTI_NUMERICO</comments>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>PROGR_ORDINE</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -2159,41 +2399,18 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>AGED_DATA_COMPILAZIONE</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>AGED_DATA_COMPILAZIONE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>AGED_MED_AGED_COGNOME</name>
-        <length>100</length>
+        <name>PRST</name>
+        <length>80</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>AGED_MED_AGED_COGNOME</comments>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>PRST</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2205,18 +2422,18 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>AGED_MED_AGED_NOME</name>
-        <length>100</length>
+        <name>DESCR_PRST</name>
+        <length>3500</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>AGED_MED_AGED_NOME</comments>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>DESCR_PRST</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2228,41 +2445,18 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>RIGA</name>
-        <length>38</length>
-        <precision>0</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>RIGA</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>NOME_FILE</name>
-        <length>100</length>
+        <name>STATO_ORDINE</name>
+        <length>80</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>NOME_FILE</comments>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>STATO_ORDINE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2274,64 +2468,18 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_VAL_SOC</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DATA_VAL_SOC</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>PUNTI_SOC_NUMERICO</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>PUNTI_SOC_NUMERICO</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>PUNTI_SOC_TESTO</name>
-        <length>6</length>
+        <name>STATO_PREST</name>
+        <length>80</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>PUNTI_SOC_TESTO</comments>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>STATO_PREST</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2343,18 +2491,18 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>ASSISTENTE_SOC</name>
-        <length>100</length>
+        <name>INFO_PRST</name>
+        <length>3500</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>ASSISTENTE_SOC</comments>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>INFO_PRST</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2366,18 +2514,18 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
         <type>Timestamp</type>
         <storagetype>normal</storagetype>
-        <name>DATA_CARICO_SOC</name>
+        <name>DATA_EROGAZIONE</name>
         <length>0</length>
         <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DATA_CARICO_SOC</comments>
+        <origin>v_consulenze_gvm_PRST</origin>
+        <comments>DATA_EROGAZIONE</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2389,76 +2537,7 @@ FROM UVMO_BUFFER
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_PROBL_SOC</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DATA_PROBL_SOC</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_INVIO_COMUNE</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DATA_INVIO_COMUNE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
-        <date_format_timezone>Europe/Berlin</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>DATA_SEGN_PROTESICA</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>UVMO_buffer</origin>
-        <comments>DATA_SEGN_PROTESICA</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>it_IT</date_format_locale>
+        <date_format_locale>en_US</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2472,252 +2551,8 @@ FROM UVMO_BUFFER
       </output>
     </remotesteps>
     <GUI>
-      <xloc>157</xloc>
-      <yloc>62</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ins_upd UVMO</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>UVMO</table>
-      <key>
-        <name>ID_CASO</name>
-        <field>ID_CASO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>EROGATORE_COD</name>
-        <field>EROGATORE_COD</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>ID_CASO</name>
-        <rename>ID_CASO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>EROGATORE_COD</name>
-        <rename>EROGATORE_COD</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>EROGATORE_DES</name>
-        <rename>EROGATORE_DES</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COGNOME</name>
-        <rename>COGNOME</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NOME</name>
-        <rename>NOME</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_NASCITA</name>
-        <rename>DATA_NASCITA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ESITO</name>
-        <rename>ESITO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_CHIUSURA</name>
-        <rename>DATA_CHIUSURA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>BRASS</name>
-        <rename>BRASS</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>SESSO</name>
-        <rename>SESSO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>COD_FISC</name>
-        <rename>COD_FISC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TIPO_CASO</name>
-        <rename>TIPO_CASO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>RICHIEDENTE_COD</name>
-        <rename>RICHIEDENTE_COD</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>RICHIEDENTE_DES</name>
-        <rename>RICHIEDENTE_DES</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_ORDINE</name>
-        <rename>DATA_ORDINE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>RESIDENZA_COD</name>
-        <rename>RESIDENZA_COD</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>RESIDENZA_DES</name>
-        <rename>RESIDENZA_DES</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DOMICILIO_COD</name>
-        <rename>DOMICILIO_COD</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DOMICILIO_DES</name>
-        <rename>DOMICILIO_DES</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DISTRETTO</name>
-        <rename>DISTRETTO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_INGRESSO</name>
-        <rename>DATA_INGRESSO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_DIMISSIONE</name>
-        <rename>DATA_DIMISSIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_PREST</name>
-        <rename>DATA_PREST</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>AGED_DTVALUTAZIONE</name>
-        <rename>AGED_DTVALUTAZIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>AGED_MOTIVO_VAL</name>
-        <rename>AGED_MOTIVO_VAL</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>AGED_PUNTEGGIO</name>
-        <rename>AGED_PUNTEGGIO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>AGED_PUNTI_NUMERICO</name>
-        <rename>AGED_PUNTI_NUMERICO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>AGED_DATA_COMPILAZIONE</name>
-        <rename>AGED_DATA_COMPILAZIONE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>AGED_MED_AGED_COGNOME</name>
-        <rename>AGED_MED_AGED_COGNOME</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>AGED_MED_AGED_NOME</name>
-        <rename>AGED_MED_AGED_NOME</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>RIGA</name>
-        <rename>RIGA</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NOME_FILE</name>
-        <rename>NOME_FILE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_VAL_SOC</name>
-        <rename>DATA_VAL_SOC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PUNTI_SOC_NUMERICO</name>
-        <rename>PUNTI_SOC_NUMERICO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PUNTI_SOC_TESTO</name>
-        <rename>PUNTI_SOC_TESTO</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ASSISTENTE_SOC</name>
-        <rename>ASSISTENTE_SOC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_CARICO_SOC</name>
-        <rename>DATA_CARICO_SOC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_PROBL_SOC</name>
-        <rename>DATA_PROBL_SOC</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_INVIO_COMUNE</name>
-        <rename>DATA_INVIO_COMUNE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>DATA_SEGN_PROTESICA</name>
-        <rename>DATA_SEGN_PROTESICA</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>157</xloc>
-      <yloc>255</yloc>
+      <xloc>152</xloc>
+      <yloc>213</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
