@@ -920,7 +920,7 @@
     <created_user>admin</created_user>
     <created_date>2015/03/02 10:16:36.000</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2024/02/06 14:12:59.362</modified_date>
+    <modified_date>2024/11/19 11:58:36.578</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -936,8 +936,8 @@
 
 
                                                                       07.12.2016</note>
-      <xloc>597</xloc>
-      <yloc>30</yloc>
+      <xloc>605</xloc>
+      <yloc>70</yloc>
       <width>267</width>
       <heigth>125</heigth>
       <fontname>Arial</fontname>
@@ -958,8 +958,8 @@
     <notepad>
       <note>Gli INTERNI  di Anatomia vengono SCARTATI
 (i codici dei richiedenti e delle prestazioni non sono mai stati validati) </note>
-      <xloc>8</xloc>
-      <yloc>30</yloc>
+      <xloc>13</xloc>
+      <yloc>4</yloc>
       <width>340</width>
       <heigth>36</heigth>
       <fontname>Arial</fontname>
@@ -982,8 +982,8 @@
 il Contatore 
 usato per identificare
 i record duplicati</note>
-      <xloc>204</xloc>
-      <yloc>314</yloc>
+      <xloc>157</xloc>
+      <yloc>514</yloc>
       <width>113</width>
       <heigth>63</heigth>
       <fontname>Arial</fontname>
@@ -1005,8 +1005,8 @@ i record duplicati</note>
       <note>Esclusione record per INTERNI con Reparto NULL
 
 x Anat è inutile perché tutti gli Interni  vengono scartati nella vista di input</note>
-      <xloc>616</xloc>
-      <yloc>182</yloc>
+      <xloc>614</xloc>
+      <yloc>218</yloc>
       <width>358</width>
       <heigth>50</heigth>
       <fontname>Arial</fontname>
@@ -1209,12 +1209,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 </attribute>
       </attribute>
       <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
+        <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -1277,12 +1281,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 </attribute>
       </attribute>
       <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
+        <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -1348,12 +1356,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 </attribute>
       </attribute>
       <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
+        <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -1600,6 +1612,10 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 </attribute>
       </attribute>
       <attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
         <attribute>N</attribute>
       </attribute>
@@ -1662,11 +1678,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>Catch Err_PREST</from>
       <to>Catch Err_IMP</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add CODICEAZIENDA</from>
-      <to>Auditing_Info</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -1754,6 +1765,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <to>dim_STS11</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Add CODICEAZIENDA</from>
+      <to>Normalizza_Cod_Prest</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Normalizza_Cod_Prest</from>
+      <to>Auditing_Info</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Add CODICEAZIENDA</name>
@@ -1789,8 +1810,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>217</xloc>
-      <yloc>95</yloc>
+      <xloc>194</xloc>
+      <yloc>252</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1833,7 +1854,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>482</xloc>
+      <xloc>476</xloc>
       <yloc>612</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1877,8 +1898,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
-      <yloc>95</yloc>
+      <xloc>666</xloc>
+      <yloc>140</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1965,8 +1986,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>930</xloc>
-      <yloc>249</yloc>
+      <xloc>927</xloc>
+      <yloc>274</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2009,8 +2030,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>930</xloc>
-      <yloc>422</yloc>
+      <xloc>925</xloc>
+      <yloc>442</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2053,8 +2074,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>930</xloc>
-      <yloc>327</yloc>
+      <xloc>926</xloc>
+      <yloc>360</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2092,8 +2113,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>353</xloc>
-      <yloc>95</yloc>
+      <xloc>476</xloc>
+      <yloc>68</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2153,7 +2174,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>482</xloc>
+      <xloc>476</xloc>
       <yloc>517</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2223,8 +2244,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>616</xloc>
-      <yloc>423</yloc>
+      <xloc>611</xloc>
+      <yloc>442</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2294,8 +2315,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>616</xloc>
-      <yloc>328</yloc>
+      <xloc>612</xloc>
+      <yloc>360</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2410,8 +2431,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>482</xloc>
-      <yloc>95</yloc>
+      <xloc>476</xloc>
+      <yloc>140</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3403,8 +3424,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>69</xloc>
-      <yloc>499</yloc>
+      <xloc>68</xloc>
+      <yloc>579</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3460,8 +3481,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>616</xloc>
-      <yloc>249</yloc>
+      <xloc>613</xloc>
+      <yloc>274</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3504,8 +3525,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>69</xloc>
-      <yloc>398</yloc>
+      <xloc>68</xloc>
+      <yloc>478</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3591,8 +3612,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>270</xloc>
-      <yloc>457</yloc>
+      <xloc>360</xloc>
+      <yloc>460</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3622,8 +3643,8 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>216</xloc>
-      <yloc>277</yloc>
+      <xloc>194</xloc>
+      <yloc>478</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3712,8 +3733,8 @@ BAKDIR: ${BAKDIR}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>270</xloc>
-      <yloc>537</yloc>
+      <xloc>360</xloc>
+      <yloc>540</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5059,8 +5080,8 @@ BAKDIR: ${BAKDIR}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>744</xloc>
-      <yloc>249</yloc>
+      <xloc>741</xloc>
+      <yloc>274</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5098,8 +5119,8 @@ BAKDIR: ${BAKDIR}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>744</xloc>
-      <yloc>422</yloc>
+      <xloc>739</xloc>
+      <yloc>442</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5137,8 +5158,8 @@ BAKDIR: ${BAKDIR}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>744</xloc>
-      <yloc>327</yloc>
+      <xloc>740</xloc>
+      <yloc>360</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5204,8 +5225,8 @@ BAKDIR: ${BAKDIR}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>482</xloc>
-      <yloc>422</yloc>
+      <xloc>476</xloc>
+      <yloc>442</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5266,8 +5287,8 @@ BAKDIR: ${BAKDIR}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>482</xloc>
-      <yloc>327</yloc>
+      <xloc>476</xloc>
+      <yloc>360</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5300,8 +5321,8 @@ BAKDIR: ${BAKDIR}
       </output>
     </remotesteps>
     <GUI>
-      <xloc>217</xloc>
-      <yloc>168</yloc>
+      <xloc>194</xloc>
+      <yloc>360</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5425,9 +5446,6 @@ BAKDIR: ${BAKDIR}
 FROM v_tracciatone_anat
 WHERE 
 tipo_record_patidok = 'S'
---Nvl(QUANTITA, 1) > 0 and
---Nvl(DATA_COMPETENZA, To_date('1900/01/01' ,'yyyy/mm/dd'))
--- and DATAEROGAZIONEPRESTAZIONI between date '2023-12-01' and  date '2023-12-31' 
 and DATAEROGAZIONEPRESTAZIONI between To_date('${S_DATARIF}' ,'yyyymmdd') and  To_date('${E_DATARIF}' ,'yyyymmdd')
 
 
@@ -7680,7 +7698,62 @@ and DATAEROGAZIONEPRESTAZIONI between To_date('${S_DATARIF}' ,'yyyymmdd') and  T
       </output>
     </remotesteps>
     <GUI>
-      <xloc>66</xloc>
+      <xloc>67</xloc>
+      <yloc>45</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Normalizza_Cod_Prest</name>
+    <type>Mapping</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <specification_method>rep_name</specification_method>
+    <trans_object_id/>
+    <trans_name>Normalizza_Cod_Prest</trans_name>
+    <filename/>
+    <directory_path>/__subTransf__</directory_path>
+    <mappings>
+      <input>
+        <mapping>
+          <input_step/>
+          <output_step/>
+          <main_path>Y</main_path>
+          <rename_on_output>Y</rename_on_output>
+          <description/>
+        </mapping>
+      </input>
+      <output>
+        <mapping>
+          <input_step/>
+          <output_step/>
+          <main_path>Y</main_path>
+          <rename_on_output>N</rename_on_output>
+          <description/>
+        </mapping>
+      </output>
+      <parameters>
+        <inherit_all_vars>Y</inherit_all_vars>
+      </parameters>
+    </mappings>
+    <allow_multiple_input>Y</allow_multiple_input>
+    <allow_multiple_output>Y</allow_multiple_output>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>295</xloc>
       <yloc>68</yloc>
       <draw>Y</draw>
     </GUI>
