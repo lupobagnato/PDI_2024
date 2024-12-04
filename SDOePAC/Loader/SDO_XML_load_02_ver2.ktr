@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>SDO_XML_load_02</name>
+    <name>SDO_XML_load_02_ver2</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -920,7 +920,7 @@
     <created_user/>
     <created_date>2019/09/16 11:46:23.895</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2024/12/03 17:39:27.433</modified_date>
+    <modified_date>2024/12/03 17:35:25.397</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1363,7 +1363,19 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <attribute>N</attribute>
       </attribute>
       <attribute>
+        <code>INITIAL_POOL_SIZE</code>
+        <attribute>5</attribute>
+      </attribute>
+      <attribute>
         <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>MAXIMUM_POOL_SIZE</code>
+        <attribute>10</attribute>
+      </attribute>
+      <attribute>
+        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
@@ -1371,24 +1383,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <attribute>1526</attribute>
       </attribute>
       <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>STRICT_NUMBER_38_INTERPRETATION</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>N</attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -2166,56 +2166,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <rename>LOAD_D</rename>
         <update>Y</update>
       </value>
-      <value>
-        <name>ORA_INT_1</name>
-        <rename>ORA_INT_1</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_INT_2</name>
-        <rename>ORA_INT_2</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_INT_3</name>
-        <rename>ORA_INT_3</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_INT_4</name>
-        <rename>ORA_INT_4</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_INT_5</name>
-        <rename>ORA_INT_5</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_INT_6</name>
-        <rename>ORA_INT_6</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_INT_7</name>
-        <rename>ORA_INT_7</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_INT_8</name>
-        <rename>ORA_INT_8</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_INT_9</name>
-        <rename>ORA_INT_9</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ORA_INT_A</name>
-        <rename>ORA_INT_A</rename>
-        <update>Y</update>
-      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -2358,18 +2308,7 @@ c.DIAGNOSI_3,
 c.DIAGNOSI_4,                 
 c.DIAGNOSI_5,                 
 c.DIAGNOSI_6,                 
-c.DIAGNOSI_7,    
-
-c.ORA_INT_1,
-c.ORA_INT_2,
-c.ORA_INT_3,
-c.ORA_INT_4,
-c.ORA_INT_5,
-c.ORA_INT_6,
-c.ORA_INT_7,
-c.ORA_INT_8,
-c.ORA_INT_9,
-c.ORA_INT_A,              
+c.DIAGNOSI_7,                 
 
 a.FILE_NAME,
 a.FILE_MYY,         
@@ -2410,7 +2349,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2433,7 +2372,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2456,7 +2395,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2479,7 +2418,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2502,7 +2441,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2525,12 +2464,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_NASC</name>
         <length>0</length>
@@ -2548,7 +2487,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2571,7 +2510,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2594,7 +2533,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2617,7 +2556,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2640,7 +2579,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2663,7 +2602,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2686,7 +2625,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2709,7 +2648,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2732,7 +2671,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2755,7 +2694,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2778,7 +2717,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2801,7 +2740,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2824,7 +2763,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2847,12 +2786,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_LISTA_ATT</name>
         <length>0</length>
@@ -2870,7 +2809,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2893,12 +2832,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_INGR</name>
         <length>0</length>
@@ -2916,7 +2855,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2939,7 +2878,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2962,7 +2901,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -2985,7 +2924,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3008,7 +2947,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3031,7 +2970,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3054,7 +2993,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3077,7 +3016,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3100,7 +3039,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3123,7 +3062,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3146,12 +3085,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_DIM</name>
         <length>0</length>
@@ -3169,7 +3108,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3192,12 +3131,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_ULTIMO_ACC_DH</name>
         <length>0</length>
@@ -3215,7 +3154,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3238,7 +3177,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3261,7 +3200,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3284,7 +3223,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3307,7 +3246,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3330,7 +3269,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3353,7 +3292,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3376,7 +3315,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3399,7 +3338,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3422,7 +3361,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3445,7 +3384,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3468,7 +3407,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3491,7 +3430,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3514,12 +3453,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_INT_P</name>
         <length>0</length>
@@ -3537,7 +3476,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3560,7 +3499,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3583,7 +3522,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3606,7 +3545,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3629,7 +3568,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3652,7 +3591,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3675,7 +3614,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3698,7 +3637,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3721,7 +3660,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3744,7 +3683,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3767,7 +3706,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3790,7 +3729,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3813,7 +3752,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3836,7 +3775,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3859,7 +3798,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3882,7 +3821,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3905,7 +3844,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3928,7 +3867,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3951,7 +3890,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3974,7 +3913,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -3997,7 +3936,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4020,7 +3959,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4043,7 +3982,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4066,12 +4005,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_1_TRASF</name>
         <length>0</length>
@@ -4089,7 +4028,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4112,12 +4051,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_2_TRASF</name>
         <length>0</length>
@@ -4135,7 +4074,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4158,12 +4097,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_3_TRASF</name>
         <length>0</length>
@@ -4181,7 +4120,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4204,12 +4143,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_4_TRASF</name>
         <length>0</length>
@@ -4227,7 +4166,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4250,12 +4189,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_5_TRASF</name>
         <length>0</length>
@@ -4273,7 +4212,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4296,12 +4235,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_6_TRASF</name>
         <length>0</length>
@@ -4319,7 +4258,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4342,12 +4281,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_7_TRASF</name>
         <length>0</length>
@@ -4365,7 +4304,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4388,12 +4327,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_INT_1</name>
         <length>0</length>
@@ -4411,7 +4350,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4434,12 +4373,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_INT_2</name>
         <length>0</length>
@@ -4457,7 +4396,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4480,12 +4419,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_INT_3</name>
         <length>0</length>
@@ -4503,7 +4442,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4526,12 +4465,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_INT_4</name>
         <length>0</length>
@@ -4549,7 +4488,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4572,12 +4511,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_INT_5</name>
         <length>0</length>
@@ -4595,7 +4534,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4618,12 +4557,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_INT_6</name>
         <length>0</length>
@@ -4641,7 +4580,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4664,12 +4603,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_INT_7</name>
         <length>0</length>
@@ -4687,7 +4626,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4710,12 +4649,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_INT_8</name>
         <length>0</length>
@@ -4733,7 +4672,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4756,12 +4695,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_INT_9</name>
         <length>0</length>
@@ -4779,7 +4718,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4802,12 +4741,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>DATA_INT_A</name>
         <length>0</length>
@@ -4825,7 +4764,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4848,7 +4787,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4871,7 +4810,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4894,7 +4833,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4917,7 +4856,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4940,7 +4879,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4963,7 +4902,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -4986,7 +4925,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -5009,7 +4948,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -5032,7 +4971,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -5055,7 +4994,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -5078,7 +5017,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -5101,7 +5040,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
@@ -5124,12 +5063,12 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Timestamp</type>
         <storagetype>normal</storagetype>
         <name>LOAD_D</name>
         <length>0</length>
@@ -5147,7 +5086,7 @@ where
         <sort_descending>N</sort_descending>
         <output_padding>N</output_padding>
         <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
+        <date_format_locale>it_IT</date_format_locale>
         <date_format_timezone>Europe/Berlin</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
