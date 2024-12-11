@@ -9,13 +9,13 @@
     <directory>/Vari</directory>
     <parameters>
       <parameter>
-        <name>from_DDMMYYYY</name>
-        <default_value>16092024</default_value>
+        <name>data_A</name>
+        <default_value>DDMMYYYY</default_value>
         <description/>
       </parameter>
       <parameter>
-        <name>to_DDMMYYYY</name>
-        <default_value>31102024</default_value>
+        <name>data_B</name>
+        <default_value>DDMMYYYY</default_value>
         <description/>
       </parameter>
     </parameters>
@@ -930,7 +930,7 @@
     <created_user/>
     <created_date>2019/09/16 11:46:17.035</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2024/11/13 12:20:11.869</modified_date>
+    <modified_date>2024/12/11 10:49:53.593</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1398,19 +1398,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>INITIAL_POOL_SIZE</code>
-        <attribute>5</attribute>
-      </attribute>
-      <attribute>
         <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>MAXIMUM_POOL_SIZE</code>
-        <attribute>10</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
@@ -1418,12 +1406,24 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <attribute>1526</attribute>
       </attribute>
       <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
-        <code>STREAM_RESULTS</code>
-        <attribute>Y</attribute>
+        <code>STRICT_NUMBER_38_INTERPRETATION</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -1569,27 +1569,32 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>v_consulenze_gvm_PRST</from>
       <to>Stream lookup</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Select values</from>
-      <to>Microsoft Excel output</to>
+      <to>Consulenze verso GVM (in __out__)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Stream lookup</from>
       <to>Select values</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Microsoft Excel Input</from>
       <to>Stream lookup</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>v_consulenze_gvm_PRST</from>
       <to>Select values</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Date_Limite</from>
+      <to>v_consulenze_gvm_PRST</to>
+      <enabled>Y</enabled>
     </hop>
   </order>
   <step>
@@ -1848,7 +1853,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
-    <name>Microsoft Excel output</name>
+    <name>Consulenze verso GVM (in __out__)</name>
     <type>ExcelOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1864,12 +1869,12 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <append>N</append>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>C:\_NextDel\__ out __\Consulenze verso GVM ${from_DDMMYYYY}-${to_DDMMYYYY}</name>
+      <name>C:\_NextDel\__ out __\Consulenze verso GVM</name>
       <extention>xls</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <create_parent_folder>N</create_parent_folder>
       <split>N</split>
-      <add_date>N</add_date>
+      <add_date>Y</add_date>
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
@@ -1962,11 +1967,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
         <name>INFO_PRST</name>
         <type>String</type>
         <format/>
-      </field>
-      <field>
-        <name>riga_cartaceo</name>
-        <type>Integer</type>
-        <format>####0</format>
       </field>
     </fields>
     <custom>
@@ -2158,18 +2158,19 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
 x.* , trunc(dt_ordine) data_erogazione
 FROM v_consulenze_gvm_prst x
 where
-trunc(dt_ordine) between to_date(${from_DDMMYYYY},'DDMMYYYY') and to_date(${to_DDMMYYYY}, 'DDMMYYYY')
+--trunc(dt_ordine) between to_date(${from_DDMMYYYY},'DDMMYYYY') and to_date(${to_DDMMYYYY}, 'DDMMYYYY')
+trunc(dt_ordine) between ? and ?
 order by
-cod_fiscale
-, dt_ordine
+dt_ordine
 , prst
 , cdc_erogante
+, cod_fiscale
 
 </sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup>Date_Limite</lookup>
     <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
+    <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
@@ -2553,6 +2554,97 @@ cod_fiscale
     <GUI>
       <xloc>152</xloc>
       <yloc>213</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Date_Limite</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>db_sopra</connection>
+    <sql>select
+case
+   when dwh.IsDate('${data_A}', 'ddmmyyyy')=0 and dwh.IsDate('${data_B}', 'ddmmyyyy')=0 then to_date('${data_A}','ddmmyyyy')
+   else trunc(add_months(sysdate, -1), 'mm')
+end data_A
+,
+case
+   when dwh.IsDate('${data_A}', 'ddmmyyyy')=0 and dwh.IsDate('${data_B}', 'ddmmyyyy')=0 then to_date('${data_B}','ddmmyyyy')
+   else trunc(sysdate, 'mm') - 1
+end data_B
+from dual</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>Date</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_A</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>Date_Limite</origin>
+        <comments>DATA_A</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Date</type>
+        <storagetype>normal</storagetype>
+        <name>DATA_B</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>Date_Limite</origin>
+        <comments>DATA_B</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>Europe/Berlin</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>75</xloc>
+      <yloc>78</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
