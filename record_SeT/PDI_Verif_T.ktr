@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>ANNO</name>
-        <default_value>24</default_value>
+        <default_value>25</default_value>
         <description/>
       </parameter>
       <parameter>
@@ -20,12 +20,12 @@
       </parameter>
       <parameter>
         <name>MESE</name>
-        <default_value>12</default_value>
+        <default_value>01</default_value>
         <description/>
       </parameter>
       <parameter>
         <name>YYMM_CHK_CUR</name>
-        <default_value>2401</default_value>
+        <default_value>2501</default_value>
         <description>Inizio verifiche sul codice CUR</description>
       </parameter>
     </parameters>
@@ -61,7 +61,7 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject>Data Validator</subject>
+          <subject>Tutti gli Errori</subject>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
@@ -73,7 +73,7 @@
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject>Upd Record_T 1</subject>
+          <subject>Upd Record_T</subject>
         </field>
         <field>
           <id>LINES_INPUT</id>
@@ -940,17 +940,17 @@
     <created_user/>
     <created_date>2020/09/01 12:16:59.746</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2025/01/07 16:53:34.889</modified_date>
+    <modified_date>2025/02/06 13:56:57.369</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>2024
+      <note>da gen 2025
 </note>
       <xloc>7</xloc>
       <yloc>7</yloc>
-      <width>35</width>
+      <width>71</width>
       <heigth>37</heigth>
       <fontname>Arial</fontname>
       <fontsize>8</fontsize>
@@ -1014,8 +1014,8 @@ curInv</note>
       <note>Una prestazione con errori sul CUR invalida
 l'intera ricetta
 (perché avrebbe gli importi errati)</note>
-      <xloc>1217</xloc>
-      <yloc>253</yloc>
+      <xloc>1091</xloc>
+      <yloc>334</yloc>
       <width>220</width>
       <heigth>49</heigth>
       <fontname>Arial</fontname>
@@ -1025,6 +1025,69 @@ l'intera ricetta
       <fontcolorred>255</fontcolorred>
       <fontcolorgreen>255</fontcolorgreen>
       <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>log READ</note>
+      <xloc>899</xloc>
+      <yloc>234</yloc>
+      <width>56</width>
+      <heigth>23</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>log WRITE</note>
+      <xloc>327</xloc>
+      <yloc>281</yloc>
+      <width>60</width>
+      <heigth>23</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>log REJECTED</note>
+      <xloc>324</xloc>
+      <yloc>197</yloc>
+      <width>78</width>
+      <heigth>23</heigth>
+      <fontname>Arial</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
       <backgroundcolorblue>192</backgroundcolorblue>
@@ -1646,11 +1709,11 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </hop>
     <hop>
       <from>Record_T</from>
-      <to>Database lookup</to>
+      <to>Lookup VDIM_CUR</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Database lookup</from>
+      <from>Lookup VDIM_CUR</from>
       <to>Data Validator</to>
       <enabled>Y</enabled>
     </hop>
@@ -1695,36 +1758,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Severity lookup 1</from>
-      <to>Upd Record_T 1</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Severity lookup  2</from>
-      <to>Upd Record_T 2</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Upd Record_T 1</from>
-      <to>Select values 1</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Upd Record_T 2</from>
-      <to>Select values 2</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Select values 1</from>
-      <to>Invalida Record_S</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 2</from>
-      <to>Invalida Record_S</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Invalida Record_S</from>
       <to>set cur_S</to>
       <enabled>Y</enabled>
@@ -1737,7 +1770,7 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>Severity lookup  3</from>
       <to>Upd Record_S</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Severity lookup 1</from>
@@ -1747,6 +1780,26 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>Severity lookup  2</from>
       <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 1</from>
+      <to>Tutti gli Errori</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Tutti gli Errori</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Tutti gli Errori</from>
+      <to>Upd Record_T</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Upd Record_T</from>
+      <to>Invalida Record_S</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1885,66 +1938,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     </GUI>
   </step>
   <step>
-    <name>Database lookup</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <cache>Y</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>VDIM_CUR</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>COD_PREST_REG</name>
-        <field>CUR_COD</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>CUR_DES</name>
-        <rename>CUR_DES</rename>
-        <default/>
-        <type>None</type>
-      </value>
-      <value>
-        <name>TARIFFA</name>
-        <rename>TARIFFA</rename>
-        <default/>
-        <type>None</type>
-      </value>
-      <value>
-        <name>COD_DM_DA_CUR</name>
-        <rename>COD_DM_DA_CUR</rename>
-        <default/>
-        <type>None</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>134</xloc>
-      <yloc>127</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Errori CUR</name>
     <type>Dummy</type>
     <description/>
@@ -2024,8 +2017,68 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1137</xloc>
-      <yloc>262</yloc>
+      <xloc>1007</xloc>
+      <yloc>392</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup VDIM_CUR</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>db_sopra</connection>
+    <cache>Y</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>VDIM_CUR</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>COD_PREST_REG</name>
+        <field>CUR_COD</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>CUR_DES</name>
+        <rename>CUR_DES</rename>
+        <default/>
+        <type>None</type>
+      </value>
+      <value>
+        <name>TARIFFA</name>
+        <rename>TARIFFA</rename>
+        <default/>
+        <type>None</type>
+      </value>
+      <value>
+        <name>COD_DM_DA_CUR</name>
+        <rename>COD_DM_DA_CUR</rename>
+        <default/>
+        <type>None</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>134</xloc>
+      <yloc>127</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3249,86 +3302,6 @@ and anno || mese >= '${YYMM_CHK_CUR}'
     </GUI>
   </step>
   <step>
-    <name>Select values 1</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>ANNO</name>
-      </field>
-      <field>
-        <name>MESE</name>
-      </field>
-      <field>
-        <name>STRUTT</name>
-      </field>
-      <field>
-        <name>RIC</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>973</xloc>
-      <yloc>222</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>ANNO</name>
-      </field>
-      <field>
-        <name>MESE</name>
-      </field>
-      <field>
-        <name>STRUTT</name>
-      </field>
-      <field>
-        <name>RIC</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>973</xloc>
-      <yloc>303</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Severity lookup  2</name>
     <type>DBLookup</type>
     <description/>
@@ -3420,7 +3393,7 @@ and anno || mese >= '${YYMM_CHK_CUR}'
     </remotesteps>
     <GUI>
       <xloc>1254</xloc>
-      <yloc>362</yloc>
+      <yloc>392</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3534,13 +3507,13 @@ and anno || mese >= '${YYMM_CHK_CUR}'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1365</xloc>
-      <yloc>362</yloc>
+      <xloc>1366</xloc>
+      <yloc>392</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Upd Record_T 1</name>
+    <name>Upd Record_T</name>
     <type>Update</type>
     <description/>
     <distribute>Y</distribute>
@@ -3607,81 +3580,8 @@ and anno || mese >= '${YYMM_CHK_CUR}'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>843</xloc>
-      <yloc>156</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Upd Record_T 2</name>
-    <type>Update</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_sopra</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field/>
-    <lookup>
-      <schema/>
-      <table>Record_T</table>
-      <key>
-        <name>ANNO</name>
-        <field>ANNO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>MESE</name>
-        <field>MESE</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>STRUTT</name>
-        <field>STRUTT</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>RIC</name>
-        <field>RIC</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>LINE_NUM</name>
-        <field>LINE_NUM</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>CORRECTION_COD</name>
-        <rename>pdi_err_cod</rename>
-      </value>
-      <value>
-        <name>SEVERITY</name>
-        <rename>pdi_new_severity</rename>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>844</xloc>
-      <yloc>348</yloc>
+      <xloc>1007</xloc>
+      <yloc>260</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3702,6 +3602,9 @@ and anno || mese >= '${YYMM_CHK_CUR}'
     <limitRowsNumber>5</limitRowsNumber>
     <logmessage/>
     <fields>
+      <field>
+        <name>COD_PC</name>
+      </field>
       <field>
         <name>RIC</name>
       </field>
@@ -3749,6 +3652,9 @@ and anno || mese >= '${YYMM_CHK_CUR}'
     <limitRowsNumber>5</limitRowsNumber>
     <logmessage/>
     <fields>
+      <field>
+        <name>COD_PC</name>
+      </field>
       <field>
         <name>RIC</name>
       </field>
@@ -3844,7 +3750,144 @@ and anno || mese >= '${YYMM_CHK_CUR}'
     </remotesteps>
     <GUI>
       <xloc>1137</xloc>
-      <yloc>362</yloc>
+      <yloc>392</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 1</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ANNO</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MESE</name>
+        <rename/>
+      </field>
+      <field>
+        <name>STRUTT</name>
+        <rename/>
+      </field>
+      <field>
+        <name>RIC</name>
+        <rename/>
+      </field>
+      <field>
+        <name>LINE_NUM</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pdi_err_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pdi_new_severity</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>799</xloc>
+      <yloc>222</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ANNO</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MESE</name>
+        <rename/>
+      </field>
+      <field>
+        <name>STRUTT</name>
+        <rename/>
+      </field>
+      <field>
+        <name>RIC</name>
+        <rename/>
+      </field>
+      <field>
+        <name>LINE_NUM</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pdi_err_cod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pdi_new_severity</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>799</xloc>
+      <yloc>303</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tutti gli Errori</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>899</xloc>
+      <yloc>260</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
