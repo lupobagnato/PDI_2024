@@ -15,7 +15,7 @@
       </parameter>
       <parameter>
         <name>COD_PC</name>
-        <default_value>0CSF</default_value>
+        <default_value>0%</default_value>
         <description/>
       </parameter>
       <parameter>
@@ -940,7 +940,7 @@
     <created_user/>
     <created_date>2020/09/01 12:16:59.746</created_date>
     <modified_user>admin</modified_user>
-    <modified_date>2025/02/06 13:56:57.369</modified_date>
+    <modified_date>2025/02/06 16:50:34.227</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1758,16 +1758,6 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Invalida Record_S</from>
-      <to>set cur_S</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>set cur_S</from>
-      <to>Severity lookup  3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Severity lookup  3</from>
       <to>Upd Record_S</to>
       <enabled>Y</enabled>
@@ -1800,6 +1790,16 @@ NLS_TIMESTAMP_TZ_FORMAT='DD-MON-RR HH24:MI:SSXFF TZR'
     <hop>
       <from>Upd Record_T</from>
       <to>Invalida Record_S</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Invalida Record_S</from>
+      <to>set cur_S</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>set cur_S</from>
+      <to>Severity lookup  3</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -3297,7 +3297,105 @@ and anno || mese >= '${YYMM_CHK_CUR}'
     </remotesteps>
     <GUI>
       <xloc>134</xloc>
-      <yloc>34</yloc>
+      <yloc>20</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 1</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ANNO</name>
+      </field>
+      <field>
+        <name>MESE</name>
+      </field>
+      <field>
+        <name>STRUTT</name>
+      </field>
+      <field>
+        <name>RIC</name>
+      </field>
+      <field>
+        <name>LINE_NUM</name>
+      </field>
+      <field>
+        <name>pdi_err_cod</name>
+      </field>
+      <field>
+        <name>pdi_new_severity</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>799</xloc>
+      <yloc>222</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ANNO</name>
+      </field>
+      <field>
+        <name>MESE</name>
+      </field>
+      <field>
+        <name>STRUTT</name>
+      </field>
+      <field>
+        <name>RIC</name>
+      </field>
+      <field>
+        <name>LINE_NUM</name>
+      </field>
+      <field>
+        <name>pdi_err_cod</name>
+      </field>
+      <field>
+        <name>pdi_new_severity</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>799</xloc>
+      <yloc>303</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3371,14 +3469,14 @@ and anno || mese >= '${YYMM_CHK_CUR}'
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>pdi_err_cod</name>
+        <name>pdi_err_S</name>
         <field>ERRORCOD</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
         <name>SEVERITY</name>
-        <rename>pdi_new_severity</rename>
+        <rename>pdi_severity_S</rename>
         <default/>
         <type>String</type>
       </value>
@@ -3446,6 +3544,31 @@ and anno || mese >= '${YYMM_CHK_CUR}'
     </GUI>
   </step>
   <step>
+    <name>Tutti gli Errori</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>899</xloc>
+      <yloc>260</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Upd Record_S</name>
     <type>Update</type>
     <description/>
@@ -3491,11 +3614,11 @@ and anno || mese >= '${YYMM_CHK_CUR}'
       </key>
       <value>
         <name>CORRECTION_COD</name>
-        <rename>pdi_err_cod</rename>
+        <rename>pdi_err_S</rename>
       </value>
       <value>
         <name>SEVERITY</name>
-        <rename>pdi_new_severity</rename>
+        <rename>pdi_severity_S</rename>
       </value>
     </lookup>
     <attributes/>
@@ -3728,7 +3851,7 @@ and anno || mese >= '${YYMM_CHK_CUR}'
     </partitioning>
     <fields>
       <field>
-        <name>pdi_err_cod</name>
+        <name>pdi_err_S</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -3751,143 +3874,6 @@ and anno || mese >= '${YYMM_CHK_CUR}'
     <GUI>
       <xloc>1137</xloc>
       <yloc>392</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 1</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>ANNO</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MESE</name>
-        <rename/>
-      </field>
-      <field>
-        <name>STRUTT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>RIC</name>
-        <rename/>
-      </field>
-      <field>
-        <name>LINE_NUM</name>
-        <rename/>
-      </field>
-      <field>
-        <name>pdi_err_cod</name>
-        <rename/>
-      </field>
-      <field>
-        <name>pdi_new_severity</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>799</xloc>
-      <yloc>222</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>ANNO</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MESE</name>
-        <rename/>
-      </field>
-      <field>
-        <name>STRUTT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>RIC</name>
-        <rename/>
-      </field>
-      <field>
-        <name>LINE_NUM</name>
-        <rename/>
-      </field>
-      <field>
-        <name>pdi_err_cod</name>
-        <rename/>
-      </field>
-      <field>
-        <name>pdi_new_severity</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>799</xloc>
-      <yloc>303</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Tutti gli Errori</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>899</xloc>
-      <yloc>260</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
